@@ -1,5 +1,7 @@
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: 'Title',
+  },
   plugins: [
     {
       resolve: 'gatsby-theme-material-ui',
@@ -8,6 +10,13 @@ module.exports = {
           // disableAutoprefixing: true,
           // disableMinification: true,
         },
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'markdown-blocks',
+        path: `${__dirname}/src/blocks`,
       },
     },
     {
