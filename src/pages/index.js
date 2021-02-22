@@ -1,11 +1,26 @@
 import React from 'react';
 
-import Layout from '../components/Layout';
+import { Button } from '@material-ui/core';
 
-const Home = () => (
-  <Layout>
-    <div>Hello world!</div>
+import Layout from '../components/Layout';
+import Link from '../components/Link';
+
+const HomePage = () => (
+  <Layout header={false} footer={false}>
+    <Button to="reglement" variant="outlined" color="primary" component={Link}>
+      Signer le règlement de plongée
+    </Button>
+    <br />
+    <br />
+    <br />
+
+    <Button to="declaration" variant="outlined" color="secondary">
+      Déclarer une plongée
+    </Button>
+    <br />
+
+    <Link to="historique">Obtenir le bilan des déclarations</Link>
   </Layout>
 );
 
-export default Home;
+export default HomePage;
