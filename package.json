@@ -21,10 +21,13 @@
     "gatsby-transformer-remark": "^2.16.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "rehype-react": "^6.2.0"
+    "rehype-react": "^6.2.0",
+    "tripetto-runner-classic": "^2.0.1",
+    "tripetto-services": "^1.2.2"
   },
   "peerDependencies": {
     "clsx": "*",
+    "dotenv": "*",
     "react-helmet": "*"
   },
   "repository": {

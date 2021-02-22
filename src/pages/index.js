@@ -14,7 +14,7 @@ const HomePage = () => (
     <br />
     <br />
 
-    <Button to="declaration" variant="outlined" color="secondary">
+    <Button to="declaration" variant="outlined" color="secondary" component={Link}>
       Déclarer une plongée
     </Button>
     <br />

@@ -1,3 +1,5 @@
+require('dotenv').config({ path: '.env' });
+
 module.exports = {
   siteMetadata: {
     title: 'Title',
@@ -26,4 +28,8 @@ module.exports = {
       },
     },
   ],
+  flags: {
+    DEV_SSR: false,
+    FAST_REFRESH: true,
+  },
 };
