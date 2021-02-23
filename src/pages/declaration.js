@@ -5,7 +5,7 @@ import TripettoForm from '../components/TripettoForm';
 
 const DeclarationPage = () => (
   <Layout title="Déclarer une plongée">
-    <TripettoForm token={process.env.GATSBY_TRIPETTO_DECLARATION} />
+    <TripettoForm form="declaration" endpoint={process.env.GATSBY_ENDPOINT_DECLARATION} />
   </Layout>
 );
 

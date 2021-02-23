@@ -15,7 +15,7 @@ const ReglementPage = () => (
       <Grid item xs>
         le formulaire
 
-        <TripettoForm token={process.env.GATSBY_TRIPETTO_REGULATION} />
+        <TripettoForm form="regulation" endpoint={process.env.GATSBY_ENDPOINT_REGULATION} />
       </Grid>
     </Grid>
   </Layout>

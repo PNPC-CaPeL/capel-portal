@@ -5,7 +5,7 @@ import TripettoForm from '../components/TripettoForm';
 
 const HistoriquePage = () => (
   <Layout title="Obtenir votre historique de déclarations">
-    <TripettoForm token={process.env.GATSBY_TRIPETTO_HISTORY} />
+    <TripettoForm form="history" endpoint={process.env.GATSBY_ENDPOINT_HISTORY} />
   </Layout>
 );
 

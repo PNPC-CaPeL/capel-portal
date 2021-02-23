@@ -1,70 +1,74 @@
 import React from 'react';
-
-import Services from 'tripetto-services';
-import { run } from 'tripetto-runner-classic';
-
 import { useTheme } from '@material-ui/core';
 
-const TripettoForm = ({ token }) => {
-  const formWrapper = React.useRef(null);
+import { ClassicRunner } from 'tripetto-runner-classic';
+import { Export } from 'tripetto-runner-foundation';
+
+import * as definitions from '../forms';
+
+const l10n = {
+  locale: 'auto',
+  contract: {
+    name: 'tripetto-runner-classic',
+    version: '1.10.4',
+  },
+  translations: {
+    '': { language: 'fr' },
+    'runner#1|🆗 Buttons\u0004Submit': [null, 'Signer'],
+  },
+};
+
+const TripettoForm = ({ form, endpoint }) => {
   const theme = useTheme();
 
-  React.useEffect(() => {
-    if (!formWrapper || typeof window === 'undefined') return;
+  const handleFormSubmit = async instance => {
+    const { fields } = Export.fields(instance);
+    const data = fields.reduce((acc, curr) => ({ ...acc, [curr.name]: curr.value }), {});
+    const body = JSON.stringify(data, null, 2);
 
-    const {
-      attachments,
-      onSubmit,
-
-      definition,
-      styles,
-      l10n,
-      locale,
-      translations,
-    } = (typeof window !== 'undefined' && token) ? Services.init({ token }) : {};
-
-    run({
-      element: formWrapper.current,
-      definition,
-      styles: {
-        ...styles,
-
-        mode: 'progressive',
-        noBranding: true,
-        contract: { name: 'tripetto-runner-classic', version: '1.9.1' },
-
-        color: theme.palette.primary.main,
-
-        font: {
-          size: theme.typography.fontSize,
-          family: theme.typography.fontFamily.split(',').shift(),
-        },
-
-        inputs: {
-          borderSize: 1,
-          roundness: theme.shape.borderRadius,
-          textColor: theme.palette.text.primary,
-          errorColor: theme.palette.error.main,
-          agreeColor: theme.palette.success.main,
-          declineColor: theme.palette.error.main,
-        },
-
-        buttons: {
-          mode: 'fill',
-          roundness: theme.shape.borderRadius,
-        },
-      },
-
-      l10n,
-      locale,
-      translations,
-      attachments,
-      onSubmit,
+    await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body,
     });
-  }, [formWrapper, theme, token]);
+  };
+
+  const styles = {
+    mode: 'progressive',
+    noBranding: true,
+    contract: { name: 'tripetto-runner-classic', version: '1.9.1' },
+
+    color: theme.palette.primary.main,
+
+    // font: {
+    //   size: theme.typography.fontSize,
+    //   family: theme.typography.fontFamily.split(',').shift(),
+    // },
+
+    inputs: {
+      borderSize: 1,
+      roundness: theme.shape.borderRadius,
+      textColor: theme.palette.text.primary,
+      errorColor: theme.palette.error.main,
+      agreeColor: theme.palette.success.main,
+      declineColor: theme.palette.error.main,
+    },
+
+    buttons: {
+      mode: 'fill',
+      roundness: theme.shape.borderRadius,
+    },
+  };
+
+  if (typeof window === 'undefined' || !form || !endpoint) { return null; }
 
   return (
-    <div ref={formWrapper} />
+    <ClassicRunner
+      definition={definitions[form]}
+      styles={styles}
+      onSubmit={handleFormSubmit}
+      l10n={l10n}
+    />
   );
 };
 

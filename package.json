@@ -22,7 +22,19 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "rehype-react": "^6.2.0",
+    "tripetto": "^3.10.3",
+    "tripetto-block-checkbox": "^4.1.0",
+    "tripetto-block-date": "^2.0.5",
+    "tripetto-block-dropdown": "^4.2.0",
+    "tripetto-block-email": "^4.0.5",
+    "tripetto-block-number": "^6.1.0",
+    "tripetto-block-radiobuttons": "^4.2.0",
+    "tripetto-block-text": "^4.2.0",
+    "tripetto-block-textarea": "^4.1.0",
+    "tripetto-block-url": "^4.0.4",
+    "tripetto-block-yes-no": "^3.1.0",
     "tripetto-runner-classic": "^2.0.1",
+    "tripetto-runner-foundation": "^5.0.1",
     "tripetto-services": "^1.2.2"
   },
   "peerDependencies": {
@@ -36,5 +48,19 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "tripetto": {
+    "blocks": [
+      "tripetto-block-checkbox",
+      "tripetto-block-date",
+      "tripetto-block-dropdown",
+      "tripetto-block-email",
+      "tripetto-block-number",
+      "tripetto-block-radiobuttons",
+      "tripetto-block-text",
+      "tripetto-block-textarea",
+      "tripetto-block-url",
+      "tripetto-block-yes-no"
+    ]
   }
 }

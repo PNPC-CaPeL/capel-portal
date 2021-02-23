@@ -1,0 +1,29 @@
+{
+  "name": "Historique des déclarations de plongées",
+  "language": "fr",
+  "epilogue": { "title": "Merci", "description": "vous recevrez votre historique de déclarations de plongées par e-mail dans quelques minutes" },
+  "clusters": [
+    {
+      "id": "76a1c77410b79153fa555c9352d5de5ef15056da49b48e139149aabbcecee6ba",
+      "name": "Recevoir l'historique des déclarations de plongées",
+      "nodes": [
+        {
+          "id": "2b9e22b262ce4af253980f5301892e4320e68da7a8199ab00ffeef51be51501e",
+          "name": "Adresse e-mail des déclarations",
+          "nameVisible": true,
+          "slots": [
+            {
+              "id": "3924b4f21482d4f7e605a710e5bd57cff97b442ebcbad2ad689355bd88c2c017",
+              "type": "string",
+              "kind": "static",
+              "reference": "email",
+              "label": "Email address"
+            }
+          ],
+          "block": { "type": "tripetto-block-email", "version": "4.0.5" }
+        }
+      ]
+    }
+  ],
+  "builder": { "name": "tripetto", "version": "3.10.3" }
+}
