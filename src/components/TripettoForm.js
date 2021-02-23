@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme } from '@material-ui/core';
+import { Box, useTheme } from '@material-ui/core';
 
 import { ClassicRunner } from 'tripetto-runner-classic';
 import { Export } from 'tripetto-runner-foundation';
@@ -18,7 +18,7 @@ const l10n = {
   },
 };
 
-const TripettoForm = ({ form, endpoint }) => {
+const TripettoForm = ({ form, endpoint, ...rest }) => {
   const theme = useTheme();
 
   const handleFormSubmit = async instance => {

@@ -14,6 +14,7 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     minHeight: '100vh',
+    overflow: 'auto',
   },
   main: {
     marginTop: '2rem',
@@ -25,6 +26,7 @@ const Layout = ({
   className,
   title: pageTitle,
   header = true,
+  headerProps = {},
   footer = true,
   ...rest
 }) => {
@@ -39,7 +41,7 @@ const Layout = ({
         titleTemplate={`%s | ${title}`}
         defaultTitle={title}
       />
-      {Boolean(header) && <Header />}
+      {Boolean(header) && <Header title={pageTitle} {...headerProps} />}
 
       <Container
         component="main"
