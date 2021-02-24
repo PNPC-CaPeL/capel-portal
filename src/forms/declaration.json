@@ -18,7 +18,7 @@
               "kind": "static",
               "reference": "value",
               "label": "Text",
-              "required": false
+              "required": true
             }
           ],
           "block": { "type": "tripetto-block-text", "version": "4.2.0" }
@@ -34,7 +34,7 @@
               "kind": "static",
               "reference": "value",
               "label": "Text",
-              "required": false
+              "required": true
             }
           ],
           "block": { "type": "tripetto-block-text", "version": "4.2.0" }
@@ -50,7 +50,7 @@
               "kind": "static",
               "reference": "email",
               "label": "Email address",
-              "required": false
+              "required": true
             }
           ],
           "block": { "type": "tripetto-block-email", "version": "4.0.5" }
@@ -66,7 +66,7 @@
               "kind": "static",
               "reference": "button",
               "label": "Selected button",
-              "required": false
+              "required": true
             }
           ],
           "block": {
@@ -103,7 +103,7 @@
                       "kind": "static",
                       "reference": "value",
                       "label": "Text",
-                      "required": false
+                      "required": true
                     }
                   ],
                   "block": { "type": "tripetto-block-text", "version": "4.2.0" }
@@ -156,7 +156,7 @@
               "kind": "static",
               "reference": "button",
               "label": "Selected button",
-              "required": false
+              "required": true
             }
           ],
           "block": {
@@ -189,7 +189,7 @@
               "kind": "static",
               "reference": "value",
               "label": "Text",
-              "required": false
+              "required": true
             }
           ],
           "block": { "type": "tripetto-block-text", "version": "4.2.0" }
@@ -205,7 +205,7 @@
               "kind": "static",
               "reference": "date",
               "label": "Date with time",
-              "required": false,
+              "required": true,
               "precision": "minutes"
             }
           ],
@@ -213,7 +213,7 @@
             "type": "tripetto-block-date",
             "version": "2.0.5",
             "time": true,
-            "required": false
+            "required": true
           }
         },
         {
@@ -226,7 +226,8 @@
               "type": "numeric",
               "kind": "static",
               "reference": "number",
-              "label": "Number"
+              "label": "Number",
+              "required": true
             }
           ],
           "block": { "type": "tripetto-block-number", "version": "6.1.0" }
