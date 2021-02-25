@@ -24,6 +24,7 @@ const useStyles = makeStyles({
 
 const Layout = ({
   className,
+  rootClass,
   title: pageTitle,
   header = true,
   headerProps = {},
@@ -34,7 +35,7 @@ const Layout = ({
   const { title } = useSiteMetadata();
 
   return (
-    <div className={classes.root}>
+    <div className={clsx(classes.root, rootClass)}>
       <Helmet
         htmlAttributes={{ lang: 'fr' }}
         title={pageTitle}
