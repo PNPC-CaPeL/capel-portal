@@ -6,6 +6,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: { include: /.*assets.*\.svg$/ },
+      },
+    },
+    {
       resolve: 'gatsby-theme-material-ui',
       options: {
         stylesConfig: {

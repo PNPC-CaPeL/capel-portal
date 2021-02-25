@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
-import { Button, Box, Grid, Typography } from '@material-ui/core';
+import { Button, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Layout from '../components/Layout';
 import Link from '../components/Link';
+
+import Logo from '../assets/logo.svg';
 
 const useStyles = makeStyles(theme => ({
   wrapper: {
@@ -28,9 +30,9 @@ const HomePage = () => {
     <Layout header={false} footer={false} className={classes.main}>
       <Grid container alignItems="stretch" style={{ minHeight: '50vh' }}>
         <Grid md={7} item style={{ alignSelf: 'center' }}>
-          <Typography variant="h1" component={GatsbyLink} to="/">
-            CaPeL
-          </Typography>
+          <GatsbyLink to="/">
+            <Logo />
+          </GatsbyLink>
           <Typography variant="h2">
             Gérons aujourd'hui, nos espaces de plongées de demain.
           </Typography>
