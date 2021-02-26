@@ -7,13 +7,22 @@ import Layout from '../components/Layout';
 import Link from '../components/Link';
 
 import Logo from '../assets/logo.svg';
-import Angle from '../assets/angle.svg';
 
 const customBlue = '#39bff0';
+const customBackground = {
+  backgroundColor: customBlue,
+  backgroundImage: 'url(https://i.picsum.photos/id/147/1024/768.jpg?grayscale&hmac=Z1Tb44cckOpbVkkaq3sC5YuV9EzTUqjXEoA7_LiRCEc)',
+  backgroundBlendMode: 'overlay',
+  backgroundPosition: 'left center',
+  backgroundSize: 'cover',
+};
 
 const useStyles = makeStyles(theme => ({
   root: {
-    background: `linear-gradient(90deg, ${customBlue} 75%, #ffffff 75%)`,
+    overflowX: 'hidden',
+    overflowY: 'auto',
+    [`@media (min-width: ${theme.breakpoints.values.lg}px)`]: customBackground,
+
   },
   main: {
     height: '100vh',
@@ -22,32 +31,47 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'stretch',
   },
+
   left: {
+    alignSelf: 'stretch',
+
     textAlign: 'center',
-    background: customBlue,
+    alignItems: 'center',
+    justifyContent: 'center',
+
     color: 'white',
-    '& a': {
-      color: 'inherit',
-    },
-    alignSelf: 'center',
+    '& a': { color: 'inherit' },
+
+    [`@media (max-width: ${theme.breakpoints.values.lg}px)`]: customBackground,
   },
-  angleWrapper: {
-    background: customBlue,
-    position: 'relative',
-    color: 'white',
+
+  logo: {
+    maxWidth: '100%',
   },
-  angle: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    width: '100%',
-    height: '100%',
-  },
+
   right: {
-    background: 'white',
     flexDirection: 'column',
     justifyContent: 'center',
     textAlign: 'center',
+    position: 'relative',
+
+    [`@media (min-width: ${theme.breakpoints.values.lg}px)`]: {
+      '&::before': {
+        content: '""',
+        display: 'block',
+        position: 'absolute',
+        background: 'white',
+        left: -40,
+        width: '50vw',
+        height: '100vh',
+        transform: 'skew(-7deg)',
+      },
+    },
+  },
+
+  rightInner: {
+    position: 'relative',
+    padding: theme.spacing(1),
   },
 
   wrapper: {
@@ -61,27 +85,26 @@ const HomePage = () => {
   return (
     <Layout header={false} footer={false} className={classes.main} rootClass={classes.root}>
       <Grid container alignItems="stretch">
-        <Grid xs={12} md={7} item className={classes.left}>
-          <GatsbyLink to="/">
-            <Logo className={classes.logo} />
-          </GatsbyLink>
+        <Grid xs={12} md={7} item className={classes.left} container>
+          <Grid item>
+            <GatsbyLink to="/">
+              <Logo className={classes.logo} />
+            </GatsbyLink>
 
-          <br />
-          <br />
+            <br />
+            <br />
 
-          <Typography variant="h2">
-            Gérons aujourd'hui,<br />
-            nos espaces de plongées<br />
-            de demain.
-          </Typography>
-        </Grid>
-        <Grid item only="md" md={1} className={classes.angleWrapper}>
-          <Angle preserveAspectRatio="none" className={classes.angle} />
+            <Typography variant="h2">
+              Gérons aujourd'hui,<br />
+              nos espaces de plongées<br />
+              de demain.
+            </Typography>
+          </Grid>
         </Grid>
 
         <Grid xs={12} md={4} item container className={classes.right}>
-          <Grid item>
-            <Button to="reglement" variant="outlined" color="primary" component={Link}>
+          <Grid item className={classes.rightInner}>
+            <Button to="reglement" variant="contained" color="primary" component={Link}>
               Signer le règlement de plongée
             </Button>
 
@@ -90,10 +113,11 @@ const HomePage = () => {
             <br />
             <br />
 
-            <Button to="declaration" variant="outlined" color="secondary" component={Link}>
+            <Button to="declaration" variant="contained" color="secondary" component={Link}>
               Déclarer une plongée
             </Button>
 
+            <br />
             <br />
 
             <Link to="historique">Obtenir le bilan des déclarations</Link>
