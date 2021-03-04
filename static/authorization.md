@@ -27,10 +27,3 @@ Considérant qu’il convient de mettre en œuvre des mesures de protection et d
 **Article 5** : Les structures de plongée et les fournisseurs de support signataires, en cas d'infraction au présent règlement ou à la réglementation générale du Parc national, recevront un avertissement notifié par lettre recommandée avec accusé de réception dans les 8 jours du constat par les agents commissionnés, sans préjudice des éventuelles poursuites pénales qui pourraient être engagées à leur encontre.
 
 **Article 6** : Le fait pour une structure de plongée ou un fournisseur de supports d'être contrôlé une seconde fois en défaut des règles au cours d’une même année entraîne l’établissement d'un procès-verbal à son égard et le retrait immédiat de l’autorisation, et l’interdiction d’exercer son activité sur la bande maritime des 600 m des cœurs marins (Port-Cros et Porquerolles) pour le reste de l’année en cours.
-
-- Date et Numéro d’enregistrement Signature du Directeur
-- Le plongeur, le responsable de la structure de plongée du Parc national de Port-Cros ou le fournisseur de support :
-- Numéro de téléphone :
-- Adresse mail (obligatoire) :
-- Nom et immatriculation du bateau :
-- Signature :
