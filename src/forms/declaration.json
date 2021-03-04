@@ -168,15 +168,23 @@
             "buttons": [
               {
                 "id": "2a6a0b4c62ec54cd585b4473b618fa93175922d640aedbd1e839dc1431de283d",
-                "name": "Type A"
+                "name": "Baptême"
               },
               {
                 "id": "68a72da40ec85b8496e26e6f720e0680825b752e246c6131fe9fe03a43b001fd",
-                "name": "Type B"
+                "name": "Exploration"
               },
               {
                 "id": "fa26af70ac0ac881d18f1dfc02644f7c09967c3ac2040e51b2fc0b95d26d2e62",
-                "name": "Type C"
+                "name": "Technique"
+              },
+              {
+                "id": "45ed1adf9e16616c775f6b298d40449a67ebc6f8602e8a332d06a46731ed8d87",
+                "name": "Rando palmée"
+              },
+              {
+                "id": "5152478c30ac41d96a7e413e10139ce38d05dcf2373c85353a896d8be47f56af",
+                "name": "Apnée"
               }
             ]
           }
