@@ -5,6 +5,7 @@ module.exports = {
     title: 'Title',
   },
   plugins: [
+    'gatsby-plugin-netlify-cms',
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {

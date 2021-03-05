@@ -1,0 +1,81 @@
+backend:
+  name: github
+  repo: mabhub/capel-proto-contents
+  branch: main
+
+media_folder: "media"
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+locale: "fr"
+
+show_preview_links: false
+
+editor:
+    preview: false
+
+collections:
+  - name: "info"
+    label: "Information"
+    folder: "informations"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}}"
+    create: true
+    fields:
+      - { name: "draft", label: "Brouillon", widget: "boolean", default: true, required: false }
+      - { name: "title", label: "Titre", widget: "string" }
+      - { name: "body", label: "Information", widget: "markdown", minimal: true }
+      - name: "spots"
+        label: "Spots concernés"
+        widget: "relation"
+        collection: "spot"
+        value_field: "title"
+        search_fields: ["title"]
+        display_fields: ["title"]
+        multiple: true
+        required: false
+      - { name: "zone", label: "Zone concernée", widget: "map", type: "Polygon", required: false }
+
+  - name: "spot"
+    label: "Spot"
+    folder: "spots"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}}"
+    create: true
+    fields:
+      - { name: "draft", label: "Brouillon", widget: "boolean", default: true, required: false }
+      - { name: "title", label: "Nom du spot", widget: "string" }
+      - { name: "ref", label: "Référence", widget: "string", required: false }
+      - { name: "location", label: "Emplacement", widget: "map" }
+      - { name: "body", label: "Description", widget: "markdown", minimal: true, required: false }
+      - name: "types"
+        label: "Types de plongées"
+        widget: "relation"
+        required: false
+        multiple: true
+        collection: "diving-types"
+        value_field: "title"
+        search_fields: ["title"]
+        display_fields: ["title"]
+      - { name: "structures", label: "Structures", widget: "list" }
+
+  - name: "diving-types"
+    label: "Type de plongée"
+    folder: "diving-types"
+    create: true
+    fields:
+      - { name: "title", label: "Titre", widget: "string" }
+      - { name: "body", label: "Description", widget: "markdown", minimal: true, required: false }
+
+  - name: "diving-skill"
+    label: "Niveau de plongée"
+    folder: "diving-skills"
+    create: true
+    fields:
+      - { name: "title", label: "Niveau", widget: "string" }
+      - { name: "body", label: "Prérogatives", widget: "markdown", minimal: true }
+      - { name: "cds", label: "Aptitude / Code du Sport", widget: "string", required: false }
+      - { name: "cmas", label: "CMAS", widget: "string", required: false }
