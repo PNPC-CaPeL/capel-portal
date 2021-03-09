@@ -54,8 +54,8 @@ const Map = () => {
       <MapContainer
         // preferCanvas
         // bounds={[[45.3852, -0.1450], [43.7669, 4.0844]]}
-        center={[43.006486, 6.3860755]}
-        zoom={13}
+        center={[43.01, 6.4]}
+        zoom={12}
         className={classes.root}
         zoomSnap={0.5}
         zoomDelta={0.5}
