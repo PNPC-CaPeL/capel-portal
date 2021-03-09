@@ -7,6 +7,14 @@ module.exports = {
   plugins: [
     'gatsby-plugin-netlify-cms',
     {
+      resolve: 'gatsby-source-git',
+      options: {
+        name: 'remote-contents',
+        remote: process.env.GITHUB_CONTENT_REPO,
+        branch: 'main',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: { include: /.*assets.*\.svg$/ },
