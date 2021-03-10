@@ -1,11 +1,12 @@
 import React from 'react';
-import { GeoJSON, Marker } from 'react-leaflet';
-import L from 'leaflet';
+import { GeoJSON } from 'react-leaflet';
 
 import useSpots from '../hooks/useSpots';
 
-const pointToLayer = (feature, latLng) => L.circleMarker(latLng);
-// const pointToLayer = (feature, latLng) => L.circleMarker(latLng);
+const bindTooltipPopup = spot => (feature, layer) => {
+  // layer.bindPopup('lorem ipsum');
+  layer.bindTooltip(spot.childMarkdownRemark.frontmatter.title);
+};
 
 const Spots = () => {
   const spots = useSpots();
@@ -16,17 +17,19 @@ const Spots = () => {
 
   return (
     <>
-      {spots.map(({ name, childMarkdownRemark: { frontmatter: { location: geojson } } }) => (
-        <GeoJSON
-          key={name}
-          data={JSON.parse(geojson)}
-          // styleJSON={Style}
-          // pointToLayer={pointToLayer}
-          // onEachFeature={bindTooltipPopup}
-        />
+      {spots.map(spot => {
+        const { name, childMarkdownRemark: { frontmatter: { location } } } = spot;
 
-      ))}
-      <Marker position={[43.006486, 6.3860755]} />
+        return (
+          <GeoJSON
+            key={name}
+            data={JSON.parse(location)}
+            // styleJSON={Style}
+            // pointToLayer={pointToLayer}
+            onEachFeature={bindTooltipPopup(spot)}
+          />
+        );
+      })}
     </>
   );
 };
