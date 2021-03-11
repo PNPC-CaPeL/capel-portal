@@ -62,20 +62,43 @@ collections:
         display_fields: ["title"]
       - { name: "structures", label: "Structures", widget: "list" }
 
-  - name: "diving-types"
-    label: "Type de plongée"
-    folder: "diving-types"
-    create: true
-    fields:
-      - { name: "title", label: "Titre", widget: "string" }
-      - { name: "body", label: "Description", widget: "markdown", minimal: true, required: false }
+  - name: "lists"
+    label: "Listes"
+    files:
+      - name: "skills"
+        label: "Niveaux de plongée"
+        file: "lists/skills.json"
+        fields:
+          - name: skills
+            label: "Niveaux"
+            widget: "list"
+            fields:
+              - { name: "title", label: "Niveau", widget: "string" }
+              - { name: "body", label: "Prérogatives", widget: "markdown", minimal: true }
+              - { name: "cds", label: "Aptitude / Code du Sport", widget: "string", required: false }
+              - { name: "cmas", label: "CMAS", widget: "string", required: false }
+      - name: "divings"
+        label: "Types de plongées"
+        file: "lists/divings.json"
+        fields:
+          - name: divings
+            label: "Types de plongées"
+            widget: "list"
+            fields:
+              - { name: "title", label: "Titre", widget: "string" }
+              - { name: "body", label: "Description", widget: "markdown", minimal: true, required: false }
 
-  - name: "diving-skill"
-    label: "Niveau de plongée"
-    folder: "diving-skills"
-    create: true
-    fields:
-      - { name: "title", label: "Niveau", widget: "string" }
-      - { name: "body", label: "Prérogatives", widget: "markdown", minimal: true }
-      - { name: "cds", label: "Aptitude / Code du Sport", widget: "string", required: false }
-      - { name: "cmas", label: "CMAS", widget: "string", required: false }
+  - name: "texts"
+    label: "Textes"
+    files:
+      - name: "regulation"
+        label: "Règlement"
+        file: "texts/regulation.md"
+        fields:
+          - { name: "body", label: "contenu", widget: "markdown" }
+
+      - name: "authorization"
+        label: "Autorisation"
+        file: "texts/authorization.md"
+        fields:
+          - { name: "body", label: "contenu", widget: "markdown" }
