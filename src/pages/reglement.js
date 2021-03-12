@@ -1,11 +1,12 @@
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Layout from '../components/Layout';
 import TripettoForm from '../components/TripettoForm';
-import MDBlock from '../components/MDBlock';
+import MarkdownText from '../components/MarkdownText';
 
 const useStyles = makeStyles({
   wrapper: {
@@ -16,12 +17,19 @@ const useStyles = makeStyles({
 
 const ReglementPage = () => {
   const classes = useStyles();
+  const { markdownRemark: { htmlAst } } = useStaticQuery(graphql`
+    {
+      markdownRemark(frontmatter: {text_id: {eq: "regulation"}}) {
+        htmlAst
+      }
+    }
+  `);
 
   return (
     <Layout title="Signer le réglement" footer={false}>
       <Grid container justify="space-between">
         <Grid item md={7} className={classes.wrapper}>
-          <MDBlock block="regulation" />
+          <MarkdownText hast={htmlAst} />
         </Grid>
 
         <Grid item md={4}>
