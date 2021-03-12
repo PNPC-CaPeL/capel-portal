@@ -45,6 +45,5 @@ module.exports = {
   ],
   flags: {
     DEV_SSR: false,
-    FAST_REFRESH: true,
   },
 };

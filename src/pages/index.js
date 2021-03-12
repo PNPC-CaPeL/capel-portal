@@ -88,7 +88,7 @@ const HomePage = () => {
 
         <Grid xs={12} md={4} item container className={classes.right}>
           <Grid item className={classes.rightInner}>
-            <Button to="reglement" variant="contained" color="primary" component={Link}>
+            <Button to="reglement" variant="contained" component={Link}>
               Signer le règlement de plongée
             </Button>
 
