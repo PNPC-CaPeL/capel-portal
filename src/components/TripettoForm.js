@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, useTheme } from '@material-ui/core';
+import { useTheme } from '@material-ui/core';
 
 import { ClassicRunner } from 'tripetto-runner-classic';
 import { Export } from 'tripetto-runner-foundation';
@@ -18,7 +18,12 @@ const l10n = {
   },
 };
 
-const TripettoForm = ({ form, endpoint, ...rest }) => {
+const TripettoForm = ({
+  form,
+  endpoint,
+  enhanceDefinition = def => def,
+  ...rest
+}) => {
   const theme = useTheme();
 
   const handleFormSubmit = async instance => {
@@ -36,14 +41,7 @@ const TripettoForm = ({ form, endpoint, ...rest }) => {
   const styles = {
     mode: 'progressive',
     noBranding: true,
-    contract: { name: 'tripetto-runner-classic', version: '1.9.1' },
-
     color: theme.palette.primary.main,
-
-    // font: {
-    //   size: theme.typography.fontSize,
-    //   family: theme.typography.fontFamily.split(',').shift(),
-    // },
 
     inputs: {
       borderSize: 1,
@@ -64,10 +62,11 @@ const TripettoForm = ({ form, endpoint, ...rest }) => {
 
   return (
     <ClassicRunner
-      definition={definitions[form]}
+      definition={enhanceDefinition(definitions[form])}
       styles={styles}
       onSubmit={handleFormSubmit}
       l10n={l10n}
+      {...rest}
     />
   );
 };
