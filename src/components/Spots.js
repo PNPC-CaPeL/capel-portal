@@ -8,7 +8,7 @@ const bindTooltipPopup = spot => (feature, layer) => {
   layer.bindTooltip(spot.childMarkdownRemark.frontmatter.title);
 };
 
-const Spots = () => {
+const Spots = props => {
   const spots = useSpots();
 
   if (!spots || !spots.length) {
@@ -18,15 +18,23 @@ const Spots = () => {
   return (
     <>
       {spots.map(spot => {
-        const { name, childMarkdownRemark: { frontmatter: { location } } } = spot;
+        const {
+          name,
+          childMarkdownRemark: { frontmatter: { location }, frontmatter },
+        } = spot;
+
+        const geojson = {
+          type: 'Feature',
+          geometry: JSON.parse(location),
+          properties: { name, ...frontmatter },
+        };
 
         return (
           <GeoJSON
             key={name}
-            data={JSON.parse(location)}
-            // styleJSON={Style}
-            // pointToLayer={pointToLayer}
+            data={geojson}
             onEachFeature={bindTooltipPopup(spot)}
+            {...props}
           />
         );
       })}
