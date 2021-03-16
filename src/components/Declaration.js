@@ -6,10 +6,13 @@ import { CircleMarker } from 'react-leaflet';
 
 import Map from './Map';
 import TripettoForm from './TripettoForm';
+import useDivings from '../hooks/useDivings';
+import { withDivings } from '../lib/definition-enhancers';
 
 const Declaration = () => {
   const formInstance = React.useRef();
   const [position, setPosition] = React.useState();
+  const divings = useDivings();
 
   const handleMapClick = ({ latlng: { lat, lng } }) => {
     if (!formInstance.current) {
@@ -45,6 +48,7 @@ const Declaration = () => {
           form="declaration"
           endpoint={process.env.GATSBY_ENDPOINT_DECLARATION}
           onReady={instance => { formInstance.current = instance; }}
+          enhanceDefinition={withDivings(divings)}
         />
       </Grid>
     </Grid>

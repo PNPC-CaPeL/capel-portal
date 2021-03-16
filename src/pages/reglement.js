@@ -9,7 +9,7 @@ import TripettoForm from '../components/TripettoForm';
 import MarkdownText from '../components/MarkdownText';
 
 import useSkills from '../hooks/useSkills';
-import findObject from '../lib/find-object';
+import { withSkills } from '../lib/definition-enhancers';
 
 const useStyles = makeStyles({
   wrapper: {
@@ -30,16 +30,6 @@ const ReglementPage = () => {
     }
   `);
 
-  const enhanceDefinition = def => {
-    const skillsNode = findObject(def, 'name', 'Niveau');
-    skillsNode.forEach(node => {
-      // eslint-disable-next-line no-param-reassign
-      node.block.buttons = skills.map(({ title }, index) => ({ name: title, id: index + 1 }));
-    });
-
-    return def;
-  };
-
   return (
     <Layout title="Signer le réglement" footer={false}>
       <Grid container justify="space-between">
@@ -51,7 +41,7 @@ const ReglementPage = () => {
           <TripettoForm
             form="regulation"
             endpoint={process.env.GATSBY_ENDPOINT_REGULATION}
-            enhanceDefinition={enhanceDefinition}
+            enhanceDefinition={withSkills(skills)}
           />
         </Grid>
       </Grid>
