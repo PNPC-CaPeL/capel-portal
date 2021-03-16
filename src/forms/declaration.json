@@ -193,6 +193,7 @@
           "id": "6c6fb206383e9e6f64a1b33c9a818043ad9cae4f2b55d18a2838ef710cbca7be",
           "name": "Lieu",
           "nameVisible": true,
+          "description": "(Sélectionner sur la carte)",
           "slots": [
             {
               "id": "f33254e7a2162db526d93e8f715f3365726528590207456e95ad36e438370a12",
@@ -203,7 +204,17 @@
               "required": true
             }
           ],
-          "block": { "type": "tripetto-block-text", "version": "4.2.0" }
+          "block": {
+            "type": "tripetto-block-text",
+            "version": "4.2.0",
+            "useSuggestions": true,
+            "suggestions": [
+              {
+                "id": "67256b2dc551016e0ad354b832c381ff32c9d3275c293449f657532a9a5b8ee0",
+                "name": "Exemple"
+              }
+            ]
+          }
         },
         {
           "id": "63a22afd251760fb182cefe9ab090a4ab85d2d997697f4a5abb27d56902b556b",
@@ -238,7 +249,9 @@
               "kind": "static",
               "reference": "number",
               "label": "Number",
-              "required": true
+              "required": true,
+              "minimum": 0,
+              "maximum": 999
             }
           ],
           "block": { "type": "tripetto-block-number", "version": "6.1.0" }
