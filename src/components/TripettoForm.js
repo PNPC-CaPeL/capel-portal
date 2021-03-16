@@ -1,7 +1,10 @@
 import React from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 import { useTheme } from '@material-ui/core';
 
 import { ClassicRunner } from 'tripetto-runner-classic';
+// import { ClassicRunner } from 'tripetto-runner-classic/runner/es6';
+
 import { Export } from 'tripetto-runner-foundation';
 
 import * as definitions from '../forms';
@@ -17,6 +20,8 @@ const l10n = {
     'runner#1|🆗 Buttons\u0004Submit': [null, 'Signer'],
   },
 };
+
+const FallbackComponent = () => <></>;
 
 const TripettoForm = ({
   form,
@@ -61,13 +66,15 @@ const TripettoForm = ({
   if (typeof window === 'undefined' || !form || !endpoint) { return null; }
 
   return (
-    <ClassicRunner
-      definition={enhanceDefinition(definitions[form])}
-      styles={styles}
-      onSubmit={handleFormSubmit}
-      l10n={l10n}
-      {...rest}
-    />
+    <ErrorBoundary FallbackComponent={FallbackComponent}>
+      <ClassicRunner
+        definition={enhanceDefinition(definitions[form])}
+        styles={styles}
+        onSubmit={handleFormSubmit}
+        l10n={l10n}
+        {...rest}
+      />
+    </ErrorBoundary>
   );
 };
 
