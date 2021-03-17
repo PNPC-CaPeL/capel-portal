@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Import } from 'tripetto-runner-foundation';
-import { Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import { CircleMarker } from 'react-leaflet';
 
 import Map from './Map';
@@ -9,12 +9,14 @@ import TripettoForm from './TripettoForm';
 import useDivings from '../hooks/useDivings';
 import { withDivings } from '../lib/definition-enhancers';
 import DTPicker from './DTPicker';
+import Link from './Link';
 
 const isLive = typeof window !== 'undefined';
 
 const Declaration = () => {
   const formInstance = React.useRef();
   const [position, setPosition] = React.useState();
+  const [complete, setComplete] = React.useState(false);
 
   const divings = useDivings();
 
@@ -43,26 +45,48 @@ const Declaration = () => {
 
   return (
     <Grid container justify="space-around">
-      <Grid item md={7}>
-        <Map
-          onBackgroundClick={handleMapClick}
-          spotProps={{ eventHandlers: { click: handleSpotClick } }}
-        >
-          {Boolean(position) && <CircleMarker center={position} radius={5} />}
-        </Map>
-        <br />
+      {Boolean(complete) && (
+        <Grid item md={4}>
+          <Typography variant="h1">
+            Merci
+          </Typography>
+          <Typography variant="body1" paragraph>
+            vous recevrez une confirmation de la prise en compte de votre déclarations
+            par e-mail dans quelques minutes.
+          </Typography>
 
-        {isLive && <DTPicker onChange={handleDateChange} />}
-      </Grid>
+          <Typography variant="body1" paragraph>
+            Vous pouvez <Link to="." onClick={() => setComplete(false)}>déclarer une autre plongée</Link>,
+            ou retourner sur la <Link to="/">page d'accueil</Link>.
+          </Typography>
+        </Grid>
+      )}
 
-      <Grid item md={4}>
-        <TripettoForm
-          form="declaration"
-          endpoint={process.env.GATSBY_ENDPOINT_DECLARATION}
-          onReady={instance => { formInstance.current = instance; }}
-          enhanceDefinition={withDivings(divings)}
-        />
-      </Grid>
+      {!complete && (
+        <>
+          <Grid item md={7}>
+            <Map
+              onBackgroundClick={handleMapClick}
+              spotProps={{ eventHandlers: { click: handleSpotClick } }}
+            >
+              {Boolean(position) && <CircleMarker center={position} radius={5} />}
+            </Map>
+            <br />
+
+            {isLive && <DTPicker onChange={handleDateChange} />}
+          </Grid>
+
+          <Grid item md={4}>
+            <TripettoForm
+              form="declaration"
+              endpoint={process.env.GATSBY_ENDPOINT_DECLARATION}
+              onReady={instance => { formInstance.current = instance; }}
+              enhanceDefinition={withDivings(divings)}
+              onComplete={() => setComplete(true)}
+            />
+          </Grid>
+        </>
+      )}
     </Grid>
   );
 };
