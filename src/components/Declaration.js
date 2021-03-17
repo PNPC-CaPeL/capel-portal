@@ -8,28 +8,37 @@ import Map from './Map';
 import TripettoForm from './TripettoForm';
 import useDivings from '../hooks/useDivings';
 import { withDivings } from '../lib/definition-enhancers';
+import DTPicker from './DTPicker';
+
+const isLive = typeof window !== 'undefined';
 
 const Declaration = () => {
   const formInstance = React.useRef();
   const [position, setPosition] = React.useState();
+
   const divings = useDivings();
 
   const handleMapClick = ({ latlng: { lat, lng } }) => {
-    if (!formInstance.current) {
+    if (!formInstance?.current?.isRunning) {
       return;
     }
 
     Import.fields(formInstance.current, [
-      { name: 'Lieu', value: [lat.toFixed(5), lng.toFixed(5)].toString() },
+      { name: 'Lieu', value: JSON.stringify([+lat.toFixed(5), +lng.toFixed(5)]) },
     ]);
     setPosition({ lat, lng });
   };
 
   const handleSpotClick = event => {
     const location = event?.layer?.feature?.properties?.title;
-    if (!location) { return; }
+    if (!location || !formInstance?.current?.isRunning) { return; }
     Import.fields(formInstance.current, [{ name: 'Lieu', value: location }]);
     setPosition(0);
+  };
+
+  const handleDateChange = isoDate => {
+    if (!isoDate || !formInstance?.current?.isRunning) { return; }
+    Import.fields(formInstance.current, [{ name: 'Date', value: isoDate }]);
   };
 
   return (
@@ -41,6 +50,9 @@ const Declaration = () => {
         >
           {Boolean(position) && <CircleMarker center={position} radius={5} />}
         </Map>
+        <br />
+
+        {isLive && <DTPicker onChange={handleDateChange} />}
       </Grid>
 
       <Grid item md={4}>
