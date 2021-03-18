@@ -1,10 +1,6 @@
 {
   "name": "Signer le règlement",
   "language": "fr",
-  "epilogue": {
-    "title": "Merci de votre engagement,",
-    "description": "vous allez recevoir un mail attestant de votre signature du règlement qui vaut autorisation pour plonger dans les eaux des cœurs marin du Parc national de Port-Cros.\n\nNotez que vous devez être en mesure de présenter votre autorisation nominative en cas de contrôle par les agents du Parc national ou les Autorités de l’État en mer."
-  },
   "clusters": [
     {
       "id": "5380c4f483ed270e8cbcc212d629210c0c1abae463100b7611d8c71aed1d8b4e",

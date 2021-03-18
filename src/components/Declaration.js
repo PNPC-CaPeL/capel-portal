@@ -47,9 +47,10 @@ const Declaration = () => {
     <Grid container justify="space-around">
       {Boolean(complete) && (
         <Grid item md={4}>
-          <Typography variant="h1">
+          <Typography variant="h1" paragraph>
             Merci
           </Typography>
+
           <Typography variant="body1" paragraph>
             vous recevrez une confirmation de la prise en compte de votre déclarations
             par e-mail dans quelques minutes.

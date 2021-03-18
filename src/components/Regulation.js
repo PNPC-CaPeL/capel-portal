@@ -1,14 +1,15 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-import TripettoForm from '../components/TripettoForm';
-import MarkdownText from '../components/MarkdownText';
+import TripettoForm from './TripettoForm';
+import MarkdownText from './MarkdownText';
 
 import useSkills from '../hooks/useSkills';
 import { withSkills } from '../lib/definition-enhancers';
+import Link from './Link';
 
 const useStyles = makeStyles({
   wrapper: {
@@ -17,9 +18,11 @@ const useStyles = makeStyles({
   },
 });
 
-const Regulation = props => {
+const Regulation = () => {
   const classes = useStyles();
   const skills = useSkills();
+
+  const [complete, setComplete] = React.useState(false);
 
   const { markdownRemark: { htmlAst } } = useStaticQuery(graphql`
     {
@@ -30,18 +33,48 @@ const Regulation = props => {
   `);
 
   return (
-    <Grid container justify="space-between">
-      <Grid item md={7} className={classes.wrapper}>
-        <MarkdownText hast={htmlAst} />
-      </Grid>
+    <Grid container justify="space-around">
+      {Boolean(complete) && (
+        <Grid item md={4}>
+          <Typography variant="h1" paragraph>
+            Merci de votre engagement,
+          </Typography>
 
-      <Grid item md={4}>
-        <TripettoForm
-          form="regulation"
-          endpoint={process.env.GATSBY_ENDPOINT_REGULATION}
-          enhanceDefinition={withSkills(skills)}
-        />
-      </Grid>
+          <Typography variant="body1" paragraph>
+            vous allez recevoir un mail attestant de votre signature du règlement qui vaut
+            autorisation pour plonger dans les eaux des cœurs marin du Parc national de Port-Cros.
+          </Typography>
+
+          <Typography variant="body1" paragraph>
+            Notez que vous devez être en mesure
+            de <strong>présenter votre autorisation nominative</strong> en cas de
+            contrôle par les agents du Parc national ou les Autorités de l’État en mer.
+          </Typography>
+
+          <Typography variant="body1" paragraph>
+            Vous pouvez procéder à
+            une <Link onClick={() => setComplete(false)} to=".">nouvelle signature</Link> ou
+            bien retourner sur la <Link to="/">page d'accueil</Link>.
+          </Typography>
+        </Grid>
+      )}
+
+      {!complete && (
+        <>
+          <Grid item md={7} className={classes.wrapper}>
+            <MarkdownText hast={htmlAst} />
+          </Grid>
+
+          <Grid item md={4}>
+            <TripettoForm
+              form="regulation"
+              endpoint={process.env.GATSBY_ENDPOINT_REGULATION}
+              enhanceDefinition={withSkills(skills)}
+              onComplete={() => setComplete(true)}
+            />
+          </Grid>
+        </>
+      )}
     </Grid>
   );
 };
