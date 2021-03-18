@@ -1,10 +1,6 @@
 {
   "name": "Déclarer une plongée",
   "language": "fr",
-  "epilogue": {
-    "title": "Merci",
-    "description": "vous recevrez une confirmation de la prise en compte de votre déclarations par e-mail dans quelques minutes"
-  },
   "clusters": [
     {
       "id": "5380c4f483ed270e8cbcc212d629210c0c1abae463100b7611d8c71aed1d8b4e",
