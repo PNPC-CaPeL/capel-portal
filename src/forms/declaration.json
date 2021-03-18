@@ -229,16 +229,21 @@
           "slots": [
             {
               "id": "dedeac869ed29f77e8f33512010f2e295b2c931a8a714527ec2992996bce1196",
-              "type": "numeric",
+              "type": "number",
               "kind": "static",
-              "reference": "number",
-              "label": "Number",
-              "required": true,
-              "minimum": 0,
-              "maximum": 999
+              "reference": "scale",
+              "label": "Scale",
+              "required": true
             }
           ],
-          "block": { "type": "tripetto-block-number", "version": "6.1.0" }
+          "block": {
+            "type": "tripetto-block-scale",
+            "version": "2.1.0",
+            "mode": "numeric",
+            "from": 1,
+            "to": 10,
+            "stepSize": 1
+          }
         }
       ]
     }
