@@ -40,8 +40,8 @@ const Map = ({ onBackgroundClick, spotProps = {}, children = null }) => {
       </Helmet>
 
       <MapContainer
-        center={[43.01, 6.4]}
-        zoom={12}
+        center={[43.01, 6.275]}
+        zoom={11.5}
         className={classes.root}
         zoomSnap={0.5}
         zoomDelta={0.5}
