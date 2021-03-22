@@ -17,7 +17,13 @@ const l10n = {
   },
   translations: {
     '': { language: 'fr' },
-    'runner#1|🆗 Buttons\u0004Submit': [null, 'Signer'],
+    'runner#1|🆗 Buttons\u0004Back': [null, 'Précédent'],
+    'runner#1|🆗 Buttons\u0004Next': [null, 'Suivant'],
+    'runner#1|🆗 Buttons\u0004Reload': [null, 'Recharger'],
+    'runner#1|🆗 Buttons\u0004Retry': [null, 'Re-essayer'],
+    'runner#1|🆗 Buttons\u0004Start': [null, 'Démarrer'],
+    'runner#1|🆗 Buttons\u0004Start again': [null, 'Redémarrer'],
+    'runner#1|🆗 Buttons\u0004Submit': [null, 'Envoyer'],
   },
 };
 
