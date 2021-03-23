@@ -32,7 +32,7 @@ const Declaration = () => {
   };
 
   const handleSpotClick = event => {
-    const location = event?.layer?.feature?.properties?.title;
+    const location = event?.target?.options?.title;
     if (!location || !formInstance?.current?.isRunning) { return; }
     Import.fields(formInstance.current, [{ name: 'Lieu', value: location }]);
     setPosition(0);

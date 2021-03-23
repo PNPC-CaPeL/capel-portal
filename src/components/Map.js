@@ -1,5 +1,6 @@
 import React from 'react';
-import L from 'leaflet';
+
+import L from 'leaflet'; // eslint-disable-line no-unused-vars
 import 'leaflet-sleep';
 
 import { Helmet } from 'react-helmet';
@@ -30,7 +31,7 @@ const LocationSelector = ({ handleClick }) => {
   return null;
 };
 
-const Map = ({ onBackgroundClick, spotProps = {}, children = null }) => {
+const Map = ({ onBackgroundClick, spotProps = {}, children = null, ...props }) => {
   const classes = useStyles();
   if (!isLive) { return null; }
 
@@ -48,6 +49,7 @@ const Map = ({ onBackgroundClick, spotProps = {}, children = null }) => {
         zoomDelta={0.5}
         sleepNote={false}
         hoverToWake={false}
+        {...props}
       >
 
         {typeof onBackgroundClick === 'function' && (
