@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
-import { Button, Grid, Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
+import { Button } from 'gatsby-theme-material-ui';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Layout from '../components/Layout';
@@ -37,6 +38,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center',
+    height: '100vh',
 
     // color: 'white',
     '& a': { color: 'inherit' },
@@ -88,7 +90,7 @@ const HomePage = () => {
 
         <Grid xs={12} md={4} item container className={classes.right}>
           <Grid item className={classes.rightInner}>
-            <Button to="reglement" variant="contained" component={Link}>
+            <Button to="reglement" variant="contained" color="primary" component={Link}>
               Signer le règlement de plongée
             </Button>
 
