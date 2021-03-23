@@ -1,8 +1,10 @@
 import React from 'react';
 
-import { Import } from 'tripetto-runner-foundation';
-import { Grid, Typography } from '@material-ui/core';
+import { Import, Export } from 'tripetto-runner-foundation';
+import { Box, FormControlLabel, Grid, Switch, Typography } from '@material-ui/core';
 import { CircleMarker } from 'react-leaflet';
+
+import createPersistedState from 'use-persisted-state';
 
 import Map from './Map';
 import TripettoForm from './TripettoForm';
@@ -13,10 +15,14 @@ import Link from './Link';
 
 const isLive = typeof window !== 'undefined';
 
+const useFormCache = createPersistedState('capel-form-cache');
+
 const Declaration = () => {
   const formInstance = React.useRef();
   const [position, setPosition] = React.useState();
   const [complete, setComplete] = React.useState(false);
+
+  const [formCache, setFormCache] = useFormCache(false);
 
   const divings = useDivings();
 
@@ -81,10 +87,31 @@ const Declaration = () => {
             <TripettoForm
               form="declaration"
               endpoint={process.env.GATSBY_ENDPOINT_DECLARATION}
-              onReady={instance => { formInstance.current = instance; }}
+              onReady={instance => {
+                formInstance.current = instance;
+                formCache && Import.fields(instance, formCache);
+              }}
               enhanceDefinition={withDivings(divings)}
-              onComplete={() => setComplete(true)}
+              onComplete={instance => {
+                const formFields = Export.fields(instance).fields;
+                formCache && setFormCache(formFields);
+                setComplete(true);
+              }}
             />
+
+            <Box style={{ textAlign: 'center' }}>
+              <FormControlLabel
+                control={(
+                  <Switch
+                    size="small"
+                    checked={!!formCache}
+                    onChange={() => setFormCache(prevFormCache => (prevFormCache ? false : {}))}
+                  />
+                )}
+                label="Mémoriser ma saisie"
+                labelPlacement="start"
+              />
+            </Box>
           </Grid>
         </>
       )}
