@@ -61,8 +61,9 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1),
   },
 
-  wrapper: {
-    textAlign: 'center',
+  map: {
+    height: '100vh',
+    paddingBottom: '5rem',
   },
 }));
 
@@ -106,7 +107,7 @@ const HomePage = () => {
           </Grid>
         </Grid>
 
-        <Grid xs={12} item style={{ height: 500 }} container>
+        <Grid xs={12} item container className={classes.map}>
           <Map />
         </Grid>
       </Grid>

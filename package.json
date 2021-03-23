@@ -29,6 +29,7 @@
     "gatsby-transformer-json": "^3.0.0",
     "gatsby-transformer-remark": "^3.0.0",
     "leaflet": "^1.7.1",
+    "leaflet-sleep": "^0.5.2",
     "netlify-cms-app": "^2.14.29",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

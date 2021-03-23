@@ -1,5 +1,6 @@
 import React from 'react';
 import L from 'leaflet';
+import 'leaflet-sleep';
 
 import { Helmet } from 'react-helmet';
 import { MapContainer, ScaleControl, TileLayer, useMapEvent } from 'react-leaflet';
@@ -45,6 +46,8 @@ const Map = ({ onBackgroundClick, spotProps = {}, children = null }) => {
         className={classes.root}
         zoomSnap={0.5}
         zoomDelta={0.5}
+        sleepNote={false}
+        hoverToWake={false}
       >
 
         {typeof onBackgroundClick === 'function' && (
