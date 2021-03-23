@@ -21,6 +21,7 @@ const Declaration = () => {
   const formInstance = React.useRef();
   const [position, setPosition] = React.useState();
   const [complete, setComplete] = React.useState(false);
+  const [datetime, setDatetime] = React.useState(new Date());
 
   const [formCache, setFormCache] = useFormCache(false);
 
@@ -80,7 +81,7 @@ const Declaration = () => {
             </Map>
             <br />
 
-            {isLive && <DTPicker onChange={handleDateChange} />}
+            {isLive && <DTPicker onChange={handleDateChange} value={datetime} />}
           </Grid>
 
           <Grid item md={4}>
@@ -90,6 +91,11 @@ const Declaration = () => {
               onReady={instance => {
                 formInstance.current = instance;
                 formCache && Import.fields(instance, formCache);
+
+                const cachedDatetime = formCache && formCache.find?.(({ name }) => name === 'Date');
+                if (cachedDatetime) {
+                  setDatetime(cachedDatetime.value);
+                }
               }}
               enhanceDefinition={withDivings(divings)}
               onComplete={instance => {
