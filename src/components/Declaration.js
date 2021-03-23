@@ -68,7 +68,7 @@ const Declaration = () => {
           <Grid item md={7}>
             <Map
               onBackgroundClick={handleMapClick}
-              spotProps={{ eventHandlers: { click: handleSpotClick } }}
+              spotProps={{ eventHandlers: { click: handleSpotClick }, popupComponent: null }}
             >
               {Boolean(position) && <CircleMarker center={position} radius={5} />}
             </Map>

@@ -1,7 +1,9 @@
 import React from 'react';
-import { GeoJSON } from 'react-leaflet';
+import { GeoJSON, Popup } from 'react-leaflet';
 import { marker, icon } from 'leaflet';
+import { Button } from 'gatsby-theme-material-ui';
 
+import MarkdownText from './MarkdownText';
 import useSpots from '../hooks/useSpots';
 
 const bindTooltipPopup = spot => (feature, layer) => {
@@ -15,12 +17,12 @@ const pointToLayer = (geoJsonPoint, latlng) =>
       iconUrl: '/diving-mask.svg',
       iconSize: [32, 22],
       // iconAnchor: [16, 11],
-      popupAnchor: [0, 12], // from iconAnchor
+      popupAnchor: [0, -12], // from iconAnchor
       tooltipAnchor: [17, 0], // from iconAnchor
     }),
   });
 
-const Spots = props => {
+const Spots = ({ popupComponent: CustomPopup, ...props }) => {
   const spots = useSpots();
 
   if (!spots || !spots.length) {
@@ -32,7 +34,7 @@ const Spots = props => {
       {spots.map(spot => {
         const {
           name,
-          childMarkdownRemark: { frontmatter: { location }, frontmatter },
+          childMarkdownRemark: { frontmatter: { location }, frontmatter, htmlAst },
         } = spot;
 
         const geojson = {
@@ -48,7 +50,18 @@ const Spots = props => {
             pointToLayer={pointToLayer}
             onEachFeature={bindTooltipPopup(spot)}
             {...props}
-          />
+          >
+            {(typeof CustomPopup === 'undefined') && (
+              <Popup>
+                <MarkdownText hast={htmlAst} />
+                <Button onClick={() => console.log(spot)} variant="outlined" color="secondary">
+                  Déclarer une plongée ici.
+                </Button>
+              </Popup>
+            )}
+
+            {CustomPopup && (<CustomPopup spot={spot} />)}
+          </GeoJSON>
         );
       })}
     </>
