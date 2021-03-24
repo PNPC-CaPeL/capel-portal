@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Helmet from 'react-helmet';
 
 import { makeStyles } from '@material-ui/core/styles';
-import { Container } from '@material-ui/core';
+import { Box, Container } from '@material-ui/core';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -29,10 +29,12 @@ const Layout = ({
   header = true,
   headerProps = {},
   footer = true,
+  container = true,
   ...rest
 }) => {
   const classes = useStyles();
   const { title } = useSiteMetadata();
+  const ContainerComponent = container ? Container : Box;
 
   return (
     <div className={clsx(classes.root, rootClass)}>
@@ -44,7 +46,7 @@ const Layout = ({
       />
       {Boolean(header) && <Header title={pageTitle} {...headerProps} />}
 
-      <Container
+      <ContainerComponent
         component="main"
         className={clsx(classes.main, className)}
         {...rest}

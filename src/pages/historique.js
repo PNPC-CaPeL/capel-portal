@@ -6,7 +6,7 @@ import Layout from '../components/Layout';
 import TripettoForm from '../components/TripettoForm';
 
 const HistoriquePage = () => (
-  <Layout title="Obtenir votre historique de déclarations" footer={false}>
+  <Layout title="Obtenir votre historique de déclarations">
     <Grid container justify="space-around">
       <Grid item md={4}>
         <TripettoForm

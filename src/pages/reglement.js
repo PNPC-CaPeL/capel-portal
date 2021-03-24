@@ -5,7 +5,7 @@ import Layout from '../components/Layout';
 import Regulation from '../components/Regulation';
 
 const ReglementPage = () => (
-  <Layout title="Signer le réglement" footer={false}>
+  <Layout title="Signer le réglement">
     <Regulation />
   </Layout>
 );

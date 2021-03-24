@@ -6,7 +6,7 @@ import Declaration from '../components/Declaration';
 const headerProps = { color: 'secondary' };
 
 const DeclarationPage = () => (
-  <Layout title="Déclarer une plongée" headerProps={headerProps} footer={false}>
+  <Layout title="Déclarer une plongée" headerProps={headerProps}>
     <Declaration />
   </Layout>
 );
