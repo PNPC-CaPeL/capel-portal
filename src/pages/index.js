@@ -6,6 +6,7 @@ import { Box, Grid, Typography, Container } from '@material-ui/core';
 import { Button } from 'gatsby-theme-material-ui';
 import { makeStyles } from '@material-ui/core/styles';
 
+import HomeInformations from '../components/HomeInformations';
 import Layout from '../components/Layout';
 import Link from '../components/Link';
 import Map from '../components/Map';
@@ -191,7 +192,7 @@ const HomePage = () => {
           Informations
         </Typography>
 
-        Informations
+        <HomeInformations />
       </Container>
 
       <Container>
