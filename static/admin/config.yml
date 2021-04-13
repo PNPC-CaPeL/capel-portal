@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: mabhub/capel-proto-contents
+  repo: PNPC-CaPeL/capel-proto-contents
   branch: main
 
 media_folder: "media"
