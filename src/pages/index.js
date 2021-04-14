@@ -2,6 +2,8 @@ import React from 'react';
 import clsx from 'clsx';
 
 import { Link as GatsbyLink } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
+
 import { Box, Grid, Typography, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -12,16 +14,6 @@ import Link from '../components/Link';
 import Map from '../components/Map';
 
 import Logo from '../assets/logo.svg';
-
-const customBlue = '#39bff0';
-
-const customBackground = {
-  backgroundColor: customBlue,
-  backgroundImage: 'url(https://i.picsum.photos/id/147/1024/768.jpg?grayscale&hmac=Z1Tb44cckOpbVkkaq3sC5YuV9EzTUqjXEoA7_LiRCEc)',
-  backgroundBlendMode: 'overlay',
-  backgroundPosition: 'left center',
-  backgroundSize: 'cover',
-};
 
 const useStyles = makeStyles(theme => {
   const maxWidth = mq => `@media (max-width: ${theme.breakpoints.values[mq]}px)`;
@@ -45,16 +37,25 @@ const useStyles = makeStyles(theme => {
         bottom: 0,
         left: 0,
         right: '30%',
-        [minWidth('md')]: {
-          ...customBackground,
-        },
+        border: '1px solid green',
       },
       [maxWidth('md')]: {
-        ...customBackground,
         paddingBottom: theme.spacing(3),
       },
       [maxWidth('sm')]: {
         paddingBottom: theme.spacing(2),
+      },
+    },
+
+    bgImage: {
+      position: 'absolute',
+      zIndex: 1,
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: '30%',
+      [maxWidth('md')]: {
+        right: 0,
       },
     },
 
@@ -137,6 +138,13 @@ const HomePage = () => {
       rootClass={classes.root}
     >
       <Box className={classes.top}>
+        <StaticImage
+          src="../remote-contents/media/home-banner.jpg"
+          alt=""
+          className={classes.bgImage}
+          placeholder="blurred"
+        />
+
         <Container>
           <Grid container justify="center">
             <Grid xs={12} md={8} item className={classes.left} container>
@@ -175,7 +183,6 @@ const HomePage = () => {
               </Grid>
             </Grid>
           </Grid>
-
         </Container>
       </Box>
 
