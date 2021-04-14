@@ -28,6 +28,17 @@ module.exports = {
           // disableAutoprefixing: true,
           // disableMinification: true,
         },
+        webFontsConfig: {
+          fonts: {
+            google: [
+              {
+                family: 'Raleway',
+                variants: ['300', '400', '700', '300i', '400i', '700i'],
+                strategy: 'selfHosted',
+              },
+            ],
+          },
+        },
       },
     },
     {

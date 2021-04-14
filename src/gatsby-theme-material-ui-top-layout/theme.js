@@ -17,7 +17,7 @@ const theme = createMuiTheme({
     h4: { fontSize: '1.25rem' },
     h5: { fontSize: '1.125rem' },
     h6: { fontSize: '1rem' },
-    fontFamily: 'Montserrat, sans-serif',
+    fontFamily: 'Raleway, sans-serif',
   },
 });
 
