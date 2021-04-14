@@ -5,3 +5,5 @@ node_modules/
 # gatsby files
 .cache/
 public
+
+/src/remote-contents/

@@ -13,6 +13,7 @@ module.exports = {
         name: 'remote-contents',
         remote: process.env.GITHUB_CONTENT_REPO,
         branch: 'main',
+        local: 'src/remote-contents',
       },
     },
     {
