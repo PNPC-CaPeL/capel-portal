@@ -3,9 +3,9 @@ import clsx from 'clsx';
 
 import { Link as GatsbyLink } from 'gatsby';
 import { Box, Grid, Typography, Container } from '@material-ui/core';
-import { Button } from 'gatsby-theme-material-ui';
 import { makeStyles } from '@material-ui/core/styles';
 
+import Button from '../components/Button';
 import HomeInformations from '../components/HomeInformations';
 import Layout from '../components/Layout';
 import Link from '../components/Link';
@@ -151,19 +151,21 @@ const HomePage = () => {
 
             <Grid xs={12} md={4} item container className={classes.right}>
               <Grid item className={classes.rightInner}>
-                <Button to="reglement" variant="contained" color="primary" component={Link}>
+                <Button to="reglement" variant="contained" color="secondary" component={Link}>
                   Signer le règlement de plongée
                 </Button>
 
                 <br /><br /><br /><br />
 
-                <Button to="declaration" variant="contained" color="secondary" component={Link}>
+                <Button to="declaration" variant="contained" color="primary" component={Link}>
                   Déclarer une plongée
                 </Button>
 
                 <br /><br />
 
-                <Link to="historique">Obtenir le bilan des déclarations</Link>
+                <Typography variant="body2">
+                  <Link to="historique">Obtenir le bilan des déclarations</Link>
+                </Typography>
               </Grid>
             </Grid>
           </Grid>
