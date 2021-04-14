@@ -9,7 +9,6 @@ import MarkdownText from './MarkdownText';
 import useInformations from '../hooks/useInformations';
 import useSpots from '../hooks/useSpots';
 
-
 const useFavs = createPersistedState('capel-favs');
 
 const HomeInformations = () => {
@@ -56,7 +55,7 @@ const HomeInformations = () => {
       {favInformations.length === 0 && (
         <>
           {informations.map(({ childMarkdownRemark: { excerptAst, frontmatter: { title } } }) => (
-            <Card style={{ opacity: .5 }}>
+            <Card style={{ opacity: 0.5 }} key={title}>
               <CardContent>
                 <Typography variant="h3" paragraph>
                   {title}
