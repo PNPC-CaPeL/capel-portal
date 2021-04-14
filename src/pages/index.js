@@ -80,6 +80,12 @@ const useStyles = makeStyles(theme => {
 
     logo: {
       maxWidth: '100%',
+      height: 'auto',
+      width: 500,
+    },
+
+    tagline: {
+      fontWeight: 700,
     },
 
     right: {
@@ -141,7 +147,7 @@ const HomePage = () => {
 
                 <br /><br />
 
-                <Typography variant="h2">
+                <Typography variant="h2" className={classes.tagline}>
                   Gérons aujourd'hui,<br />
                   nos espaces de plongées<br />
                   de demain.
