@@ -85,6 +85,15 @@ const useStyles = makeStyles(theme => {
       width: 500,
     },
 
+    pnpc: {
+      height: 'auto',
+      width: 179,
+
+      position: 'absolute',
+      left: '1rem',
+      top: '1rem',
+    },
+
     tagline: {
       fontWeight: 700,
     },
@@ -147,7 +156,23 @@ const HomePage = () => {
 
         <Container>
           <Grid container justify="center">
-            <Grid xs={12} md={8} item className={classes.left} container>
+            <Grid
+              xs={12}
+              md={8}
+              item
+              className={classes.left}
+              container
+            >
+              <Grid item className={classes.pnpc}>
+                <StaticImage
+                  src="../remote-contents/media/pnpc-white.png"
+                  alt="Parc National de Port-Cros"
+                  placeholder="none"
+                  objectFit="cover"
+                  objectPosition="left top"
+                />
+              </Grid>
+
               <Grid item>
                 <GatsbyLink to="/">
                   <Logo className={classes.logo} />
