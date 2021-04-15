@@ -9,6 +9,8 @@ import Layout from '../components/Layout';
 import Map from '../components/Map';
 
 import HomeHero from '../components/HomeHero';
+import HomePartners from '../components/HomePartners';
+import HomeInstit from '../components/HomeInstit';
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -60,12 +62,6 @@ const HomePage = () => {
         <Map />
       </Grid>
 
-      <Box className={clsx(classes.counts, classes.bluebleed)}>
-        <Container>
-          counts
-        </Container>
-      </Box>
-
       <Container>
         <Typography variant="h3" className={classes.title} color="primary">
           Informations
@@ -88,6 +84,18 @@ const HomePage = () => {
       <Box className={clsx(classes.meteo, classes.bluebleed)}>
         <Container>
           Météo
+          <Box style={{ height: 150 }} />
+        </Container>
+      </Box>
+
+      <Container style={{ marginTop: '2rem' }}>
+        <HomeInstit />
+      </Container>
+
+      <Box className={clsx(classes.bluebleed)}>
+        <Container>
+          stats
+          <Box style={{ height: 150 }} />
         </Container>
       </Box>
 
@@ -96,7 +104,7 @@ const HomePage = () => {
           Nos partenaires
         </Typography>
 
-        Partenaires
+        <HomePartners />
       </Container>
     </Layout>
   );
