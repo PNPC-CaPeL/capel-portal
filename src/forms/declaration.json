@@ -194,72 +194,23 @@
                       "id": "ee99cba7c356f21e6a5776bf9138ec1f2b5083f9b8529734c851abe58fc4c2f5",
                       "nodes": [
                         {
-                          "id": "2a3264315bc705c7894bac29853f7027444a627cae823dc7c56041b9abe32718",
+                          "id": "742cf0bf0a1ba648517f4f249ab6e3e7d992e4f5a4e92c63a6583aee93ec86bb",
                           "name": "Nom de la structure",
                           "nameVisible": true,
                           "slots": [
                             {
-                              "id": "016d2c3af14ca8b0d9e8b2b94ac3ae2d2831bf744389a6988f43c560f69ed180",
-                              "type": "string",
+                              "id": "f732130fa2ed130c26d69757690560bbefceecb038807ab122994b93c58a31c4",
+                              "type": "text",
                               "kind": "static",
-                              "reference": "option",
-                              "label": "Selected option",
+                              "reference": "value",
+                              "label": "Text",
                               "required": true
                             }
                           ],
                           "block": {
-                            "type": "tripetto-block-dropdown",
-                            "version": "4.2.0",
-                            "options": [
-                              {
-                                "id": "618b3b13a526bc412e4b1f59601bd93bfdbd1f10f53dcd3d6d8d20476dffa57e",
-                                "name": "Autre…"
-                              }
-                            ]
+                            "type": "tripetto-block-text",
+                            "version": "4.2.2"
                           }
-                        }
-                      ],
-                      "branches": [
-                        {
-                          "id": "b21e5eb37dc9589ee8c232f7549556699ccbc06a3e7103afe8e3fc2d2ed3fdc7",
-                          "clusters": [
-                            {
-                              "id": "e27c40494e2a65100f7243ed90e8a87813eb56b39a089469cc6ffda27239eec7",
-                              "nodes": [
-                                {
-                                  "id": "742cf0bf0a1ba648517f4f249ab6e3e7d992e4f5a4e92c63a6583aee93ec86bb",
-                                  "name": "Nom de la structure",
-                                  "nameVisible": true,
-                                  "slots": [
-                                    {
-                                      "id": "f732130fa2ed130c26d69757690560bbefceecb038807ab122994b93c58a31c4",
-                                      "type": "text",
-                                      "kind": "static",
-                                      "reference": "value",
-                                      "label": "Text",
-                                      "required": true
-                                    }
-                                  ],
-                                  "block": {
-                                    "type": "tripetto-block-text",
-                                    "version": "4.2.2"
-                                  }
-                                }
-                              ]
-                            }
-                          ],
-                          "conditions": [
-                            {
-                              "id": "82acb72084e062dc82a6b5578bae38034c4a9b27a1fe95b87d41b6111c46159c",
-                              "block": {
-                                "option": "618b3b13a526bc412e4b1f59601bd93bfdbd1f10f53dcd3d6d8d20476dffa57e",
-                                "type": "tripetto-block-dropdown",
-                                "version": "4.2.0",
-                                "node": "2a3264315bc705c7894bac29853f7027444a627cae823dc7c56041b9abe32718",
-                                "slot": "016d2c3af14ca8b0d9e8b2b94ac3ae2d2831bf744389a6988f43c560f69ed180"
-                              }
-                            }
-                          ]
                         }
                       ]
                     }
