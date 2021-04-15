@@ -66,7 +66,8 @@ const useStyles = makeStyles(theme => {
     },
 
     tagline: {
-      fontWeight: 700,
+      fontWeight: 600,
+      fontSize: '2.4rem',
     },
 
     right: {
