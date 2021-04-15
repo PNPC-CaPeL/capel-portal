@@ -20,7 +20,7 @@
               "required": true
             }
           ],
-          "block": { "type": "tripetto-block-text", "version": "4.2.0" }
+          "block": { "type": "tripetto-block-text", "version": "4.2.2" }
         },
         {
           "id": "afcfa2570c2e91ab7341fcd2f2f58ca31f1432378c992141ce6c7129d531c033",
@@ -36,7 +36,7 @@
               "required": true
             }
           ],
-          "block": { "type": "tripetto-block-text", "version": "4.2.0" }
+          "block": { "type": "tripetto-block-text", "version": "4.2.2" }
         },
         {
           "id": "fce8f596ff4399191d2ad0e3f686c5827263e3c2e2413496791407f2f51ea397",
@@ -52,7 +52,7 @@
               "required": true
             }
           ],
-          "block": { "type": "tripetto-block-email", "version": "4.0.5" }
+          "block": { "type": "tripetto-block-email", "version": "4.0.7" }
         },
         {
           "id": "858553ceae89c8521537de921fbb0144271d48bad53adc525583861a0adde444",
@@ -74,7 +74,7 @@
             "buttons": [
               {
                 "id": "495c7f6943af9647282ed74fbf0dfee4e5e75f6c8e0db8e32d8c8733897247d4",
-                "name": "Plongeur A(utonome)"
+                "name": "Plongeur individuel"
               },
               {
                 "id": "eda7e85051fb930085a140cf76a866efc47d5e1b9cfaace9d15c704c7681db8a",
@@ -105,7 +105,22 @@
                       "required": true
                     }
                   ],
-                  "block": { "type": "tripetto-block-text", "version": "4.2.0" }
+                  "block": { "type": "tripetto-block-text", "version": "4.2.2" }
+                },
+                {
+                  "id": "06a1afbec50f43c7d700905b036d272cf34bb6c42be3e97a80dcaf300e099ade",
+                  "name": "Nom du ou des bateaux",
+                  "nameVisible": true,
+                  "slots": [
+                    {
+                      "id": "a0f36470abab97eb2e94a65c58459a343fc6371845b681903d710528adffc0aa",
+                      "type": "text",
+                      "kind": "static",
+                      "reference": "value",
+                      "label": "Text"
+                    }
+                  ],
+                  "block": { "type": "tripetto-block-text", "version": "4.2.2" }
                 }
               ]
             }
@@ -126,6 +141,46 @@
         },
         {
           "id": "f34c47ed00dfcdcb0fe3d9bb65a21faa6467b72c0482bd982a72ad30a4872081",
+          "clusters": [
+            {
+              "id": "b414f76b66947d17b57545f6f2c1a1e25b39d0f85a95d43c0e205a208856b45e",
+              "nodes": [
+                {
+                  "id": "e73dcefbe8be748c4592d2797083c07ae493868908fac9cf3ad412c461219707",
+                  "name": "Niveau",
+                  "nameVisible": true,
+                  "slots": [
+                    {
+                      "id": "dab1798c86c5ec447ae63748e89f8a3a49e4367a99b67fdbeab223241835d77c",
+                      "type": "string",
+                      "kind": "static",
+                      "reference": "button",
+                      "label": "Selected button",
+                      "required": true
+                    }
+                  ],
+                  "block": {
+                    "type": "tripetto-block-radiobuttons",
+                    "version": "4.2.0",
+                    "buttons": [
+                      {
+                        "id": "2a6a0b4c62ec54cd585b4473b618fa93175922d640aedbd1e839dc1431de283d",
+                        "name": "Niveau A"
+                      },
+                      {
+                        "id": "68a72da40ec85b8496e26e6f720e0680825b752e246c6131fe9fe03a43b001fd",
+                        "name": "Niveau B"
+                      },
+                      {
+                        "id": "fa26af70ac0ac881d18f1dfc02644f7c09967c3ac2040e51b2fc0b95d26d2e62",
+                        "name": "Niveau C"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
           "conditions": [
             {
               "id": "42f4f53b94fee77f8f2d077cb31ade070ba4e112cfaafa0009a8fb94dbb8fbdb",
@@ -145,39 +200,6 @@
       "id": "7dcf5cc3b29d17ec767c1d8cb64f6a4a78f8a5ab6ce6d3b1773b8e4c7a69da7a",
       "nodes": [
         {
-          "id": "e73dcefbe8be748c4592d2797083c07ae493868908fac9cf3ad412c461219707",
-          "name": "Niveau",
-          "nameVisible": true,
-          "slots": [
-            {
-              "id": "dab1798c86c5ec447ae63748e89f8a3a49e4367a99b67fdbeab223241835d77c",
-              "type": "string",
-              "kind": "static",
-              "reference": "button",
-              "label": "Selected button",
-              "required": true
-            }
-          ],
-          "block": {
-            "type": "tripetto-block-radiobuttons",
-            "version": "4.2.0",
-            "buttons": [
-              {
-                "id": "2a6a0b4c62ec54cd585b4473b618fa93175922d640aedbd1e839dc1431de283d",
-                "name": "Niveau A"
-              },
-              {
-                "id": "68a72da40ec85b8496e26e6f720e0680825b752e246c6131fe9fe03a43b001fd",
-                "name": "Niveau B"
-              },
-              {
-                "id": "fa26af70ac0ac881d18f1dfc02644f7c09967c3ac2040e51b2fc0b95d26d2e62",
-                "name": "Niveau C"
-              }
-            ]
-          }
-        },
-        {
           "id": "ee10707c31d86b24b4d5453a36dcf572357c69a60b4afed63baf93815f63a344",
           "name": "Je certifie la validité des informations",
           "slots": [
@@ -192,7 +214,24 @@
               "labelForTrue": "Checked"
             }
           ],
-          "block": { "type": "tripetto-block-checkbox", "version": "4.1.0" }
+          "block": { "type": "tripetto-block-checkbox", "version": "4.1.2" }
+        },
+        {
+          "id": "26f451809489b87c0c271987f2e5caa067f657d9db6e1f5cee4048bdff5af504",
+          "name": "J'ai lu et j’accepte les termes du présent règlement",
+          "slots": [
+            {
+              "id": "cf3871b145d7101e0ced9142fda74c3a079ad436504b8a5f93dfa3e27536dc46",
+              "type": "boolean",
+              "kind": "static",
+              "reference": "checked",
+              "label": "Checkbox",
+              "required": true,
+              "labelForFalse": "Not checked",
+              "labelForTrue": "Checked"
+            }
+          ],
+          "block": { "type": "tripetto-block-checkbox", "version": "4.1.2" }
         },
         {
           "id": "1c61f8ff5bd9a45739ec74f506bdce4bafdfb1cdc46a3d1164aac507d5fe91b5",
@@ -209,7 +248,7 @@
               "labelForTrue": "Checked"
             }
           ],
-          "block": { "type": "tripetto-block-checkbox", "version": "4.1.0" }
+          "block": { "type": "tripetto-block-checkbox", "version": "4.1.2" }
         }
       ]
     }
