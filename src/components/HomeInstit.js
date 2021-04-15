@@ -4,46 +4,34 @@ import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({});
+import MarkdownText from './MarkdownText';
+import { useHomepageBlocks } from '../hooks/useHomepageBlocks';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    textAlign: 'center',
+    paddingBottom: theme.spacing(2),
+  },
+  title: {
+    textTransform: 'uppercase',
+  },
+}));
 
 const HomeInstit = () => {
   const classes = useStyles();
+  const blocks = useHomepageBlocks();
 
   return (
-    <Grid container className={classes.root}>
-      <Grid item xs={12} md={4}>
-        <Typography variant="h4" color="primary">
-          La plongée sous marine
-        </Typography>
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <Typography variant="h4" color="primary">
-          Où plonger ?
-        </Typography>
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <Typography variant="h4" color="primary">
-          La réglementation
-        </Typography>
+    <Grid container className={classes.root} spacing={4}>
+      {blocks.map(({ title, htmlAst }) => (
+        <Grid item xs={12} md={4} key={title}>
+          <Typography variant="h4" color="primary" className={classes.title} paragraph>
+            {title}
+          </Typography>
 
-        <Typography variant="h5">
-          La plongée :
-        </Typography>
-        <Typography variant="body1">
-          Alias maiores adipisci. Repellat natus voluptatem libero suscipit
-          sed consequatur est. Nesciunt expedita deserunt dolor numquam
-          ullam ea nisi eius.
-        </Typography>
-
-        <Typography variant="h5">
-          Le mouillage :
-        </Typography>
-        <Typography variant="body1">
-          Alias maiores adipisci. Repellat natus voluptatem libero suscipit
-          sed consequatur est. Nesciunt expedita deserunt dolor numquam
-          ullam ea nisi eius.
-        </Typography>
-      </Grid>
+          <MarkdownText hast={htmlAst} />
+        </Grid>
+      ))}
     </Grid>
   );
 };
