@@ -102,3 +102,22 @@ collections:
         file: "texts/authorization.md"
         fields:
           - { name: "body", label: "contenu", widget: "markdown" }
+
+      - name: "homepage1"
+        label: "Page d'accueil - bloc 1"
+        file: "texts/homepage1.md"
+        fields:
+          - { name: "title", label: "Titre", widget: "string", required: false }
+          - { name: "body", label: "Description", widget: "markdown", minimal: true, required: true }
+      - name: "homepage2"
+        label: "Page d'accueil - bloc 2"
+        file: "texts/homepage2.md"
+        fields:
+          - { name: "title", label: "Titre", widget: "string", required: false }
+          - { name: "body", label: "Description", widget: "markdown", minimal: true, required: true }
+      - name: "homepage3"
+        label: "Page d'accueil - bloc 3"
+        file: "texts/homepage3.md"
+        fields:
+          - { name: "title", label: "Titre", widget: "string", required: false }
+          - { name: "body", label: "Description", widget: "markdown", minimal: true, required: true }
