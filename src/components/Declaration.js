@@ -9,7 +9,8 @@ import createPersistedState from 'use-persisted-state';
 import Map from './Map';
 import TripettoForm from './TripettoForm';
 import useDivings from '../hooks/useDivings';
-import { withDivings } from '../lib/definition-enhancers';
+import useCadres from '../hooks/useCadres';
+import { withDivings, withCadres, compose } from '../lib/definition-enhancers';
 import DTPicker from './DTPicker';
 import Link from './Link';
 
@@ -26,6 +27,7 @@ const Declaration = () => {
   const [formCache, setFormCache] = useFormCache(false);
 
   const divings = useDivings();
+  const cadres = useCadres();
 
   const handleMapClick = ({ latlng: { lat, lng } }) => {
     if (!formInstance?.current?.isRunning) {
@@ -97,7 +99,7 @@ const Declaration = () => {
                   setDatetime(cachedDatetime.value);
                 }
               }}
-              enhanceDefinition={withDivings(divings)}
+              enhanceDefinition={compose(withDivings(divings), withCadres(cadres))}
               onComplete={instance => {
                 const formFields = Export.fields(instance).fields;
                 formCache && setFormCache(formFields);
