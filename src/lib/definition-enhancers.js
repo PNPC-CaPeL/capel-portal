@@ -32,6 +32,18 @@ export const withCadres = (cadres = []) => definition => {
   return definition;
 };
 
+export const withStructures = (structures = []) => definition => {
+  const structuresNode = findObject(definition, 'name', 'Structure');
+  structuresNode
+    .filter(node => (node?.block?.type === 'tripetto-block-dropdown'))
+    .forEach(node => {
+      // eslint-disable-next-line no-param-reassign
+      node.block.options = structures.map((structure, index) => ({ name: structure, id: `id${index + 1}` }));
+    });
+
+  return definition;
+};
+
 /*
   dropdown/select -> node.block.options
   radio buttons -> node.block.buttons

@@ -10,9 +10,10 @@ import Map from './Map';
 import TripettoForm from './TripettoForm';
 import useDivings from '../hooks/useDivings';
 import useCadres from '../hooks/useCadres';
-import { withDivings, withCadres, compose } from '../lib/definition-enhancers';
+import { withDivings, withCadres, compose, withStructures } from '../lib/definition-enhancers';
 import DTPicker from './DTPicker';
 import Link from './Link';
+import useStructures from '../hooks/useStructures';
 
 const isLive = typeof window !== 'undefined';
 
@@ -28,6 +29,7 @@ const Declaration = () => {
 
   const divings = useDivings();
   const cadres = useCadres();
+  const structures = useStructures();
 
   const handleMapClick = ({ latlng: { lat, lng } }) => {
     if (!formInstance?.current?.isRunning) {
@@ -99,7 +101,11 @@ const Declaration = () => {
                   setDatetime(cachedDatetime.value);
                 }
               }}
-              enhanceDefinition={compose(withDivings(divings), withCadres(cadres))}
+              enhanceDefinition={compose(
+                withDivings(divings),
+                withCadres(cadres),
+                withStructures(structures),
+              )}
               onComplete={instance => {
                 const formFields = Export.fields(instance).fields;
                 formCache && setFormCache(formFields);

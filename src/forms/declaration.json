@@ -93,19 +93,29 @@
               "nodes": [
                 {
                   "id": "d5e66e014bed4255b8a4ca68b955a70b0ab96f62cfca9098a0558f3ea46a6869",
+                  "explanation": "Seules les structures ayant signé le règlement sont disponibles",
                   "name": "Structure",
                   "nameVisible": true,
                   "slots": [
                     {
                       "id": "b77417df02f2f0f9cbc5f51ad32eeb0ebf099484423203b6f82f0a22a97ffbcb",
-                      "type": "text",
+                      "type": "string",
                       "kind": "static",
-                      "reference": "value",
-                      "label": "Text",
+                      "reference": "option",
+                      "label": "Selected option",
                       "required": true
                     }
                   ],
-                  "block": { "type": "tripetto-block-text", "version": "4.2.2" }
+                  "block": {
+                    "type": "tripetto-block-dropdown",
+                    "version": "4.2.0",
+                    "options": [
+                      {
+                        "id": "7105912488029724d9beede190620a30c88f876e3f5a1d0357b09f2c5270f08d",
+                        "name": "Exemple"
+                      }
+                    ]
+                  }
                 },
                 {
                   "id": "9f7e1b0365231614815ce03d132580f04bf2a91a045d29a8fe8419925aee14e2",
@@ -195,21 +205,29 @@
                       "nodes": [
                         {
                           "id": "742cf0bf0a1ba648517f4f249ab6e3e7d992e4f5a4e92c63a6583aee93ec86bb",
-                          "name": "Nom de la structure",
+                          "explanation": "Seules les structures ayant signé le règlement sont disponibles",
+                          "name": "Structure",
                           "nameVisible": true,
+                          "description": "",
                           "slots": [
                             {
                               "id": "f732130fa2ed130c26d69757690560bbefceecb038807ab122994b93c58a31c4",
-                              "type": "text",
+                              "type": "string",
                               "kind": "static",
-                              "reference": "value",
-                              "label": "Text",
+                              "reference": "option",
+                              "label": "Selected option",
                               "required": true
                             }
                           ],
                           "block": {
-                            "type": "tripetto-block-text",
-                            "version": "4.2.2"
+                            "type": "tripetto-block-dropdown",
+                            "version": "4.2.0",
+                            "options": [
+                              {
+                                "id": "51dc23256dbaed409aa057461be3dbc6396b6553b96f7b9e7f25fe0e46383d1c",
+                                "name": "Exemple"
+                              }
+                            ]
                           }
                         }
                       ]
