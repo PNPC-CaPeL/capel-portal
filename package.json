@@ -39,6 +39,7 @@
     "netlify-cms-app": "^2.14.40",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-element-scroll-hook": "^1.1.0",
     "react-error-boundary": "^3.1.1",
     "react-leaflet": "^3.1.0",
     "rehype-react": "^6.2.0",
