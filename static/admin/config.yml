@@ -87,6 +87,17 @@ collections:
             fields:
               - { name: "title", label: "Titre", widget: "string" }
               - { name: "body", label: "Description", widget: "markdown", minimal: true, required: false }
+      - name: "cadres"
+        label: "Cadres"
+        file: "lists/cadres.json"
+        fields:
+          - name: cadres
+            label: "Cadres"
+            widget: "list"
+            fields:
+              - { name: "title", label: "Titre", widget: "string" }
+              - { name: "body", label: "Description", widget: "markdown", minimal: true, required: false }
+
 
   - name: "texts"
     label: "Textes"
