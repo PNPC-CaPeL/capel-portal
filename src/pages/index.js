@@ -23,7 +23,6 @@ const useStyles = makeStyles(theme => ({
   },
 
   title: {
-    textTransform: 'uppercase',
     marginTop: theme.spacing(4),
   },
 
@@ -32,6 +31,9 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.primary.contrastText,
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
+  },
+
+  meteo: {
   },
 }));
 
@@ -65,7 +67,7 @@ const HomePage = () => {
       </Box>
 
       <Container>
-        <Typography variant="h2" className={classes.title} color="primary">
+        <Typography variant="h3" className={classes.title} color="primary">
           Informations
         </Typography>
 
@@ -73,8 +75,13 @@ const HomePage = () => {
       </Container>
 
       <Container>
-        <Typography variant="h2" className={classes.title} color="primary">
-          Météo
+        <Typography
+          variant="h2"
+          className={classes.title}
+          color="primary"
+          style={{ textAlign: 'right' }}
+        >
+          Météo marine
         </Typography>
       </Container>
 

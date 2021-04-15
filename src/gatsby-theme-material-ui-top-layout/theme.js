@@ -1,6 +1,6 @@
-import { createMuiTheme } from '@material-ui/core';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core';
 
-const theme = createMuiTheme({
+const theme = responsiveFontSizes(createMuiTheme({
   palette: {
     primary: {
       main: '#3991aa',
@@ -11,14 +11,32 @@ const theme = createMuiTheme({
   },
   typography: {
     fontSize: 16,
-    h1: { fontSize: '3rem' },
-    h2: { fontSize: '2.125rem' },
-    h3: { fontSize: '1.5rem' },
-    h4: { fontSize: '1.25rem' },
-    h5: { fontSize: '1.125rem' },
-    h6: { fontSize: '1rem' },
     fontFamily: 'Raleway, sans-serif',
+
+    h1: {
+      fontSize: '4.768rem',
+      fontWeight: 600,
+      textTransform: 'uppercase',
+    },
+    h2: {
+      fontSize: '3.5rem',
+      fontWeight: 600,
+      textTransform: 'uppercase',
+    },
+    h3: {
+      fontSize: '2rem',
+      fontWeight: 600,
+      textTransform: 'uppercase',
+    },
+    h4: {
+      fontSize: '1.4rem',
+      fontWeight: 700,
+      textTransform: 'uppercase',
+    },
+    h5: {
+      fontSize: '1.2rem',
+    },
   },
-});
+}));
 
 export default theme;

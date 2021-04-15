@@ -37,7 +37,13 @@ module.exports = {
             google: [
               {
                 family: 'Raleway',
-                variants: ['300', '400', '700', '300i', '400i', '700i'],
+                variants: [
+                  '300', '300i',
+                  '400', '400i',
+                  '500', '500i',
+                  '600', '600i',
+                  '700', '700i',
+                ],
                 strategy: 'selfHosted',
               },
             ],
