@@ -52,6 +52,7 @@ const Declaration = () => {
   const handleDateChange = isoDate => {
     if (!isoDate || !formInstance?.current?.isRunning) { return; }
     Import.fields(formInstance.current, [{ name: 'Date', value: isoDate }]);
+    setDatetime(isoDate);
   };
 
   return (
