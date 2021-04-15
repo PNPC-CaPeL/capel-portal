@@ -20,7 +20,7 @@
               "required": true
             }
           ],
-          "block": { "type": "tripetto-block-text", "version": "4.2.0" }
+          "block": { "type": "tripetto-block-text", "version": "4.2.2" }
         },
         {
           "id": "afcfa2570c2e91ab7341fcd2f2f58ca31f1432378c992141ce6c7129d531c033",
@@ -36,7 +36,7 @@
               "required": true
             }
           ],
-          "block": { "type": "tripetto-block-text", "version": "4.2.0" }
+          "block": { "type": "tripetto-block-text", "version": "4.2.2" }
         },
         {
           "id": "fce8f596ff4399191d2ad0e3f686c5827263e3c2e2413496791407f2f51ea397",
@@ -52,7 +52,7 @@
               "required": true
             }
           ],
-          "block": { "type": "tripetto-block-email", "version": "4.0.5" }
+          "block": { "type": "tripetto-block-email", "version": "4.0.7" }
         },
         {
           "id": "858553ceae89c8521537de921fbb0144271d48bad53adc525583861a0adde444",
@@ -74,7 +74,7 @@
             "buttons": [
               {
                 "id": "495c7f6943af9647282ed74fbf0dfee4e5e75f6c8e0db8e32d8c8733897247d4",
-                "name": "Plongeur A(utonome)"
+                "name": "Plongeur individuel"
               },
               {
                 "id": "eda7e85051fb930085a140cf76a866efc47d5e1b9cfaace9d15c704c7681db8a",
@@ -105,7 +105,43 @@
                       "required": true
                     }
                   ],
-                  "block": { "type": "tripetto-block-text", "version": "4.2.0" }
+                  "block": { "type": "tripetto-block-text", "version": "4.2.2" }
+                },
+                {
+                  "id": "9f7e1b0365231614815ce03d132580f04bf2a91a045d29a8fe8419925aee14e2",
+                  "name": "Nom du bateau",
+                  "nameVisible": true,
+                  "slots": [
+                    {
+                      "id": "9f8d0cb03c59e46f2437837a45df8ec0fd624ab47eba9ef82ea85b39049e1c19",
+                      "type": "text",
+                      "kind": "static",
+                      "reference": "value",
+                      "label": "Text"
+                    }
+                  ],
+                  "block": { "type": "tripetto-block-text", "version": "4.2.2" }
+                },
+                {
+                  "id": "1a81925ff3122495adb67401734f35e296c1f627b7e5618750d3fef5ad6a90bd",
+                  "name": "Nombre de plongeurs",
+                  "nameVisible": true,
+                  "slots": [
+                    {
+                      "id": "941e674630d8a1f5c06071b4bc27b9ed9d4f8bfb1cc4a392b9d3b9e3d751b32a",
+                      "type": "numeric",
+                      "kind": "static",
+                      "reference": "number",
+                      "label": "Number",
+                      "required": true,
+                      "minimum": 1,
+                      "maximum": 99999
+                    }
+                  ],
+                  "block": {
+                    "type": "tripetto-block-number",
+                    "version": "6.1.2"
+                  }
                 }
               ]
             }
@@ -126,6 +162,153 @@
         },
         {
           "id": "f34c47ed00dfcdcb0fe3d9bb65a21faa6467b72c0482bd982a72ad30a4872081",
+          "clusters": [
+            {
+              "id": "0e0b3e90ee43fec41a1841e6e4f52eb67c792adb400fb11bfd683cc06f3c467a",
+              "nodes": [
+                {
+                  "id": "ec664c32281d5e8a90d682f842a65b04fe370abeca7b9f7520327937e1f5c0f0",
+                  "name": "Plongée encadrée",
+                  "slots": [
+                    {
+                      "id": "cca0a43e7049fc1de682cbb540d446fc065eed2b108a6054dc41940311a345ba",
+                      "type": "boolean",
+                      "kind": "static",
+                      "reference": "checked",
+                      "label": "Checkbox",
+                      "labelForFalse": "Not checked",
+                      "labelForTrue": "Checked"
+                    }
+                  ],
+                  "block": {
+                    "type": "tripetto-block-checkbox",
+                    "version": "4.1.2"
+                  }
+                }
+              ],
+              "branches": [
+                {
+                  "id": "978cb00c30d5a794b22b83a0859a0853cf64c394dba8777f454d098dd4780b99",
+                  "clusters": [
+                    {
+                      "id": "ee99cba7c356f21e6a5776bf9138ec1f2b5083f9b8529734c851abe58fc4c2f5",
+                      "nodes": [
+                        {
+                          "id": "2a3264315bc705c7894bac29853f7027444a627cae823dc7c56041b9abe32718",
+                          "name": "Nom de la structure",
+                          "nameVisible": true,
+                          "slots": [
+                            {
+                              "id": "016d2c3af14ca8b0d9e8b2b94ac3ae2d2831bf744389a6988f43c560f69ed180",
+                              "type": "string",
+                              "kind": "static",
+                              "reference": "option",
+                              "label": "Selected option",
+                              "required": true
+                            }
+                          ],
+                          "block": {
+                            "type": "tripetto-block-dropdown",
+                            "version": "4.2.0",
+                            "options": [
+                              {
+                                "id": "618b3b13a526bc412e4b1f59601bd93bfdbd1f10f53dcd3d6d8d20476dffa57e",
+                                "name": "Autre…"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "branches": [
+                        {
+                          "id": "b21e5eb37dc9589ee8c232f7549556699ccbc06a3e7103afe8e3fc2d2ed3fdc7",
+                          "clusters": [
+                            {
+                              "id": "e27c40494e2a65100f7243ed90e8a87813eb56b39a089469cc6ffda27239eec7",
+                              "nodes": [
+                                {
+                                  "id": "742cf0bf0a1ba648517f4f249ab6e3e7d992e4f5a4e92c63a6583aee93ec86bb",
+                                  "name": "Nom de la structure",
+                                  "nameVisible": true,
+                                  "slots": [
+                                    {
+                                      "id": "f732130fa2ed130c26d69757690560bbefceecb038807ab122994b93c58a31c4",
+                                      "type": "text",
+                                      "kind": "static",
+                                      "reference": "value",
+                                      "label": "Text",
+                                      "required": true
+                                    }
+                                  ],
+                                  "block": {
+                                    "type": "tripetto-block-text",
+                                    "version": "4.2.2"
+                                  }
+                                }
+                              ]
+                            }
+                          ],
+                          "conditions": [
+                            {
+                              "id": "82acb72084e062dc82a6b5578bae38034c4a9b27a1fe95b87d41b6111c46159c",
+                              "block": {
+                                "option": "618b3b13a526bc412e4b1f59601bd93bfdbd1f10f53dcd3d6d8d20476dffa57e",
+                                "type": "tripetto-block-dropdown",
+                                "version": "4.2.0",
+                                "node": "2a3264315bc705c7894bac29853f7027444a627cae823dc7c56041b9abe32718",
+                                "slot": "016d2c3af14ca8b0d9e8b2b94ac3ae2d2831bf744389a6988f43c560f69ed180"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "conditions": [
+                    {
+                      "id": "62632bd201ee4c7e5bdb77af8516b93ac741e69a22e18407cf9cbd22829cea01",
+                      "block": {
+                        "type": "tripetto-block-checkbox",
+                        "version": "4.1.2",
+                        "node": "ec664c32281d5e8a90d682f842a65b04fe370abeca7b9f7520327937e1f5c0f0",
+                        "slot": "cca0a43e7049fc1de682cbb540d446fc065eed2b108a6054dc41940311a345ba",
+                        "checked": true
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "7c0d13080adebbc26089116642c26be3bcf54b3549cb45c30077e13704c9fe69",
+              "nodes": [
+                {
+                  "id": "db0beeefb360bc7891af26e637a51e5671ad42fa8596a5979be1139c23f26b20",
+                  "name": "Cadre",
+                  "nameVisible": true,
+                  "slots": [
+                    {
+                      "id": "e5b0f43d091f590bcc36d9972cc92bf073725b3eea97d4d8613ff8273e34d604",
+                      "type": "string",
+                      "kind": "static",
+                      "reference": "option",
+                      "label": "Selected option"
+                    }
+                  ],
+                  "block": {
+                    "type": "tripetto-block-dropdown",
+                    "version": "4.2.0",
+                    "options": [
+                      {
+                        "id": "c37f031e16e1ebfda2f3a75cbdfbaaa3a99104b1b257e1d91d97623a85f9a53e",
+                        "name": "Exemple"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
           "conditions": [
             {
               "id": "42f4f53b94fee77f8f2d077cb31ade070ba4e112cfaafa0009a8fb94dbb8fbdb",
@@ -186,7 +369,7 @@
           ],
           "block": {
             "type": "tripetto-block-text",
-            "version": "4.2.0",
+            "version": "4.2.2",
             "useSuggestions": true,
             "suggestions": [
               {
@@ -213,33 +396,188 @@
           ],
           "block": {
             "type": "tripetto-block-date",
-            "version": "2.0.5",
+            "version": "2.0.7",
             "time": true,
             "required": true
           }
         },
         {
-          "id": "c8bc9d637571108cb421c68106ab6546a1e5e1dfe82824cd42f840b7d5a587fd",
-          "name": "Nombre de plongeurs",
+          "id": "6766d133e75d7e58857ece7053f22fc40999ea7d06537f4501db5cac14a3e6b7",
+          "name": "Météo",
           "nameVisible": true,
           "slots": [
             {
-              "id": "dedeac869ed29f77e8f33512010f2e295b2c931a8a714527ec2992996bce1196",
-              "type": "number",
+              "id": "71c7c1bc0b91261a5ad027b3a129787e7d0ff6e0c2cdc6ff89ffdddbd46cd90e",
+              "type": "string",
               "kind": "static",
-              "reference": "scale",
-              "label": "Scale",
-              "required": true
+              "reference": "option",
+              "label": "Selected option",
+              "alias": ""
             }
           ],
           "block": {
-            "type": "tripetto-block-scale",
-            "version": "2.1.0",
-            "mode": "numeric",
-            "from": 1,
-            "to": 10,
-            "stepSize": 1
+            "type": "tripetto-block-dropdown",
+            "version": "4.2.0",
+            "options": [
+              {
+                "id": "b40f542ca02ecafe48d9a1cb425a34146f6dd35b4b661ba6379c20a8fcb3b3d9",
+                "name": "Ensoleillée"
+              },
+              {
+                "id": "b03d795ca38d840a68aabd844e938fcc606efa380bc19d43545640c93466edfd",
+                "name": "Autre"
+              }
+            ]
           }
+        },
+        {
+          "id": "a170c1edf89488eec4fc53519a3ee596039896e3e737e9a3868e186832e03a4b",
+          "name": "État de la mer",
+          "nameVisible": true,
+          "slots": [
+            {
+              "id": "6ad96edb0765679de8fb411569c6fd8b56ce7d7530d6dd48cae2b58c461d1527",
+              "type": "string",
+              "kind": "static",
+              "reference": "option",
+              "label": "Selected option",
+              "alias": "mer"
+            }
+          ],
+          "block": {
+            "type": "tripetto-block-dropdown",
+            "version": "4.2.0",
+            "options": [
+              {
+                "id": "6e7d04e9cda9255ee190c8553da4734cd38037383b74f742b5e4265a2606d8a6",
+                "name": "Calme"
+              },
+              {
+                "id": "040b4fdfe7d1cc68844f70c37e99521966f7446fab3e18e77caf804c898d123b",
+                "name": "Ridée"
+              },
+              {
+                "id": "b6c09a2daff17b277da39836ff6921fceb3610c408ab58ebff9c3b8905ef1f54",
+                "name": "Belle"
+              },
+              {
+                "id": "6e38a184192346b86e924b8c8446e0562ec4892bfc818a50a152b382a5836e42",
+                "name": "Peu agitée"
+              },
+              {
+                "id": "ebaca1d6288a5b52b1e80a236fe487e47dfc89b82fd34d255904c13437c64e9a",
+                "name": "Agitée"
+              },
+              {
+                "id": "1f871b994a793befa753b184d8fae5dc69c17de6af7b51926c1b7acc384695d6",
+                "name": "Forte"
+              },
+              {
+                "id": "ba6419b4ae02bd30874dc7aea618efc75d049b64ff2182c8827ded94174167dc",
+                "name": "Très forte"
+              },
+              {
+                "id": "00f296771fe2ebc9801aa74e89593d85d3db5dc5ccaa5690c7568b6ad28059e2",
+                "name": "Grosse"
+              },
+              {
+                "id": "03fd726864e6f3ed9d51c4065a25b5dbe9818f2925257994ba714c1862392abc",
+                "name": "Très grosse"
+              },
+              {
+                "id": "f80d66e47aee2cc3f596f4f26713ac4dad71dc913d1a9364777a80bf2e6c28ee",
+                "name": "Énorme"
+              }
+            ]
+          }
+        },
+        {
+          "id": "c79fdf178ad73794012e41fe5c8360aa97cea351bdc67b9668fafc2da07f2196",
+          "name": "Orientation du vent",
+          "nameVisible": true,
+          "slots": [
+            {
+              "id": "98da9b8ab4544bfa510859b04f416b22f50a1f48a9611029df5a14bf511e6ea8",
+              "type": "string",
+              "kind": "static",
+              "reference": "option",
+              "label": "Selected option",
+              "alias": "vent"
+            }
+          ],
+          "block": {
+            "type": "tripetto-block-dropdown",
+            "version": "4.2.0",
+            "options": [
+              {
+                "id": "68f170742aaa94a72f4095adc75c6b0528315968a56d0e5a60dd424298ef17f9",
+                "name": "Nord"
+              },
+              {
+                "id": "983106c3866c3fd13e4a4e3ce048caeb110ddb869918c44cc8631e94aa6d0f14",
+                "name": "Nord-Est"
+              },
+              {
+                "id": "fef9ddf8cb0a5fa18f13184b3e67ac007115dd3bd625455d4eb6930289696043",
+                "name": "Est"
+              },
+              {
+                "id": "01ff4d6dea1828bcaf2d9a5fde46b02c3afcbd2e5c671f397081cc8655295e69",
+                "name": "Sud-Est"
+              },
+              {
+                "id": "00e60920310659e307ad9238091eb68a2885925b9f296c0819c72be0014785d2",
+                "name": "Sud"
+              },
+              {
+                "id": "ea5f9ae1b35e6e5bc509311e4d752d464d5a270da88b263414c7e1eb3b4649aa",
+                "name": "Sud-Ouest"
+              },
+              {
+                "id": "e209c1d6e320ffed89265806ca1d4200e4629f74e79a8f50d6478ce98736d664",
+                "name": "Ouest"
+              },
+              {
+                "id": "dd0e8cbfa2a035627c58292265b81f765860ed9f028ac0a4698fd11799fdfe7c",
+                "name": "Nord-Ouest"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cc14083fba98c2823a4d0f10f172e13c82198bfd368c49435eae32bb091c3704",
+          "name": "Température de l'eau",
+          "nameVisible": true,
+          "slots": [
+            {
+              "id": "844f0add52718a1c062dc374f744e8ebd05b223e3221d3a8f1462ef2a77eae6a",
+              "type": "numeric",
+              "kind": "static",
+              "reference": "number",
+              "label": "Number",
+              "minimum": 0,
+              "maximum": 40,
+              "suffix": " °C"
+            }
+          ],
+          "block": { "type": "tripetto-block-number", "version": "6.1.2" }
+        },
+        {
+          "id": "4903c289b94fa926b469ca77ed2240deaab8a09d3242481dfa54f825d9f3347d",
+          "name": "Je certifie la validité des informations",
+          "slots": [
+            {
+              "id": "8eb34f89aab8d6c4b11a6e780cb4c68234d1a490fab399968878aca3c6f5f374",
+              "type": "boolean",
+              "kind": "static",
+              "reference": "checked",
+              "label": "Checkbox",
+              "required": true,
+              "labelForFalse": "Not checked",
+              "labelForTrue": "Checked"
+            }
+          ],
+          "block": { "type": "tripetto-block-checkbox", "version": "4.1.2" }
         }
       ]
     }
