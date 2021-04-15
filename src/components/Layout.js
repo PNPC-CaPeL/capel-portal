@@ -9,6 +9,8 @@ import Footer from './Footer';
 
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
 
+import favicon from '../assets/icon.png';
+
 const useStyles = makeStyles({
   root: {
     display: 'flex',
@@ -43,7 +45,10 @@ const Layout = ({
         title={pageTitle}
         titleTemplate={`%s | ${title}`}
         defaultTitle={title}
-      />
+      >
+        <link rel="icon" href={favicon} />
+      </Helmet>
+
       {Boolean(header) && <Header title={pageTitle} {...headerProps} />}
 
       <ContainerComponent
