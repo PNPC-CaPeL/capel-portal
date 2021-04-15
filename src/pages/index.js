@@ -26,6 +26,7 @@ const useStyles = makeStyles(theme => ({
 
   title: {
     marginTop: theme.spacing(4),
+    textTransform: 'uppercase',
   },
 
   bluebleed: {

@@ -16,22 +16,18 @@ const theme = responsiveFontSizes(createMuiTheme({
     h1: {
       fontSize: '4.768rem',
       fontWeight: 600,
-      textTransform: 'uppercase',
     },
     h2: {
       fontSize: '3.5rem',
       fontWeight: 600,
-      textTransform: 'uppercase',
     },
     h3: {
       fontSize: '2rem',
       fontWeight: 600,
-      textTransform: 'uppercase',
     },
     h4: {
       fontSize: '1.4rem',
       fontWeight: 700,
-      textTransform: 'uppercase',
     },
     h5: {
       fontSize: '1.2rem',

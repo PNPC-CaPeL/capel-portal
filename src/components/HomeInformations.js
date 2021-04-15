@@ -2,9 +2,7 @@ import React from 'react';
 import inside from '@turf/boolean-point-in-polygon';
 import createPersistedState from 'use-persisted-state';
 
-import { Card, CardContent, Typography } from '@material-ui/core';
-
-import MarkdownText from './MarkdownText';
+import HomeInformationCard from './HomeInformationCard';
 
 import useInformations from '../hooks/useInformations';
 import useSpots from '../hooks/useSpots';
@@ -25,9 +23,10 @@ const HomeInformations = () => {
         coordinates: JSON.parse(location).coordinates,
       };
     });
+
   const favSpotTitles = favSpots.map(({ title }) => title);
 
-  const favInformations = informations.filter(info => {
+  const isFavInfo = info => {
     const { childMarkdownRemark: { frontmatter: { spots = [], zone = '{}' } } } = info;
     const spotIntersect = spots.filter(value => favSpotTitles.includes(value));
 
@@ -37,36 +36,29 @@ const HomeInformations = () => {
       Boolean(spotIntersect.length)
       || favSpots.some(({ coordinates }) => inside(coordinates, polygon))
     );
-  });
+  };
+
+  const favInformations = informations.filter(isFavInfo);
+  const notFavInformations = informations.filter(info => !isFavInfo(info));
 
   return (
     <>
       {favInformations.map(({ childMarkdownRemark: { excerptAst, frontmatter: { title } } }) => (
-        <Card>
-          <CardContent>
-            <Typography variant="h3" paragraph>
-              {title}
-            </Typography>
-            <MarkdownText hast={excerptAst} />
-          </CardContent>
-        </Card>
+        <HomeInformationCard
+          key={title}
+          title={title}
+          hast={excerptAst}
+        />
       ))}
 
-      {favInformations.length === 0 && (
-        <>
-          {informations.map(({ childMarkdownRemark: { excerptAst, frontmatter: { title } } }) => (
-            <Card style={{ opacity: 0.5 }} key={title}>
-              <CardContent>
-                <Typography variant="h3" paragraph>
-                  {title}
-                </Typography>
-                <MarkdownText hast={excerptAst} />
-              </CardContent>
-            </Card>
-          ))}
-        </>
-      )}
-
+      {notFavInformations.map(({ childMarkdownRemark: { excerptAst, frontmatter: { title } } }) => (
+        <HomeInformationCard
+          key={title}
+          title={title}
+          hast={excerptAst}
+          style={{ opacity: 0.5 }}
+        />
+      ))}
     </>
   );
 };
