@@ -11,6 +11,7 @@ import Map from '../components/Map';
 import HomeHero from '../components/HomeHero';
 import HomePartners from '../components/HomePartners';
 import HomeInstit from '../components/HomeInstit';
+import HomeStats from '../components/HomeStats';
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -95,8 +96,7 @@ const HomePage = () => {
 
       <Box className={clsx(classes.bluebleed)}>
         <Container>
-          stats
-          <Box style={{ height: 150 }} />
+          <HomeStats />
         </Container>
       </Box>
 

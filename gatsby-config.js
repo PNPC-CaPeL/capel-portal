@@ -20,6 +20,24 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-airtable',
+      options: {
+        apiKey: process.env.AIRTABLE_API_KEY,
+        tables: [
+          {
+            baseId: 'appwosEetH7gWIHO2',
+            tableName: 'Signatures du règlement',
+            queryName: 'regulation',
+          },
+          {
+            baseId: 'appwosEetH7gWIHO2',
+            tableName: 'Déclarations de plongées',
+            queryName: 'declaration',
+          },
+        ],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: { include: /.*assets.*\.svg$/ },
