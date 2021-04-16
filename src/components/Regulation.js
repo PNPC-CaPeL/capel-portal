@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { Grid, Typography } from '@material-ui/core';
+import { Box, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import useScrollInfo from 'react-element-scroll-hook';
@@ -22,6 +22,10 @@ const useStyles = makeStyles({
   regH1: {
     fontSize: '2rem',
   },
+  shouldRead: {
+    textAlign: 'center',
+    alignSelf: 'center',
+  },
 });
 
 const Regulation = () => {
@@ -32,6 +36,11 @@ const Regulation = () => {
 
   const [complete, setComplete] = React.useState(false);
   const [hasRead, setHasRead] = React.useState(false);
+
+  const reset = () => {
+    setComplete(false);
+    setHasRead(false);
+  };
 
   React.useEffect(() => {
     if (scrollInfo.y.percentage >= 0.95) {
@@ -62,10 +71,10 @@ const Regulation = () => {
   };
 
   return (
-    <Grid container justify="space-between">
+    <Grid container justify={complete ? 'space-around' : 'space-between'}>
       {Boolean(complete) && (
-        <Grid item md={4}>
-          <Typography variant="h1" paragraph>
+        <Grid item md={5}>
+          <Typography variant="h3" paragraph>
             Merci de votre engagement,
           </Typography>
 
@@ -82,7 +91,7 @@ const Regulation = () => {
 
           <Typography variant="body1" paragraph>
             Vous pouvez procéder à
-            une <Link onClick={() => setComplete(false)} to=".">nouvelle signature</Link> ou
+            une <Link onClick={reset} to=".">nouvelle signature</Link> ou
             bien retourner sur la <Link to="/">page d'accueil</Link>.
           </Typography>
         </Grid>
@@ -94,11 +103,14 @@ const Regulation = () => {
             <MarkdownText hast={htmlAst} components={customComponent} body="body2" />
           </Grid>
 
-          <Grid item md={4}>
+          <Grid item md={4} container>
             {!hasRead && (
-              <Typography variant="body1" paragraph>
-                Merci de lire l'ensemble du règlement avant de le signer.
-              </Typography>
+              <Box className={classes.shouldRead}>
+                <Typography variant="body1" paragraph>
+                  Merci de lire<br />
+                  l'ensemble du règlement avant de le signer.
+                </Typography>
+              </Box>
             )}
 
             {hasRead && (
