@@ -1,4 +1,32 @@
 
+0.3.0 / 2021-04-16
+==================
+
+  * Improve regulation form "shouldRead" message
+  * Move SaveFormState switch above declaration form
+  * Adjust some title fontSizes
+  * Adjust regulation & declaration columns (grid items) alignments
+  * Add title in spots popup
+  * Add structures on maps
+  * Create admin UI for structures
+  * Rename useStructures to useRegStructures
+  * Forbit to fill regulation form without having scroll down the regulation text
+  * Adjust HomeHero slogan font
+  * Fix datetime issue in declaration form
+  * Allow to select only Structures having signed
+  * Simplify declaration from
+  * Enhance "Cadre" form field with remote data
+  * Add Cadres to lists admin
+  * Update declaration form
+  * Update regulation form
+  * Add row content to footer
+  * Setup favicon
+  * Show HomeStats from Airtable aggregated data
+  * Manage home blocks from remote contents
+  * Add homepage blocks to NetlifyCMS config
+  * Cleanup HomeInformations display
+  * Cleanup HomeHero buttons (HomeButtons)
+
 0.2.0 / 2021-04-15
 ==================
 
