@@ -9,6 +9,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Spots from './Spots';
+import MapStructures from './MapStructures';
 
 const isLive = typeof window !== 'undefined';
 
@@ -59,6 +60,8 @@ const Map = ({ onBackgroundClick, spotProps = {}, children = null, ...props }) =
         {children}
 
         <Spots {...spotProps} />
+
+        <MapStructures />
 
         <TileLayer
           attribution=""
