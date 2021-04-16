@@ -13,7 +13,7 @@ import useCadres from '../hooks/useCadres';
 import { withDivings, withCadres, compose, withStructures } from '../lib/definition-enhancers';
 import DTPicker from './DTPicker';
 import Link from './Link';
-import useStructures from '../hooks/useStructures';
+import useRegStructures from '../hooks/useRegStructures';
 
 const isLive = typeof window !== 'undefined';
 
@@ -29,7 +29,7 @@ const Declaration = () => {
 
   const divings = useDivings();
   const cadres = useCadres();
-  const structures = useStructures();
+  const structures = useRegStructures();
 
   const handleMapClick = ({ latlng: { lat, lng } }) => {
     if (!formInstance?.current?.isRunning) {

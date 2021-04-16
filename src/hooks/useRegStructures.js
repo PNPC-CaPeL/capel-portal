@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 const isCurrentYear = ({ data: { date } }) =>
   (+date?.match?.(/^\d{4}/)?.[0] === new Date().getFullYear());
 
-export const useStructures = () => {
+export const useRegStructures = () => {
   const { wrapper } = useStaticQuery(graphql`
     query {
       wrapper: allAirtable(
@@ -24,4 +24,4 @@ export const useStructures = () => {
     .map(({ data: { structure } }) => structure);
 };
 
-export default useStructures;
+export default useRegStructures;
