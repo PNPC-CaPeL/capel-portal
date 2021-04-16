@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Import, Export } from 'tripetto-runner-foundation';
-import { Box, FormControlLabel, Grid, Switch, Typography } from '@material-ui/core';
+import { Box, Grid, Typography } from '@material-ui/core';
 import { CircleMarker } from 'react-leaflet';
 
 import createPersistedState from 'use-persisted-state';
@@ -14,6 +14,7 @@ import { withDivings, withCadres, compose, withStructures } from '../lib/definit
 import DTPicker from './DTPicker';
 import Link from './Link';
 import useRegStructures from '../hooks/useRegStructures';
+import SaveFormState from './SaveFormState';
 
 const isLive = typeof window !== 'undefined';
 
@@ -90,6 +91,14 @@ const Declaration = () => {
           </Grid>
 
           <Grid item md={4}>
+            <Box style={{ textAlign: 'right' }}>
+              <SaveFormState
+                checked={!!formCache}
+                onChange={() => setFormCache(prevFormCache => (prevFormCache ? false : {}))}
+                label="Mémoriser ma saisie"
+              />
+            </Box>
+
             <TripettoForm
               form="declaration"
               endpoint={process.env.GATSBY_ENDPOINT_DECLARATION}
@@ -113,20 +122,6 @@ const Declaration = () => {
                 setComplete(true);
               }}
             />
-
-            <Box style={{ textAlign: 'center' }}>
-              <FormControlLabel
-                control={(
-                  <Switch
-                    size="small"
-                    checked={!!formCache}
-                    onChange={() => setFormCache(prevFormCache => (prevFormCache ? false : {}))}
-                  />
-                )}
-                label="Mémoriser ma saisie"
-                labelPlacement="start"
-              />
-            </Box>
           </Grid>
         </>
       )}
