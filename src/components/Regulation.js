@@ -46,7 +46,7 @@ const Regulation = () => {
   `);
 
   return (
-    <Grid container justify="space-around">
+    <Grid container justify="space-between">
       {Boolean(complete) && (
         <Grid item md={4}>
           <Typography variant="h1" paragraph>
