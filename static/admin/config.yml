@@ -62,6 +62,17 @@ collections:
         display_fields: ["title"]
       - { name: "structures", label: "Structures", widget: "list" }
 
+  - name: "structure"
+    label: "Structure"
+    folder: "structures"
+    create: true
+    fields:
+      - { name: "draft", label: "Brouillon", widget: "boolean", default: true, required: false }
+      - { name: "title", label: "Nom de la structure", widget: "string" }
+      - { name: "url", label: "Site internet", widget: "string", required: false }
+      - { name: "location", label: "Emplacement", widget: "map" }
+      - { name: "body", label: "Description", widget: "markdown", minimal: true, required: false }
+
   - name: "lists"
     label: "Listes"
     files:
