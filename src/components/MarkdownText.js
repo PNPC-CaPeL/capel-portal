@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const MarkdownText = ({ hast, components, className, ...rest }) => {
+const MarkdownText = ({ hast, components, className, body = 'body1', ...rest }) => {
   const classes = useStyles();
 
   const renderAst = new Rehype2react({
@@ -39,8 +39,8 @@ const MarkdownText = ({ hast, components, className, ...rest }) => {
       h4: props => <Typography variant="h4" {...props} />,
       h5: props => <Typography variant="h5" {...props} />,
       h6: props => <Typography variant="h6" {...props} />,
-      p: props => <Typography variant="body1" {...props} />,
-      li: props => <Typography variant="body1" component="li" {...props} />,
+      p: props => <Typography variant={body} {...props} />,
+      li: props => <Typography variant={body} component="li" {...props} />,
       a: props => <Link {...props} />,
       table: props => <Table {...props} />,
       thead: props => <TableHead {...props} />,

@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { Grid, Typography } from '@material-ui/core';
@@ -17,6 +18,9 @@ const useStyles = makeStyles({
   wrapper: {
     height: 600,
     overflow: 'auto',
+  },
+  regH1: {
+    fontSize: '2rem',
   },
 });
 
@@ -44,6 +48,18 @@ const Regulation = () => {
       }
     }
   `);
+
+  const customComponent = {
+    h2: ({ className, ...props }) => (
+      <Typography
+        variant="h2"
+        className={clsx(className, classes.regH1)}
+        paragraph
+        {...props}
+      />
+    ),
+    p: props => <Typography variant="body2" paragraph {...props} />,
+  };
 
   return (
     <Grid container justify="space-between">
@@ -75,7 +91,7 @@ const Regulation = () => {
       {!complete && (
         <>
           <Grid item md={7} className={classes.wrapper} ref={setRef}>
-            <MarkdownText hast={htmlAst} />
+            <MarkdownText hast={htmlAst} components={customComponent} body="body2" />
           </Grid>
 
           <Grid item md={4}>

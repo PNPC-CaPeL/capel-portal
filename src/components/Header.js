@@ -16,6 +16,9 @@ const useStyles = makeStyles(theme => ({
     height: 'auto',
     verticalAlign: 'middle',
   },
+  title: {
+    fontSize: '2rem',
+  },
 }));
 
 const Header = ({ title, ...props }) => {
@@ -26,10 +29,15 @@ const Header = ({ title, ...props }) => {
       <Container className={classes.container}>
         <Grid container justify="space-between" alignItems="center">
           <Grid item>
-            <Link to="/" color="inherit"><Logo className={classes.logo} /></Link>
+            <Link to="/" color="inherit">
+              <Logo className={classes.logo} />
+            </Link>
           </Grid>
+
           <Grid item>
-            <Typography variant="h1">{title}</Typography>
+            <Typography variant="h1" className={classes.title}>
+              {title}
+            </Typography>
           </Grid>
         </Grid>
       </Container>
