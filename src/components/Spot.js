@@ -1,6 +1,7 @@
 import React from 'react';
 import { Popup, Marker, Tooltip } from 'react-leaflet';
 import { icon } from 'leaflet';
+import { Typography, Tooltip as MUiTooltip } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 
@@ -41,7 +42,12 @@ const Spot = ({
 
       {(typeof CustomPopup === 'undefined') && (
         <Popup>
-          <StarComponent onClick={onFavClick} color={isFav && 'secondary'} />
+          <Typography variant="h3">
+            <MUiTooltip title={!isFav ? 'Ajouter aux favoris' : 'Retirer des favoris'}>
+              <StarComponent onClick={onFavClick} color={isFav && 'secondary'} style={{ cursor: 'pointer' }} />
+            </MUiTooltip>
+            {spot.childMarkdownRemark.frontmatter.title}
+          </Typography>
 
           <MarkdownText hast={htmlAst} />
         </Popup>
