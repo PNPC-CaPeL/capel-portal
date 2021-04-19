@@ -15,11 +15,12 @@ locale: "fr"
 show_preview_links: false
 
 editor:
-    preview: false
+  preview: false
 
 collections:
   - name: "info"
-    label: "Information"
+    label: "Informations"
+    label_singular: "information"
     folder: "informations"
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     summary: "{{title}}"
@@ -40,7 +41,8 @@ collections:
       - { name: "zone", label: "Zone concernée", widget: "map", type: "Polygon", required: false }
 
   - name: "spot"
-    label: "Spot"
+    label: "Spots"
+    label_singular: "spot"
     folder: "spots"
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     summary: "{{title}}"
@@ -63,7 +65,8 @@ collections:
       - { name: "structures", label: "Structures", widget: "list" }
 
   - name: "structure"
-    label: "Structure"
+    label: "Structures"
+    label_singular: "structure"
     folder: "structures"
     create: true
     fields:
@@ -74,7 +77,8 @@ collections:
       - { name: "body", label: "Description", widget: "markdown", minimal: true, required: false }
 
   - name: "divings"
-    label: "Types de plongées"
+    label: "Plongée : les types"
+    label_singular: "type de plongée"
     folder: "divings"
     summary: "{{title}}"
     create: true
@@ -83,7 +87,8 @@ collections:
       - { name: "body", label: "Description", widget: "markdown", minimal: true, required: false }
 
   - name: "skills"
-    label: "Niveaux de plongées"
+    label: "Plongée : les niveaux"
+    label_singular: "niveau de plongée"
     folder: "skills"
     summary: "{{title}}"
     create: true
@@ -94,69 +99,14 @@ collections:
       - { name: "cmas", label: "CMAS", widget: "string", required: false }
 
   - name: "cadres"
-    label: "Cadres de plongées"
+    label: "Plongée : les cadres"
+    label_singular: "cadre de pongée"
     folder: "cadres"
     summary: "{{title}}"
     create: true
     fields:
       - { name: "title", label: "Titre", widget: "string" }
       - { name: "body", label: "Description", widget: "markdown", minimal: true, required: false }
-
-  - name: "lists"
-    label: "Ordres / tris"
-    files:
-      - name: "divings"
-        label: "Ordre des types de plongées"
-        file: "lists/divings.json"
-        fields:
-          - name: divings
-            label: "Ordre des types de plongées"
-            widget: "list"
-            fields:
-              - name: "types"
-                label: "Types de plongées"
-                widget: "relation"
-                required: true
-                multiple: false
-                collection: "divings"
-                value_field: "title"
-                search_fields: ["title"]
-                display_fields: ["title"]
-      - name: "skills"
-        label: "Niveaux de plongée"
-        file: "lists/skills.json"
-        fields:
-          - name: skills
-            label: "Niveaux"
-            widget: "list"
-            fields:
-              - name: "skills"
-                label: "Niveaux de plongées"
-                widget: "relation"
-                required: true
-                multiple: false
-                collection: "skills"
-                value_field: "title"
-                search_fields: ["title"]
-                display_fields: ["title"]
-      - name: "cadres"
-        label: "Cadres"
-        file: "lists/cadres.json"
-        fields:
-          - name: cadres
-            label: "Cadres"
-            widget: "list"
-            fields:
-              - name: "cadres"
-                label: "Cadres de plongées"
-                widget: "relation"
-                required: true
-                multiple: false
-                collection: "cadres"
-                value_field: "title"
-                search_fields: ["title"]
-                display_fields: ["title"]
-
 
   - name: "texts"
     label: "Textes"
@@ -191,3 +141,61 @@ collections:
         fields:
           - { name: "title", label: "Titre", widget: "string", required: false }
           - { name: "body", label: "Description", widget: "markdown", minimal: true, required: true }
+
+  - name: "lists"
+    label: "Ordre / tri"
+    files:
+      - name: "divings"
+        label: "Ordre des types de plongée"
+        file: "lists/divings.json"
+        fields:
+          - name: divings
+            label: "Types de plongées"
+            label_singular: "Type de plongée"
+            widget: "list"
+            fields:
+              - name: "diving"
+                label: "Type de plongée"
+                widget: "relation"
+                required: true
+                multiple: false
+                collection: "divings"
+                value_field: "title"
+                search_fields: ["title"]
+                display_fields: ["title"]
+      - name: "skills"
+        label: "Ordre des niveaux de plongée"
+        file: "lists/skills.json"
+        fields:
+          - name: skills
+            label: "Niveaux de plongée"
+            label_singular: "Niveau de plongée"
+            widget: "list"
+            fields:
+              - name: "skill"
+                label: "Niveau de plongée"
+                widget: "relation"
+                required: true
+                multiple: false
+                collection: "skills"
+                value_field: "title"
+                search_fields: ["title"]
+                display_fields: ["title"]
+      - name: "cadres"
+        label: "Ordre des cadres"
+        file: "lists/cadres.json"
+        fields:
+          - name: cadres
+            label: "Cadres de plongée"
+            label_singular: "Cadre de plongée"
+            widget: "list"
+            fields:
+              - name: "cadre"
+                label: "Cadre de plongée"
+                widget: "relation"
+                required: true
+                multiple: false
+                collection: "cadres"
+                value_field: "title"
+                search_fields: ["title"]
+                display_fields: ["title"]
