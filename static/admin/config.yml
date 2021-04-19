@@ -73,9 +73,55 @@ collections:
       - { name: "location", label: "Emplacement", widget: "map" }
       - { name: "body", label: "Description", widget: "markdown", minimal: true, required: false }
 
+  - name: "divings"
+    label: "Types de plongées"
+    folder: "divings"
+    summary: "{{title}}"
+    create: true
+    fields:
+      - { name: "title", label: "Titre", widget: "string" }
+      - { name: "body", label: "Description", widget: "markdown", minimal: true, required: false }
+
+  - name: "skills"
+    label: "Niveaux de plongées"
+    folder: "skills"
+    summary: "{{title}}"
+    create: true
+    fields:
+      - { name: "title", label: "Niveau", widget: "string" }
+      - { name: "body", label: "Prérogatives", widget: "markdown", minimal: true }
+      - { name: "cds", label: "Aptitude / Code du Sport", widget: "string", required: false }
+      - { name: "cmas", label: "CMAS", widget: "string", required: false }
+
+  - name: "cadres"
+    label: "Cadres de plongées"
+    folder: "cadres"
+    summary: "{{title}}"
+    create: true
+    fields:
+      - { name: "title", label: "Titre", widget: "string" }
+      - { name: "body", label: "Description", widget: "markdown", minimal: true, required: false }
+
   - name: "lists"
-    label: "Listes"
+    label: "Ordres / tris"
     files:
+      - name: "divings"
+        label: "Ordre des types de plongées"
+        file: "lists/divings.json"
+        fields:
+          - name: divings
+            label: "Ordre des types de plongées"
+            widget: "list"
+            fields:
+              - name: "types"
+                label: "Types de plongées"
+                widget: "relation"
+                required: true
+                multiple: false
+                collection: "divings"
+                value_field: "title"
+                search_fields: ["title"]
+                display_fields: ["title"]
       - name: "skills"
         label: "Niveaux de plongée"
         file: "lists/skills.json"
@@ -84,20 +130,15 @@ collections:
             label: "Niveaux"
             widget: "list"
             fields:
-              - { name: "title", label: "Niveau", widget: "string" }
-              - { name: "body", label: "Prérogatives", widget: "markdown", minimal: true }
-              - { name: "cds", label: "Aptitude / Code du Sport", widget: "string", required: false }
-              - { name: "cmas", label: "CMAS", widget: "string", required: false }
-      - name: "divings"
-        label: "Types de plongées"
-        file: "lists/divings.json"
-        fields:
-          - name: divings
-            label: "Types de plongées"
-            widget: "list"
-            fields:
-              - { name: "title", label: "Titre", widget: "string" }
-              - { name: "body", label: "Description", widget: "markdown", minimal: true, required: false }
+              - name: "skills"
+                label: "Niveaux de plongées"
+                widget: "relation"
+                required: true
+                multiple: false
+                collection: "skills"
+                value_field: "title"
+                search_fields: ["title"]
+                display_fields: ["title"]
       - name: "cadres"
         label: "Cadres"
         file: "lists/cadres.json"
@@ -106,8 +147,15 @@ collections:
             label: "Cadres"
             widget: "list"
             fields:
-              - { name: "title", label: "Titre", widget: "string" }
-              - { name: "body", label: "Description", widget: "markdown", minimal: true, required: false }
+              - name: "cadres"
+                label: "Cadres de plongées"
+                widget: "relation"
+                required: true
+                multiple: false
+                collection: "cadres"
+                value_field: "title"
+                search_fields: ["title"]
+                display_fields: ["title"]
 
 
   - name: "texts"
