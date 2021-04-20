@@ -52,19 +52,26 @@ collections:
       - { name: "title", label: "Nom du spot", widget: "string" }
       - { name: "ref", label: "Référence", widget: "string", required: false }
       - { name: "location", label: "Emplacement", widget: "map" }
-      - { name: "body", label: "Description", widget: "markdown", minimal: true, required: false }
       - name: "types"
         label: "Types de plongées"
         widget: "relation"
         required: false
         multiple: true
-        collection: "diving-types"
+        collection: "divings"
+        value_field: "title"
+        search_fields: ["title"]
+      - name: "structures"
+        label: "Structures"
+        widget: "relation"
+        required: false
+        multiple: true
+        collection: "structures"
         value_field: "title"
         search_fields: ["title"]
         display_fields: ["title"]
-      - { name: "structures", label: "Structures", widget: "list" }
+      - { name: "body", label: "Description", widget: "markdown", minimal: true, required: false }
 
-  - name: "structure"
+  - name: "structures"
     label: "Structures"
     label_singular: "structure"
     folder: "structures"
