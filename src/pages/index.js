@@ -12,6 +12,7 @@ import HomeHero from '../components/HomeHero';
 import HomePartners from '../components/HomePartners';
 import HomeInstit from '../components/HomeInstit';
 import HomeStats from '../components/HomeStats';
+import MapLegend from '../components/MapLegend';
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -63,6 +64,10 @@ const HomePage = () => {
       <Grid container className={classes.map}>
         <Map />
       </Grid>
+
+      <Container>
+        <MapLegend />
+      </Container>
 
       <Container>
         <Typography variant="h3" className={classes.title} color="primary">

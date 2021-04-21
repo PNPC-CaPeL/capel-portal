@@ -11,6 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Spots from './Spots';
 import MapStructures from './MapStructures';
 import GeoJSONAsync from './GeoJSONAsync';
+
 import { styleFromProperties } from '../lib/map-styles';
 
 const isLive = typeof window !== 'undefined';
