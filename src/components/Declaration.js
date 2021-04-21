@@ -20,11 +20,28 @@ const isLive = typeof window !== 'undefined';
 
 const useFormCache = createPersistedState('capel-form-cache');
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'POSITION_SET': {
+      return { ...state, ...action.payload };
+    }
+    case 'COMPLETE_SET': {
+      return { ...state, complete: action.payload };
+    }
+    case 'DATETIME_SET': {
+      return { ...state, datetime: action.payload };
+    }
+    default:
+      return state;
+  }
+};
+
 const Declaration = () => {
   const formInstance = React.useRef();
-  const [position, setPosition] = React.useState();
-  const [complete, setComplete] = React.useState(false);
-  const [datetime, setDatetime] = React.useState(new Date());
+  const [state, dispatch] = React.useReducer(reducer, {
+    complete: false,
+    datetime: new Date(),
+  });
 
   const [formCache, setFormCache] = useFormCache(false);
 
@@ -37,28 +54,42 @@ const Declaration = () => {
       return;
     }
 
+    dispatch({
+      type: 'POSITION_SET',
+      payload: {
+        lat: +lat.toFixed(5),
+        lng: +lng.toFixed(5),
+        name: null,
+      },
+    });
+
     Import.fields(formInstance.current, [
       { name: 'Lieu', value: JSON.stringify([+lat.toFixed(5), +lng.toFixed(5)]) },
     ]);
-    setPosition({ lat, lng });
   };
 
   const handleSpotClick = event => {
-    const location = event?.target?.options?.title;
+    const marker = event.target;
+    const location = marker?.options?.title;
     if (!location || !formInstance?.current?.isRunning) { return; }
-    Import.fields(formInstance.current, [{ name: 'Lieu', value: location }]);
-    setPosition(0);
+
+    const latLng = marker.getLatLng();
+
+    dispatch({ type: 'POSITION_SET', payload: { ...latLng, name: location } });
+    Import.fields(formInstance.current, [
+      { name: 'Lieu', value: location },
+    ]);
   };
 
   const handleDateChange = isoDate => {
     if (!isoDate || !formInstance?.current?.isRunning) { return; }
     Import.fields(formInstance.current, [{ name: 'Date', value: isoDate }]);
-    setDatetime(isoDate);
+    dispatch({ type: 'DATETIME_SET', payload: isoDate });
   };
 
   return (
     <Grid container justify="space-between">
-      {Boolean(complete) && (
+      {Boolean(state.complete) && (
         <Grid item md={4}>
           <Typography variant="h1" paragraph>
             Merci
@@ -70,24 +101,26 @@ const Declaration = () => {
           </Typography>
 
           <Typography variant="body1" paragraph>
-            Vous pouvez <Link to="." onClick={() => setComplete(false)}>déclarer une autre plongée</Link>,
+            Vous pouvez <Link to="." onClick={() => dispatch({ type: 'COMPLETE_SET', payload: false })}>déclarer une autre plongée</Link>,
             ou retourner sur la <Link to="/">page d'accueil</Link>.
           </Typography>
         </Grid>
       )}
 
-      {!complete && (
+      {!state.complete && (
         <>
           <Grid item md={7}>
             <Map
               onBackgroundClick={handleMapClick}
               spotProps={{ eventHandlers: { click: handleSpotClick }, popupComponent: null }}
             >
-              {Boolean(position) && <CircleMarker center={position} radius={5} />}
+              {Boolean(state.lat && state.lng && !state.name) && (
+                <CircleMarker center={{ lat: state.lat, lng: state.lng }} radius={5} />
+              )}
             </Map>
             <br />
 
-            {isLive && <DTPicker onChange={handleDateChange} value={datetime} />}
+            {isLive && <DTPicker onChange={handleDateChange} value={state.datetime} />}
           </Grid>
 
           <Grid item md={4}>
@@ -108,7 +141,7 @@ const Declaration = () => {
 
                 const cachedDatetime = formCache && formCache.find?.(({ name }) => name === 'Date');
                 if (cachedDatetime) {
-                  setDatetime(cachedDatetime.value);
+                  dispatch({ type: 'DATETIME_SET', payload: cachedDatetime.value });
                 }
               }}
               enhanceDefinition={compose(
@@ -119,7 +152,7 @@ const Declaration = () => {
               onComplete={instance => {
                 const formFields = Export.fields(instance).fields;
                 formCache && setFormCache(formFields);
-                setComplete(true);
+                dispatch({ type: 'COMPLETE_SET', payload: true });
               }}
             />
           </Grid>
