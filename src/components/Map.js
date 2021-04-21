@@ -10,6 +10,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { makeStyles } from '@material-ui/core/styles';
 import Spots from './Spots';
 import MapStructures from './MapStructures';
+import GeoJSONAsync from './GeoJSONAsync';
 
 const isLive = typeof window !== 'undefined';
 
@@ -62,6 +63,8 @@ const Map = ({ onBackgroundClick, spotProps = {}, children = null, ...props }) =
         <Spots {...spotProps} />
 
         <MapStructures />
+
+        <GeoJSONAsync filename="zones.geojson" />
 
         <TileLayer
           attribution=""
