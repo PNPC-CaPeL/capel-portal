@@ -1,8 +1,12 @@
 import React from 'react';
+import { withPrefix } from 'gatsby';
 
 import { Import, Export } from 'tripetto-runner-foundation';
 import { Box, Grid, Typography } from '@material-ui/core';
+import { Alert } from '@material-ui/lab';
 import { CircleMarker } from 'react-leaflet';
+import inside from '@turf/boolean-point-in-polygon';
+import { useQuery } from 'react-query';
 
 import createPersistedState from 'use-persisted-state';
 
@@ -31,6 +35,9 @@ const reducer = (state, action) => {
     case 'DATETIME_SET': {
       return { ...state, datetime: action.payload };
     }
+    case 'MESSAGES_SET': {
+      return { ...state, messages: action.payload };
+    }
     default:
       return state;
   }
@@ -41,7 +48,9 @@ const Declaration = () => {
   const [state, dispatch] = React.useReducer(reducer, {
     complete: false,
     datetime: new Date(),
+    messages: [],
   });
+  const { lat, lng } = state;
 
   const [formCache, setFormCache] = useFormCache(false);
 
@@ -49,7 +58,30 @@ const Declaration = () => {
   const cadres = useCadres();
   const structures = useRegStructures();
 
-  const handleMapClick = ({ latlng: { lat, lng } }) => {
+  const { data } = useQuery(
+    ['pif', 'zones.geojson'],
+    async ({ queryKey: [, filename] }) => {
+      const response = await fetch(withPrefix(filename));
+      const json = await response.json();
+      return json;
+    },
+    { retry: 1, staleTime: Infinity },
+  );
+
+  React.useEffect(() => {
+    if (lng && lat && data) {
+      const { features } = data;
+      const zones = features.filter(feature => inside([lng, lat], feature));
+      const messages = zones.map(({ properties: { protection } = {} }) => protection);
+
+      dispatch({
+        type: 'MESSAGES_SET',
+        payload: Array.from(new Set(messages)),
+      });
+    }
+  }, [lat, lng, data]);
+
+  const handleMapClick = ({ latlng: { lat: y, lng: x } }) => {
     if (!formInstance?.current?.isRunning) {
       return;
     }
@@ -57,14 +89,14 @@ const Declaration = () => {
     dispatch({
       type: 'POSITION_SET',
       payload: {
-        lat: +lat.toFixed(5),
-        lng: +lng.toFixed(5),
+        lat: +y.toFixed(5),
+        lng: +x.toFixed(5),
         name: null,
       },
     });
 
     Import.fields(formInstance.current, [
-      { name: 'Lieu', value: JSON.stringify([+lat.toFixed(5), +lng.toFixed(5)]) },
+      { name: 'Lieu', value: JSON.stringify([+y.toFixed(5), +x.toFixed(5)]) },
     ]);
   };
 
@@ -118,6 +150,16 @@ const Declaration = () => {
                 <CircleMarker center={{ lat: state.lat, lng: state.lng }} radius={5} />
               )}
             </Map>
+
+            {state.messages.map(message => (
+              <Alert
+                style={{ margin: '1rem 0' }}
+                severity="warning"
+                key={message}
+              >
+                {message}
+              </Alert>
+            ))}
             <br />
 
             {isLive && <DTPicker onChange={handleDateChange} value={state.datetime} />}
