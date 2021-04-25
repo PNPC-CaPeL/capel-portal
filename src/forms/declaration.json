@@ -93,23 +93,22 @@
               "nodes": [
                 {
                   "id": "d5e66e014bed4255b8a4ca68b955a70b0ab96f62cfca9098a0558f3ea46a6869",
-                  "explanation": "Seules les structures ayant signé le règlement sont disponibles",
                   "name": "Structure",
                   "nameVisible": true,
                   "slots": [
                     {
                       "id": "b77417df02f2f0f9cbc5f51ad32eeb0ebf099484423203b6f82f0a22a97ffbcb",
-                      "type": "string",
+                      "type": "text",
                       "kind": "static",
-                      "reference": "option",
-                      "label": "Selected option",
+                      "reference": "value",
+                      "label": "Text",
                       "required": true
                     }
                   ],
                   "block": {
-                    "type": "tripetto-block-dropdown",
-                    "version": "4.2.0",
-                    "options": [
+                    "type": "tripetto-block-text",
+                    "version": "4.2.2",
+                    "suggestions": [
                       {
                         "id": "7105912488029724d9beede190620a30c88f876e3f5a1d0357b09f2c5270f08d",
                         "name": "Exemple"
@@ -127,7 +126,8 @@
                       "type": "text",
                       "kind": "static",
                       "reference": "value",
-                      "label": "Text"
+                      "label": "Text",
+                      "required": true
                     }
                   ],
                   "block": { "type": "tripetto-block-text", "version": "4.2.2" }
@@ -205,18 +205,35 @@
                       "nodes": [
                         {
                           "id": "742cf0bf0a1ba648517f4f249ab6e3e7d992e4f5a4e92c63a6583aee93ec86bb",
-                          "explanation": "Seules les structures ayant signé le règlement sont disponibles",
-                          "name": "Structure",
+                          "name": "Structure cadre",
                           "nameVisible": true,
                           "description": "",
                           "slots": [
                             {
                               "id": "f732130fa2ed130c26d69757690560bbefceecb038807ab122994b93c58a31c4",
+                              "type": "text",
+                              "kind": "static",
+                              "reference": "value",
+                              "label": "Text",
+                              "required": true
+                            }
+                          ],
+                          "block": {
+                            "type": "tripetto-block-text",
+                            "version": "4.2.2"
+                          }
+                        },
+                        {
+                          "id": "db0beeefb360bc7891af26e637a51e5671ad42fa8596a5979be1139c23f26b20",
+                          "name": "Cadre",
+                          "nameVisible": true,
+                          "slots": [
+                            {
+                              "id": "e5b0f43d091f590bcc36d9972cc92bf073725b3eea97d4d8613ff8273e34d604",
                               "type": "string",
                               "kind": "static",
                               "reference": "option",
-                              "label": "Selected option",
-                              "required": true
+                              "label": "Selected option"
                             }
                           ],
                           "block": {
@@ -224,7 +241,7 @@
                             "version": "4.2.0",
                             "options": [
                               {
-                                "id": "51dc23256dbaed409aa057461be3dbc6396b6553b96f7b9e7f25fe0e46383d1c",
+                                "id": "c37f031e16e1ebfda2f3a75cbdfbaaa3a99104b1b257e1d91d97623a85f9a53e",
                                 "name": "Exemple"
                               }
                             ]
@@ -245,35 +262,6 @@
                       }
                     }
                   ]
-                }
-              ]
-            },
-            {
-              "id": "7c0d13080adebbc26089116642c26be3bcf54b3549cb45c30077e13704c9fe69",
-              "nodes": [
-                {
-                  "id": "db0beeefb360bc7891af26e637a51e5671ad42fa8596a5979be1139c23f26b20",
-                  "name": "Cadre",
-                  "nameVisible": true,
-                  "slots": [
-                    {
-                      "id": "e5b0f43d091f590bcc36d9972cc92bf073725b3eea97d4d8613ff8273e34d604",
-                      "type": "string",
-                      "kind": "static",
-                      "reference": "option",
-                      "label": "Selected option"
-                    }
-                  ],
-                  "block": {
-                    "type": "tripetto-block-dropdown",
-                    "version": "4.2.0",
-                    "options": [
-                      {
-                        "id": "c37f031e16e1ebfda2f3a75cbdfbaaa3a99104b1b257e1d91d97623a85f9a53e",
-                        "name": "Exemple"
-                      }
-                    ]
-                  }
                 }
               ]
             }
@@ -316,16 +304,17 @@
             "buttons": [
               {
                 "id": "68a72da40ec85b8496e26e6f720e0680825b752e246c6131fe9fe03a43b001fd",
-                "name": "Custom"
+                "name": "Indéterminé"
               }
             ]
           }
         },
         {
           "id": "6c6fb206383e9e6f64a1b33c9a818043ad9cae4f2b55d18a2838ef710cbca7be",
+          "explanation": "Sélectionner le lieu de plongée sur la carte.",
           "name": "Lieu",
           "nameVisible": true,
-          "description": "(Sélectionner sur la carte)",
+          "description": "",
           "slots": [
             {
               "id": "f33254e7a2162db526d93e8f715f3365726528590207456e95ad36e438370a12",
@@ -339,7 +328,6 @@
           "block": {
             "type": "tripetto-block-text",
             "version": "4.2.2",
-            "useSuggestions": true,
             "suggestions": [
               {
                 "id": "67256b2dc551016e0ad354b832c381ff32c9d3275c293449f657532a9a5b8ee0",
@@ -350,6 +338,7 @@
         },
         {
           "id": "63a22afd251760fb182cefe9ab090a4ab85d2d997697f4a5abb27d56902b556b",
+          "explanation": "Sélectionner la date et l'heure de votre plongé dans la colonne de gauche",
           "name": "Date",
           "nameVisible": true,
           "slots": [
@@ -389,12 +378,8 @@
             "version": "4.2.0",
             "options": [
               {
-                "id": "b40f542ca02ecafe48d9a1cb425a34146f6dd35b4b661ba6379c20a8fcb3b3d9",
-                "name": "Ensoleillée"
-              },
-              {
                 "id": "b03d795ca38d840a68aabd844e938fcc606efa380bc19d43545640c93466edfd",
-                "name": "Autre"
+                "name": "Indéterminée"
               }
             ]
           }
@@ -417,6 +402,11 @@
             "type": "tripetto-block-dropdown",
             "version": "4.2.0",
             "options": [
+              {
+                "id": "b6eb1ee2bf8eed77d15781f893ab922abcdd5f7fbf46798dcc4644527d7dce0b",
+                "name": "Indéterminé",
+                "value": ""
+              },
               {
                 "id": "6e7d04e9cda9255ee190c8553da4734cd38037383b74f742b5e4265a2606d8a6",
                 "name": "Calme"
@@ -478,6 +468,10 @@
             "type": "tripetto-block-dropdown",
             "version": "4.2.0",
             "options": [
+              {
+                "id": "a90bddff441776f92be57072072828ea7d746919e3c4f778f9302a44debb1984",
+                "name": "Indéterminée"
+              },
               {
                 "id": "68f170742aaa94a72f4095adc75c6b0528315968a56d0e5a60dd424298ef17f9",
                 "name": "Nord"
