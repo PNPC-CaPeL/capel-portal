@@ -50,10 +50,12 @@ const Regulation = () => {
     }
   }, [scrollInfo.y.percentage, hasRead]);
 
-  const { markdownRemark: { htmlAst } } = useStaticQuery(graphql`
+  const { file: { childrenMarkdownRemark: [{ htmlAst }] } } = useStaticQuery(graphql`
     {
-      markdownRemark(frontmatter: {text_id: {eq: "regulation"}}) {
-        htmlAst
+      file(relativePath: {eq: "texts/regulation.md"}) {
+        childrenMarkdownRemark {
+          htmlAst
+        }
       }
     }
   `);
