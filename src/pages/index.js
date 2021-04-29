@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { Box, Grid, Typography, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-import HomeInformations from '../components/HomeInformations';
+// import HomeInformations from '../components/HomeInformations';
 import Layout from '../components/Layout';
 import Map from '../components/Map';
 
@@ -69,6 +69,7 @@ const HomePage = () => {
         <MapLegend />
       </Container>
 
+      {/*
       <Container>
         <Typography variant="h3" className={classes.title} color="primary">
           Informations
@@ -76,7 +77,9 @@ const HomePage = () => {
 
         <HomeInformations />
       </Container>
+       */}
 
+      {/*
       <Container>
         <Typography
           variant="h2"
@@ -94,6 +97,7 @@ const HomePage = () => {
           <Box style={{ height: 150 }} />
         </Container>
       </Box>
+       */}
 
       <Container style={{ marginTop: '2rem' }}>
         <HomeInstit />
