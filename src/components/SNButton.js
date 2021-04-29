@@ -7,19 +7,22 @@ import facebook from '../assets/facebook.svg';
 import twitter from '../assets/twitter.svg';
 import instagram from '../assets/instagram.svg';
 import youtube from '../assets/youtube.svg';
+import pinterest from '../assets/pinterest.svg';
 
 const picto = {
   facebook,
   twitter,
   instagram,
   youtube,
+  pinterest,
 };
 
 const links = {
-  facebook: { href: 'https://perdu.com' },
-  twitter: { href: 'https://perdu.com' },
-  instagram: { href: 'https://perdu.com' },
-  youtube: { href: 'https://perdu.com' },
+  facebook: { href: 'https://www.facebook.com/PNPC83' },
+  twitter: { href: 'https://twitter.com/PNPC83' },
+  instagram: { href: 'https://www.instagram.com/parcnationaldeportcros' },
+  youtube: { href: 'https://www.youtube.com/user/PNPC83' },
+  pinterest: { href: 'https://www.pinterest.fr/pnpc83/' },
   default: { href: 'https://perdu.com' },
 };
 

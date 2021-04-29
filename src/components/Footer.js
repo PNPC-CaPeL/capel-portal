@@ -42,6 +42,7 @@ const Footer = ({ className, ...props }) => {
             <Grid item><SNButton type="twitter" /></Grid>
             <Grid item><SNButton type="instagram" /></Grid>
             <Grid item><SNButton type="youtube" /></Grid>
+            <Grid item><SNButton type="pinterest" /></Grid>
           </Grid>
         </Container>
       </Box>
