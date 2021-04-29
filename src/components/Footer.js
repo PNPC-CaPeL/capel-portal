@@ -1,8 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
 
-import { Box, Container, Grid, Link, Typography } from '@material-ui/core';
+import { Box, Container, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'gatsby-theme-material-ui';
 
 import SNButton from './SNButton';
 
@@ -52,43 +53,53 @@ const Footer = ({ className, ...props }) => {
             <Grid item xs={12} md={4} className={classes.left}>
               <Typography variant="body2">
                 Les ressources documentaires :<br />
-                liens vers le site institutionnel du Parc national<br />
-                Textes réglementaires<br />
-                Carte du Parc national de Port-Cros<br />
-                Les Aires Marines Protégées<br />
-                Ministère de la Transition écologique et solidaire<br />
-                Agence française pour la biodiversité<br />
-                Sanctuaire Pelagos, Partie française
+                <Link to="http://www.portcros-parcnational.fr/fr/le-parc-national-de-port-cros/se-renseigner-sur-les-reglementations">
+                  Textes réglementaires
+                </Link><br />
+                <Link to="http://map.parcsnationaux.fr/?=PNPC">
+                  Carte du Parc national de Port-Cros
+                </Link><br />
+                <Link to="http://www.amp.afbiodiversite.fr/accueil_fr">
+                  Les Aires Marines Protégées
+                </Link><br />
+                <Link to="https://www.ecologique-solidaire.gouv.fr/">
+                  Ministère de la Transition écologique et solidaire
+                </Link><br />
+                <Link to="https://www.afbiodiversite.fr/">
+                  Agence française pour la biodiversité
+                </Link><br />
+                <Link to="http://www.sanctuaire-pelagos.org/fr/">
+                  Sanctuaire Pelagos, Partie française
+                </Link><br />
               </Typography>
             </Grid>
+
             <Grid item xs={12} md={4} className={classes.center}>
               <Typography variant="body2">
-                <Link href="http://www.portcros-parcnational.fr/">
+                <Link to="http://www.portcros-parcnational.fr/">
                   Le Parc national de Port-Cros
                 </Link><br />
-                <Link href="http://www.portcros-parcnational.fr/fr/le-parc-national-de-port-cros/un-territoire-reconnu">
+                <Link to="http://www.portcros-parcnational.fr/fr/le-parc-national-de-port-cros/un-territoire-reconnu">
                   Le Parc national en bref
                 </Link><br />
-                <Link href="http://www.portcros-parcnational.fr/fr/le-parc-national-de-port-cros/letablissement-public">
+                <Link to="http://www.portcros-parcnational.fr/fr/le-parc-national-de-port-cros/letablissement-public">
                   L'établissement public
                 </Link><br />
-                <Link href="http://www.portcros-parcnational.fr/fr/le-parc-national-de-port-cros/la-charte-du-parc-national-de-port-cros">
+                <Link to="http://www.portcros-parcnational.fr/fr/le-parc-national-de-port-cros/la-charte-du-parc-national-de-port-cros">
                   La charte du PNPC
                 </Link><br />
-                <Link href="http://www.portcros-parcnational.fr/fr/le-parc-national-de-port-cros/nos-mecenes">
-                  Nos mécènes
-                </Link><br />
-                <Link href="http://www.portcros-parcnational.fr/fr/marches-publics-en-cours">
+                <Link to="http://www.portcros-parcnational.fr/fr/marches-publics-en-cours">
                   Marchés publics
                 </Link><br />
-                <Link href="http://www.portcros-parcnational.fr/fr/offres-emploi">
+                <Link to="http://www.portcros-parcnational.fr/fr/offres-emploi">
                   Offres d'emploi
                 </Link><br />
-                <Link href="http://www.portcros-parcnational.fr/fr/raa">
+                <Link to="http://www.portcros-parcnational.fr/fr/raa">
                   Recueil des actes administratifs
                 </Link>
               </Typography>
             </Grid>
+
             <Grid item xs={12} md={4} className={classes.right}>
               <Typography variant="body2">
                 Nous contacter : Parc national de Port-Cros<br />
@@ -97,7 +108,9 @@ const Footer = ({ className, ...props }) => {
                 83406 - HYERES cedex<br />
                 Tél. 04 94 12 82 30<br />
                 Formulaire de contact :<br />
-                <Link href="http://www.portcros-parcnational.fr/fr/formulaire-contact">portcros-parcnational.fr/fr/formulaire-contact</Link>
+                <Link to="http://www.portcros-parcnational.fr/fr/formulaire-contact">
+                  portcros-parcnational.fr/fr/formulaire-contact
+                </Link>
               </Typography>
             </Grid>
           </Grid>
