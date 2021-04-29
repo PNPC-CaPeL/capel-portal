@@ -135,18 +135,21 @@ collections:
         file: "texts/homepage1.md"
         fields:
           - { name: "title", label: "Titre", widget: "string", required: false }
+          - { name: "picture", label: "Illustration", widget: "image", required: false }
           - { name: "body", label: "Description", widget: "markdown", minimal: true, required: true }
       - name: "homepage2"
         label: "Page d'accueil - bloc 2"
         file: "texts/homepage2.md"
         fields:
           - { name: "title", label: "Titre", widget: "string", required: false }
+          - { name: "picture", label: "Illustration", widget: "image", required: false }
           - { name: "body", label: "Description", widget: "markdown", minimal: true, required: true }
       - name: "homepage3"
         label: "Page d'accueil - bloc 3"
         file: "texts/homepage3.md"
         fields:
           - { name: "title", label: "Titre", widget: "string", required: false }
+          - { name: "picture", label: "Illustration", widget: "image", required: false }
           - { name: "body", label: "Description", widget: "markdown", minimal: true, required: true }
 
   - name: "lists"

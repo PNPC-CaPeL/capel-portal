@@ -27,6 +27,19 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-remote-images',
+      options: {
+        nodeType: 'MarkdownRemark',
+        imagePath: 'frontmatter.picture',
+        name: 'pictureFile',
+        prepareUrl: url => (
+          url.startsWith('/')
+            ? `https://raw.githubusercontent.com/PNPC-CaPeL/capel-proto-contents/main${url}`
+            : url
+        ),
+      },
+    },
+    {
       resolve: 'gatsby-source-airtable',
       options: {
         apiKey: process.env.AIRTABLE_API_KEY,
