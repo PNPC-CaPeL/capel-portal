@@ -13,6 +13,7 @@ import HomePartners from '../components/HomePartners';
 import HomeInstit from '../components/HomeInstit';
 import HomeStats from '../components/HomeStats';
 import MapLegend from '../components/MapLegend';
+import Observations from '../components/Observations';
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -108,6 +109,14 @@ const HomePage = () => {
           <HomeStats />
         </Container>
       </Box>
+
+      <Container>
+        <Typography variant="h2" className={classes.title} color="primary">
+          Vos observations
+        </Typography>
+
+        <Observations />
+      </Container>
 
       <Container>
         <Typography variant="h2" className={classes.title} color="primary">
