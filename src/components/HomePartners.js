@@ -3,6 +3,7 @@ import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'gatsby-theme-material-ui';
 
 const useStyles = makeStyles({
   partners: {
@@ -25,49 +26,59 @@ const HomePartners = () => {
       justify="space-between"
     >
       <Grid item xs={6} md={2}>
-        <StaticImage
-          className={classes.partner}
-          placeholder="blurred"
-          objectFit="contain"
-          src="../remote-contents/media/marha.png"
-          alt="marha"
-        />
+        <Link to="https://www.life-marha.fr">
+          <StaticImage
+            className={classes.partner}
+            placeholder="blurred"
+            objectFit="contain"
+            src="../remote-contents/media/marha.png"
+            alt="marha"
+          />
+        </Link>
       </Grid>
       <Grid item xs={6} md={2}>
-        <StaticImage
-          className={classes.partner}
-          placeholder="blurred"
-          objectFit="contain"
-          src="../remote-contents/media/life.jpg"
-          alt="Life"
-        />
+        <Link to="https://www.life-marha.fr">
+          <StaticImage
+            className={classes.partner}
+            placeholder="blurred"
+            objectFit="contain"
+            src="../remote-contents/media/life.jpg"
+            alt="Life"
+          />
+        </Link>
       </Grid>
       <Grid item xs={6} md={2}>
-        <StaticImage
-          className={classes.partner}
-          placeholder="blurred"
-          objectFit="contain"
-          src="../remote-contents/media/natura2000.png"
-          alt="Natura 2000"
-        />
+        <Link to="https://www.natura2000.fr">
+          <StaticImage
+            className={classes.partner}
+            placeholder="blurred"
+            objectFit="contain"
+            src="../remote-contents/media/natura2000.png"
+            alt="Natura 2000"
+          />
+        </Link>
       </Grid>
       <Grid item xs={6} md={2}>
-        <StaticImage
-          className={classes.partner}
-          placeholder="blurred"
-          objectFit="contain"
-          src="../remote-contents/media/ffessm.png"
-          alt="FFESSM"
-        />
+        <Link to="https://ffessm.fr">
+          <StaticImage
+            className={classes.partner}
+            placeholder="blurred"
+            objectFit="contain"
+            src="../remote-contents/media/ffessm.png"
+            alt="FFESSM"
+          />
+        </Link>
       </Grid>
       <Grid item xs={6} md={2}>
-        <StaticImage
-          className={classes.partner}
-          placeholder="blurred"
-          objectFit="contain"
-          src="../remote-contents/media/ffessm83.png"
-          alt="FFESSM 83"
-        />
+        <Link to="https://ffessm-var.fr">
+          <StaticImage
+            className={classes.partner}
+            placeholder="blurred"
+            objectFit="contain"
+            src="../remote-contents/media/ffessm83.png"
+            alt="FFESSM 83"
+          />
+        </Link>
       </Grid>
     </Grid>
   );
