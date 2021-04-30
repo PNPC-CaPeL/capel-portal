@@ -10,6 +10,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-netlify-cms',
     'gatsby-transformer-json',
+    'gatsby-source-capel-geojson',
     {
       resolve: 'gatsby-source-git',
       options: {

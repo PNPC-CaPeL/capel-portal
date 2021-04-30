@@ -1,8 +1,22 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
 export const useStructures = () => {
-  const { wrapper } = useStaticQuery(graphql`
+  const { wrapper, structures } = useStaticQuery(graphql`
     query {
+      structures: allStructure {
+        nodes {
+          name
+          childMarkdownRemark {
+            htmlAst
+            frontmatter {
+              title
+              url
+              location
+            }
+          }
+        }
+      }
+
       wrapper: allFile(
         filter: {
           relativeDirectory: { eq: "structures" },
@@ -25,7 +39,10 @@ export const useStructures = () => {
 
   `);
 
-  return wrapper.nodes;
+  return [
+    ...wrapper.nodes,
+    ...structures.nodes,
+  ];
 };
 
 export default useStructures;
