@@ -4,6 +4,7 @@ import { Link as GatsbyLink } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { Box, Grid, Typography, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'gatsby-theme-material-ui';
 
 import HomeButton from './HomeButtons';
 import Logo from '../assets/logo.svg';
@@ -111,13 +112,15 @@ const HomeHero = () => {
             container
           >
             <Grid item className={classes.pnpc}>
-              <StaticImage
-                src="../remote-contents/media/pnpc-white.png"
-                alt="Parc National de Port-Cros"
-                placeholder="none"
-                objectFit="cover"
-                objectPosition="left top"
-              />
+              <Link to="http://www.portcros-parcnational.fr/fr">
+                <StaticImage
+                  src="../remote-contents/media/pnpc-white.png"
+                  alt="Parc National de Port-Cros"
+                  placeholder="none"
+                  objectFit="cover"
+                  objectPosition="left top"
+                />
+              </Link>
             </Grid>
 
             <Grid item>
