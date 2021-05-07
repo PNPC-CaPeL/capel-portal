@@ -8,14 +8,15 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import MarkdownText from './MarkdownText';
 
 const maskBase = {
-  iconUrl: '/diving-mask.svg',
-  iconSize: [32, 22],
+  iconUrl: '/spot.svg',
+  iconSize: [24, 24],
   // iconAnchor: [16, 11],
-  popupAnchor: [0, -12], // from iconAnchor
-  tooltipAnchor: [17, 0], // from iconAnchor
+  popupAnchor: [0, -15], // from iconAnchor
+  tooltipAnchor: [15, 0], // from iconAnchor
 };
+
 const maskIcon = icon && icon(maskBase);
-const maskFavIcon = icon && icon({ ...maskBase, iconUrl: '/diving-mask-fav.svg' });
+const maskFavIcon = icon && icon({ ...maskBase, iconUrl: '/spot.svg' });
 
 const Spot = ({
   geojson,

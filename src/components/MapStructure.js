@@ -6,11 +6,11 @@ import { Typography } from '@material-ui/core';
 import MarkdownText from './MarkdownText';
 
 const iconBase = {
-  iconUrl: '/circle.svg',
-  iconSize: [20, 20],
+  iconUrl: '/structure.svg',
+  iconSize: [24, 24],
   // iconAnchor: [16, 11],
-  popupAnchor: [0, -12], // from iconAnchor
-  tooltipAnchor: [12, 0], // from iconAnchor
+  popupAnchor: [0, -15], // from iconAnchor
+  tooltipAnchor: [15, 0], // from iconAnchor
 };
 
 const MapStructures = ({
