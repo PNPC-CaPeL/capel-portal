@@ -1,4 +1,12 @@
 
+0.5.0 / 2021-05-20
+==================
+
+**Breaking changes**
+
+  * Cut off all component and modules related to remote data
+  * Remove package description (inherited for template)
+
 0.4.0 / 2021-05-20
 ==================
 
