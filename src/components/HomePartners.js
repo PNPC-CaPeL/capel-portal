@@ -31,7 +31,7 @@ const HomePartners = () => {
             className={classes.partner}
             placeholder="blurred"
             objectFit="contain"
-            src="../remote-contents/media/marha.png"
+            src="../assets/marha.png"
             alt="marha"
           />
         </Link>
@@ -42,7 +42,7 @@ const HomePartners = () => {
             className={classes.partner}
             placeholder="blurred"
             objectFit="contain"
-            src="../remote-contents/media/life.jpg"
+            src="../assets/life.jpg"
             alt="Life"
           />
         </Link>
@@ -53,7 +53,7 @@ const HomePartners = () => {
             className={classes.partner}
             placeholder="blurred"
             objectFit="contain"
-            src="../remote-contents/media/natura2000.png"
+            src="../assets/natura2000.png"
             alt="Natura 2000"
           />
         </Link>
@@ -64,7 +64,7 @@ const HomePartners = () => {
             className={classes.partner}
             placeholder="blurred"
             objectFit="contain"
-            src="../remote-contents/media/ffessm.png"
+            src="../assets/ffessm.png"
             alt="FFESSM"
           />
         </Link>
@@ -75,7 +75,7 @@ const HomePartners = () => {
             className={classes.partner}
             placeholder="blurred"
             objectFit="contain"
-            src="../remote-contents/media/ffessm83.png"
+            src="../assets/ffessm83.png"
             alt="FFESSM 83"
           />
         </Link>

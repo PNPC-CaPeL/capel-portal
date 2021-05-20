@@ -1,31 +1,10 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
 
 export const useInformations = () => {
-  const { wrapper } = useStaticQuery(graphql`
-    query {
-      wrapper: allFile(
-        filter: {
-          relativeDirectory: { eq: "informations" },
-          childMarkdownRemark: { frontmatter: { draft: { ne: true } } }
-        }
-      ) {
-        nodes {
-          name
-          childMarkdownRemark {
-            excerptAst
-            htmlAst
-            frontmatter {
-              title
-              zone
-              spots
-            }
-          }
-        }
-      }
-    }
-  `);
+  // To be replaced with fetched blog posts from Ghost
+  const articles = React.useMemo(() => ([]), []);
 
-  return wrapper.nodes;
+  return articles;
 };
 
 export default useInformations;

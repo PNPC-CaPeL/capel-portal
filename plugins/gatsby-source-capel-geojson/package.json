@@ -1,7 +1,0 @@
-{
-  "name": "gatsby-source-capel-geojson",
-  "peerDependencies": {
-    "slugify": "*",
-    "js-yaml": "*"
-  }
-}

@@ -1,48 +1,10 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
 
 export const useSpots = () => {
-  const { wrapper, spots } = useStaticQuery(graphql`
-    query {
-      spots: allSpot {
-        nodes {
-          name
-          childMarkdownRemark {
-            htmlAst
-            frontmatter {
-              title
-              location
-            }
-          }
-        }
-      }
+  // To be replaced with fetched data from LocoKit
+  const spots = React.useMemo(() => ([]), []);
 
-      wrapper: allFile(
-        filter: {
-          relativeDirectory: { eq: "spots" },
-          childMarkdownRemark: { frontmatter: { draft: { ne: true } } }
-        }
-      ) {
-        nodes {
-          name
-          childMarkdownRemark {
-            htmlAst
-            frontmatter {
-              title
-              ref
-              types
-              location
-              structures
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  return [
-    ...wrapper.nodes,
-    ...spots.nodes,
-  ];
+  return spots;
 };
 
 export default useSpots;

@@ -8,25 +8,7 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-netlify-cms',
     'gatsby-transformer-json',
-    'gatsby-source-capel-geojson',
-    {
-      resolve: 'gatsby-source-git',
-      options: {
-        name: 'remote-contents',
-        remote: process.env.GITHUB_CONTENT_REPO,
-        branch: 'main',
-        local: 'src/remote-contents',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-copy-files',
-      options: {
-        source: `${__dirname}/src/remote-contents/public`,
-        destination: '',
-      },
-    },
     {
       resolve: 'gatsby-plugin-remote-images',
       options: {
@@ -38,24 +20,6 @@ module.exports = {
             ? `https://raw.githubusercontent.com/PNPC-CaPeL/capel-proto-contents/main${url}`
             : url
         ),
-      },
-    },
-    {
-      resolve: 'gatsby-source-airtable',
-      options: {
-        apiKey: process.env.AIRTABLE_API_KEY,
-        tables: [
-          {
-            baseId: 'appwosEetH7gWIHO2',
-            tableName: 'Signatures du règlement',
-            queryName: 'regulation',
-          },
-          {
-            baseId: 'appwosEetH7gWIHO2',
-            tableName: 'Déclarations de plongées',
-            queryName: 'declaration',
-          },
-        ],
       },
     },
     {
@@ -88,19 +52,6 @@ module.exports = {
             ],
           },
         },
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'markdown-blocks',
-        path: `${__dirname}/src/blocks`,
-      },
-    },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [],
       },
     },
   ],

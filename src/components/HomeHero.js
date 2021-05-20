@@ -96,7 +96,7 @@ const HomeHero = () => {
   return (
     <Box className={classes.top}>
       <StaticImage
-        src="../remote-contents/media/home-banner.jpg"
+        src="../assets/home-banner.jpg"
         alt=""
         className={classes.bgImage}
         placeholder="blurred"
@@ -114,7 +114,7 @@ const HomeHero = () => {
             <Grid item className={classes.pnpc}>
               <Link to="http://www.portcros-parcnational.fr/fr">
                 <StaticImage
-                  src="../remote-contents/media/pnpc-white.png"
+                  src="../assets/pnpc-white.png"
                   alt="Parc National de Port-Cros"
                   placeholder="none"
                   objectFit="cover"
