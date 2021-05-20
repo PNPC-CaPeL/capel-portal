@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import { Helmet } from 'react-helmet';
 import { Typography } from '@material-ui/core';
@@ -16,11 +17,7 @@ const GhostPost = ({ data }) => {
         <style type="text/css">{`${post.codeinjection_styles}`}</style>
       </Helmet>
 
-      {post.feature_image && (
-        <figure className="post-feature-image">
-          <img src={post.feature_image} alt={post.title} />
-        </figure>
-      )}
+      <GatsbyImage image={getImage(post.featureImage)} />
 
       <Typography variant="h1">
         {post.title}

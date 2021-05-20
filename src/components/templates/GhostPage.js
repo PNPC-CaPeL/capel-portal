@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import { Helmet } from 'react-helmet';
 import { Typography } from '@material-ui/core';
@@ -15,6 +16,8 @@ const GhostPage = ({ data }) => {
       <Helmet>
         <style type="text/css">{`${page.codeinjection_styles}`}</style>
       </Helmet>
+
+      <GatsbyImage image={getImage(page.featureImage)} />
 
       <Typography variant="h1">
         {page.title}

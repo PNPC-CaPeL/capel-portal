@@ -9,14 +9,16 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-transformer-json',
-    {
+
+    ...['GhostPage', 'GhostPost'].map(nodeType => ({
       resolve: 'gatsby-plugin-remote-images',
       options: {
-        nodeType: 'GhostPage',
+        nodeType,
         imagePath: 'feature_image',
         name: 'featureImage',
       },
-    },
+    })),
+
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
