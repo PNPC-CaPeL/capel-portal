@@ -29,6 +29,7 @@
     "gatsby-plugin-remote-images": "^2.4.0",
     "gatsby-plugin-sharp": "^3.5.0",
     "gatsby-source-filesystem": "^3.5.0",
+    "gatsby-source-ghost": "^4.2.4",
     "gatsby-theme-material-ui": "^1.0.13",
     "gatsby-transformer-json": "^3.5.0",
     "gatsby-transformer-sharp": "^3.5.0",

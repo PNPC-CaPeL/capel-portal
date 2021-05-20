@@ -12,14 +12,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-remote-images',
       options: {
-        nodeType: 'MarkdownRemark',
-        imagePath: 'frontmatter.picture',
-        name: 'pictureFile',
-        prepareUrl: url => (
-          url.startsWith('/')
-            ? `https://raw.githubusercontent.com/PNPC-CaPeL/capel-proto-contents/main${url}`
-            : url
-        ),
+        nodeType: 'GhostPage',
+        imagePath: 'feature_image',
+        name: 'featureImage',
       },
     },
     {
@@ -53,6 +48,17 @@ module.exports = {
           },
         },
       },
+    },
+    {
+      resolve: 'gatsby-source-ghost',
+      options: {
+        apiUrl: process.env.GHOST_API_URL,
+        contentApiKey: process.env.GHOST_API_KEY,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-ghost-pages',
+      options: {},
     },
   ],
   flags: {
