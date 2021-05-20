@@ -1,4 +1,30 @@
 
+0.4.0 / 2021-05-20
+==================
+
+  * Add link on PNPC logo
+  * Change map picto
+  * Use geojson data for generating structures (virtual) markdown files
+  * Add image management for homepage text blocks
+  * Add Observations links
+  * Add footer links
+  * Add social networks proper links
+  * Add links for partners logo
+  * Hide Informations & Meteo homepage blocks
+  * Use regulation text with no yaml text-id
+  * Setup social network icons
+  * Update forms
+  * Display message according dive position
+  * Use a reducer instaed of multiple states
+  * Add a legend to the Map
+  * Add styles to GeoJSON layer
+  * Display zones.geojson from remote data on map
+  * Create custom gql schema for missing spot field values
+  * Fix ref field for spots admin UI
+  * Adapt forms enhancement to new structure of remote data
+  * Improve NetlifyCMS config file
+  * Set proper collections for types, skills & cadres in remote content
+
 0.3.0 / 2021-04-16
 ==================
 
