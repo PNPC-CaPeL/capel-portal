@@ -3,7 +3,7 @@ import { Popup, Marker, Tooltip } from 'react-leaflet';
 import { icon } from 'leaflet';
 import { Typography } from '@material-ui/core';
 
-import MarkdownText from './MarkdownText';
+import HtmlAstRender from './HtmlAstRender';
 
 const iconBase = {
   iconUrl: '/structure.svg',
@@ -38,7 +38,7 @@ const MapStructures = ({
             {structure.childMarkdownRemark.frontmatter.title}
           </Typography>
 
-          <MarkdownText hast={htmlAst} />
+          <HtmlAstRender hast={htmlAst} />
         </Popup>
       )}
     </Marker>

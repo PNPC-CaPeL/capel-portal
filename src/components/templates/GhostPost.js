@@ -2,8 +2,9 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import { Helmet } from 'react-helmet';
-import { Box, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
+import HtmlAstRender from '../HtmlAstRender';
 import Layout from '../Layout';
 
 const GhostPost = ({ data }) => {
@@ -25,13 +26,7 @@ const GhostPost = ({ data }) => {
         {post.title}
       </Typography>
 
-      <Box
-        component="article"
-        className="content-body"
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: post.html }}
-      />
-
+      <HtmlAstRender hast={post.childHtmlRehype.htmlAst} />
     </Layout>
   );
 };

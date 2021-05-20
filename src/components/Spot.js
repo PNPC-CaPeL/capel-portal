@@ -5,7 +5,7 @@ import { Typography, Tooltip as MUiTooltip } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 
-import MarkdownText from './MarkdownText';
+import HtmlAstRender from './HtmlAstRender';
 
 const maskBase = {
   iconUrl: '/spot.svg',
@@ -50,7 +50,7 @@ const Spot = ({
             {spot.childMarkdownRemark.frontmatter.title}
           </Typography>
 
-          <MarkdownText hast={htmlAst} />
+          <HtmlAstRender hast={htmlAst} />
         </Popup>
       )}
 

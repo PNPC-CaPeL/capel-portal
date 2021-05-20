@@ -8,7 +8,7 @@ export const useHomepageBlocks = () => {
           title
           slug
           feature_image
-          html
+          childHtmlRehype { htmlAst }
           featureImage { childImageSharp { gatsbyImageData(
             aspectRatio: 1.3333333
             width: 800

@@ -1,11 +1,10 @@
 import React from 'react';
 
-// import { StaticImage } from 'gatsby-plugin-image';
 import { Box, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-// import MarkdownText from './MarkdownText';
+import HtmlAstRender from './HtmlAstRender';
 import { useHomepageBlocks } from '../hooks/useHomepageBlocks';
 
 const useStyles = makeStyles(theme => ({
@@ -30,7 +29,7 @@ const HomeInstit = () => {
 
   return (
     <Grid container className={classes.root} spacing={4}>
-      {blocks.map(({ title, html, featureImage }) => (
+      {blocks.map(({ title, featureImage, childHtmlRehype: { htmlAst } = {} }) => (
         <Grid item xs={12} md={4} key={title}>
           {(featureImage
             ? <GatsbyImage image={getImage(featureImage)} alt="" />
@@ -41,8 +40,7 @@ const HomeInstit = () => {
             {title}
           </Typography>
 
-          {/* <MarkdownText hast={htmlAst} /> */}
-          <Box dangerouslySetInnerHTML={{ __html: html }} />
+          <HtmlAstRender hast={htmlAst} />
         </Grid>
       ))}
     </Grid>

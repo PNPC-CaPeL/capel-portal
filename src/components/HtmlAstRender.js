@@ -2,18 +2,17 @@ import React from 'react';
 import clsx from 'clsx';
 import Rehype2react from 'rehype-react';
 
-import Box from '@material-ui/core/Box';
+import { Link } from 'gatsby-material-ui-components';
 import {
-  Typography,
+  Box,
   Table,
   TableHead,
   TableBody,
   TableCell,
   TableRow,
+  Typography,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-
-import Link from './Link';
 
 const useStyles = makeStyles(theme => ({
   markdown: {
@@ -26,7 +25,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const MarkdownText = ({ hast, components, className, body = 'body1', ...rest }) => {
+const HtmlAstRender = ({
+  hast,
+  components,
+  className,
+  body = 'body1',
+  ...rest
+}) => {
   const classes = useStyles();
 
   const renderAst = new Rehype2react({
@@ -54,8 +59,13 @@ const MarkdownText = ({ hast, components, className, body = 'body1', ...rest }) 
   }).Compiler;
 
   return (
-    <Box className={clsx(classes.markdown, className)} {...rest}>{renderAst(hast)}</Box>
+    <Box
+      className={clsx(classes.markdown, className)}
+      {...rest}
+    >
+      {renderAst(hast)}
+    </Box>
   );
 };
 
-export default MarkdownText;
+export default HtmlAstRender;

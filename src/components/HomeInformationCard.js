@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { Box, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-import MarkdownText from './MarkdownText';
+import HtmlAstRender from './HtmlAstRender';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,7 +21,7 @@ const HomeInformationCard = ({ className, title, hast, ...props }) => {
         {title}
       </Typography>
 
-      <MarkdownText hast={hast} />
+      <HtmlAstRender hast={hast} />
     </Box>
   );
 };

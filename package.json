@@ -32,6 +32,7 @@
     "gatsby-source-ghost": "^4.2.4",
     "gatsby-theme-material-ui": "^1.0.13",
     "gatsby-transformer-json": "^3.5.0",
+    "gatsby-transformer-rehype": "^2.0.0",
     "gatsby-transformer-sharp": "^3.5.0",
     "leaflet": "^1.7.1",
     "leaflet-sleep": "^0.5.2",
@@ -49,6 +50,7 @@
   "peerDependencies": {
     "clsx": "*",
     "dotenv": "*",
+    "gatsby-material-ui-components": "*",
     "react-helmet": "*"
   },
   "repository": {

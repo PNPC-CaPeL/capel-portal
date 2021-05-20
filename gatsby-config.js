@@ -60,6 +60,13 @@ module.exports = {
       resolve: 'gatsby-plugin-ghost-pages',
       options: {},
     },
+    {
+      resolve: 'gatsby-transformer-rehype',
+      options: {
+        filter: node => ['GhostPage', 'GhostPost'].includes(node.internal.type),
+        source: node => node.html,
+      },
+    },
   ],
   flags: {
     DEV_SSR: false,

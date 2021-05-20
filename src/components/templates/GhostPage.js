@@ -2,8 +2,9 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import { Helmet } from 'react-helmet';
-import { Box, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
+import HtmlAstRender from '../HtmlAstRender';
 import Layout from '../Layout';
 
 const GhostPage = ({ data }) => {
@@ -19,12 +20,7 @@ const GhostPage = ({ data }) => {
         {page.title}
       </Typography>
 
-      <Box
-        component="section"
-        className="content-body"
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: page.html }}
-      />
+      <HtmlAstRender hast={page.childHtmlRehype.htmlAst} />
     </Layout>
   );
 };
