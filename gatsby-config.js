@@ -10,15 +10,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-transformer-json',
 
-    ...['GhostPage', 'GhostPost'].map(nodeType => ({
-      resolve: 'gatsby-plugin-remote-images',
-      options: {
-        nodeType,
-        imagePath: 'feature_image',
-        name: 'featureImage',
-      },
-    })),
-
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
@@ -68,6 +59,10 @@ module.exports = {
         filter: node => ['GhostPage', 'GhostPost'].includes(node.internal.type),
         source: node => node.html,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-ghost-images',
+      options: {},
     },
   ],
   flags: {

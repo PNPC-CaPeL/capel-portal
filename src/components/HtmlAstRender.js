@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Rehype2react from 'rehype-react';
 
 import { Link } from 'gatsby-material-ui-components';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import {
   Box,
   Table,
@@ -13,6 +14,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import useRemoteImages from '../hooks/useRemoteImages';
 
 const useStyles = makeStyles(theme => ({
   markdown: {
@@ -33,6 +35,7 @@ const HtmlAstRender = ({
   ...rest
 }) => {
   const classes = useStyles();
+  const { byUrl } = useRemoteImages();
 
   const renderAst = new Rehype2react({
     createElement: React.createElement,
@@ -53,7 +56,12 @@ const HtmlAstRender = ({
       tr: props => <TableRow {...props} />,
       td: props => <TableCell {...props} />,
       th: props => <TableCell component="th" {...props} />,
-      img: props => <img style={{ maxWidth: '100%' }} {...props} />, // eslint-disable-line jsx-a11y/alt-text
+      img: ({ src, ...props }) => {
+        const imageData = getImage(byUrl[src]);
+        return imageData
+          ? <GatsbyImage {...props} image={imageData} />
+          : <img alt="" style={{ maxWidth: '100%' }} src={src} {...props} />;
+      },
       ...components,
     },
   }).Compiler;

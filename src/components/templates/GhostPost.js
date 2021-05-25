@@ -17,7 +17,7 @@ const GhostPost = ({ data }) => {
         <style type="text/css">{`${post.codeinjection_styles}`}</style>
       </Helmet>
 
-      <GatsbyImage image={getImage(post.featureImage)} />
+      {post.featureImage && <GatsbyImage alt="" image={getImage(post.featureImage)} />}
 
       <Typography variant="h1">
         {post.title}

@@ -17,7 +17,7 @@ const GhostPage = ({ data }) => {
         <style type="text/css">{`${page.codeinjection_styles}`}</style>
       </Helmet>
 
-      <GatsbyImage image={getImage(page.featureImage)} />
+      {page.featureImage && <GatsbyImage alt="" image={getImage(page.featureImage)} />}
 
       <Typography variant="h1">
         {page.title}
