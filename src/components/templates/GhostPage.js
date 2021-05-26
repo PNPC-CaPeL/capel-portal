@@ -8,31 +8,41 @@ import { Typography } from '@material-ui/core';
 import HtmlAstRender from '../HtmlAstRender';
 import Layout from '../Layout';
 
-const GhostPage = ({ data }) => {
-  const page = data.ghostPage;
+const GhostPage = ({
+  data: {
+    wrapper: {
+      codeinjection_styles: customCss,
+      featureImage,
+      title,
+      childHtmlRehype,
+    },
+  },
+}) => (
+  <Layout
+    title={title}
+    headerProps={{ title: null }}
+  >
+    <Helmet>
+      <style type="text/css">{`${customCss}`}</style>
+    </Helmet>
 
-  return (
-    <Layout>
-      <Helmet>
-        <style type="text/css">{`${page.codeinjection_styles}`}</style>
-      </Helmet>
+    {featureImage && (
+      <GatsbyImage alt="" image={getImage(featureImage)} />
+    )}
 
-      {page.featureImage && <GatsbyImage alt="" image={getImage(page.featureImage)} />}
+    <Typography variant="h1">
+      {title}
+    </Typography>
 
-      <Typography variant="h1">
-        {page.title}
-      </Typography>
-
-      <HtmlAstRender hast={page.childHtmlRehype.htmlAst} />
-    </Layout>
-  );
-};
+    <HtmlAstRender hast={childHtmlRehype.htmlAst} />
+  </Layout>
+);
 
 export default GhostPage;
 
-export const postQuery = graphql`
+export const pageQuery = graphql`
   query($slug: String!) {
-    ghostPage(slug: { eq: $slug }) {
+    wrapper: ghostPage(slug: { eq: $slug }) {
       ...GhostPageFields
     }
   }

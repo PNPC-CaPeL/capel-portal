@@ -35,9 +35,11 @@ const Header = ({ title, ...props }) => {
           </Grid>
 
           <Grid item>
-            <Typography variant="h1" className={classes.title}>
-              {title}
-            </Typography>
+            {title && (
+              <Typography variant="h1" className={classes.title}>
+                {title}
+              </Typography>
+            )}
           </Grid>
         </Grid>
       </Container>

@@ -8,31 +8,41 @@ import { Typography } from '@material-ui/core';
 import HtmlAstRender from '../HtmlAstRender';
 import Layout from '../Layout';
 
-const GhostPost = ({ data }) => {
-  const post = data.ghostPost;
+const GhostPost = ({
+  data: {
+    wrapper: {
+      codeinjection_styles: customCss,
+      featureImage,
+      title,
+      childHtmlRehype,
+    },
+  },
+}) => (
+  <Layout
+    title={title}
+    headerProps={{ title: null }}
+  >
+    <Helmet>
+      <style type="text/css">{`${customCss}`}</style>
+    </Helmet>
 
-  return (
-    <Layout>
-      <Helmet>
-        <style type="text/css">{`${post.codeinjection_styles}`}</style>
-      </Helmet>
+    {featureImage && (
+      <GatsbyImage alt="" image={getImage(featureImage)} />
+    )}
 
-      {post.featureImage && <GatsbyImage alt="" image={getImage(post.featureImage)} />}
+    <Typography variant="h1">
+      {title}
+    </Typography>
 
-      <Typography variant="h1">
-        {post.title}
-      </Typography>
-
-      <HtmlAstRender hast={post.childHtmlRehype.htmlAst} />
-    </Layout>
-  );
-};
+    <HtmlAstRender hast={childHtmlRehype.htmlAst} />
+  </Layout>
+);
 
 export default GhostPost;
 
-export const postQuery = graphql`
+export const pageQuery = graphql`
   query($slug: String!) {
-    ghostPost(slug: { eq: $slug }) {
+    wrapper: ghostPost(slug: { eq: $slug }) {
       ...GhostPostFields
     }
   }
