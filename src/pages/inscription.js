@@ -1,116 +1,63 @@
-import React, { useState } from 'react';
-import {
-  Button,
-  TextField,
-  Typography,
-  FormControl,
-  FormLabel,
-  RadioGroup,
-  Radio,
-  FormControlLabel,
-  Grid,
-} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+
 import { Link as GatsbyLink } from 'gatsby';
+import { Grid, Typography } from '@material-ui/core';
+import { ClassicRunner } from 'tripetto-runner-classic';
+import { Export } from 'tripetto-runner-foundation';
+
+import { useTheme } from '@material-ui/core/styles';
 
 import Layout from '../components/Layout';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    'text-align': 'center',
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '100%',
-    },
-    '& .MuiInput-root': {
-      width: '100%',
-    },
-    '& .MuiFormControl-root': {
-      margin: theme.spacing(1),
-      width: '100%',
-    },
-  },
-}));
+import signup from '../signup.json';
 
-function validateEmail (email) {
-  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
-}
+const isLive = typeof window !== 'undefined';
+const FallbackComponent = () => <></>;
 
 const SignUpPage = () => {
-  const classes = useStyles();
+  const [done, setDone] = React.useState(false);
 
-  const [success, setSuccess] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [errorSubmitting, setErrorSubmitting] = useState(false);
+  const handleFormSubmit = async instance => {
+    const { fields } = Export.fields(instance);
+    const data = fields.reduce((acc, curr) => ({ ...acc, [curr.name]: curr.value }), {});
+    const body = JSON.stringify(data, null, 2);
 
-  const [name, setName] = useState('');
-  const [errorName, setErrorName] = useState(false);
-  const [email, setEmail] = useState('');
-  const [errorEmail, setErrorEmail] = useState(false);
-  const [errorHelperEmail, setErrorHelperEmail] = useState('');
-  const [type, setType] = useState('');
-  const [structureName, setStructureName] = useState('');
-  const [errorStructureName, setErrorStructureName] = useState(false);
+    setDone(true);
 
-  async function onSubmitForm (e) {
-    e.preventDefault();
-
-    setErrorName(false);
-    setErrorEmail(false);
-    setErrorHelperEmail('');
-    setErrorStructureName(false);
-    setErrorSubmitting(false);
-
-    let haveAtLeastAnError = false;
-    if (!name) {
-      haveAtLeastAnError = true;
-      setErrorName(true);
-    }
-    if (!email) {
-      haveAtLeastAnError = true;
-      setErrorEmail(true);
-    } else if (!validateEmail(email)) {
-      haveAtLeastAnError = true;
-      setErrorEmail(true);
-      setErrorHelperEmail('Votre e-mail est invalide.');
-    }
-    if (type === 'SP' && !structureName) {
-      haveAtLeastAnError = true;
-      setErrorStructureName(true);
-    }
-
-    if (haveAtLeastAnError) return;
-
-    setSubmitting(true);
-    /**
-     * Build the data object to send to n8n
-     */
-    const response = await fetch(process.env.N8N_WEBHOOK_HUB_URL, {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        type,
-        structureName,
-        formId: 'capel-form-signup',
-      }),
+    await fetch(process.env.N8N_WEBHOOK_HUB_URL, {
       method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body,
     });
-    setSubmitting(false);
-    // response.ok tells us if the fetch response is a 2xx one
-    setSuccess(response.ok);
-    setErrorSubmitting(!response.ok);
-  }
+  };
+
+  const { palette, shape } = useTheme();
+
+  const styles = {
+    mode: 'progressive',
+    noBranding: true,
+    color: palette.primary.main,
+
+    inputs: {
+      borderSize: 1,
+      roundness: shape.borderRadius,
+      textColor: palette.text.primary,
+      errorColor: palette.error.main,
+      agreeColor: palette.success.main,
+      declineColor: palette.error.main,
+    },
+
+    buttons: {
+      mode: 'fill',
+      roundness: shape.borderRadius,
+    },
+  };
 
   return (
     <Layout title="Inscription à la plate-forme CaPeL">
-      <Grid container justify={success ? 'space-around' : 'space-between'}>
-        {
-          success && (
+      <Grid container justify={done ? 'space-around' : 'space-between'}>
+        {done && (
           <Grid item md={5}>
             <Typography variant="h3" paragraph>
               Merci de votre inscription,
@@ -131,11 +78,9 @@ const SignUpPage = () => {
             <GatsbyLink to="/">Retour à l'accueil</GatsbyLink>
 
           </Grid>
-          )
-        }
+        )}
 
-        {
-          !success && (
+        {!done && (
           <>
             <Grid item md={7}>
               <Typography variant="h3" paragraph>
@@ -162,91 +107,18 @@ const SignUpPage = () => {
             </Grid>
 
             <Grid item md={4} container>
-              <form className={classes.root} noValidate autoComplete="off" onSubmit={onSubmitForm}>
-                <TextField
-                  required
-                  label="Identité"
-                  type="text"
-                  value={name}
-                  onChange={e => setName(e.target.value)}
-                  disabled={submitting}
-                  error={errorName}
-                />
-                <TextField
-                  required
-                  label="E-mail"
-                  type="email"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  disabled={submitting}
-                  error={errorEmail}
-                  helperText={errorHelperEmail}
-                />
-                <FormControl component="fieldset">
-                  <FormLabel component="legend">Type de compte</FormLabel>
-                  <RadioGroup
-                    value={type}
-                    onChange={e => setType(e.target.value)}
-                  >
-                    <FormControlLabel
-                      value="SP"
-                      control={<Radio />}
-                      label="Structure de plongée"
-                      disabled={submitting}
-                    />
-                    <FormControlLabel
-                      value="PI"
-                      control={<Radio />}
-                      label="Plongeur individuel"
-                      disabled={submitting}
-                    />
-                  </RadioGroup>
-                </FormControl>
-
-                {
-                  type === 'SP'
-                  && (
-                  <TextField
-                    required
-                    label="Nom de la structure"
-                    type="text"
-                    value={structureName}
-                    onChange={e => setStructureName(e.target.value)}
-                    disabled={submitting}
-                    error={errorStructureName}
+              <ErrorBoundary FallbackComponent={FallbackComponent}>
+                {isLive && (
+                  <ClassicRunner
+                    definition={signup}
+                    styles={styles}
+                    onSubmit={handleFormSubmit}
                   />
-                  )
-                }
-                <Button
-                  variant="contained"
-                  color="primary"
-                  type="submit"
-                  disabled={submitting}
-                >
-                  {
-                    submitting ? 'Inscription en cours...' : 'Créer mon compte CaPeL'
-                  }
-                </Button>
-                {
-                  errorSubmitting && (
-                    <>
-                      <Typography variant="body1" paragraph color="error">
-                        Plouf !
-                        Votre inscription a échoué... sur un rivage inconnu ?!
-                      </Typography>
-                      <Typography variant="body1" paragraph color="error">
-                        Merci de prendre contact avec le Parc directement
-                        pour remonter l'anomalie... Désolé.
-                      </Typography>
-                    </>
-                  )
-                }
-              </form>
-
+                )}
+              </ErrorBoundary>
             </Grid>
           </>
-          )
-        }
+        )}
       </Grid>
     </Layout>
   );

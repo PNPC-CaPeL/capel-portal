@@ -44,6 +44,11 @@
     "react-query": "^3.16.0",
     "rehype-react": "^6.2.0",
     "styled-components": "^5.3.0",
+    "tripetto-block-email": "^5.0.0",
+    "tripetto-block-radiobuttons": "^5.0.0",
+    "tripetto-block-text": "^5.0.0",
+    "tripetto-runner-classic": "^3.0.1",
+    "tripetto-runner-foundation": "^6.0.1",
     "use-persisted-state": "^0.3.3"
   },
   "peerDependencies": {
@@ -61,17 +66,9 @@
   },
   "tripetto": {
     "blocks": [
-      "tripetto-block-checkbox",
-      "tripetto-block-date",
-      "tripetto-block-dropdown",
       "tripetto-block-email",
-      "tripetto-block-number",
       "tripetto-block-radiobuttons",
-      "tripetto-block-scale",
-      "tripetto-block-text",
-      "tripetto-block-textarea",
-      "tripetto-block-url",
-      "tripetto-block-yes-no"
+      "tripetto-block-text"
     ]
   }
 }

@@ -1,0 +1,117 @@
+{
+  "clusters": [
+    {
+      "id": "c7c4367c132f6219c316254af3e9063457962096094dbd3754895b782ec60682",
+      "nodes": [
+        {
+          "id": "07c61a1c06b5a26c428115b386e2ca8ef40514b7fe9f1eaabcea4718246be0f6",
+          "name": "Identité",
+          "nameVisible": true,
+          "slots": [
+            {
+              "id": "c7bb7f4263773fb129d7fd27718e59e0c2d85bcf7f66592e832893e8f5696211",
+              "type": "text",
+              "kind": "static",
+              "reference": "value",
+              "label": "Text",
+              "alias": "name",
+              "required": true
+            }
+          ],
+          "block": { "type": "tripetto-block-text", "version": "5.0.0" }
+        },
+        {
+          "id": "d4f077f222d12ffdb008a78b2c48efc0f7b2e9d5544b1c2f44f3a5cc582ba018",
+          "name": "E-mail",
+          "nameVisible": true,
+          "slots": [
+            {
+              "id": "feb3c3f16c3825abaf4c9002b730288803427c38b21901a63efabdaa43497119",
+              "type": "string",
+              "kind": "static",
+              "reference": "email",
+              "label": "Email address",
+              "alias": "email",
+              "required": true
+            }
+          ],
+          "block": { "type": "tripetto-block-email", "version": "5.0.0" }
+        },
+        {
+          "id": "d96e55bca2de32581f58d6ea99b10c3fc1b093f0f70b12f2bb29f0569fff9086",
+          "name": "Type de compte",
+          "nameVisible": true,
+          "slots": [
+            {
+              "id": "ec8239a647f4a9630704928b5a742fa3b6aac68320c681bf22dca3163124419a",
+              "type": "string",
+              "kind": "static",
+              "reference": "button",
+              "label": "Selected button",
+              "alias": "type",
+              "required": true
+            }
+          ],
+          "block": {
+            "type": "tripetto-block-radiobuttons",
+            "version": "5.0.0",
+            "buttons": [
+              {
+                "id": "2933305c5c69dd9f90bddfc01b532782b1b9475610a895b7c963ea69d90c020b",
+                "name": "Plongeur individuel",
+                "value": "PI"
+              },
+              {
+                "id": "435df6e615ef445301acae86f571c230aa85e6fa9844d6a66aeb1dee09676f19",
+                "name": "Structure de plongée",
+                "value": "SP"
+              }
+            ]
+          }
+        }
+      ],
+      "branches": [
+        {
+          "id": "ef24fd962a3ed7042e9102bc123fc4e4997cd9376e66708497abb89591f9f429",
+          "clusters": [
+            {
+              "id": "394beb1014c47ec8f86042e65fb28456bd2c392ba267ec76d94e91371d8aa90d",
+              "nodes": [
+                {
+                  "id": "f6593893eee07a1eeeaac253c144b4a73b56fe1002290b8a045054384b4507ba",
+                  "name": "Nom de la structure",
+                  "nameVisible": true,
+                  "slots": [
+                    {
+                      "id": "3087c494ddc6ca829b47a27dd6e0b1aaf6e72626b1273f845296bd57e854ed25",
+                      "type": "text",
+                      "kind": "static",
+                      "reference": "value",
+                      "label": "Text",
+                      "alias": "structureName",
+                      "required": true
+                    }
+                  ],
+                  "block": { "type": "tripetto-block-text", "version": "5.0.0" }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "id": "6f1852ba8934dfeadb150bf553ff4849e7ea17d51a92f6f1bd2a8fce57a21529",
+              "block": {
+                "button": "435df6e615ef445301acae86f571c230aa85e6fa9844d6a66aeb1dee09676f19",
+                "type": "tripetto-block-radiobuttons",
+                "version": "5.0.0",
+                "node": "d96e55bca2de32581f58d6ea99b10c3fc1b093f0f70b12f2bb29f0569fff9086",
+                "slot": "ec8239a647f4a9630704928b5a742fa3b6aac68320c681bf22dca3163124419a"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "builder": { "name": "tripetto", "version": "4.0.0" }
+}
