@@ -31,6 +31,17 @@ const HomeButton = () => {
   return (
     <>
       <Button
+        to="inscription"
+        variant="contained"
+        color="primary"
+        component={Link}
+      >
+        S'inscrire à CaPeL
+      </Button>
+
+      <Box className={classes.separator} />
+
+      <Button
         to="reglement"
         variant="contained"
         color="secondary"
