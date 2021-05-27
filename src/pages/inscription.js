@@ -223,9 +223,7 @@ const SignUpPage = () => {
                   type="submit"
                   disabled={submitting}
                 >
-                  {
-                    submitting ? 'Inscription en cours...' : 'Créer mon compte CaPeL'
-                  }
+                  {submitting ? 'Inscription en cours...' : 'Créer mon compte CaPeL'}
                 </Button>
                 {
                   errorSubmitting && (
