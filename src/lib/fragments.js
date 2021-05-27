@@ -245,9 +245,14 @@ export const ghostSettingsFields = graphql`
     codeinjection_head
     codeinjection_foot
     codeinjection_styles
+    url
     navigation {
       label
       url
+    }
+    secondary_navigation {
+      url
+      label
     }
   }
 `;
