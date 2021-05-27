@@ -17,6 +17,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import useRemoteImages from '../hooks/useRemoteImages';
+import RatioBox from './RatioBox';
 
 const useStyles = makeStyles(theme => {
   const maxWidth = mq => `@media (max-width: ${theme.breakpoints.values[mq]}px)`;
@@ -119,6 +120,38 @@ const HtmlAstRender = ({
           <Typography component="figcaption" variant="caption" {...props} />
         </Container>
       ),
+      iframe: props => {
+        const isYoutube = [
+          /^https:\/\/www\.youtube\.com/,
+          /^https:\/\/youtube\.com/,
+          /^https:\/\/youtu\.be/,
+        ].some(re => props.src.match(re));
+
+        if (!isYoutube) {
+          return <iframe {...props} />; // eslint-disable-line
+        }
+
+        return (
+          <Box style={{ marginLeft: 'auto', marginRight: 'auto', maxWidth: 800 }}>
+            <RatioBox ratio={3 / 2}>
+              <iframe // eslint-disable-line
+                {...props}
+                width="auto"
+                height="auto"
+                style={{
+                  ...props.style, // eslint-disable-line
+                  display: 'block',
+                  position: 'absolute',
+                  top: 0,
+                  bottom: 0,
+                  height: '100%',
+                  width: '100%',
+                }}
+              />
+            </RatioBox>
+          </Box>
+        );
+      },
       ...components,
     },
   }).Compiler;
