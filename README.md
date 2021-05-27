@@ -38,6 +38,8 @@ npm i -g ghost-cli
 mkdir /tmp/where-you-want && cd /tmp/where-you-want
 # Installer une instance ghost dans ce répertoire
 ghost install local
+# Revenir dans votre répertoire du projet
+cd -
 # Copier coller le fichier .env.dist
 cp .env.dist .env
 # Vous devez maintenant créer un token (Content API key)
