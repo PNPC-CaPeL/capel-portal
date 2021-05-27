@@ -18,3 +18,34 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
     },
   });
 };
+
+exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
+  createTypes(`
+    type GhostPage {
+      url: String
+      featureImage: File @link(by: "id", from: "featureImage___NODE")
+    }
+
+    type GhostPost {
+      url: String
+      featureImage: File @link(by: "id", from: "featureImage___NODE")
+    }
+
+    type File {
+      url: String
+    }
+
+    type HtmlRehype implements Node @derivedTypes @childOf(types: ["GhostPost", "GhostPage"]) {
+      html: String
+      htmlAst: JSON
+      tableOfContents: JSON
+      context: HtmlRehypeContext
+    }
+
+    type HtmlRehypeContext {
+      url: String
+      slug: String
+      feature_image: String
+    }
+  `);
+};
