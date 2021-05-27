@@ -12,6 +12,8 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link as GatsbyLink } from 'gatsby';
+import { Formik } from 'formik';
+
 import { validateEmail } from '../lib/helpers';
 
 import Layout from '../components/Layout';
@@ -32,77 +34,53 @@ const useStyles = makeStyles(theme => ({
 const SignUpPage = () => {
   const classes = useStyles();
 
-  const [success, setSuccess] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [errorSubmitting, setErrorSubmitting] = useState(false);
+  const [success, setSuccess] = useState();
 
-  const [name, setName] = useState('');
-  const [errorName, setErrorName] = useState(false);
-  const [email, setEmail] = useState('');
-  const [errorEmail, setErrorEmail] = useState(false);
-  const [errorHelperEmail, setErrorHelperEmail] = useState('');
-  const [type, setType] = useState('');
-  const [structureName, setStructureName] = useState('');
-  const [errorStructureName, setErrorStructureName] = useState(false);
+  const handleFormValidate = values => {
+    const errors = {};
 
-  async function onSubmitForm (e) {
-    e.preventDefault();
-
-    setErrorName(false);
-    setErrorEmail(false);
-    setErrorHelperEmail('');
-    setErrorStructureName(false);
-    setErrorSubmitting(false);
-
-    let haveAtLeastAnError = false;
-    if (!name) {
-      haveAtLeastAnError = true;
-      setErrorName(true);
-    }
-    if (!email) {
-      haveAtLeastAnError = true;
-      setErrorEmail(true);
-    } else if (!validateEmail(email)) {
-      haveAtLeastAnError = true;
-      setErrorEmail(true);
-      setErrorHelperEmail('Votre e-mail est invalide.');
-    }
-    if (type === SP && !structureName) {
-      haveAtLeastAnError = true;
-      setErrorStructureName(true);
+    if (!values.name) {
+      errors.name = 'Ce champ est nécessaire';
     }
 
-    if (haveAtLeastAnError) return;
+    if (!values.email) {
+      errors.email = 'Ce champ est nécessaire';
+    }
 
-    setSubmitting(true);
+    if (!validateEmail(values.email)) {
+      errors.email = 'Votre e-mail est invalide.';
+    }
+
+    if (values.type === SP && !values.structureName) {
+      errors.structureName = 'Ce champ est nécessaire';
+    }
+
+    return errors;
+  };
+
+  const handleFormSubmit = async (values, { setSubmitting }) => {
     /**
      * Build the data object to send to n8n
      */
     const response = await fetch(process.env.GATSBY_N8N_WEBHOOK_HUB_URL, {
+      method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        name,
-        email,
-        type,
-        structureName,
-        formId: 'capel-form-signup',
-      }),
-      method: 'POST',
+      body: JSON.stringify(values),
     });
+
+    const { success: responseSuccess = false } = await response.json() || {};
+    setSuccess(responseSuccess);
+
     setSubmitting(false);
-    // response.ok tells us if the fetch response is a 2xx one
-    setSuccess(response.ok);
-    setErrorSubmitting(!response.ok);
-  }
+  };
 
   return (
     <Layout title="Inscription à la plate-forme CaPeL">
       <Grid container justify={success ? 'space-around' : 'space-between'}>
-        {
-          success && (
+        {success && (
           <Grid item md={5}>
             <Typography variant="h3" paragraph>
               Merci de votre inscription,
@@ -123,11 +101,9 @@ const SignUpPage = () => {
             <GatsbyLink to="/">Retour à l'accueil</GatsbyLink>
 
           </Grid>
-          )
-        }
+        )}
 
-        {
-          !success && (
+        {(typeof success === 'undefined' || success === false) && (
           <>
             <Grid item md={7}>
               <Typography variant="h3" paragraph>
@@ -154,89 +130,119 @@ const SignUpPage = () => {
             </Grid>
 
             <Grid item md={4} container>
-              <form className={classes.root} noValidate autoComplete="off" onSubmit={onSubmitForm}>
-                <TextField
-                  required
-                  label="Identité"
-                  type="text"
-                  value={name}
-                  onChange={e => setName(e.target.value)}
-                  disabled={submitting}
-                  error={errorName}
-                  fullWidth
-                />
-                <TextField
-                  required
-                  label="E-mail"
-                  type="email"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  disabled={submitting}
-                  error={errorEmail}
-                  helperText={errorHelperEmail}
-                  fullWidth
-                />
-                <FormControl component="fieldset" fullWidth>
-
-                  <FormLabel component="legend">Type de compte</FormLabel>
-                  <RadioGroup
-                    value={type}
-                    onChange={e => setType(e.target.value)}
-                  >
-                    <FormControlLabel
-                      value={SP}
-                      control={<Radio />}
-                      label="Structure de plongée"
-                      disabled={submitting}
+              <Formik
+                initialValues={{
+                  formId: 'capel-form-signup',
+                  name: '',
+                  email: '',
+                  type: PI,
+                  structureName: '',
+                }}
+                validate={handleFormValidate}
+                onSubmit={handleFormSubmit}
+              >
+                {({
+                  values,
+                  errors,
+                  touched,
+                  handleChange,
+                  handleBlur,
+                  handleSubmit,
+                  isSubmitting,
+                  isValid,
+                  dirty,
+                }) => (
+                  <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
+                    <TextField
+                      required
+                      fullWidth
+                      label="Identité"
+                      name="name"
+                      type="text"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      error={Boolean(touched.name && errors.name)}
+                      helperText={(touched.name && errors.name) || ''}
+                      value={values.name}
+                      disabled={isSubmitting}
                     />
-                    <FormControlLabel
-                      value={PI}
-                      control={<Radio />}
-                      label="Plongeur individuel"
-                      disabled={submitting}
+                    <TextField
+                      required
+                      fullWidth
+                      label="E-mail"
+                      name="email"
+                      type="email"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      error={Boolean(touched.email && errors.email)}
+                      helperText={(touched.email && errors.email) || ''}
+                      value={values.email}
+                      disabled={isSubmitting}
                     />
-                  </RadioGroup>
-                </FormControl>
 
-                {type === SP && (
-                  <TextField
-                    required
-                    label="Nom de la structure"
-                    type="text"
-                    value={structureName}
-                    onChange={e => setStructureName(e.target.value)}
-                    disabled={submitting}
-                    error={errorStructureName}
-                    fullWidth
-                  />
+                    <FormControl component="fieldset" fullWidth disabled={isSubmitting}>
+                      <FormLabel component="legend">Type de compte</FormLabel>
+                      <RadioGroup
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        name="type"
+                        value={values.type}
+                      >
+                        <FormControlLabel
+                          value={PI}
+                          control={<Radio />}
+                          label="Plongeur individuel"
+                        />
+                        <FormControlLabel
+                          value={SP}
+                          control={<Radio />}
+                          label="Structure de plongée"
+                        />
+                      </RadioGroup>
+                    </FormControl>
+
+                    {values.type === SP && (
+                      <TextField
+                        required
+                        fullWidth
+                        label="Nom de la structure"
+                        name="structureName"
+                        type="text"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={Boolean(touched.structureName && errors.structureName)}
+                        value={values.structureName}
+                        disabled={isSubmitting}
+                      />
+                    )}
+
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      type="submit"
+                      disabled={!dirty || !isValid || isSubmitting}
+                    >
+                      {isSubmitting ? 'Inscription en cours...' : 'Créer mon compte CaPeL'}
+                    </Button>
+
+                    {(success === false) && (
+                      <>
+                        <Typography variant="body1" paragraph color="error">
+                          Plouf !
+                          Votre inscription a échoué... sur un rivage inconnu ?!
+                        </Typography>
+                        <Typography variant="body1" paragraph color="error">
+                          Merci de prendre contact avec le Parc directement
+                          pour remonter l'anomalie... Désolé.
+                        </Typography>
+                      </>
+                    )}
+                  </form>
                 )}
-
-                <Button
-                  variant="contained"
-                  color="primary"
-                  type="submit"
-                  disabled={submitting}
-                >
-                  {submitting ? 'Inscription en cours...' : 'Créer mon compte CaPeL'}
-                </Button>
-
-                {errorSubmitting && (
-                  <>
-                    <Typography variant="body1" paragraph color="error">
-                      Plouf !
-                      Votre inscription a échoué... sur un rivage inconnu ?!
-                    </Typography>
-                    <Typography variant="body1" paragraph color="error">
-                      Merci de prendre contact avec le Parc directement
-                      pour remonter l'anomalie... Désolé.
-                    </Typography>
-                  </>
-                )}
-              </form>
+              </Formik>
             </Grid>
           </>
-          )
-        }
+        )}
       </Grid>
     </Layout>
   );
