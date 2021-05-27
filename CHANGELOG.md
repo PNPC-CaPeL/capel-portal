@@ -1,4 +1,28 @@
 
+0.6.0 / 2021-05-27
+==================
+
+  * Upgrade GatsbyJS dependencies
+  * Update README instruction for dev
+  * Use Formik to manage SignUp form
+  * Rename N8N env var to fix value access
+  * Extract helper to dedicated file
+  * Display signup form fields full width
+  * Update README.md
+  * Update src/pages/inscription.js
+  * Update .gitignore
+  * Add signup page
+  * Add default value for Ghost access env vars
+  * Add minimalist GraphQL schema to allow builds even if no Ghost backend available
+  * Improve Ghost templates
+  * Manage inline images width variants
+  * Manage Ghost Post & Page inline images
+  * Display image with Gatsby components
+  * Remove unused netlify-cms-app package
+  * Manage converting html source to MUI components
+  * Get contents from Ghost instance
+  * Remove obsolete content from main README file
+
 0.5.0 / 2021-05-20
 ==================
 
