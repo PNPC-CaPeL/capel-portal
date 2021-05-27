@@ -16,7 +16,8 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     minHeight: '100vh',
-    overflow: 'auto',
+    overflowY: 'auto',
+    overflowX: 'hidden',
   },
   main: {
     marginTop: '2rem',
