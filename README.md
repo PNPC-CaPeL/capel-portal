@@ -57,3 +57,48 @@ cp .env.dist .env.development
 # Démarrer gatsby ! (enfin !)
 npm run develop
 ```
+
+## Mise à jour dynamique du contenu
+
+### En mode développement
+
+Il est possible de faire en sorte que les modifications de
+contenu sur Ghost provoque la mise à jour des données de Gatsby :
+
+#### Côté GatsbyJS
+
+Il faut activer le *endpoint* de rafraîchissement grâce à la variable
+d'environnement `ENABLE_GATSBY_REFRESH_ENDPOINT=true`.
+
+Elle peut être placée dans le fichier `.env` à la racine du projet, ou ajoutée à
+la ligne de commande de lancement de Gatsby :
+
+```shell
+ENABLE_GATSBY_REFRESH_ENDPOINT=true gatsby develop
+```
+
+#### Côté Ghost
+
+Dans [les intégrations](http://localhost:2368/ghost/#/integrations), créer une
+*custom integration* (ou éditer une éxistante), et y ajouter un *webhook* pour
+l'événement *Site changed*, et indiquer `http://localhost:8000/__refresh` comme
+URL.
+
+### En mode production
+
+En production, Gatsby n'est pas lui même accessible, il n'y a donc rien à
+configurer de ce côté.
+
+#### Côté Ghost
+
+De la même manière que pour le mode développement, il faut créer/éditer une
+*custom integration*. Cette fois l'URL de webhook à utiliser sera celle fournie
+par le service de déploiement/intégration continue *(Pipeline Gitlab, Github
+Actions, Netlify, etc.)*.
+
+Les modifications de contenus de Ghost provoqueront alors le *build* et
+redéploiement complet du site statique.
+
+*N.B. : Attention, dans ce cas de figure, de nombreuses modifications
+consécutives de contenus sur Ghost risque de provoquer un grand nombre de
+processus (build/déploiement) potentiellement superflus ou coûteux.*
