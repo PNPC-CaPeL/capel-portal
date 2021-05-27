@@ -7,6 +7,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import {
   Box,
   Container,
+  Divider,
   Table,
   TableHead,
   TableBody,
@@ -39,14 +40,21 @@ const useStyles = makeStyles(theme => {
       textAlign: 'center',
     },
 
+    divider: {
+      marginTop: theme.spacing(2),
+      marginBottom: theme.spacing(2),
+    },
+
     '@global': {
       '.kg-card': {
         marginLeft: 0,
         marginRight: 0,
+        marginTop: theme.spacing(6),
       },
 
       '.kg-width-wide': {
-        margin: 'auto calc(50% - 50vw - .8rem)',
+        marginLeft: 'calc(50% - 50vw - .8rem)',
+        marginRight: 'calc(50% - 50vw - .8rem)',
         transform: 'translateX(calc(50vw - 50% + .8rem))',
 
         width: 'calc(65vw + 2px)',
@@ -85,6 +93,8 @@ const HtmlAstRender = ({
       h4: props => <Typography variant="h4" {...props} />,
       h5: props => <Typography variant="h5" {...props} />,
       h6: props => <Typography variant="h6" {...props} />,
+      hr: ({ className: cn, ...props }) =>
+        <Divider className={clsx(cn, classes.divider)} {...props} />,
       p: props => <Typography variant={body} {...props} />,
       li: props => <Typography variant={body} component="li" {...props} />,
       a: props => <Link {...props} />,
