@@ -43,7 +43,7 @@ cp .env.dist .env
 # Vous devez maintenant créer un token (Content API key)
 # qu'il vous faudra coller dans le fichier .env
 # pour la variable GHOST_API_KEY
-# En allant sur localhost:2368, vous pourrez créer un compte, 
+# En allant sur localhost:2368/ghost, vous pourrez créer le compte administrateur, 
 # puis en allant sur http://localhost:2368/ghost/#/integrations/new
 # vous pourrez créer une nouvelle intégration, 
 # et récupérer la variable Content API key
