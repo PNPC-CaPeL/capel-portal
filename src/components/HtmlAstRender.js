@@ -201,7 +201,7 @@ const HtmlAstRender = ({
       img: ({ src, ...props }) => {
         const imageData = getImage(byUrl[src]);
         return imageData
-          ? <GatsbyImage {...props} image={imageData} />
+          ? <GatsbyImage alt="" {...props} image={imageData} />
           : <img alt="" style={{ maxWidth: '100%' }} src={src} {...props} />;
       },
       figcaption: ({ className: cn, ...props }) => (
