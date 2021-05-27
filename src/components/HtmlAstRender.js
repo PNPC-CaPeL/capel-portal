@@ -6,7 +6,6 @@ import { Link } from 'gatsby-material-ui-components';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import {
   Box,
-  Container,
   Divider,
   Table,
   TableHead,
@@ -36,8 +35,7 @@ const useStyles = makeStyles(theme => {
       },
     },
 
-    figcaptionContainer: {
-      marginBottom: theme.spacing(4),
+    figcaption: {
       textAlign: 'center',
     },
 
@@ -115,10 +113,13 @@ const HtmlAstRender = ({
           ? <GatsbyImage {...props} image={imageData} />
           : <img alt="" style={{ maxWidth: '100%' }} src={src} {...props} />;
       },
-      figcaption: props => (
-        <Container className={classes.figcaptionContainer}>
-          <Typography component="figcaption" variant="caption" {...props} />
-        </Container>
+      figcaption: ({ className: cn, ...props }) => (
+        <Typography
+          component="figcaption"
+          variant="caption"
+          className={clsx(cn, classes.figcaption)}
+          {...props}
+        />
       ),
       iframe: props => {
         const isYoutube = [
