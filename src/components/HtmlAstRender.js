@@ -69,6 +69,10 @@ const useStyles = makeStyles(theme => {
         marginLeft: 'calc(50% - 50vw)',
         marginRight: 'calc(50% - 50vw)',
       },
+
+      '.twitter-tweet-rendered': {
+        margin: '0 auto',
+      },
     },
   };
 });
@@ -121,7 +125,7 @@ const HtmlAstRender = ({
 
   return (
     <Box
-      className={clsx(classes.markdown, className)}
+      className={clsx(classes.markdown, 'load-external-scripts', className)}
       {...rest}
     >
       {renderAst(hast)}
