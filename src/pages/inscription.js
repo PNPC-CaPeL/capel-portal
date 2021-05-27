@@ -12,8 +12,12 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link as GatsbyLink } from 'gatsby';
+import { validateEmail } from '../lib/helpers';
 
 import Layout from '../components/Layout';
+
+const SP = 'SP';
+const PI = 'PI';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,11 +28,6 @@ const useStyles = makeStyles(theme => ({
     },
   },
 }));
-
-const validateEmail = email => {
-  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
-}
 
 const SignUpPage = () => {
   const classes = useStyles();
@@ -68,7 +67,7 @@ const SignUpPage = () => {
       setErrorEmail(true);
       setErrorHelperEmail('Votre e-mail est invalide.');
     }
-    if (type === 'SP' && !structureName) {
+    if (type === SP && !structureName) {
       haveAtLeastAnError = true;
       setErrorStructureName(true);
     }
@@ -178,19 +177,20 @@ const SignUpPage = () => {
                   fullWidth
                 />
                 <FormControl component="fieldset" fullWidth>
+
                   <FormLabel component="legend">Type de compte</FormLabel>
                   <RadioGroup
                     value={type}
                     onChange={e => setType(e.target.value)}
                   >
                     <FormControlLabel
-                      value="SP"
+                      value={SP}
                       control={<Radio />}
                       label="Structure de plongée"
                       disabled={submitting}
                     />
                     <FormControlLabel
-                      value="PI"
+                      value={PI}
                       control={<Radio />}
                       label="Plongeur individuel"
                       disabled={submitting}
@@ -198,9 +198,7 @@ const SignUpPage = () => {
                   </RadioGroup>
                 </FormControl>
 
-                {
-                  type === 'SP'
-                  && (
+                {type === SP && (
                   <TextField
                     required
                     label="Nom de la structure"
@@ -211,8 +209,8 @@ const SignUpPage = () => {
                     error={errorStructureName}
                     fullWidth
                   />
-                  )
-                }
+                )}
+
                 <Button
                   variant="contained"
                   color="primary"
@@ -221,22 +219,20 @@ const SignUpPage = () => {
                 >
                   {submitting ? 'Inscription en cours...' : 'Créer mon compte CaPeL'}
                 </Button>
-                {
-                  errorSubmitting && (
-                    <>
-                      <Typography variant="body1" paragraph color="error">
-                        Plouf !
-                        Votre inscription a échoué... sur un rivage inconnu ?!
-                      </Typography>
-                      <Typography variant="body1" paragraph color="error">
-                        Merci de prendre contact avec le Parc directement
-                        pour remonter l'anomalie... Désolé.
-                      </Typography>
-                    </>
-                  )
-                }
-              </form>
 
+                {errorSubmitting && (
+                  <>
+                    <Typography variant="body1" paragraph color="error">
+                      Plouf !
+                      Votre inscription a échoué... sur un rivage inconnu ?!
+                    </Typography>
+                    <Typography variant="body1" paragraph color="error">
+                      Merci de prendre contact avec le Parc directement
+                      pour remonter l'anomalie... Désolé.
+                    </Typography>
+                  </>
+                )}
+              </form>
             </Grid>
           </>
           )
