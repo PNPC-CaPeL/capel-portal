@@ -164,6 +164,7 @@ const SignUpPage = () => {
                   onChange={e => setName(e.target.value)}
                   disabled={submitting}
                   error={errorName}
+                  fullWidth
                 />
                 <TextField
                   required
@@ -174,8 +175,9 @@ const SignUpPage = () => {
                   disabled={submitting}
                   error={errorEmail}
                   helperText={errorHelperEmail}
+                  fullWidth
                 />
-                <FormControl component="fieldset">
+                <FormControl component="fieldset" fullWidth>
                   <FormLabel component="legend">Type de compte</FormLabel>
                   <RadioGroup
                     value={type}
@@ -207,6 +209,7 @@ const SignUpPage = () => {
                     onChange={e => setStructureName(e.target.value)}
                     disabled={submitting}
                     error={errorStructureName}
+                    fullWidth
                   />
                   )
                 }
