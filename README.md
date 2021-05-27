@@ -47,10 +47,10 @@ cp .env.dist .env
 # puis en allant sur http://localhost:2368/ghost/#/integrations/new
 # vous pourrez créer une nouvelle intégration, 
 # et récupérer la variable Content API key
-# Copier coller le fichier .env.dist pour la variable N8N_WEBHOOK_HUB_URL
+# Copier coller le fichier .env.dist pour la variable GATSBY_N8N_WEBHOOK_HUB_URL
 cp .env.dist .env.development
 # Supprimer les 2 variables GHOST, inutiles
-# Renseigner la variable N8N_WEBHOOK_HUB_URL, 
+# Renseigner la variable GATSBY_N8N_WEBHOOK_HUB_URL, 
 # si vous souhaitez tester l'inscription des utilisateurs
 # Démarrer gatsby ! (enfin !)
 npm run develop

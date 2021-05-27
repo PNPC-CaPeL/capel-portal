@@ -78,7 +78,7 @@ const SignUpPage = () => {
     /**
      * Build the data object to send to n8n
      */
-    const response = await fetch(process.env.N8N_WEBHOOK_HUB_URL, {
+    const response = await fetch(process.env.GATSBY_N8N_WEBHOOK_HUB_URL, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
