@@ -10,6 +10,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-transformer-json',
+    'gatsby-plugin-catch-links',
 
     {
       resolve: 'gatsby-plugin-react-svg',
@@ -59,6 +60,11 @@ module.exports = {
       options: {
         filter: node => ['GhostPage', 'GhostPost'].includes(node.internal.type),
         source: node => node.html,
+        plugins: [
+          {
+            resolve: 'gatsby-rehype-ghost-links',
+          },
+        ],
       },
     },
     {
