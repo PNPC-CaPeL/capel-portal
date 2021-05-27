@@ -17,17 +17,10 @@ import Layout from '../components/Layout';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    'text-align': 'center',
-    '& .MuiTextField-root': {
+    textAlign: 'center',
+
+    '& .MuiTextField-root, .MuiFormControl-root': {
       margin: theme.spacing(1),
-      width: '100%',
-    },
-    '& .MuiInput-root': {
-      width: '100%',
-    },
-    '& .MuiFormControl-root': {
-      margin: theme.spacing(1),
-      width: '100%',
     },
   },
 }));
