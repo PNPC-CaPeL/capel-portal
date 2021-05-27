@@ -5,7 +5,7 @@ const path = require('path');
  * posts, tags, pages and authors that we fetched from the Ghost site.
  */
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
 
   const result = await graphql(`
     {
@@ -13,6 +13,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             slug
+            url
           }
         }
       }
@@ -117,10 +118,10 @@ exports.createPages = async ({ graphql, actions }) => {
   pages.forEach(({ node }) => {
     // This part here defines, that our pages will use
     // a `/:slug/` permalink.
-    node.url = `/${node.slug}/`;
+    // node.url = `/${node.slug}/`;
 
     createPage({
-      path: node.url,
+      path: `/${node.slug}/`,
       component: pageTemplate,
       context: {
         // Data passed to context is available
@@ -128,22 +129,36 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: node.slug,
       },
     });
+
+    // Redirection from `/edit` to Ghost edit page
+    createRedirect({
+      redirectInBrowser: true,
+      fromPath: `/${node.slug}/edit`,
+      toPath: `${node.url}edit`,
+    });
   });
 
   // Create post pages
   posts.forEach(({ node }) => {
     // This part here defines, that our posts will use
     // a `/:slug/` permalink.
-    node.url = `/${node.slug}/`;
+    // node.url = `/${node.slug}/`;
 
     createPage({
-      path: node.url,
+      path: `/${node.slug}/`,
       component: postTemplate,
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
         slug: node.slug,
       },
+    });
+
+    // Redirection from `/edit` to Ghost edit page
+    createRedirect({
+      redirectInBrowser: true,
+      fromPath: `/${node.slug}/edit`,
+      toPath: `${node.url}edit`,
     });
   });
 
