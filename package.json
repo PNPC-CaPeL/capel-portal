@@ -26,6 +26,7 @@
     "formik": "^2.2.8",
     "gatsby": "^3.6.1",
     "gatsby-plugin-image": "^1.6.0",
+    "gatsby-plugin-netlify": "^3.6.1",
     "gatsby-plugin-react-svg": "^3.0.1",
     "gatsby-plugin-sharp": "^3.6.0",
     "gatsby-source-filesystem": "^3.6.0",

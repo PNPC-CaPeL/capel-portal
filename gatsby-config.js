@@ -5,6 +5,7 @@ module.exports = {
     title: 'CaPeL',
   },
   plugins: [
+    'gatsby-plugin-netlify',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
