@@ -2,12 +2,16 @@
   CaPeL
 </h1>
 
-La dispositif est constitué de plusieurs outils et services connectés les uns aux autres.
+La dispositif est constitué de plusieurs outils et services connectés les uns
+aux autres.
 
 - [Site public](https://capel.netlify.app/) (généré avec GatsbyJS)
+- Gestion des contenus publics (avec Ghost CMS)
+- Comptes CaPeL (avec LocoKit)
 - …
 
-Ce dépôt git contient uniquement les fichiers de la partie publique (site internet).
+Ce dépôt git contient uniquement les fichiers de la partie publique (site
+internet).
 
 ## Fonctionnement
 
@@ -29,33 +33,48 @@ npm run build
 
 ### Démarrer le projet en développement
 
+#### Fournir des contenus
+
+Via le paramétrage des variables d'environnement `GHOST_API_URL` et
+`GHOST_API_KEY`, une instance Ghost doit fournir les contenus.
+
+On peut utiliser une instance existante, ou en installer une en local :
+
+```sh
+npm i -g ghost-cli
+
+# Créer un répertoire qui hébergera une instance ghost
+mkdir ~/your-ghost
+cd ~/your-ghost
+
+# Installer une instance ghost dans ce répertoire
+ghost install local
+```
+
+Il faut alors disposer d'une clé d'API à générer et copier depuis l'interface de
+Ghost :
+
+- Se rendre à l'adresse `<ghost_host>/ghost/#/integrations/new`
+- Valider la création d'une intégration
+- Copier la chaîne `Content API key`.
+
+### Lancer le site
+
+Une fois de retour dans le dossier du projet `capel-portal` :
+
 ```sh
 # Installer une première fois les dépendances
 npm ci
-# Installer un Ghost sur votre machine (si ce n'est pas déjà fait)
-npm i -g ghost-cli
-# Créer un répertoire qui hébergera une instance ghost
-mkdir /tmp/where-you-want && cd /tmp/where-you-want
-# Installer une instance ghost dans ce répertoire
-ghost install local
-# Revenir dans votre répertoire du projet
-cd -
-# Copier coller le fichier .env.dist
+
+# Créer le fichier .env à partir de .env.dist
 cp .env.dist .env
-# Vous devez maintenant créer un token (Content API key)
-# qu'il vous faudra coller dans le fichier .env
-# pour la variable GHOST_API_KEY
-# En allant sur localhost:2368/ghost, vous pourrez créer le compte administrateur, 
-# puis en allant sur http://localhost:2368/ghost/#/integrations/new
-# vous pourrez créer une nouvelle intégration, 
-# et récupérer la variable Content API key
-# Copier coller le fichier .env.dist pour la variable GATSBY_N8N_WEBHOOK_HUB_URL
-cp .env.dist .env.development
-# Supprimer les 2 variables GHOST, inutiles
-# Renseigner la variable GATSBY_N8N_WEBHOOK_HUB_URL, 
-# si vous souhaitez tester l'inscription des utilisateurs
-# Démarrer gatsby ! (enfin !)
-npm run develop
+# …et contribuer dans ce fichier les variables d'environnement GHOST_API_URL et
+# GHOST_API_KEY pour les contenus Ghost,
+# ainsi que la variable GATSBY_N8N_WEBHOOK_HUB_URL pour l'inscription des
+# utilisateurs au CaPeL.
+
+# Lancer le site en mode développement
+npm start
 ```
 
 ## Mise à jour dynamique du contenu
