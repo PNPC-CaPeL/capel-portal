@@ -1,4 +1,22 @@
 
+0.7.0 / 2021-05-31
+==================
+
+  * Remove unused date-fns as dayjs is used
+  * Update README with updated informations
+  * Create hooks to expose Ghost settings
+  * Add Gatsby plugins to manage internal Links
+  * Add fallback GatsbyImage alt attribute
+  * Create custom override for Ghost bookmarks widget
+  * Simplify figcaption override
+  * Create custom Box to display Youtube iframes
+  * Run embed scripts to allow widgets like Twitter
+  * Manage Ghost page widgets margins
+  * Hide overflowX to disable horizontal scrollbar on fullbleed contents
+  * Add Gatsby plugin to create Netlify headers & redirects
+  * Create redirections from `/edit` to Ghost edit page
+  * Add indications for triggering build on Ghost content changes
+
 0.6.0 / 2021-05-27
 ==================
 
