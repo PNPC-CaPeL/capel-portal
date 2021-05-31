@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Button from './Button';
@@ -42,28 +42,13 @@ const HomeButton = () => {
       <Box className={classes.separator} />
 
       <Button
-        to="reglement"
+        to={process.env.GATSBY_LCK_HOME}
         variant="contained"
         color="secondary"
         component={Link}
       >
-        Signer le règlement de plongée
+        Se connecter
       </Button>
-
-      <Box className={classes.separator} />
-
-      <Button
-        to="declaration"
-        variant="contained"
-        color="primary"
-        component={Link}
-      >
-        Déclarer une plongée
-      </Button>
-
-      <Typography variant="body2" className={classes.history}>
-        <Link to="historique">Obtenir le bilan des déclarations</Link>
-      </Typography>
     </>
   );
 };
