@@ -1,5 +1,27 @@
 const path = require('path');
 
+exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
+  if (node.internal.type === 'GhostPage') {
+    createNodeField({
+      node,
+      name: 'isBlock',
+      value: node.tags.some(({ slug }) => slug === 'block'),
+    });
+
+    createNodeField({
+      node,
+      name: 'isFooter',
+      value: node.tags.some(({ slug }) => slug === 'footer'),
+    });
+
+    createNodeField({
+      node,
+      name: 'isHome',
+      value: node.tags.some(({ slug }) => slug === 'home'),
+    });
+  }
+};
+
 /**
  * Here is the place where Gatsby creates the URLs for all the
  * posts, tags, pages and authors that we fetched from the Ghost site.

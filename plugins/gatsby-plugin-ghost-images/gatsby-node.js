@@ -8,6 +8,7 @@ exports.onCreateNode = async ({
   cache,
   createNodeId,
   createContentDigest,
+  reporter,
 }) => {
   const createImageNodeOptions = {
     store,
@@ -21,6 +22,7 @@ exports.onCreateNode = async ({
     const { html, feature_image: featureImageUrl } = node;
 
     if (featureImageUrl) {
+      reporter.info(`Create image node: ${featureImageUrl} (from ${node.title})`);
       const imageNode = await createRemoteFileNode({
         ...createImageNodeOptions,
         url: featureImageUrl,
@@ -39,6 +41,7 @@ exports.onCreateNode = async ({
       const images = Array.from(document.querySelectorAll('img[src]')).map(img => img.src);
 
       await Promise.all(images.map(async url => {
+        reporter.info(`Create image node: ${url} (from ${node.title})`);
         const imageNode = await createRemoteFileNode({
           ...createImageNodeOptions,
           url,

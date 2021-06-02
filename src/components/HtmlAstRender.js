@@ -170,6 +170,7 @@ const useStyles = makeStyles(theme => {
 const HtmlAstRender = ({
   hast,
   components,
+  component: Component = Box,
   className,
   body = 'body1',
   ...rest
@@ -249,12 +250,12 @@ const HtmlAstRender = ({
   }).Compiler;
 
   return (
-    <Box
+    <Component
       className={clsx(classes.markdown, 'load-external-scripts', className)}
       {...rest}
     >
       {renderAst(hast)}
-    </Box>
+    </Component>
   );
 };
 
