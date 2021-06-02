@@ -3,7 +3,9 @@ import { graphql, useStaticQuery } from 'gatsby';
 export const useHomepageBlocks = () => {
   const { wrapper: { nodes = [] } = {} } = useStaticQuery(graphql`
     query {
-      wrapper: allGhostPage(filter: {featured: {eq: true}}) {
+      wrapper: allGhostPage(
+        filter: { fields: { isBlock: { eq: true }, isHome: { eq: true } } }
+      ){
         nodes {
           title
           slug
