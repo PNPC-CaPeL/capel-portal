@@ -7,7 +7,7 @@ import { Box, Container } from '@material-ui/core';
 import Header from './Header';
 import Footer from './Footer';
 
-import { useSiteMetadata } from '../hooks/useSiteMetadata';
+import useGhostSettings from '../hooks/useGhostSettings';
 
 import favicon from '../assets/icon.png';
 
@@ -36,13 +36,13 @@ const Layout = ({
   ...rest
 }) => {
   const classes = useStyles();
-  const { title } = useSiteMetadata();
+  const { title, lang } = useGhostSettings();
   const ContainerComponent = container ? Container : Box;
 
   return (
     <div className={clsx(classes.root, rootClass)}>
       <Helmet
-        htmlAttributes={{ lang: 'fr' }}
+        htmlAttributes={{ lang }}
         title={pageTitle}
         titleTemplate={`%s | ${title}`}
         defaultTitle={title}
