@@ -4,14 +4,8 @@ exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
   if (node.internal.type === 'GhostPage') {
     createNodeField({
       node,
-      name: 'isBlock',
-      value: node.tags.some(({ slug }) => slug === 'block'),
-    });
-
-    createNodeField({
-      node,
-      name: 'isFooter',
-      value: node.tags.some(({ slug }) => slug === 'footer'),
+      name: 'noPage',
+      value: node.tags.some(({ slug }) => slug === 'no-page'),
     });
 
     createNodeField({

@@ -4,7 +4,10 @@ export const useFooterBlocks = () => {
   const { wrapper = {} } = useStaticQuery(graphql`
     query {
       wrapper: allGhostPage(
-        filter: { fields: { isBlock: { eq: true }, isFooter: { eq: true } } }
+        filter: {
+          fields: { noPage: { eq: true } },
+          slug: { eq: "footer" }
+        }
       ) {
         nodes {
           childHtmlRehype { htmlAst }
