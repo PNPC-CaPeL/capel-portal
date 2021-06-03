@@ -4,12 +4,15 @@ export const useHomepageBlocks = () => {
   const { wrapper: { nodes = [] } = {} } = useStaticQuery(graphql`
     query {
       wrapper: allGhostPage(
-        filter: { fields: { isBlock: { eq: true }, isHome: { eq: true } } }
+        filter: { fields: { isHome: { eq: true } } }
+        sort: { fields: published_at, order: ASC }
       ){
         nodes {
           title
           slug
           feature_image
+          autoExcerpt: excerpt
+          customExcerpt: custom_excerpt
           childHtmlRehype { htmlAst }
           featureImage { childImageSharp { gatsbyImageData(
             aspectRatio: 1.3333333

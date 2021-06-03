@@ -45,6 +45,8 @@
     "react-leaflet": "^3.2.0",
     "react-query": "^3.16.0",
     "rehype-react": "^6.2.0",
+    "rehype-stringify": "^8.0.0",
+    "remark-rehype": "^8.1.0",
     "styled-components": "^5.3.0",
     "use-persisted-state": "^0.3.3"
   },
