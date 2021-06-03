@@ -2,18 +2,27 @@ import React from 'react';
 
 import { Link as GatsbyLink } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import { Box, Grid, Typography, Container } from '@material-ui/core';
+
+import { Box, Container, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'gatsby-theme-material-ui';
 
 import HomeButton from './HomeButtons';
 import Logo from '../assets/logo.svg';
+import MainMenu from './MainMenu';
 
 const useStyles = makeStyles(theme => {
   const maxWidth = mq => `@media (max-width: ${theme.breakpoints.values[mq]}px)`;
   const minWidth = mq => `@media (min-width: ${theme.breakpoints.values[mq]}px)`;
 
   return ({
+    mainMenu: {
+      position: 'absolute',
+      right: theme.spacing(2),
+      top: theme.spacing(2),
+      zIndex: 2,
+    },
+
     top: {
       position: 'relative',
 
@@ -102,7 +111,9 @@ const HomeHero = () => {
         placeholder="blurred"
       />
 
-      <Container>
+      <Container style={{ position: 'relative' }}>
+        <MainMenu className={classes.mainMenu} />
+
         <Grid container justify="center">
           <Grid
             xs={12}

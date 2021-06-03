@@ -4,6 +4,7 @@ import { AppBar, Container, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Link from './Link';
+import MainMenu from './MainMenu';
 import Logo from '../assets/logo.svg';
 
 const useStyles = makeStyles(theme => ({
@@ -18,6 +19,9 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     fontSize: '2rem',
+  },
+  menu: {
+    color: theme.palette.primary.contrastText,
   },
 }));
 
@@ -40,6 +44,9 @@ const Header = ({ title, ...props }) => {
                 {title}
               </Typography>
             )}
+          </Grid>
+          <Grid item>
+            <MainMenu className={classes.menu} />
           </Grid>
         </Grid>
       </Container>
