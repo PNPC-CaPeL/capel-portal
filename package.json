@@ -7,6 +7,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "refresh": "curl -X POST http://localhost:8000/__refresh",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
