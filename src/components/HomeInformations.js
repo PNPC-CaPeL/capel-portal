@@ -1,65 +1,87 @@
 import React from 'react';
-import inside from '@turf/boolean-point-in-polygon';
-import createPersistedState from 'use-persisted-state';
+import clsx from 'clsx';
+import dayjs from 'dayjs';
+import localeData  from 'dayjs/plugin/localeData';
+import 'dayjs/locale/fr';
 
-import HomeInformationCard from './HomeInformationCard';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+
+import { Box, Grid, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+import HtmlAstRender from './HtmlAstRender';
 
 import useInformations from '../hooks/useInformations';
-import useSpots from '../hooks/useSpots';
+import { H2, H3 } from './HomeInformationHeadings';
 
-const useFavs = createPersistedState('capel-favs');
+dayjs.locale('fr');
+dayjs.extend(localeData);
 
-const HomeInformations = () => {
-  const [favs] = useFavs({});
+const globalLocaleData = dayjs.localeData();
+
+const useStyles = makeStyles(theme => ({
+  info: {
+    marginTop: theme.spacing(2),
+  },
+  placeholder: {
+    height: 0,
+    paddingBottom: 'calc(100% * 1 / 1)',
+    background: theme.palette.grey[200],
+  },
+}));
+
+const HomeInformations = ({ className, ...props }) => {
+  const classes = useStyles();
   const informations = useInformations();
 
-  const favSpots = useSpots()
-    .filter(({ name }) => Object.keys(favs).includes(name))
-    .map(spot => {
-      const { name, childMarkdownRemark: { frontmatter: { title, location } } } = spot;
-      return {
-        name,
-        title,
-        coordinates: JSON.parse(location).coordinates,
-      };
-    });
-
-  const favSpotTitles = favSpots.map(({ title }) => title);
-
-  const isFavInfo = info => {
-    const { childMarkdownRemark: { frontmatter: { spots = [], zone = '{}' } } } = info;
-    const spotIntersect = spots.filter(value => favSpotTitles.includes(value));
-
-    const polygon = JSON.parse(zone);
-
-    return (
-      Boolean(spotIntersect.length)
-      || favSpots.some(({ coordinates }) => inside(coordinates, polygon))
-    );
-  };
-
-  const favInformations = informations.filter(isFavInfo);
-  const notFavInformations = informations.filter(info => !isFavInfo(info));
+  const altComponents = React.useMemo(() => ({
+    h2: componentProps => <H2 {...componentProps} />,
+    h3: componentProps => <H3 {...componentProps} />,
+  }), []);
 
   return (
-    <>
-      {favInformations.map(({ childMarkdownRemark: { excerptAst, frontmatter: { title } } }) => (
-        <HomeInformationCard
-          key={title}
-          title={title}
-          hast={excerptAst}
-        />
-      ))}
+    <Box className={clsx(classes.wrapper, className)} {...props}>
+      {informations.map(({
+        childHtmlRehype: { htmlAst: hast },
+        featureImage,
+        title,
+        date,
+        id,
+      }) => {
+        const d = dayjs(date);
+        const day = globalLocaleData.weekdays()[d.day()];
+        const month = globalLocaleData.months()[d.month()];
 
-      {notFavInformations.map(({ childMarkdownRemark: { excerptAst, frontmatter: { title } } }) => (
-        <HomeInformationCard
-          key={title}
-          title={title}
-          hast={excerptAst}
-          style={{ opacity: 0.5 }}
-        />
-      ))}
-    </>
+        return (
+          <Grid
+            key={id}
+            container
+            spacing={2}
+            className={clsx(classes.info, className)}
+            alignItems="flex-start"
+          >
+            <Grid item xs={12} sm={2} style={{ textAlign: 'center' }}>
+              {(featureImage
+                ? <GatsbyImage image={getImage(featureImage)} alt="" />
+                : <Box className={classes.placeholder} />
+              )}
+            </Grid>
+
+            <Grid item xs={12} sm={10}>
+              <Typography variant="overline">
+                {dayjs(date).format(`[${day}] D [${month}] YYYY`)}
+              </Typography>
+
+              <Typography variant="h4" component="h2">
+                {title}
+              </Typography>
+
+              <HtmlAstRender hast={hast} body="body2" components={altComponents} />
+            </Grid>
+          </Grid>
+        );
+      })}
+    </Box>
   );
 };
 

@@ -10,6 +10,7 @@ import Map from '../components/Map';
 
 import HomeHero from '../components/HomeHero';
 import HomePartners from '../components/HomePartners';
+import HomeInformations from '../components/HomeInformations';
 import HomeInstit from '../components/HomeInstit';
 import HomeStats from '../components/HomeStats';
 import MapLegend from '../components/MapLegend';
@@ -70,7 +71,6 @@ const HomePage = () => {
         <MapLegend />
       </Container>
 
-      {/*
       <Container>
         <Typography variant="h3" className={classes.title} color="primary">
           Informations
@@ -78,7 +78,6 @@ const HomePage = () => {
 
         <HomeInformations />
       </Container>
-       */}
 
       {/*
       <Container>

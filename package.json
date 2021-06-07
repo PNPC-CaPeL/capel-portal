@@ -21,6 +21,7 @@
     "@material-ui/pickers": "^3.3.10",
     "@turf/boolean-point-in-polygon": "^6.3.0",
     "babel-eslint": "^10.1.0",
+    "dayjs": "^1.10.5",
     "eslint-config-makina": "^4.0.0",
     "formik": "^2.2.8",
     "gatsby": "^3.6.1",
