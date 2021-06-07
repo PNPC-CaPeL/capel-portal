@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Link } from 'gatsby';
-import { IconButton, Menu, MenuItem } from '@material-ui/core';
+import { Button, Menu, MenuItem } from '@material-ui/core';
 import { Menu as MenuIcon } from '@material-ui/icons';
 
 import useGhostNavigation from '../hooks/useGhostNavigation';
@@ -20,12 +20,13 @@ const MainMenu = ({ menuProps = {}, ...props }) => {
 
   return (
     <>
-      <IconButton
+      <Button
         onClick={handleMenuClick}
+        startIcon={<MenuIcon />}
         {...props}
       >
-        <MenuIcon />
-      </IconButton>
+        Menu
+      </Button>
 
       <Menu
         anchorEl={menuAnchor}
