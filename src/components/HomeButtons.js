@@ -7,7 +7,7 @@ import Link from './Link';
 
 const useStyles = makeStyles(theme => ({
   separator: {
-    margin: theme.spacing(10, 3),
+    margin: theme.spacing(5, 3),
     height: 2,
     background: theme.palette.primary.light,
 

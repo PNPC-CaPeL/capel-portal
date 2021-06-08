@@ -4,7 +4,7 @@ import { Link as GatsbyLink } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
 import { Box, Container, Grid, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, fade } from '@material-ui/core/styles';
 import { Link } from 'gatsby-theme-material-ui';
 
 import HomeButton from './HomeButtons';
@@ -36,7 +36,8 @@ const useStyles = makeStyles(theme => {
       top: 0,
       bottom: 0,
       left: 0,
-      right: '30%',
+      right: 0,
+
       [maxWidth('md')]: { right: 0 },
     },
 
@@ -87,14 +88,15 @@ const useStyles = makeStyles(theme => {
       flexDirection: 'column',
       justifyContent: 'center',
       textAlign: 'center',
-
-      background: theme.palette.background.default,
     },
 
     rightInner: {
       position: 'relative',
-      padding: theme.spacing(1),
+      padding: theme.spacing(8, 1),
       [maxWidth('md')]: { padding: theme.spacing(4, 1) },
+
+      background: fade(theme.palette.background.default, 0.60),
+      borderRadius: theme.shape.borderRadius,
     },
   });
 });
