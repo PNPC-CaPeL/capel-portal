@@ -57,6 +57,10 @@ const HomePage = () => {
     >
       <HomeHero />
 
+      <Container style={{ marginTop: '2rem' }}>
+        <HomeInstit />
+      </Container>
+
       <Container>
         <Typography variant="h2" className={classes.title} color="primary">
           Nos espaces de plongées
@@ -98,10 +102,6 @@ const HomePage = () => {
         </Container>
       </Box>
        */}
-
-      <Container style={{ marginTop: '2rem' }}>
-        <HomeInstit />
-      </Container>
 
       <Box className={clsx(classes.bluebleed)}>
         <Container>
