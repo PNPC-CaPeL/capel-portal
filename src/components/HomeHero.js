@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { Link as GatsbyLink } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
 import { Box, Container, Grid, Typography } from '@material-ui/core';
@@ -9,36 +8,38 @@ import { Link } from 'gatsby-theme-material-ui';
 
 import HomeButton from './HomeButtons';
 import Logo from '../assets/logo.svg';
-import MainMenu from './MainMenu';
+import MainNav from './MainNav';
 
 const useStyles = makeStyles(theme => {
   const maxWidth = mq => `@media (max-width: ${theme.breakpoints.values[mq]}px)`;
   const minWidth = mq => `@media (min-width: ${theme.breakpoints.values[mq]}px)`;
 
   return ({
-    mainMenu: {
-      position: 'absolute',
-      right: theme.spacing(2),
-      top: theme.spacing(2),
-      zIndex: 2,
-    },
-
-    top: {
+    root: {
       position: 'relative',
+      paddingTop: theme.spacing(2),
 
       [maxWidth('md')]: { paddingBottom: theme.spacing(3) },
       [maxWidth('sm')]: { paddingBottom: theme.spacing(2) },
     },
 
     bgImage: {
+      backgroundColor: theme.palette.primary.main,
       position: 'absolute',
-      zIndex: 1,
       top: 0,
       bottom: 0,
       left: 0,
       right: 0,
+    },
 
-      [maxWidth('md')]: { right: 0 },
+    inner: {
+      position: 'relative',
+    },
+
+    bottom: {
+      [minWidth('md')]: {
+        height: 'calc(90vh - 8em)',
+      },
     },
 
     left: {
@@ -52,28 +53,13 @@ const useStyles = makeStyles(theme => {
 
       '& a': { color: 'inherit' },
 
-      paddingTop: theme.spacing(10),
-      paddingBottom: theme.spacing(10),
-
-      color: 'white',
-      [minWidth('md')]: {
-        height: '90vh',
-      },
+      color: theme.palette.primary.contrastText,
     },
 
     logo: {
       maxWidth: '100%',
       height: 'auto',
       width: 500,
-    },
-
-    pnpc: {
-      height: 'auto',
-      width: 179,
-
-      position: 'absolute',
-      left: '1rem',
-      top: '1rem',
     },
 
     tagline: {
@@ -88,6 +74,10 @@ const useStyles = makeStyles(theme => {
       flexDirection: 'column',
       justifyContent: 'center',
       textAlign: 'center',
+
+      [maxWidth('md')]: {
+        marginTop: theme.spacing(10),
+      },
     },
 
     rightInner: {
@@ -105,7 +95,7 @@ const HomeHero = () => {
   const classes = useStyles();
 
   return (
-    <Box className={classes.top}>
+    <Box className={classes.root}>
       <StaticImage
         src="../assets/home-banner.jpg"
         alt=""
@@ -113,33 +103,40 @@ const HomeHero = () => {
         placeholder="blurred"
       />
 
-      <Container style={{ position: 'relative' }}>
-        <MainMenu className={classes.mainMenu} />
-
-        <Grid container justify="center">
+      <Container className={classes.inner}>
+        <Grid container spacing={3} justify="space-between" alignItems="center">
           <Grid
+            item
+            md={2}
+            sm={3}
+            xs={4}
+          >
+            <Link to="http://www.portcros-parcnational.fr/fr">
+              <StaticImage
+                src="../assets/pnpc-white.png"
+                alt="Parc National de Port-Cros"
+                placeholder="none"
+                objectFit="cover"
+                objectPosition="left top"
+              />
+            </Link>
+          </Grid>
+
+          <Grid item xs={6}>
+            <MainNav />
+          </Grid>
+        </Grid>
+
+        <Grid container justify="center" className={classes.bottom}>
+          <Grid
+            item
             xs={12}
             md={8}
-            item
             className={classes.left}
             container
           >
-            <Grid item className={classes.pnpc}>
-              <Link to="http://www.portcros-parcnational.fr/fr">
-                <StaticImage
-                  src="../assets/pnpc-white.png"
-                  alt="Parc National de Port-Cros"
-                  placeholder="none"
-                  objectFit="cover"
-                  objectPosition="left top"
-                />
-              </Link>
-            </Grid>
-
             <Grid item>
-              <GatsbyLink to="/">
-                <Logo className={classes.logo} />
-              </GatsbyLink>
+              <Logo className={classes.logo} />
 
               <br /><br />
 
@@ -151,7 +148,14 @@ const HomeHero = () => {
             </Grid>
           </Grid>
 
-          <Grid xs={12} md={4} item container className={classes.right}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            className={classes.right}
+            container
+          >
             <Grid item className={classes.rightInner}>
               <HomeButton />
             </Grid>
