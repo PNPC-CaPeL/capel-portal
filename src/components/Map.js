@@ -38,6 +38,16 @@ const circleMarkerDefaults = {
   fillOpacity: 0.8,
 };
 
+const handleEachFeature = (feature, layer) => {
+  if (feature.properties.nom_site_p) {
+    layer.bindTooltip(feature.properties.nom_site_p);
+  }
+
+  if (feature.properties.structure) {
+    layer.bindTooltip(feature.properties.structure);
+  }
+};
+
 const LocationSelector = ({ handleClick }) => {
   useMapEvent('click', handleClick);
   return null;
@@ -94,11 +104,13 @@ const Map = ({ onBackgroundClick, spotProps = {}, children = null, ...props }) =
         <GeoJSONAsync
           filename="https://raw.githubusercontent.com/PNPC-CaPeL/capel-proto-contents/main/spots.geojson"
           pointToLayer={pointToLayerA}
+          onEachFeature={handleEachFeature}
         />
 
         <GeoJSONAsync
           filename="https://raw.githubusercontent.com/PNPC-CaPeL/capel-proto-contents/main/structures.geojson"
           pointToLayer={pointToLayerB}
+          onEachFeature={handleEachFeature}
         />
 
         <TileLayer
