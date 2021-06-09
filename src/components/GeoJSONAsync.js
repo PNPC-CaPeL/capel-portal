@@ -1,31 +1,53 @@
 import React from 'react';
-import { withPrefix } from 'gatsby';
+
 import { useQuery } from 'react-query';
 import { GeoJSON } from 'react-leaflet';
 
-const getLayerData = async ({ queryKey: [, filename] }) => {
-  const response = await fetch(withPrefix(filename));
-  const json = await response.json();
-  return json;
+const getLayerData = async ({ queryKey: { 1: filename } }) => {
+  const response = await fetch(filename);
+  const result = await response.json();
+  return result;
 };
 
-const GeoJSONAsync = ({
-  component: Component = GeoJSON,
-  filename,
-  ...props
-}) => {
-  const { data } = useQuery(
+const useLayerData = filename =>
+  useQuery(
     ['GeoJSONAsync', filename],
     getLayerData,
     { retry: 1, staleTime: Infinity },
   );
+
+const GeoJSONAsync = ({
+  component: Component = GeoJSON,
+  styleJSON,
+  filename,
+  ...props
+}) => {
+  const { data } = useLayerData(filename);
+
+  const style = React.useCallback(() => {
+    const defaultStyle = {
+      weight: 1,
+      radius: 8,
+    };
+    if (!styleJSON) { return defaultStyle; }
+
+    try {
+      const layerStyle =  JSON.parse(styleJSON);
+      return {
+        ...defaultStyle,
+        ...layerStyle,
+      };
+    } catch (e) {
+      return defaultStyle;
+    }
+  }, [styleJSON]);
 
   if (!data) {
     return <></>;
   }
 
   return (
-    <Component data={data} {...props} />
+    <Component style={style} data={data} {...props} />
   );
 };
 

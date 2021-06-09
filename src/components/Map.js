@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 import { MapContainer, ScaleControl, TileLayer, useMapEvent } from 'react-leaflet';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Spots from './Spots';
 import MapStructures from './MapStructures';
 import GeoJSONAsync from './GeoJSONAsync';
@@ -30,6 +30,14 @@ const useStyles = makeStyles({
   },
 });
 
+const circleMarkerDefaults = {
+  radius: 8,
+  color: '#000',
+  weight: 1,
+  opacity: 1,
+  fillOpacity: 0.8,
+};
+
 const LocationSelector = ({ handleClick }) => {
   useMapEvent('click', handleClick);
   return null;
@@ -37,6 +45,18 @@ const LocationSelector = ({ handleClick }) => {
 
 const Map = ({ onBackgroundClick, spotProps = {}, children = null, ...props }) => {
   const classes = useStyles();
+  const theme = useTheme();
+
+  const pointToLayerA = React.useCallback((feature, latlng) => L.circleMarker(latlng, {
+    ...circleMarkerDefaults,
+    fillColor: theme.palette.primary.main,
+  }), [theme.palette.primary.main]);
+
+  const pointToLayerB = React.useCallback((feature, latlng) => L.circleMarker(latlng, {
+    ...circleMarkerDefaults,
+    fillColor: theme.palette.secondary.main,
+  }), [theme.palette.secondary.main]);
+
   if (!isLive) { return null; }
 
   return (
@@ -67,8 +87,18 @@ const Map = ({ onBackgroundClick, spotProps = {}, children = null, ...props }) =
         <MapStructures />
 
         <GeoJSONAsync
-          filename="zones.geojson"
+          filename="https://raw.githubusercontent.com/PNPC-CaPeL/capel-proto-contents/main/public/zones.geojson"
           style={({ properties }) => styleFromProperties(properties)}
+        />
+
+        <GeoJSONAsync
+          filename="https://raw.githubusercontent.com/PNPC-CaPeL/capel-proto-contents/main/spots.geojson"
+          pointToLayer={pointToLayerA}
+        />
+
+        <GeoJSONAsync
+          filename="https://raw.githubusercontent.com/PNPC-CaPeL/capel-proto-contents/main/structures.geojson"
+          pointToLayer={pointToLayerB}
         />
 
         <TileLayer
