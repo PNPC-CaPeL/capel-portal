@@ -1,0 +1,9 @@
+{
+  "name": "gatsby-source-capel-lck",
+  "peerDependencies": {
+    "@feathersjs/feathers": "*",
+    "@feathersjs/rest-client": "*",
+    "@feathersjs/authentication-client": "*",
+    "node-fetch": "*"
+  }
+}

@@ -11,6 +11,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-transformer-json',
     'gatsby-plugin-catch-links',
+    'gatsby-source-capel-locokit',
 
     {
       resolve: 'gatsby-plugin-react-svg',
