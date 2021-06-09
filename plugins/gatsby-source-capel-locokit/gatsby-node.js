@@ -29,11 +29,27 @@ const initApi = async () => {
     password: process.env.LCK_PASSWORD,
   });
 
-  await authenticate();
-  // const result = await authenticate();
-  // const { accessToken, user } = result;
+  const { user } = await authenticate();
 
-  return lckClient;
+  const { groups: [{ id: groupId }] } = await lckClient.service('user').get(user.id, {
+    query: {
+      $eager: 'groups',
+    },
+  });
+
+  const getRows = (id, { query = {} } = {}) => lckClient.service('row').find({
+    query: {
+      table_id: id,
+      $limit: -1,
+      $lckGroupId: groupId,
+      ...query,
+    },
+  });
+
+  return {
+    LCK: lckClient,
+    getRows,
+  };
 };
 
 exports.sourceNodes = async ({
@@ -42,17 +58,13 @@ exports.sourceNodes = async ({
   actions: { createNode },
   reporter,
 }) => {
-  const LCK = await initApi();
-
-  const getRows = (id, { query = {} } = {}) => LCK.service('row').find({
-    query: { table_id: id, $limit: -1, ...query },
-  });
+  const { LCK, getRows } = await initApi();
 
   /**
    * Get overall database schema
    */
   const schema = await LCK.service('database')
-    .get('10ce931c-4e48-40a2-b8f9-c1caba7d07c3', {
+    .get(process.env.LCK_DBID, {
       query: {
         $eager: '[tables.[columns,views.[columns]]]',
       },
