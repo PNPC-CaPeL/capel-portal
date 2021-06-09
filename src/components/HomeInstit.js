@@ -5,15 +5,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby-material-ui-components';
 
-import unified from 'unified';
-import markdown from 'remark-parse';
-import remark2rehype from 'remark-rehype';
-import rehypeStringify from 'rehype-stringify';
-
 import HtmlAstRender from './HtmlAstRender';
 import { useHomepageBlocks } from '../hooks/useHomepageBlocks';
-
-const mdProcessor = unified().use(markdown).use(remark2rehype).use(rehypeStringify);
+import { md2hast } from '../lib/md2hast';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -38,7 +32,7 @@ const HomeInstit = () => {
   return (
     <Grid container className={classes.root} spacing={4}>
       {blocks.map(({ title, featureImage, autoExcerpt, customExcerpt, slug }) => {
-        const excerptHast = mdProcessor.runSync(mdProcessor.parse(customExcerpt || autoExcerpt));
+        const excerptHast = md2hast(customExcerpt || autoExcerpt);
 
         return (
           <Grid item xs={12} md={4} key={title}>

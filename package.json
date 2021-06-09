@@ -59,7 +59,9 @@
     "clsx": "*",
     "dotenv": "*",
     "gatsby-material-ui-components": "*",
-    "react-helmet": "*"
+    "react-helmet": "*",
+    "remark-parse": "*",
+    "unified": "*"
   },
   "repository": {
     "type": "git",
