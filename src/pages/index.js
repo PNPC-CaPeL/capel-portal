@@ -38,6 +38,7 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.primary.contrastText,
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
+    marginTop: theme.spacing(2),
   },
 
   meteo: {

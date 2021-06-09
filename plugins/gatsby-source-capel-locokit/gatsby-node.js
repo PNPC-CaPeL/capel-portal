@@ -116,25 +116,27 @@ exports.sourceNodes = async ({
   );
 
   /**
+   * Get all Signatures for some counts
+   */
+  const divesSchema = schema.tables.find(({ text }) => text === 'Plongée');
+  const dives = await getRows(divesSchema.id);
+  reporter.info(`Dives: ${dives.length}`);
+  const readableDives = transposeByLabel(dives, divesSchema);
+
+  // const yearDives = readableDives.filter(
+  //   ({ 'Année': year }) => (year === (new Date()).getFullYear()),
+  // );
+
+  /**
    * Create LckMetric GraphQL nodes
    */
   await Promise.all([
-    {
-      key: 'spotCount',
-      count: spots.length,
-    },
-    {
-      key: 'signatureCount',
-      count: readableSignatures.length,
-    },
-    {
-      key: 'signatureCountBySP',
-      count: structureSignatures.length,
-    },
-    {
-      key: 'signatureCountByPI',
-      count: readableSignatures.length - structureSignatures.length,
-    },
+    { key: 'spotCount', count: spots.length },
+    { key: 'signatureCount', count: readableSignatures.length },
+    { key: 'signatureCountBySP', count: structureSignatures.length },
+    { key: 'signatureCountByPI', count: readableSignatures.length - structureSignatures.length },
+    { key: 'diveCount', count: readableDives.length },
+    { key: 'diverCount', count: readableDives.reduce((acc, { 'Nombre de plongeurs': count = 0 }) => acc + count, 0) },
   ].map((metric, index) => {
     const id = createNodeId(`metric ${index}`);
     const contentDigest = createContentDigest(metric);
