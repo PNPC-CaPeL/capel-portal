@@ -8,15 +8,16 @@ import {
   Radio,
   RadioGroup,
   TextField,
-  Typography,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link as GatsbyLink } from 'gatsby';
 import { Formik } from 'formik';
 
 import { validateEmail } from '../lib/helpers';
 
 import Layout from '../components/Layout';
+import useLckSettings from '../hooks/useLckSettings';
+import HtmlAstRender from '../components/HtmlAstRender';
+import { md2hast } from '../lib/md2hast';
 
 const SP = 'SP';
 const PI = 'PI';
@@ -33,6 +34,11 @@ const useStyles = makeStyles(theme => ({
 
 const SignUpPage = () => {
   const classes = useStyles();
+  const { 1: {
+    SIGNUP_TEXT: signupText,
+    SIGNUP_CONFIRMATION: signupConfirmation,
+    SIGNUP_ERROR: signupError,
+  } } = useLckSettings();
 
   const [success, setSuccess] = useState();
 
@@ -82,51 +88,14 @@ const SignUpPage = () => {
       <Grid container justify={success ? 'space-around' : 'space-between'}>
         {success && (
           <Grid item md={5}>
-            <Typography variant="h3" paragraph>
-              Merci de votre inscription,
-            </Typography>
-
-            <Typography variant="body1" paragraph>
-              Vous allez recevoir un mail vous invitant à activer votre compte
-              et renseigner votre mot de passe.
-            </Typography>
-
-            <Typography variant="body1" paragraph>
-              Attention, veillez à bien vérifier votre dossier spam
-              ou vos outils de filtrage,
-              certaines messageries classent automatiquement
-              ces mails dedans.
-            </Typography>
-
-            <GatsbyLink to="/">Retour à l'accueil</GatsbyLink>
-
+            <HtmlAstRender hast={md2hast(signupConfirmation.text_value)} />
           </Grid>
         )}
 
         {(typeof success === 'undefined' || success === false) && (
           <>
             <Grid item md={7}>
-              <Typography variant="h3" paragraph>
-                Inscrivez vous à la plate-forme CaPeL,
-              </Typography>
-
-              <Typography variant="body1" paragraph>
-                Pour pouvoir déclarer vos plongées,
-                ou signer vos règlements,
-                vous pouvez créer un compte d'accès à la plate-forme CaPeL.
-              </Typography>
-
-              <Typography variant="body1" paragraph>
-                Pour cela, nous avons besoin de vos coordonnées mails,
-                et si vous êtes un plongeur ou une structure de plongée.
-              </Typography>
-
-              <Typography variant="body1" paragraph>
-                Une fois votre inscription faite,
-                vous recevrez dans votre boîte de messagerie
-                les instructions pour finaliser votre inscription.
-              </Typography>
-
+              <HtmlAstRender hast={md2hast(signupText.text_value)} />
             </Grid>
 
             <Grid item md={4} container>
@@ -226,16 +195,7 @@ const SignUpPage = () => {
                     </Button>
 
                     {(success === false) && (
-                      <>
-                        <Typography variant="body1" paragraph color="error">
-                          Plouf !
-                          Votre inscription a échoué... sur un rivage inconnu ?!
-                        </Typography>
-                        <Typography variant="body1" paragraph color="error">
-                          Merci de prendre contact avec le Parc directement
-                          pour remonter l'anomalie... Désolé.
-                        </Typography>
-                      </>
+                      <HtmlAstRender hast={md2hast(signupError.text_value)} />
                     )}
                   </form>
                 )}
