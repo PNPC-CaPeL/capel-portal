@@ -4,7 +4,7 @@ import L from 'leaflet'; // eslint-disable-line no-unused-vars
 import 'leaflet-sleep';
 
 import { Helmet } from 'react-helmet';
-import { MapContainer, ScaleControl, TileLayer, useMapEvent } from 'react-leaflet';
+import { MapContainer, ScaleControl, TileLayer, useMap, useMapEvent } from 'react-leaflet';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -53,6 +53,12 @@ const LocationSelector = ({ handleClick }) => {
   return null;
 };
 
+const RemoveAttributionPrefix = () => {
+  const map = useMap();
+  React.useEffect(() => map.attributionControl.setPrefix(''), [map]);
+  return null;
+};
+
 const Map = ({ onBackgroundClick, spotProps = {}, children = null, ...props }) => {
   const classes = useStyles();
   const theme = useTheme();
@@ -85,6 +91,7 @@ const Map = ({ onBackgroundClick, spotProps = {}, children = null, ...props }) =
         hoverToWake={false}
         {...props}
       >
+        <RemoveAttributionPrefix />
 
         {typeof onBackgroundClick === 'function' && (
           <LocationSelector handleClick={onBackgroundClick} />
@@ -115,13 +122,11 @@ const Map = ({ onBackgroundClick, spotProps = {}, children = null, ...props }) =
 
         <TileLayer
           attribution=""
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          // url="https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png"
+          url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
         />
 
         <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
           url="https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png"
         />
 
