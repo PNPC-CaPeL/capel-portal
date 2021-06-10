@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 
 import { Box, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -25,12 +26,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const HomeInstit = () => {
+const HomeInstit = ({ className, ...props }) => {
   const classes = useStyles();
   const blocks = useHomepageBlocks();
 
   return (
-    <Grid container className={classes.root} spacing={4}>
+    <Grid container className={clsx(className, classes.root)} spacing={4} {...props}>
       {blocks.map(({ title, featureImage, autoExcerpt, customExcerpt, slug }) => {
         const excerptHast = md2hast(customExcerpt || autoExcerpt);
 
