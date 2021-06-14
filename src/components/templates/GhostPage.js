@@ -9,6 +9,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import HtmlAstRender from '../HtmlAstRender';
 import Layout from '../Layout';
 
+import customBlocks from '../GhostBlocks';
+
 const useStyles = makeStyles(theme => ({
   withFI: {
     marginTop: 0,
@@ -63,7 +65,10 @@ const GhostPage = ({
         {title}
       </Typography>
 
-      <HtmlAstRender hast={childHtmlRehype.htmlAst} />
+      <HtmlAstRender
+        hast={childHtmlRehype.htmlAst}
+        components={customBlocks}
+      />
     </Layout>
   );
 };
