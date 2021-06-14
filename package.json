@@ -2,7 +2,7 @@
   "name": "capel",
   "private": true,
   "description": "",
-  "version": "0.7.0",
+  "version": "1.0.0",
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",

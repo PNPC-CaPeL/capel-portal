@@ -1,4 +1,34 @@
 
+1.0.0 / 2021-06-14
+==================
+
+  * Hide a typo in map legend data
+  * Build home page from Ghost frontpage
+  * Cleanup plugin gatsby-plugin-ghost-pages
+  * Remove attributionControl prefix and change basemap
+  * Fix footer items alignment
+  * Add minimal tooltip to each map marker
+  * Display temp static map data
+  * Restore some counts on home page
+  * Use lckSettings for sign up form texts
+  * Externalise md2hast function
+  * Use groupId for Lck api row requests
+  * Add ENV vars to dotenv template
+  * Create local plugin to get data from LocoKit
+  * Reorder home sections order
+  * Revamp HomeHero and inner pages header
+  * Change HomeHero white panel to transparent floating block
+  * Display home page informations
+  * Add "Menu" label to MainMenu button
+  * Use site maint title and lang attribute from Ghost settings
+  * Add npm command for local refresh
+  * Use no-page tag for contents with no route, and slug to identify footer
+  * Manage HomeInstit blocks excerpts
+  * Create main navigation menu
+  * Create home instit blocks from Ghost pages (with tags: block & home)
+  * Create footer content from Ghost pages (with tags: block & footer)
+  * Create ENV var & home button for back-office login
+
 0.7.0 / 2021-05-31
 ==================
 
