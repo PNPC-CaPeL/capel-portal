@@ -36,7 +36,7 @@ const MapLegend = ({ className, ...props }) => {
               <path d="M2.5 2.5h15v15H2.5z" {...style2svg(style)} />
             </svg>
 
-            {Object.values(properties).join(', ')}
+            {Object.values(properties).join(', ').replace('ammarage', 'amarage')}
           </Typography>
         </Grid>
       ))}
