@@ -24,6 +24,10 @@ const PI = 'PI';
 
 const useStyles = makeStyles(theme => ({
   root: {
+    marginTop: theme.spacing(5),
+  },
+
+  form: {
     textAlign: 'center',
 
     '& .MuiTextField-root, .MuiFormControl-root': {
@@ -85,7 +89,11 @@ const SignUpPage = () => {
 
   return (
     <Layout title="Inscription à la plate-forme CaPeL">
-      <Grid container justify={success ? 'space-around' : 'space-between'}>
+      <Grid
+        container
+        justify={success ? 'space-around' : 'space-between'}
+        className={classes.root}
+      >
         {success && (
           <Grid item md={5}>
             <HtmlAstRender hast={md2hast(signupConfirmation.text_value)} />
@@ -121,7 +129,7 @@ const SignUpPage = () => {
                   isValid,
                   dirty,
                 }) => (
-                  <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
+                  <form className={classes.form} noValidate autoComplete="off" onSubmit={handleSubmit}>
                     <TextField
                       required
                       fullWidth

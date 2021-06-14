@@ -9,11 +9,22 @@ import { makeStyles } from '@material-ui/core/styles';
 import HtmlAstRender from '../HtmlAstRender';
 import Layout from '../Layout';
 
-const useStyles = makeStyles({
-  noFI: {
+const useStyles = makeStyles(theme => ({
+  withFI: {
     marginTop: 0,
   },
-});
+
+  featureImage: {
+    marginLeft: 'calc(50% - 50vw)',
+    marginRight: 'calc(50% - 50vw)',
+    width: '100vw',
+  },
+
+  mainTitle: {
+    marginTop: theme.spacing(5),
+    marginBottom: theme.spacing(2),
+  },
+}));
 
 const GhostPage = ({
   data: {
@@ -30,8 +41,7 @@ const GhostPage = ({
   return (
     <Layout
       title={title}
-      headerProps={{ title: null }}
-      className={featureImage && classes.noFI}
+      className={featureImage && classes.withFI}
     >
       <Helmet>
         <style type="text/css">{`${customCss}`}</style>
@@ -42,15 +52,14 @@ const GhostPage = ({
           alt=""
           image={getImage(featureImage)}
           objectFit="cover"
-          style={{
-            marginLeft: 'calc(50% - 50vw)',
-            marginRight: 'calc(50% - 50vw)',
-            width: '100vw',
-          }}
+          className={classes.featureImage}
         />
       )}
 
-      <Typography variant="h1">
+      <Typography
+        variant="h1"
+        className={classes.mainTitle}
+      >
         {title}
       </Typography>
 

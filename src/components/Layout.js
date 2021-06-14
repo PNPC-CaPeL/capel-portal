@@ -19,8 +19,8 @@ const useStyles = makeStyles({
     overflowY: 'auto',
     overflowX: 'hidden',
   },
+
   main: {
-    marginTop: '2rem',
     marginBottom: 'auto',
   },
 });
@@ -28,7 +28,7 @@ const useStyles = makeStyles({
 const Layout = ({
   className,
   rootClass,
-  title: pageTitle,
+  title,
   header = true,
   headerProps = {},
   footer = true,
@@ -36,21 +36,21 @@ const Layout = ({
   ...rest
 }) => {
   const classes = useStyles();
-  const { title, lang } = useGhostSettings();
+  const { title: ghostTitle, lang } = useGhostSettings();
   const ContainerComponent = container ? Container : Box;
 
   return (
     <div className={clsx(classes.root, rootClass)}>
       <Helmet
         htmlAttributes={{ lang }}
-        title={pageTitle}
-        titleTemplate={`%s | ${title}`}
-        defaultTitle={title}
+        title={title}
+        titleTemplate={`%s | ${ghostTitle}`}
+        defaultTitle={ghostTitle}
       >
         <link rel="icon" href={favicon} />
       </Helmet>
 
-      {Boolean(header) && <Header title={pageTitle} {...headerProps} />}
+      {Boolean(header) && <Header {...headerProps} />}
 
       <ContainerComponent
         component="main"

@@ -30,12 +30,9 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '100%',
     height: 'auto',
   },
-  title: {
-    fontSize: '2rem',
-  },
 }));
 
-const Header = ({ title, className, ...props }) => {
+const Header = ({ className, ...props }) => {
   const classes = useStyles();
 
   return (
