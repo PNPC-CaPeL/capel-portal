@@ -19,8 +19,8 @@ const useBlockStyles = makeStyles(theme => ({
   blueback: {
     background: theme.palette.primary.main,
     color: theme.palette.primary.contrastText,
-    paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2),
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
   },
 }));
 
