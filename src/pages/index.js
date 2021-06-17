@@ -22,6 +22,10 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(4),
     textTransform: 'uppercase',
   },
+
+  content: {
+    marginTop: theme.spacing(3),
+  },
 }));
 
 const HomePage = () => {
@@ -53,6 +57,7 @@ const HomePage = () => {
       <HtmlAstRender
         component={Container}
         hast={htmlAst}
+        className={classes.content}
         components={{
           h2: props => (
             <Typography
