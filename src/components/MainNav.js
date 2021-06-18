@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 import { Link } from 'gatsby';
 import { Grid } from '@material-ui/core';
-import { makeStyles, fade } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 import useGhostNavigation from '../hooks/useGhostNavigation';
 
@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     textAlign: 'right',
     fontWeight: 'bold',
-    color: fade(theme.palette.primary.contrastText, 0.75),
+    color: '#d3eff6', // white + primary
   },
 
   item: {
@@ -21,6 +21,7 @@ const useStyles = makeStyles(theme => ({
     '&:hover': {
       color: theme.palette.primary.contrastText,
     },
+    textShadow: '0 0 2px rgba(0, 0, 0, 0.3)',
   },
 }));
 
