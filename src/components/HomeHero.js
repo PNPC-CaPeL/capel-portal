@@ -37,6 +37,7 @@ const useStyles = makeStyles(theme => {
     },
 
     bottom: {
+      marginTop: theme.spacing(2),
       [minWidth('md')]: {
         height: 'calc(90vh - 8em)',
       },
@@ -107,22 +108,60 @@ const HomeHero = () => {
         <Grid container spacing={3} justify="space-between" alignItems="center">
           <Grid
             item
-            md={2}
-            sm={3}
-            xs={4}
+            xs={12}
+            sm={8}
+            md={5}
+            container
+            alignItems="center"
+            justify="space-between"
           >
-            <Link to="http://www.portcros-parcnational.fr/fr">
-              <StaticImage
-                src="../assets/pnpc-white.png"
-                alt="Parc National de Port-Cros"
-                placeholder="none"
-                objectFit="cover"
-                objectPosition="left top"
-              />
-            </Link>
+            <Grid item xs={4}>
+              <Link to="http://www.portcros-parcnational.fr/fr">
+                <StaticImage
+                  src="../assets/pnpc-white.png"
+                  alt="Parc National de Port-Cros"
+                  placeholder="none"
+                  objectFit="scale-down"
+                  objectPosition="center"
+                />
+              </Link>
+            </Grid>
+            <Grid item xs={3}>
+              <Link to="https://www.life-marha.fr">
+                <StaticImage
+                  src="../assets/marha.png"
+                  alt="Marine habitats"
+                  placeholder="none"
+                  objectFit="scale-down"
+                  objectPosition="center"
+                />
+              </Link>
+            </Grid>
+            <Grid item xs={2}>
+              <Link to="https://www.life-marha.fr">
+                <StaticImage
+                  src="../assets/life.jpg"
+                  alt="Projet Life"
+                  placeholder="none"
+                  objectFit="scale-down"
+                  objectPosition="center"
+                />
+              </Link>
+            </Grid>
+            <Grid item xs={2}>
+              <Link to="https://www.natura2000.fr">
+                <StaticImage
+                  src="../assets/natura2000.png"
+                  alt="Natura 2000"
+                  placeholder="none"
+                  objectFit="scale-down"
+                  objectPosition="center"
+                />
+              </Link>
+            </Grid>
           </Grid>
 
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <MainNav />
           </Grid>
         </Grid>
