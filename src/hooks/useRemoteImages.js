@@ -14,11 +14,11 @@ export const useRemoteImages = () => {
 
   return {
     files: nodes.map(
-      ({ url, childImageSharp: { gatsbyImageData } = {} }) => ({ url, gatsbyImageData }),
+      ({ url, childImageSharp }) => ({ url, gatsbyImageData: childImageSharp?.gatsbyImageData }),
     ),
-    byUrl: nodes.reduce((acc, { url, childImageSharp: { gatsbyImageData } = {} }) => ({
+    byUrl: nodes.reduce((acc, { url, childImageSharp }) => ({
       ...acc,
-      [url]: gatsbyImageData,
+      [url]: childImageSharp?.gatsbyImageData,
     }), {}),
   };
 };
