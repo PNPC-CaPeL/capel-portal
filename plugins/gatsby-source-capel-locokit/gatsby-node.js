@@ -10,7 +10,14 @@ const tables = {
   SIGNATURES: 'Signature de règlement',
   PLONGEES: 'Plongée',
   SPOTS: 'Spot de plongée',
+  ACCOUNTS: 'Profil utilisateur',
 };
+
+const publicStructureFields = ['id', 'Nom', 'Ville', 'Adresse', 'Code postal',
+  'Téléphone principal', 'Coordonnées GPS', 'Site web'];
+
+const prune = (object, properties) =>
+  Object.fromEntries(Object.entries(object).filter(([key]) => properties.includes(key)));
 
 exports.sourceNodes = async ({
   createNodeId,
@@ -70,14 +77,55 @@ exports.sourceNodes = async ({
 
     const geojson = spot.Position
       ? wktParse(spot.Position)
-      : {};
+      : null;
 
     return createNode({
       parent: null,
       children: [],
-      internal: { type, contentDigest },
+      internal: { type, contentDigest, content: JSON.stringify(spot) },
       geojson,
       ...spot,
+    });
+  }));
+
+  /**
+   * Get all Structures
+   */
+  const accountsSchema = schema.tables.find(({ text }) => text === 'Profil utilisateur');
+  const accounts = await getRows(accountsSchema.id);
+  reporter.info(`Signatures: ${accounts.length}`);
+  const readableAccounts = transposeByLabel(accounts, accountsSchema);
+  const publishedStructures = readableAccounts
+    .filter(account => {
+      if (
+        account.Type === 'Structure de plongée'
+        // && account['Inscription finalisée']
+        // && account['Coordonnées GPS']
+        // && account['Publier sur le site']
+      ) {
+        return true;
+      }
+
+      return false;
+    });
+
+  reporter.info(`Structures (published): ${publishedStructures.length}`);
+
+  await Promise.all(publishedStructures.map(structure => {
+    const contentDigest = createContentDigest(structure);
+    const type = 'Structure';
+    const publicFields = prune(structure, publicStructureFields);
+
+    const geojson = structure['Coordonnées GPS']
+      ? wktParse(structure['Coordonnées GPS'])
+      : null;
+
+    return createNode({
+      parent: null,
+      children: [],
+      internal: { type, contentDigest, content: JSON.stringify(publicFields) },
+      geojson,
+      ...publicFields,
     });
   }));
 
