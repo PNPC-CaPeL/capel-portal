@@ -4,6 +4,7 @@
     "@feathersjs/feathers": "*",
     "@feathersjs/rest-client": "*",
     "@feathersjs/authentication-client": "*",
+    "dotenv": "*",
     "node-fetch": "*"
   }
 }

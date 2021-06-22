@@ -1,55 +1,13 @@
-const feathers = require('@feathersjs/feathers');
-const rest = require('@feathersjs/rest-client');
-const auth = require('@feathersjs/authentication-client');
-const fetch = require('node-fetch');
+const {
+  initApi,
+  transposeByLabel,
+} = require('./lib');
 
-const transposeByLabel = (table, tableSchema) => {
-  const transposedTable = table.map(spot =>
-    tableSchema.columns.reduce(
-      (acc, { text, id }) => ({ ...acc, [text]: spot[id] }),
-      {},
-    ));
-
-  return transposedTable;
-};
-
-const initApi = async () => {
-  const lckClient = feathers();
-
-  // Connect to a different URL
-  const restClient = rest(`${process.env.GATSBY_LCK_HOME}/api/`);
-
-  // Configure an AJAX library (see below) with that client
-  lckClient.configure(restClient.fetch(fetch));
-  lckClient.configure(auth());
-
-  const authenticate = () => lckClient.authenticate({
-    strategy: 'local',
-    email: process.env.LCK_USER,
-    password: process.env.LCK_PASSWORD,
-  });
-
-  const { user } = await authenticate();
-
-  const { groups: [{ id: groupId }] } = await lckClient.service('user').get(user.id, {
-    query: {
-      $eager: 'groups',
-    },
-  });
-
-  const getRows = (id, { query = {} } = {}) => lckClient.service('row').find({
-    query: {
-      table_id: id,
-      $limit: -1,
-      $lckGroupId: groupId,
-      ...query,
-    },
-  });
-
-  return {
-    LCK: lckClient,
-    getRows,
-  };
+const tables = {
+  PARAMETRES: 'Paramètres du site public',
+  SIGNATURES: 'Signature de règlement',
+  PLONGEES: 'Plongée',
+  SPOTS: 'Spot de plongée',
 };
 
 exports.sourceNodes = async ({
@@ -73,9 +31,10 @@ exports.sourceNodes = async ({
   /**
    * Create LckSetting GraphQL nodes
    */
-  const settingsSchema = schema.tables.find(({ text }) => text === 'Paramètres du site public');
+  const settingsSchema = schema.tables.find(({ text }) => text === tables.PARAMETRES);
   const settings = await getRows(settingsSchema.id);
   const readableSettings = transposeByLabel(settings, settingsSchema);
+
   await Promise.all(readableSettings.map((setting, index) => {
     const id = createNodeId(`settings ${index}`);
     const contentDigest = createContentDigest(setting);
@@ -96,17 +55,17 @@ exports.sourceNodes = async ({
 
   /**
    * Get all Spots
-   * @TODO Create spot nodes to display them on homepage map
    */
-  const spotsSchema = schema.tables.find(({ text }) => text === 'Spot de plongée');
+  const spotsSchema = schema.tables.find(({ text }) => text === tables.SPOTS);
   const spots = await getRows(spotsSchema.id);
+
   reporter.info(`Spots: ${spots.length}`);
   // const readableSpots = transposeByLabel(spots, spotsSchema);
 
   /**
    * Get all Signatures for some counts
    */
-  const signaturesSchema = schema.tables.find(({ text }) => text === 'Signature de règlement');
+  const signaturesSchema = schema.tables.find(({ text }) => text === tables.SIGNATURES);
   const signatures = await getRows(signaturesSchema.id);
   reporter.info(`Signatures: ${signatures.length}`);
   const readableSignatures = transposeByLabel(signatures, signaturesSchema);
@@ -116,9 +75,9 @@ exports.sourceNodes = async ({
   );
 
   /**
-   * Get all Signatures for some counts
+   * Get all Plongees for some counts
    */
-  const divesSchema = schema.tables.find(({ text }) => text === 'Plongée');
+  const divesSchema = schema.tables.find(({ text }) => text === tables.PLONGEES);
   const dives = await getRows(divesSchema.id);
   reporter.info(`Dives: ${dives.length}`);
   const readableDives = transposeByLabel(dives, divesSchema);
@@ -128,7 +87,7 @@ exports.sourceNodes = async ({
   // );
 
   /**
-   * Create LckMetric GraphQL nodes
+   * Create LckMetric GraphQL nodes (counts)
    */
   await Promise.all([
     { key: 'spotCount', count: spots.length },
