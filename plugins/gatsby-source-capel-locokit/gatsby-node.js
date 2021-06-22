@@ -1,3 +1,5 @@
+const wktParse = require('wellknown');
+
 const {
   initApi,
   transposeByLabel,
@@ -60,7 +62,24 @@ exports.sourceNodes = async ({
   const spots = await getRows(spotsSchema.id);
 
   reporter.info(`Spots: ${spots.length}`);
-  // const readableSpots = transposeByLabel(spots, spotsSchema);
+  const readableSpots = transposeByLabel(spots, spotsSchema);
+
+  await Promise.all(readableSpots.map(spot => {
+    const contentDigest = createContentDigest(spot);
+    const type = 'Spot';
+
+    const geojson = spot.Position
+      ? wktParse(spot.Position)
+      : {};
+
+    return createNode({
+      parent: null,
+      children: [],
+      internal: { type, contentDigest },
+      geojson,
+      ...spot,
+    });
+  }));
 
   /**
    * Get all Signatures for some counts
