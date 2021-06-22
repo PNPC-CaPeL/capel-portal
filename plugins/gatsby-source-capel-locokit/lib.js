@@ -88,7 +88,7 @@ const transposeByLabel = (table, tableSchema) => {
   return transposedTable;
 };
 
-const initApi = async () => {
+const lckApi = async () => {
   const lckClient = feathers();
 
   // Connect to a different URL
@@ -121,13 +121,21 @@ const initApi = async () => {
     },
   });
 
+  const getSchema = dbId => lckClient.service('database')
+    .get(dbId, {
+      query: {
+        $eager: '[tables.[columns,views.[columns]]]',
+      },
+    });
+
   return {
     LCK: lckClient,
+    getSchema,
     getRows,
   };
 };
 
 module.exports = {
   transposeByLabel,
-  initApi,
+  lckApi,
 };

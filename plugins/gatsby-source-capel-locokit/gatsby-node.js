@@ -1,7 +1,7 @@
 const wktParse = require('wellknown');
 
 const {
-  initApi,
+  lckApi,
   transposeByLabel,
 } = require('./lib');
 
@@ -25,17 +25,12 @@ exports.sourceNodes = async ({
   actions: { createNode },
   reporter,
 }) => {
-  const { LCK, getRows } = await initApi();
+  const { getSchema, getRows } = await lckApi();
 
   /**
    * Get overall database schema
    */
-  const schema = await LCK.service('database')
-    .get(process.env.LCK_DBID, {
-      query: {
-        $eager: '[tables.[columns,views.[columns]]]',
-      },
-    });
+  const schema = await getSchema(process.env.LCK_DBID);
 
   const getReadableRowsFrom = async tableLabel => {
     const tableSchema = schema.tables.find(({ text }) => text === tableLabel);
