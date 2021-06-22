@@ -114,7 +114,10 @@ exports.sourceNodes = async ({
     { key: 'signatureCountBySP', count: structureSignatures.length },
     { key: 'signatureCountByPI', count: readableSignatures.length - structureSignatures.length },
     { key: 'diveCount', count: readableDives.length },
-    { key: 'diverCount', count: readableDives.reduce((acc, { 'Nombre de plongeurs': count = 0 }) => acc + count, 0) },
+    {
+      key: 'diverCount',
+      count: readableDives.reduce((acc, { 'Nombre de plongeurs': count = 0 }) => acc + (+count), 0),
+    },
   ].map((metric, index) => {
     const id = createNodeId(`metric ${index}`);
     const contentDigest = createContentDigest(metric);
