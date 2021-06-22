@@ -4,6 +4,7 @@
     "@feathersjs/feathers": "*",
     "@feathersjs/rest-client": "*",
     "@feathersjs/authentication-client": "*",
+    "@locokit/lck-glossary": "*",
     "dotenv": "*",
     "node-fetch": "*",
     "wellknown": "*"
