@@ -37,14 +37,19 @@ exports.sourceNodes = async ({
       },
     });
 
+  const getReadableRowsFrom = async tableLabel => {
+    const tableSchema = schema.tables.find(({ text }) => text === tableLabel);
+    const tableRows = await getRows(tableSchema.id);
+    const readableRows = transposeByLabel(tableRows, tableSchema);
+    return readableRows;
+  };
+
   /**
    * Create LckSetting GraphQL nodes
    */
-  const settingsSchema = schema.tables.find(({ text }) => text === tables.PARAMETRES);
-  const settings = await getRows(settingsSchema.id);
-  const readableSettings = transposeByLabel(settings, settingsSchema);
+  const settings = await getReadableRowsFrom(tables.PARAMETRES);
 
-  await Promise.all(readableSettings.map((setting, index) => {
+  await Promise.all(settings.map((setting, index) => {
     const id = createNodeId(`settings ${index}`);
     const contentDigest = createContentDigest(setting);
     const type = 'LckSettings';
@@ -65,13 +70,10 @@ exports.sourceNodes = async ({
   /**
    * Get all Spots
    */
-  const spotsSchema = schema.tables.find(({ text }) => text === tables.SPOTS);
-  const spots = await getRows(spotsSchema.id);
-
+  const spots = await getReadableRowsFrom(tables.SPOTS);
   reporter.info(`Spots: ${spots.length}`);
-  const readableSpots = transposeByLabel(spots, spotsSchema);
 
-  await Promise.all(readableSpots.map(spot => {
+  await Promise.all(spots.map(spot => {
     const contentDigest = createContentDigest(spot);
     const type = 'Spot';
 
@@ -91,11 +93,10 @@ exports.sourceNodes = async ({
   /**
    * Get all Structures
    */
-  const accountsSchema = schema.tables.find(({ text }) => text === 'Profil utilisateur');
-  const accounts = await getRows(accountsSchema.id);
+  const accounts = await getReadableRowsFrom(tables.ACCOUNTS);
   reporter.info(`Signatures: ${accounts.length}`);
-  const readableAccounts = transposeByLabel(accounts, accountsSchema);
-  const publishedStructures = readableAccounts
+
+  const publishedStructures = accounts
     .filter(account => {
       if (
         account.Type === 'Structure de plongée'
@@ -132,24 +133,20 @@ exports.sourceNodes = async ({
   /**
    * Get all Signatures for some counts
    */
-  const signaturesSchema = schema.tables.find(({ text }) => text === tables.SIGNATURES);
-  const signatures = await getRows(signaturesSchema.id);
+  const signatures = await getReadableRowsFrom(tables.SIGNATURES);
   reporter.info(`Signatures: ${signatures.length}`);
-  const readableSignatures = transposeByLabel(signatures, signaturesSchema);
 
-  const structureSignatures = readableSignatures.filter(
+  const structureSignatures = signatures.filter(
     ({ 'Structure ?': isStructure }) => isStructure,
   );
 
   /**
    * Get all Plongees for some counts
    */
-  const divesSchema = schema.tables.find(({ text }) => text === tables.PLONGEES);
-  const dives = await getRows(divesSchema.id);
+  const dives = await getReadableRowsFrom(tables.PLONGEES);
   reporter.info(`Dives: ${dives.length}`);
-  const readableDives = transposeByLabel(dives, divesSchema);
 
-  // const yearDives = readableDives.filter(
+  // const yearDives = dives.filter(
   //   ({ 'Année': year }) => (year === (new Date()).getFullYear()),
   // );
 
@@ -158,13 +155,13 @@ exports.sourceNodes = async ({
    */
   await Promise.all([
     { key: 'spotCount', count: spots.length },
-    { key: 'signatureCount', count: readableSignatures.length },
+    { key: 'signatureCount', count: signatures.length },
     { key: 'signatureCountBySP', count: structureSignatures.length },
-    { key: 'signatureCountByPI', count: readableSignatures.length - structureSignatures.length },
-    { key: 'diveCount', count: readableDives.length },
+    { key: 'signatureCountByPI', count: signatures.length - structureSignatures.length },
+    { key: 'diveCount', count: dives.length },
     {
       key: 'diverCount',
-      count: readableDives.reduce((acc, { 'Nombre de plongeurs': count = 0 }) => acc + (+count), 0),
+      count: dives.reduce((acc, { 'Nombre de plongeurs': count = 0 }) => acc + (+count), 0),
     },
   ].map((metric, index) => {
     const id = createNodeId(`metric ${index}`);
