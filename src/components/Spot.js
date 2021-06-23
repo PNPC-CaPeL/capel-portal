@@ -11,14 +11,23 @@ import {
 import useLckSettings from '../hooks/useLckSettings';
 
 const maskBase = {
-  iconUrl: '/spot.svg',
-  iconSize: [12, 12],
+  iconUrl: '/diving-mask.svg',
+  iconSize: [32, 22],
   // iconAnchor: [16, 11],
-  popupAnchor: [0, -7], // from iconAnchor
-  tooltipAnchor: [7, 0], // from iconAnchor
+  popupAnchor: [0, -12], // from iconAnchor
+  tooltipAnchor: [17, 0], // from iconAnchor
+};
+
+const shipwreck = {
+  iconUrl: '/shipwreck.svg',
+  iconSize: [32, 22],
+  // iconAnchor: [16, 11],
+  popupAnchor: [0, -12], // from iconAnchor
+  tooltipAnchor: [17, 0], // from iconAnchor
 };
 
 const maskIcon = icon && icon(maskBase);
+const wreckIcon = icon && icon(shipwreck);
 
 const Spot = ({
   isFav,
@@ -56,9 +65,8 @@ const Spot = ({
     <Marker
       position={[lat, lon]}
       opacity={1}
-      icon={maskIcon}
+      icon={spot.Type === 'Epave' ? wreckIcon : maskIcon}
       {...props}
-      title={spot.Nom}
     >
       <Tooltip>{spot.Nom}</Tooltip>
 

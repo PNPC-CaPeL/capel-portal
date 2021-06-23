@@ -7,6 +7,7 @@ export const useSpots = () => {
         nodes {
           id
           Nom
+          Type: Type_de_site
           geojson { coordinates type }
           internal { content }
         }
