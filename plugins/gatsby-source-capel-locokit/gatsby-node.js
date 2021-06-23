@@ -1,4 +1,5 @@
 const wktParse = require('wellknown');
+const fs = require('fs/promises');
 
 const {
   lckApi,
@@ -60,6 +61,12 @@ exports.sourceNodes = async ({
       ...setting,
     });
   }));
+
+  /**
+   * Also stores settings as json file
+   */
+  const settingsObject = settings.reduce((acc, node) => ({ ...acc, [node.key]: node }), {});
+  await fs.writeFile('public/lckSettings.json', JSON.stringify(settingsObject, null, 2));
 
   /**
    * Get all Spots

@@ -1,12 +1,14 @@
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core';
 
+import settings from '../../public/lckSettings.json';
+
 const theme = responsiveFontSizes(createMuiTheme({
   palette: {
     primary: {
-      main: '#3991aa',
+      main: settings?.THEME_PRIMARY?.text_value || '#3991aa',
     },
     secondary: {
-      main: '#f0373d',
+      main: settings?.THEME_SECONDARY?.text_value || '#f0373d',
     },
   },
   typography: {
