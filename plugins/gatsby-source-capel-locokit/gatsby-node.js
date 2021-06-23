@@ -168,11 +168,11 @@ exports.sourceNodes = async ({
    * Get all Plongees for some counts
    */
   const dives = await getReadableRowsFrom(tables.PLONGEES);
+  const yearDives = dives.filter(
+    ({ Année }) => (Année === (new Date()).getFullYear()),
+  );
   reporter.info(`Dives: ${dives.length}`);
-
-  // const yearDives = dives.filter(
-  //   ({ 'Année': year }) => (year === (new Date()).getFullYear()),
-  // );
+  reporter.info(`Dives (current year): ${yearDives.length}`);
 
   /**
    * Create LckMetric GraphQL nodes (counts)
@@ -182,10 +182,10 @@ exports.sourceNodes = async ({
     { key: 'signatureCount', count: signatures.length },
     { key: 'signatureCountBySP', count: structureSignatures.length },
     { key: 'signatureCountByPI', count: signatures.length - structureSignatures.length },
-    { key: 'diveCount', count: dives.length },
+    { key: 'diveCount', count: yearDives.length },
     {
       key: 'diverCount',
-      count: dives.reduce((acc, { 'Nombre de plongeurs': count = 0 }) => acc + (+count), 0),
+      count: yearDives.reduce((acc, { 'Nombre de plongeurs': count = 0 }) => acc + (+count), 0),
     },
   ].map((metric, index) => {
     const id = createNodeId(`metric ${index}`);
