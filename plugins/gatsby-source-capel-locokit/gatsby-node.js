@@ -11,6 +11,7 @@ const tables = {
   PLONGEES: 'Plongée',
   SPOTS: 'Spot de plongée',
   ACCOUNTS: 'Profil utilisateur',
+  ZONES: 'Zone',
 };
 
 const publicStructureFields = ['id', 'Nom', 'Ville', 'Adresse', 'Code postal',
@@ -82,6 +83,29 @@ exports.sourceNodes = async ({
       internal: { type, contentDigest, content: JSON.stringify(spot) },
       geojson,
       ...spot,
+    });
+  }));
+
+  /**
+   * Get all Zones
+   */
+  const zones = await getReadableRowsFrom(tables.ZONES);
+  reporter.info(`Zones: ${zones.length}`);
+
+  await Promise.all(zones.map(zone => {
+    const contentDigest = createContentDigest(zone);
+    const type = 'Zone';
+
+    const geojson = zone['Géométrie']
+      ? wktParse(zone['Géométrie'])
+      : null;
+
+    return createNode({
+      parent: null,
+      children: [],
+      internal: { type, contentDigest, content: JSON.stringify(zone) },
+      geojson,
+      ...zone,
     });
   }));
 
