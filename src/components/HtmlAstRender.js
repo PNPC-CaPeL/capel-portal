@@ -73,6 +73,10 @@ const useStyles = makeStyles(theme => {
         margin: '0 auto',
       },
 
+      '.kg-image-card': {
+        textAlign: 'center',
+      },
+
       '.kg-bookmark-card': {
         width: '100%',
         boxSizing: 'border-box',
