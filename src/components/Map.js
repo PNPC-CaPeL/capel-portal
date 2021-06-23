@@ -7,12 +7,9 @@ import { Helmet } from 'react-helmet';
 import { MapContainer, ScaleControl, TileLayer, useMap, useMapEvent } from 'react-leaflet';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Spots from './Spots';
 import MapStructures from './MapStructures';
-import GeoJSONAsync from './GeoJSONAsync';
-
-import { styleFromProperties } from '../lib/map-styles';
 
 const isLive = typeof window !== 'undefined';
 
@@ -30,24 +27,6 @@ const useStyles = makeStyles({
   },
 });
 
-const circleMarkerDefaults = {
-  radius: 8,
-  color: '#000',
-  weight: 1,
-  opacity: 1,
-  fillOpacity: 0.8,
-};
-
-const handleEachFeature = (feature, layer) => {
-  if (feature.properties.nom_site_p) {
-    layer.bindTooltip(feature.properties.nom_site_p);
-  }
-
-  if (feature.properties.structure) {
-    layer.bindTooltip(feature.properties.structure);
-  }
-};
-
 const LocationSelector = ({ handleClick }) => {
   useMapEvent('click', handleClick);
   return null;
@@ -61,17 +40,6 @@ const RemoveAttributionPrefix = () => {
 
 const Map = ({ onBackgroundClick, spotProps = {}, children = null, ...props }) => {
   const classes = useStyles();
-  const theme = useTheme();
-
-  const pointToLayerA = React.useCallback((feature, latlng) => L.circleMarker(latlng, {
-    ...circleMarkerDefaults,
-    fillColor: theme.palette.primary.main,
-  }), [theme.palette.primary.main]);
-
-  const pointToLayerB = React.useCallback((feature, latlng) => L.circleMarker(latlng, {
-    ...circleMarkerDefaults,
-    fillColor: theme.palette.secondary.main,
-  }), [theme.palette.secondary.main]);
 
   if (!isLive) { return null; }
 
@@ -102,23 +70,6 @@ const Map = ({ onBackgroundClick, spotProps = {}, children = null, ...props }) =
         <Spots {...spotProps} />
 
         <MapStructures />
-
-        <GeoJSONAsync
-          filename="https://raw.githubusercontent.com/PNPC-CaPeL/capel-proto-contents/main/public/zones.geojson"
-          style={({ properties }) => styleFromProperties(properties)}
-        />
-
-        <GeoJSONAsync
-          filename="https://raw.githubusercontent.com/PNPC-CaPeL/capel-proto-contents/main/spots.geojson"
-          pointToLayer={pointToLayerA}
-          onEachFeature={handleEachFeature}
-        />
-
-        <GeoJSONAsync
-          filename="https://raw.githubusercontent.com/PNPC-CaPeL/capel-proto-contents/main/structures.geojson"
-          pointToLayer={pointToLayerB}
-          onEachFeature={handleEachFeature}
-        />
 
         <TileLayer
           attribution=""
