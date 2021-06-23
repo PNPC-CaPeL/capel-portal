@@ -9,7 +9,7 @@ const Spots = props => {
   return (
     <>
       {spots.map(spot => (
-        <Spot key={spot.Name} spot={spot} {...props} />
+        <Spot key={spot.id} spot={spot} {...props} />
       ))}
     </>
   );

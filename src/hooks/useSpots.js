@@ -5,6 +5,7 @@ export const useSpots = () => {
     {
       wrapper: allSpot {
         nodes {
+          id
           Nom
           geojson { coordinates type }
           internal { content }
