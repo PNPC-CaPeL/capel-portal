@@ -11,6 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Spots from './Spots';
 import MapStructures from './MapStructures';
 import MapZones from './MapZones';
+import useLckSettings from '../hooks/useLckSettings';
 
 const isLive = typeof window !== 'undefined';
 
@@ -42,6 +43,27 @@ const RemoveAttributionPrefix = () => {
 const Map = ({ onBackgroundClick, spotProps = {}, children = null, ...props }) => {
   const classes = useStyles();
 
+  const { 1: {
+    MAP_CENTER,
+    MAP_ZOOM,
+  } } = useLckSettings();
+
+  let center = [43.01, 6.275];
+  try {
+    center = JSON.parse(MAP_CENTER.text_value);
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.error('Unable to parse custom center for map');
+  }
+
+  let zoom = 11.5;
+  try {
+    zoom = JSON.parse(MAP_ZOOM.text_value);
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.error('Unable to parse custom zoom for map');
+  }
+
   if (!isLive) { return null; }
 
   return (
@@ -51,8 +73,8 @@ const Map = ({ onBackgroundClick, spotProps = {}, children = null, ...props }) =
       </Helmet>
 
       <MapContainer
-        center={[43.01, 6.275]}
-        zoom={11.5}
+        center={center}
+        zoom={zoom}
         className={classes.root}
         zoomSnap={0.5}
         zoomDelta={0.5}
