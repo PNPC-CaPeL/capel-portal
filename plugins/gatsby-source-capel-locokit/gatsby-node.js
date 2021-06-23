@@ -45,13 +45,11 @@ exports.sourceNodes = async ({
    */
   const settings = await getReadableRowsFrom(tables.PARAMETRES);
 
-  await Promise.all(settings.map((setting, index) => {
-    const id = createNodeId(`settings ${index}`);
+  await Promise.all(settings.map(setting => {
     const contentDigest = createContentDigest(setting);
     const type = 'LckSettings';
 
     return createNode({
-      id,
       parent: null,
       children: [],
       internal: {
