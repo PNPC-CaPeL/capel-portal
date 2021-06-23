@@ -1,8 +1,17 @@
-import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 
 export const useSpots = () => {
-  // To be replaced with fetched data from LocoKit
-  const spots = React.useMemo(() => ([]), []);
+  const { wrapper: { nodes: spots = [] } = {} } = useStaticQuery(graphql`
+    {
+      wrapper: allSpot {
+        nodes {
+          Nom
+          geojson { coordinates type }
+          internal { content }
+        }
+      }
+    }
+  `);
 
   return spots;
 };

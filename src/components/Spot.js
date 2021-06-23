@@ -1,56 +1,87 @@
 import React from 'react';
 import { Popup, Marker, Tooltip } from 'react-leaflet';
 import { icon } from 'leaflet';
-import { Typography, Tooltip as MUiTooltip } from '@material-ui/core';
-import StarIcon from '@material-ui/icons/Star';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
-
-import HtmlAstRender from './HtmlAstRender';
+import {
+  Typography,
+  Table,
+  TableBody,
+  TableRow,
+  TableCell,
+} from '@material-ui/core';
+import useLckSettings from '../hooks/useLckSettings';
 
 const maskBase = {
   iconUrl: '/spot.svg',
-  iconSize: [24, 24],
+  iconSize: [12, 12],
   // iconAnchor: [16, 11],
-  popupAnchor: [0, -15], // from iconAnchor
-  tooltipAnchor: [15, 0], // from iconAnchor
+  popupAnchor: [0, -7], // from iconAnchor
+  tooltipAnchor: [7, 0], // from iconAnchor
 };
 
 const maskIcon = icon && icon(maskBase);
-const maskFavIcon = icon && icon({ ...maskBase, iconUrl: '/spot.svg' });
 
 const Spot = ({
-  geojson,
   isFav,
   spot,
-  onFavClick = () => {},
   popupComponent: CustomPopup,
   ...props
 }) => {
-  const { childMarkdownRemark: { htmlAst, frontmatter: { location, title } } } = spot;
-  const StarComponent = isFav ? StarIcon : StarBorderIcon;
+  const { 1: {
+    SPOT_PUBLIC_FIELDS,
+  } } = useLckSettings();
 
-  const [lon, lat] = JSON.parse(location)?.coordinates;
+  if (!spot.geojson) {
+    return null;
+  }
+
+  let spotFields = [];
+  try {
+    spotFields = JSON.parse(SPOT_PUBLIC_FIELDS.text_value);
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.error('Unable to parse custom fields for Spots');
+  }
+
+  let spotData = {};
+  try {
+    spotData = JSON.parse(spot.internal.content);
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.error('Unable to parse data for Spots');
+  }
+
+  const [lon, lat] = spot.geojson.coordinates;
 
   return (
     <Marker
       position={[lat, lon]}
-      opacity={isFav ? 1 : 0.6}
-      icon={isFav ? maskFavIcon : maskIcon}
+      opacity={1}
+      icon={maskIcon}
       {...props}
-      title={title}
+      title={spot.Nom}
     >
-      <Tooltip>{spot.childMarkdownRemark.frontmatter.title}</Tooltip>
+      <Tooltip>{spot.Nom}</Tooltip>
 
       {(typeof CustomPopup === 'undefined') && (
         <Popup>
-          <Typography variant="h3">
-            <MUiTooltip title={!isFav ? 'Ajouter aux favoris' : 'Retirer des favoris'}>
-              <StarComponent onClick={onFavClick} color={isFav && 'secondary'} style={{ cursor: 'pointer' }} />
-            </MUiTooltip>
-            {spot.childMarkdownRemark.frontmatter.title}
+          <Typography variant="h4" component="h3">
+            {spot.Nom}
           </Typography>
 
-          <HtmlAstRender hast={htmlAst} />
+          {Boolean(spotFields.length) && (
+            <Table size="small">
+              <TableBody>
+                {spotFields.map(field => (
+                  spotData[field] ? (
+                    <TableRow key={field}>
+                      <TableCell component="th">{field}</TableCell>
+                      <TableCell>{spotData[field]}</TableCell>
+                    </TableRow>
+                  ) : null
+                ))}
+              </TableBody>
+            </Table>
+          )}
         </Popup>
       )}
 
