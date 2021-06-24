@@ -1,10 +1,22 @@
-import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 
 export const useStructures = () => {
-  // To be replaced with fetched data from LocoKit
-  const structures = React.useMemo(() => ([]), []);
+  const { wrapper: { nodes = [] } = {} } = useStaticQuery(graphql`
+    {
+      wrapper: allStructure(
+        filter: { geojson: { coordinates: { ne: null } } }
+      ) {
+        nodes {
+          id
+          Nom
+          geojson { coordinates type }
+          internal { content }
+        }
+      }
+    }
+  `);
 
-  return structures;
+  return nodes;
 };
 
 export default useStructures;

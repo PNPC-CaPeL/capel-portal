@@ -2,8 +2,7 @@ import React from 'react';
 import { Popup, Marker, Tooltip } from 'react-leaflet';
 import { icon } from 'leaflet';
 import { Typography } from '@material-ui/core';
-
-import HtmlAstRender from './HtmlAstRender';
+import { Link } from 'gatsby-material-ui-components';
 
 const iconBase = {
   iconUrl: '/structure.svg',
@@ -13,34 +12,44 @@ const iconBase = {
   tooltipAnchor: [15, 0], // from iconAnchor
 };
 
-const MapStructures = ({
-  geojson,
-  structure,
-  popupComponent: CustomPopup,
-  ...props
-}) => {
-  const { childMarkdownRemark: { htmlAst, frontmatter: { location, title } } } = structure;
+const MapStructures = ({ structure, ...props }) => {
+  const [lon, lat] = structure.geojson.coordinates;
 
-  const [lon, lat] = JSON.parse(location)?.coordinates;
+  let structureData = {};
+  try {
+    structureData = JSON.parse(structure.internal.content);
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.error('Unable to parse data for Structure');
+  }
 
   return (
     <Marker
       position={[lat, lon]}
       icon={icon(iconBase)}
       {...props}
-      title={title}
     >
-      <Tooltip>{structure.childMarkdownRemark.frontmatter.title}</Tooltip>
+      <Tooltip>{structure.Nom}</Tooltip>
 
-      {(typeof CustomPopup === 'undefined') && (
-        <Popup>
-          <Typography variant="h3">
-            {structure.childMarkdownRemark.frontmatter.title}
+      <Popup>
+        <Typography variant="h4" component="h3">
+          {structure.Nom}
+        </Typography>
+
+        <Typography variant="body2" component="address">
+          {structureData.Adresse}<br />
+          {structureData['Code postal']} {structureData.Ville}<br />
+          {structureData['Téléphone principal']}<br />
+        </Typography>
+
+        {Boolean(structureData['Site web']) && (
+          <Typography variant="body2">
+            <Link to={structureData['Site web']}>
+              Voir leur site internet
+            </Link>
           </Typography>
-
-          <HtmlAstRender hast={htmlAst} />
-        </Popup>
-      )}
+        )}
+      </Popup>
     </Marker>
   );
 };
