@@ -4,12 +4,12 @@ import { icon } from 'leaflet';
 import { Typography } from '@material-ui/core';
 import { Link } from 'gatsby-material-ui-components';
 
-const iconBase = {
-  iconUrl: '/structure.svg',
-  iconSize: [24, 24],
+const defaultIcon = {
+  iconUrl: '/structure2.svg',
+  iconSize: [15, 21],
   // iconAnchor: [16, 11],
-  popupAnchor: [0, -15], // from iconAnchor
-  tooltipAnchor: [15, 0], // from iconAnchor
+  popupAnchor: [0, -8], // from iconAnchor
+  tooltipAnchor: [11, 0], // from iconAnchor
 };
 
 const MapStructures = ({ structure, ...props }) => {
@@ -26,7 +26,7 @@ const MapStructures = ({ structure, ...props }) => {
   return (
     <Marker
       position={[lat, lon]}
-      icon={icon(iconBase)}
+      icon={icon(defaultIcon)}
       {...props}
     >
       <Tooltip>{structure.Nom}</Tooltip>
