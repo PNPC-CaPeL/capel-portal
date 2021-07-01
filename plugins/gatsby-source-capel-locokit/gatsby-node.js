@@ -105,6 +105,11 @@ exports.sourceNodes = async ({
       ? wktParse(zone['Géométrie'])
       : null;
 
+    if (geojson?.type === 'Polygon') {
+      geojson.type = 'MultiPolygon';
+      geojson.coordinates = [geojson.coordinates];
+    }
+
     return createNode({
       parent: null,
       children: [],
