@@ -6,15 +6,6 @@ const {
   transposeByLabel,
 } = require('./lib');
 
-const tables = {
-  PARAMETRES: 'Paramètres du site public',
-  SIGNATURES: 'Signature de règlement',
-  PLONGEES: 'Plongée',
-  SPOTS: 'Spot de plongée',
-  ACCOUNTS: 'Profil utilisateur',
-  ZONES: 'Zone',
-};
-
 const publicStructureFields = ['id', 'Nom', 'Ville', 'Adresse', 'Code postal',
   'Téléphone principal', 'Coordonnées GPS', 'Site web'];
 
@@ -28,16 +19,21 @@ exports.sourceNodes = async ({
   reporter,
 }, {
   dbId = process.env.LCK_DBID,
+  settingsTableId = process.env.LCK_SETTINGS_ID,
 }) => {
   const { getSchema, getRows } = await lckApi();
+
+  const tables = {
+    PARAMETRES: settingsTableId,
+  };
 
   /**
    * Get overall database schema
    */
   const schema = await getSchema(dbId);
 
-  const getReadableRowsFrom = async tableLabel => {
-    const tableSchema = schema.tables.find(({ text }) => text === tableLabel);
+  const getReadableRowsFrom = async tableUuid => {
+    const tableSchema = schema.tables.find(({ id }) => id === tableUuid);
     const tableRows = await getRows(tableSchema.id);
     const readableRows = transposeByLabel(tableRows, tableSchema);
     return readableRows;
@@ -51,6 +47,17 @@ exports.sourceNodes = async ({
   await Promise.all(settings.map(setting => {
     const contentDigest = createContentDigest(setting);
     const type = 'LckSettings';
+
+    if (setting.key === 'TABLES') {
+      try {
+        const a = JSON.parse(setting.text_value);
+        Object.entries(a).forEach(([key, value]) => { tables[key] = value; });
+      } catch (e) {
+        reporter.warn('Unable to parse TABLE setting value as JSON');
+      }
+
+      return Promise.resolve();
+    }
 
     return createNode({
       parent: null,

@@ -15,6 +15,7 @@ module.exports = {
       resolve: 'gatsby-source-capel-locokit',
       options: {
         dbId: process.env.LCK_DBID,
+        settingsTableId: process.env.LCK_SETTINGS_ID,
       },
     },
 
