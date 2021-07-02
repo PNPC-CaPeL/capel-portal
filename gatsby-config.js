@@ -11,7 +11,12 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-transformer-json',
     'gatsby-plugin-catch-links',
-    'gatsby-source-capel-locokit',
+    {
+      resolve: 'gatsby-source-capel-locokit',
+      options: {
+        dbId: process.env.LCK_DBID,
+      },
+    },
 
     {
       resolve: 'gatsby-plugin-react-svg',

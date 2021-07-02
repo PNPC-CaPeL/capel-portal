@@ -26,13 +26,15 @@ exports.sourceNodes = async ({
   createContentDigest,
   actions: { createNode },
   reporter,
+}, {
+  dbId = process.env.LCK_DBID,
 }) => {
   const { getSchema, getRows } = await lckApi();
 
   /**
    * Get overall database schema
    */
-  const schema = await getSchema(process.env.LCK_DBID);
+  const schema = await getSchema(dbId);
 
   const getReadableRowsFrom = async tableLabel => {
     const tableSchema = schema.tables.find(({ text }) => text === tableLabel);
