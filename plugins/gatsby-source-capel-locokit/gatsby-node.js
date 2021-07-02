@@ -6,9 +6,6 @@ const {
   transposeByLabel,
 } = require('./lib');
 
-const publicStructureFields = ['id', 'Nom', 'Ville', 'Adresse', 'Code postal',
-  'Téléphone principal', 'Coordonnées GPS', 'Site web'];
-
 const prune = (object, properties) =>
   Object.fromEntries(Object.entries(object).filter(([key]) => properties.includes(key)));
 
@@ -20,6 +17,7 @@ exports.sourceNodes = async ({
 }, {
   dbId = process.env.LCK_DBID,
   settingsTableId = process.env.LCK_SETTINGS_ID,
+  structurePublicFields = ['id', 'Nom', 'Ville'],
 }) => {
   const { getSchema, getRows } = await lckApi();
 
@@ -153,7 +151,7 @@ exports.sourceNodes = async ({
   await Promise.all(publishedStructures.map(structure => {
     const contentDigest = createContentDigest(structure);
     const type = 'Structure';
-    const publicFields = prune(structure, publicStructureFields);
+    const publicFields = prune(structure, structurePublicFields);
 
     const geojson = structure['Coordonnées GPS']
       ? wktParse(structure['Coordonnées GPS'])

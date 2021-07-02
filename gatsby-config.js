@@ -16,6 +16,8 @@ module.exports = {
       options: {
         dbId: process.env.LCK_DBID,
         settingsTableId: process.env.LCK_SETTINGS_ID,
+        structurePublicFields: ['id', 'Nom', 'Ville', 'Adresse', 'Code postal',
+          'Téléphone principal', 'Coordonnées GPS', 'Site web'],
       },
     },
 
