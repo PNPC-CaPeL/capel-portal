@@ -80,7 +80,7 @@ const transposeByLabel = (table, tableSchema) => {
     tableSchema.columns.reduce(
       (acc, currentColumn) => ({
         ...acc,
-        [currentColumn.text]: getColumnValue(currentColumn, row[currentColumn.id]),
+        [currentColumn.text]: getColumnValue(currentColumn, row.data[currentColumn.id]),
       }),
       { id: row.id },
     ));
