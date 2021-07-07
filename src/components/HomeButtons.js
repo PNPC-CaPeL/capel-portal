@@ -36,7 +36,7 @@ const HomeButton = () => {
         color="primary"
         component={Link}
       >
-        S'inscrire à CaPeL
+        S'inscrire au CaPeL
       </Button>
 
       <Box className={classes.separator} />
@@ -47,6 +47,7 @@ const HomeButton = () => {
         color="secondary"
         component={Link}
       >
+        Déclarer une plongée<br />
         Se connecter
       </Button>
     </>

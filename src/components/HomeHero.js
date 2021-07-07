@@ -2,7 +2,7 @@ import React from 'react';
 
 import { StaticImage } from 'gatsby-plugin-image';
 
-import { Box, Container, Grid, Typography } from '@material-ui/core';
+import { Box, Container, Grid } from '@material-ui/core';
 import { makeStyles, fade } from '@material-ui/core/styles';
 import { Link } from 'gatsby-theme-material-ui';
 
@@ -176,14 +176,7 @@ const HomeHero = () => {
           >
             <Grid item>
               <Logo className={classes.logo} />
-
               <br /><br />
-
-              <Typography variant="h2" className={classes.tagline}>
-                Gérons aujourd'hui,<br />
-                nos espaces de plongées<br />
-                de demain.
-              </Typography>
             </Grid>
           </Grid>
 
