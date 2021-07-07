@@ -10,7 +10,7 @@ export const styles = [
   ],
   [
     { protection: 'Plongée interdite du 1er Avril au 30 octobre' },
-    { color: 'red', stroke: true, fill: true, weight: 1.5, dashArray: '10', fillOpacity: 0.1 },
+    { color: '#e8473d', stroke: true, fill: true, weight: 2, dashArray: '3 5', fillOpacity: 0.1 },
   ],
   [
     { protection: 'Accostage, ammarage et débarquement interdits' },
