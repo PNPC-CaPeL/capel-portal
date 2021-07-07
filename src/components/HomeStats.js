@@ -26,12 +26,30 @@ const HomeStats = props => {
       <Grid item>
         <Grid container alignItems="center">
           <Grid item className={classes.total}>
+            {metrics.accountCount.count}
+          </Grid>
+
+          <Grid item>
+            <Typography variant="h4">
+              inscriptions<br />
+              au carnet de plongée
+            </Typography>
+          </Grid>
+        </Grid>
+        <Box>
+          dont {metrics.accountCount.count - metrics.structureCount.count} plongeurs individuels
+        </Box>
+      </Grid>
+
+      <Grid item>
+        <Grid container alignItems="center">
+          <Grid item className={classes.total}>
             {metrics.signatureCount.count}
           </Grid>
 
           <Grid item>
             <Typography variant="h4">
-              signatures du<br />réglement du parc
+              autorisations<br />délivrées
             </Typography>
           </Grid>
         </Grid>
@@ -39,21 +57,6 @@ const HomeStats = props => {
           dont {metrics.signatureCountByPI.count} individuels{' '}
           et {metrics.signatureCountBySP.count} structures
         </Box>
-      </Grid>
-
-      <Grid item>
-        <Grid container alignItems="center">
-          <Grid item className={classes.total}>
-            {metrics.diveCount.count}
-          </Grid>
-
-          <Grid item>
-            <Typography variant="h4">
-              autorisations<br /> de plongée délivrées
-            </Typography>
-          </Grid>
-        </Grid>
-        <Box>pour {metrics.diverCount.count} plongeurs</Box>
       </Grid>
     </Grid>
   );

@@ -190,6 +190,8 @@ exports.sourceNodes = async ({
    * Create LckMetric GraphQL nodes (counts)
    */
   await Promise.all([
+    { key: 'accountCount', count: accounts.length },
+    { key: 'structureCount', count: publishedStructures.length },
     { key: 'spotCount', count: spots.length },
     { key: 'signatureCount', count: signatures.length },
     { key: 'signatureCountBySP', count: structureSignatures.length },
