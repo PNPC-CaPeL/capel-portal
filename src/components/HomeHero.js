@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => {
     bottom: {
       marginTop: theme.spacing(2),
       [minWidth('md')]: {
-        height: 'calc(90vh - 8em)',
+        height: 'calc(70vh - 8em)',
       },
     },
 

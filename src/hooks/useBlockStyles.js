@@ -13,7 +13,7 @@ const useBlockStyles = makeStyles(theme => ({
   },
 
   map: {
-    height: '80vh',
+    height: '50vh',
   },
 
   blueback: {
