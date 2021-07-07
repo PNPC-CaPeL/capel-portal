@@ -9,6 +9,7 @@ const theme = responsiveFontSizes(createMuiTheme({
     },
     secondary: {
       main: settings?.THEME_SECONDARY?.text_value || '#f0373d',
+      contrastText: '#ffffff',
     },
   },
   typography: {
