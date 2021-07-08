@@ -16,6 +16,21 @@ exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
   }
 };
 
+exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
+  /**
+   * Required in case of no Post or Page available as ghostId field does not
+   * seems to be (pre)defined but only inferred from data
+   */
+  createTypes(`
+    type GhostPost implements Node {
+      ghostId: String
+    }
+    type GhostPage implements Node {
+      ghostId: String
+    }
+  `);
+};
+
 /**
  * Here is the place where Gatsby creates the URLs for all the
  * posts and pages that we fetched from the Ghost site.
@@ -27,10 +42,10 @@ exports.createPages = async ({
   const result = await graphql(`
     {
       allGhostPost(sort: { order: ASC, fields: published_at }) {
-        nodes { slug url }
+        nodes { slug url ghostId }
       }
       allGhostPage(sort: { order: ASC, fields: published_at }) {
-        nodes { slug url }
+        nodes { slug url ghostId }
       }
     }
   `);
@@ -60,7 +75,7 @@ exports.createPages = async ({
     createRedirect({
       redirectInBrowser: true,
       fromPath: `/${node.slug}/edit`,
-      toPath: `${node.url}edit`,
+      toPath: `/ghost/#/editor/page/${node.ghostId}`,
     });
   });
 
@@ -76,7 +91,14 @@ exports.createPages = async ({
     createRedirect({
       redirectInBrowser: true,
       fromPath: `/${node.slug}/edit`,
-      toPath: `${node.url}edit`,
+      toPath: `/ghost/#/editor/post/${node.ghostId}`,
     });
+  });
+
+  // Make Ghost admin accessible through front-end domain
+  createRedirect({
+    fromPath: '/ghost/*',
+    toPath: `${process.env.GHOST_API_URL}/ghost/:splat`,
+    statusCode: 200,
   });
 };
