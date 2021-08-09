@@ -138,7 +138,7 @@ exports.sourceNodes = async ({
         account.Type === 'Structure de plongée'
         // && account['Inscription finalisée']
         // && account['Coordonnées GPS']
-        // && account['Publier sur le site']
+        && account['Je donne mon accord pour apparaître sur la carte CaPeL des structures']
       ) {
         return true;
       }
