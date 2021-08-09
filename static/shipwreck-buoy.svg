@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="200.104"
+   width="250.992"
+   viewBox="0 0 83.664 66.701"
+   version="1.1"
+   id="svg38311"
+   sodipodi:docname="shipwreck-buoy.svg"
+   inkscape:version="1.1 (1:1.1+202106031931+af4d65493e)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs38315" />
+  <sodipodi:namedview
+     id="namedview38313"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="1.7965658"
+     inkscape:cx="199.8257"
+     inkscape:cy="48.147417"
+     inkscape:window-width="2560"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g42739" />
+  <g
+     fill="none"
+     stroke="#fff"
+     stroke-width="10.667"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="g38293">
+    <g
+       transform="rotate(-30 3.598 -68.459)"
+       id="g38289">
+      <path
+         d="M-48.59 37.773h64.862L-3.022 63.18m-13.137-25.542V5.342"
+         id="path38283" />
+      <circle
+         cx="-7.905"
+         cy="48.781"
+         r="5.85"
+         id="circle38285" />
+      <circle
+         cx="-25.905"
+         cy="48.781"
+         r="5.85"
+         id="circle38287" />
+    </g>
+    <path
+       d="M5.333 49.625h28.37m-8.284-21.997l16.493-9.522m16.959 31.519h19.46m-63.389 5.559h55.863m-47.896 6.184H64.02"
+       id="path38291" />
+  </g>
+  <g
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="g38309">
+    <g
+       transform="rotate(-30 3.598 -68.459)"
+       stroke="#292f33"
+       id="g38301">
+      <path
+         d="M-48.59 37.773h64.862L-3.022 63.18m-13.137-25.542V5.342"
+         fill="none"
+         stroke-width="4"
+         id="path38295" />
+      <circle
+         cx="-7.905"
+         cy="48.781"
+         r="5.85"
+         fill="#88c9f9"
+         fill-opacity=".626"
+         stroke-width="2"
+         id="circle38297" />
+      <circle
+         cx="-25.905"
+         cy="48.781"
+         r="5.85"
+         fill="#88c9f9"
+         fill-opacity=".626"
+         stroke-width="2"
+         id="circle38299" />
+    </g>
+    <path
+       d="M5.333 49.625h28.37"
+       fill-opacity=".043"
+       stroke="#3c96ce"
+       stroke-width="4"
+       id="path38303" />
+    <path
+       d="M25.419 27.628l16.493-9.522"
+       fill-opacity=".043"
+       stroke="#292f33"
+       stroke-width="4"
+       id="path38305" />
+    <path
+       d="M58.871 49.625h19.46m-63.389 5.559h55.863m-47.896 6.184H64.02"
+       fill-opacity=".043"
+       stroke="#3c96ce"
+       stroke-width="4"
+       id="path38307" />
+  </g>
+  <g
+     id="g42739"
+     transform="matrix(0.33561221,0,0,0.33561221,57.159122,4.8568019)">
+    <circle
+       style="fill:#ffa33c;fill-opacity:1;stroke:#fffffe;stroke-width:4.96605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.99726"
+       id="path42799"
+       cx="25.929605"
+       cy="38.478634"
+       r="43.395016" />
+    <path
+       style="fill:#ffffff;fill-opacity:0.694167;stroke:#ffffff;stroke-width:2.97963;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 5.8252184,21.213255 C 19.856108,27.415861 31.070488,13.451274 49.071868,18.019996 27.084338,23.56956 36.931988,35.45812 13.834148,43.70005"
+       id="path38440"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:4.96605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 4.9294384,20.40861 22.036338,68.350368"
+       id="path38914" />
+  </g>
+</svg>
