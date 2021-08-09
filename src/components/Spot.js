@@ -80,7 +80,7 @@ const Spot = ({
   return (
     <Marker
       position={[lat, lon]}
-      opacity={1}
+      opacity={spot.By ? 0.5 : 1}
       icon={spotIcon}
       {...props}
     >
