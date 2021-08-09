@@ -8,6 +8,7 @@ export const useSpots = () => {
           id
           Nom
           Type: Type_de_site
+          Amarrage: Dispositif_d_amarrage
           geojson { coordinates type }
           internal { content }
         }

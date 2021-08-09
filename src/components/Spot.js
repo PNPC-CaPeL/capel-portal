@@ -27,7 +27,21 @@ const shipwreck = {
 };
 
 const maskIcon = icon && icon(maskBase);
+const maskIconBuoy = icon && icon({ ...maskBase, iconUrl: '/diving-mask-buoy.svg' });
 const wreckIcon = icon && icon(shipwreck);
+const wreckIconBuoy = icon && icon({ ...shipwreck, iconUrl: '/shipwreck-buoy.svg' });
+
+const getIcon = spot => {
+  if (spot.Type === 'Epave') {
+    return spot.Amarrage
+      ? wreckIconBuoy
+      : wreckIcon;
+  }
+
+  return spot.Amarrage
+    ? maskIconBuoy
+    : maskIcon;
+};
 
 const Spot = ({
   isFav,
@@ -61,11 +75,13 @@ const Spot = ({
 
   const [lon, lat] = spot.geojson.coordinates;
 
+  const spotIcon = getIcon(spot);
+
   return (
     <Marker
       position={[lat, lon]}
       opacity={1}
-      icon={spot.Type === 'Epave' ? wreckIcon : maskIcon}
+      icon={spotIcon}
       {...props}
     >
       <Tooltip>{spot.Nom}</Tooltip>

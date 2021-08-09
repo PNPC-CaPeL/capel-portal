@@ -49,6 +49,14 @@ const icons = [
     label: 'Spot (épave)',
   },
   {
+    file: '/diving-mask-buoy.svg',
+    label: 'Spot avec amarrage (naturel)',
+  },
+  {
+    file: '/shipwreck-buoy.svg',
+    label: 'Spot avec amarrage (épave)',
+  },
+  {
     file: '/structure2.svg',
     label: 'Partenaire',
   },
@@ -69,6 +77,7 @@ const MapLegend = ({ className, ...props }) => {
         md={9}
         container
         spacing={1}
+        alignContent="flex-start"
       >
         {styles.map(([properties, style]) => (
           <Grid item className={classes.item} key={JSON.stringify(properties)}>
