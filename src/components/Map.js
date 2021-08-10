@@ -4,7 +4,7 @@ import L from 'leaflet'; // eslint-disable-line no-unused-vars
 import 'leaflet-sleep';
 
 import { Helmet } from 'react-helmet';
-import { MapContainer, ScaleControl, TileLayer, useMap, useMapEvent } from 'react-leaflet';
+import * as ReactLeaflet from 'react-leaflet';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,6 +12,8 @@ import Spots from './Spots';
 import MapStructures from './MapStructures';
 import MapZones from './MapZones';
 import useLckSettings from '../hooks/useLckSettings';
+
+const { MapContainer, ScaleControl, TileLayer, useMap, useMapEvent } = ReactLeaflet;
 
 const isLive = typeof window !== 'undefined';
 
@@ -46,6 +48,7 @@ const Map = ({ onBackgroundClick, spotProps = {}, children = null, ...props }) =
   const { 1: {
     MAP_CENTER,
     MAP_ZOOM,
+    MAP_BASEMAP,
   } } = useLckSettings();
 
   let center = [43.01, 6.275];
@@ -62,6 +65,14 @@ const Map = ({ onBackgroundClick, spotProps = {}, children = null, ...props }) =
   } catch (e) {
     // eslint-disable-next-line no-console
     console.error('Unable to parse custom zoom for map');
+  }
+
+  let layers = [];
+  try {
+    layers = JSON.parse(MAP_BASEMAP.text_value);
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.error('Unable to parse basemaps');
   }
 
   if (!isLive) { return null; }
@@ -96,15 +107,12 @@ const Map = ({ onBackgroundClick, spotProps = {}, children = null, ...props }) =
 
         <MapZones />
 
-        <TileLayer
-          attribution=""
-          url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
-        />
-
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
-          url="https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png"
-        />
+        {layers.map(({ component, ...rest }) => {
+          const Component = ReactLeaflet[component] || component || TileLayer;
+          return (
+            <Component key={rest.url} {...rest} />
+          );
+        })}
 
         <ScaleControl position="bottomleft" />
       </MapContainer>
