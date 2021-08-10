@@ -98,7 +98,7 @@ const MapLegend = ({ className, ...props }) => {
         md={3}
         container
         spacing={1}
-        alignItems="start"
+        alignItems="flex-start"
       >
         {icons.map(({ file, label }) => (
           <Grid item key={label} className={classes.item} xs={12}>
