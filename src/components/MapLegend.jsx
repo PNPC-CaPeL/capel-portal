@@ -4,7 +4,11 @@ import clsx from 'clsx';
 import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { styles, style2svg } from '../lib/map-styles';
+import style2svg from '../lib/style2svg';
+import icons from '../../data/legend-markers.json';
+
+// https://leafletjs.com/reference-1.7.1.html#path-option
+import styles from '../../data/legend-polygons.json';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -38,29 +42,6 @@ const useStyles = makeStyles(theme => ({
     },
   },
 }));
-
-const icons = [
-  {
-    file: '/diving-mask.svg',
-    label: 'Spot (naturel)',
-  },
-  {
-    file: '/shipwreck.svg',
-    label: 'Spot (épave)',
-  },
-  {
-    file: '/diving-mask-buoy.svg',
-    label: 'Spot avec amarrage (naturel)',
-  },
-  {
-    file: '/shipwreck-buoy.svg',
-    label: 'Spot avec amarrage (épave)',
-  },
-  {
-    file: '/structure2.svg',
-    label: 'Partenaire',
-  },
-];
 
 const MapLegend = ({ className, ...props }) => {
   const classes = useStyles();

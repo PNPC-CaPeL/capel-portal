@@ -1,8 +1,15 @@
 import React from 'react';
 import { GeoJSON, Tooltip } from 'react-leaflet';
 
-import { stylesByProtection } from '../lib/map-styles';
 import { useZones } from '../hooks/useZones';
+
+// https://leafletjs.com/reference-1.7.1.html#path-option
+import styles from '../../data/legend-polygons.json';
+
+export const stylesByProtection = styles.reduce(
+  (acc, [{ protection }, style]) => ({ ...acc, [protection]: style }),
+  {},
+);
 
 const MapZones = props => {
   const zones = useZones();

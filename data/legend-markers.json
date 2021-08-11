@@ -1,0 +1,22 @@
+[
+  {
+    "file": "/diving-mask.svg",
+    "label": "Spot (naturel)"
+  },
+  {
+    "file": "/shipwreck.svg",
+    "label": "Spot (épave)"
+  },
+  {
+    "file": "/diving-mask-buoy.svg",
+    "label": "Spot avec amarrage (naturel)"
+  },
+  {
+    "file": "/shipwreck-buoy.svg",
+    "label": "Spot avec amarrage (épave)"
+  },
+  {
+    "file": "/structure2.svg",
+    "label": "Partenaire"
+  }
+]
