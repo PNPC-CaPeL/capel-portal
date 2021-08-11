@@ -9,6 +9,7 @@ export const useZones = () => {
           Nom
           geojson { coordinates type }
           Protection
+          Style
         }
       }
     }

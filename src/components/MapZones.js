@@ -2,17 +2,14 @@ import React from 'react';
 import { GeoJSON, Tooltip } from 'react-leaflet';
 
 import { useZones } from '../hooks/useZones';
-
-// https://leafletjs.com/reference-1.7.1.html#path-option
-import styles from '../../data/legend-polygons.json';
-
-export const stylesByProtection = styles.reduce(
-  (acc, [{ protection }, style]) => ({ ...acc, [protection]: style }),
-  {},
-);
+import { useLckSettings } from '../hooks/useLckSettings';
 
 const MapZones = props => {
   const zones = useZones();
+
+  const { 1: {
+    MAP_STYLES: { value: polygonStyles = {} } = {},
+  } } = useLckSettings();
 
   return (
     <>
@@ -25,7 +22,7 @@ const MapZones = props => {
           <GeoJSON
             key={zone.id}
             data={zone.geojson}
-            style={() => stylesByProtection[zone.Protection]}
+            style={() => polygonStyles[zone.Style]}
             {...props}
           >
             <Tooltip>
