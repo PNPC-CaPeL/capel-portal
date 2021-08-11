@@ -8,7 +8,6 @@ import {
   TableRow,
   TableCell,
 } from '@material-ui/core';
-import useLckSettings from '../hooks/useLckSettings';
 
 const maskBase = {
   iconUrl: '/diving-mask.svg',
@@ -46,23 +45,12 @@ const getIcon = spot => {
 const Spot = ({
   isFav,
   spot,
+  fields = [],
   popupComponent: CustomPopup,
   ...props
 }) => {
-  const { 1: {
-    SPOT_PUBLIC_FIELDS,
-  } } = useLckSettings();
-
   if (!spot.geojson) {
     return null;
-  }
-
-  let spotFields = [];
-  try {
-    spotFields = JSON.parse(SPOT_PUBLIC_FIELDS.text_value);
-  } catch (e) {
-    // eslint-disable-next-line no-console
-    console.error('Unable to parse custom fields for Spots');
   }
 
   let spotData = {};
@@ -92,10 +80,10 @@ const Spot = ({
             {spot.Nom}
           </Typography>
 
-          {Boolean(spotFields.length) && (
+          {Boolean(fields.length) && (
             <Table size="small">
               <TableBody>
-                {spotFields.map(field => (
+                {fields.map(field => (
                   spotData[field] ? (
                     <TableRow key={field}>
                       <TableCell component="th">{field}</TableCell>
