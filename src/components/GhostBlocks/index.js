@@ -1,3 +1,4 @@
+import Basemap from '../Basemap';
 import CustomMap from './CustomMap';
 import CustomNews from './CustomNews';
 import CustomPageBlocks from './CustomPageBlocks';
@@ -10,4 +11,5 @@ export default {
   'custom-blocks': CustomPageBlocks,
   'custom-stats': CustomStats,
   'map-styles': MapStyles,
+  'map-basemaps': Basemap,
 };
