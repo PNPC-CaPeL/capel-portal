@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Tooltip } from '@material-ui/core';
+import { Card, CardContent, Box, Typography, Tooltip } from '@material-ui/core';
 
 import useLckSettings from '../hooks/useLckSettings';
 import style2svg from '../lib/style2svg';
@@ -10,23 +10,27 @@ const MapStyles = () => {
   } } = useLckSettings();
 
   return (
-    <>
-      <Typography variant="body1">
-        Styles actuellement disponible via le paramètre <tt>MAP_STYLES</tt>
-      </Typography>
+    <Box style={{ marginTop: '2rem' }}>
+      <Card>
+        <CardContent>
+          <Typography variant="body1">
+            Styles actuellement disponible via le paramètre <tt>MAP_STYLES</tt>
+          </Typography>
 
-      {Object.entries(polygonStyles).map(([key, value]) => (
-        <Typography variant="body2" key={key}>
-          <Tooltip title={(<pre>{JSON.stringify(value, null, 2)}</pre>)}>
-            <svg width="20" height="20" style={{ verticalAlign: 'middle' }}>
-              <path d="M2.5 2.5h15v15H2.5z" {...style2svg(value)} />
-            </svg>
-          </Tooltip>{' '}
+          {Object.entries(polygonStyles).map(([key, value]) => (
+            <Typography variant="body2" key={key}>
+              <Tooltip title={(<pre>{JSON.stringify(value, null, 2)}</pre>)}>
+                <svg width="20" height="20" style={{ verticalAlign: 'middle' }}>
+                  <path d="M2.5 2.5h15v15H2.5z" {...style2svg(value)} />
+                </svg>
+              </Tooltip>{' '}
 
-          {key}
-        </Typography>
-      ))}
-    </>
+              {key}
+            </Typography>
+          ))}
+        </CardContent>
+      </Card>
+    </Box>
   );
 };
 
