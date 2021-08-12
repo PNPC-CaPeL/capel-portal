@@ -127,6 +127,34 @@ exports.sourceNodes = async ({
   }));
 
   /**
+   * Get all AMP (Aires)
+   */
+  const aires = await getReadableRowsFrom(tables.AIRES);
+  reporter.info(`Aires: ${aires.length}`);
+
+  await Promise.all(aires.map(aire => {
+    const contentDigest = createContentDigest(aire);
+    const type = 'Aire';
+
+    const geojson = aire['Zone géographique']
+      ? wktParse(aire['Zone géographique'])
+      : null;
+
+    if (geojson?.type === 'Polygon') {
+      geojson.type = 'MultiPolygon';
+      geojson.coordinates = [geojson.coordinates];
+    }
+
+    return createNode({
+      parent: null,
+      children: [],
+      internal: { type, contentDigest, content: JSON.stringify(aire) },
+      geojson,
+      ...aire,
+    });
+  }));
+
+  /**
    * Get all Structures
    */
   const accounts = await getReadableRowsFrom(tables.ACCOUNTS);
