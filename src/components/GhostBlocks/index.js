@@ -4,6 +4,7 @@ import CustomNews from './CustomNews';
 import CustomPageBlocks from './CustomPageBlocks';
 import CustomStats from './CustomStats';
 import MapStyles from './MapStyles';
+import MapLegend from './CustomMapLegend';
 
 export default {
   'custom-map': CustomMap,
@@ -12,4 +13,5 @@ export default {
   'custom-stats': CustomStats,
   'map-styles': MapStyles,
   'map-basemaps': Basemap,
+  'map-legend': MapLegend,
 };
