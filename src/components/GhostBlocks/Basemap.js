@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, Box, Grid, Typography } from '@material-ui/core';
 
-import useLckSettings from '../hooks/useLckSettings';
+import useLckSettings from '../../hooks/useLckSettings';
 
 const getTile = url => url
   .replace('{x}', '8474')

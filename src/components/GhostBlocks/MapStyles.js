@@ -1,8 +1,8 @@
 import React from 'react';
 import { Card, CardContent, Box, Typography, Tooltip } from '@material-ui/core';
 
-import useLckSettings from '../hooks/useLckSettings';
-import style2svg from '../lib/style2svg';
+import useLckSettings from '../../hooks/useLckSettings';
+import style2svg from '../../lib/style2svg';
 
 const MapStyles = () => {
   const { 1: {
