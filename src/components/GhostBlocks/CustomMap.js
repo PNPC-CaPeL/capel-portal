@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import { Grid } from '@material-ui/core';
 
 import Map from '../Map';
-import MapLegend from '../MapLegend';
 
 import useBlockStyles from '../../hooks/useBlockStyles';
 
@@ -22,8 +21,6 @@ const CustomMap = () => {
       >
         <Map />
       </Grid>
-
-      <MapLegend />
     </>
   );
 };
