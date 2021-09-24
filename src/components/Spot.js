@@ -68,7 +68,7 @@ const Spot = ({
   return (
     <Marker
       position={[lat, lon]}
-      opacity={spot.By ? 0.5 : 1}
+      opacity={spot.Statut === 'Contribué' ? 0.5 : 1}
       icon={spotIcon}
       {...props}
     >
