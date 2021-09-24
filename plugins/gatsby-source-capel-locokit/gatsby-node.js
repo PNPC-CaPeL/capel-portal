@@ -197,7 +197,8 @@ exports.sourceNodes = async ({
   /**
    * Get all Signatures for some counts
    */
-  const signatures = await getReadableRowsFrom(tables.SIGNATURES);
+  const allSignatures = await getReadableRowsFrom(tables.SIGNATURES);
+  const signatures = allSignatures.filter(({ Signé }) => Boolean(Signé));
   reporter.info(`Signatures: ${signatures.length}`);
 
   const structureSignatures = signatures.filter(
