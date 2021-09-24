@@ -87,14 +87,19 @@ const MapLegend = ({ className, ...props }) => {
       >
         {mapLegends
           .filter(({ type }) => type === 'marker')
-          .map(({ label, icon }) => (
+          .map(({ label, icon, customProperties = {} }) => (
             <Grid item key={label} className={classes.item} xs={12}>
               <Typography
                 variant="body2"
                 className={classes.iconLabel}
               >
                 <span>
-                  <img className={classes.icon} alt={label} src={`/${icon}.svg`} />
+                  <img
+                    className={classes.icon}
+                    alt={label}
+                    src={`/${icon}.svg`}
+                    {...customProperties}
+                  />
                 </span>
                 {' '}
                 {label}
