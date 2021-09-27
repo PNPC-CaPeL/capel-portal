@@ -9,6 +9,8 @@ import {
   TableCell,
 } from '@material-ui/core';
 
+import { Link } from 'gatsby-material-ui-components';
+
 const maskBase = {
   iconUrl: '/diving-mask.svg',
   iconSize: [32, 22],
@@ -40,6 +42,15 @@ const getIcon = spot => {
   return spot.Amarrage
     ? maskIconBuoy
     : maskIcon;
+};
+const enhance = value => {
+  if (value.match(/^https?:\/\//)) {
+    return (
+      <Link to={value}>En savoir plus…</Link>
+    );
+  }
+
+  return value;
 };
 
 const Spot = ({
@@ -87,7 +98,7 @@ const Spot = ({
                   spotData[field] ? (
                     <TableRow key={field}>
                       <TableCell component="th">{field}</TableCell>
-                      <TableCell>{spotData[field]}</TableCell>
+                      <TableCell>{enhance(spotData[field])}</TableCell>
                     </TableRow>
                   ) : null
                 ))}
