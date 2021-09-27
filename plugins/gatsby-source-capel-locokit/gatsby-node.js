@@ -160,13 +160,28 @@ exports.sourceNodes = async ({
   const accounts = await getReadableRowsFrom(tables.ACCOUNTS);
   reporter.info(`Signatures: ${accounts.length}`);
 
-  const publishedStructures = accounts
+  const allStructureAccounts = accounts
     .filter(account => {
       if (
         account.Type === 'Structure de plongée'
         // && account['Inscription finalisée']
-        // && account['Coordonnées GPS']
-        && account['Je donne mon accord pour apparaître sur la carte CaPeL des structures']
+      ) {
+        return true;
+      }
+
+      return false;
+    });
+
+  const publishedStructures = allStructureAccounts
+    .filter(account => Boolean(
+      account['Je donne mon accord pour apparaître sur la carte CaPeL des structures'],
+    ));
+
+  const allUserAccounts = accounts
+    .filter(account => {
+      if (
+        account.Type === 'Plongeur individuel'
+        && account['Inscription finalisée']
       ) {
         return true;
       }
@@ -220,7 +235,9 @@ exports.sourceNodes = async ({
    */
   await Promise.all([
     { key: 'accountCount', count: accounts.length },
-    { key: 'structureCount', count: publishedStructures.length },
+    { key: 'userAccountCount', count: allUserAccounts.length },
+    { key: 'structureCount', count: allStructureAccounts.length },
+
     { key: 'spotCount', count: spots.length },
     { key: 'signatureCount', count: signatures.length },
     { key: 'signatureCountBySP', count: structureSignatures.length },

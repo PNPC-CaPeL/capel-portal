@@ -37,7 +37,7 @@ const HomeStats = props => {
           </Grid>
         </Grid>
         <Box>
-          dont {metrics.accountCount.count - metrics.structureCount.count} plongeurs individuels
+          dont {metrics.userAccountCount.count} plongeurs individuels
         </Box>
       </Grid>
 
