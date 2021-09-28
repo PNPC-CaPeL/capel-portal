@@ -29,20 +29,27 @@ const shipwreck = {
 
 const maskIcon = icon && icon(maskBase);
 const maskIconBuoy = icon && icon({ ...maskBase, iconUrl: '/diving-mask-buoy.svg' });
+const maskIconUser = icon && icon({ ...maskBase, iconUrl: '/diving-mask-user.svg' });
 const wreckIcon = icon && icon(shipwreck);
 const wreckIconBuoy = icon && icon({ ...shipwreck, iconUrl: '/shipwreck-buoy.svg' });
+const wreckIconUser = icon && icon({ ...shipwreck, iconUrl: '/shipwreck-user.svg' });
 
 const getIcon = spot => {
-  if (spot.Type === 'Epave') {
-    return spot.Amarrage
-      ? wreckIconBuoy
-      : wreckIcon;
+  const isEpave = spot.Type === 'Epave';
+  const isUser = spot.Statut === 'Contribué';
+  const isBuoy = spot.Amarrage;
+
+  if (isUser) {
+    return isEpave ? wreckIconUser : maskIconUser;
   }
 
-  return spot.Amarrage
-    ? maskIconBuoy
-    : maskIcon;
+  if (isBuoy) {
+    return isEpave ? wreckIconBuoy : maskIconBuoy;
+  }
+
+  return isEpave ? wreckIcon : maskIcon;
 };
+
 const enhance = value => {
   if (value.match(/^https?:\/\//)) {
     return (
@@ -79,7 +86,6 @@ const Spot = ({
   return (
     <Marker
       position={[lat, lon]}
-      opacity={spot.Statut === 'Contribué' ? 0.5 : 1}
       icon={spotIcon}
       {...props}
     >

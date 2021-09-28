@@ -5,11 +5,11 @@ import { Typography } from '@material-ui/core';
 import { Link } from 'gatsby-material-ui-components';
 
 const defaultIcon = {
-  iconUrl: '/structure2.svg',
-  iconSize: [15, 21],
+  iconUrl: '/structure.svg',
+  iconSize: [16, 16],
   // iconAnchor: [16, 11],
   popupAnchor: [0, -8], // from iconAnchor
-  tooltipAnchor: [11, 0], // from iconAnchor
+  tooltipAnchor: [8, 0], // from iconAnchor
 };
 
 const MapStructures = ({ structure, ...props }) => {
