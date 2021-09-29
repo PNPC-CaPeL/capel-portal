@@ -92,5 +92,6 @@ module.exports = {
   ],
   flags: {
     DEV_SSR: false,
+    PRESERVE_WEBPACK_CACHE: true,
   },
 };
