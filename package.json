@@ -86,5 +86,8 @@
       "tripetto-block-url",
       "tripetto-block-yes-no"
     ]
+  },
+  "devDependencies": {
+    "@netlify/plugin-gatsby": "^1.0.3"
   }
 }
