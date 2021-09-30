@@ -25,7 +25,7 @@ const MapZones = props => {
             style={() => polygonStyles[zone.Style]}
             {...props}
           >
-            <Tooltip>
+            <Tooltip sticky offset={[10, 0]}>
               <strong>{zone.Nom}</strong><br />
               <em>{zone.Protection}</em>
             </Tooltip>

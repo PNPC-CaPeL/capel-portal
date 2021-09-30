@@ -25,7 +25,7 @@ const MapAires = props => {
             style={() => polygonStyles[aire.Style]}
             {...props}
           >
-            <Tooltip sticky>
+            <Tooltip sticky offset={[10, 0]}>
               <strong>{aire.Nom}</strong>
             </Tooltip>
           </GeoJSON>
