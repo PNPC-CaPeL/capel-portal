@@ -47,5 +47,9 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
       slug: String
       feature_image: String
     }
+
+    type Division implements Node {
+      Style: String
+    }
   `);
 };

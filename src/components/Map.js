@@ -13,6 +13,7 @@ import MapStructures from './MapStructures';
 import MapZones from './MapZones';
 import useLckSettings from '../hooks/useLckSettings';
 import MapAires from './MapAires';
+import MapDivisions from './MapDivisions';
 
 const { MapContainer, ScaleControl, TileLayer, useMap, useMapEvent } = ReactLeaflet;
 
@@ -107,6 +108,8 @@ const Map = ({ onBackgroundClick, spotProps = {}, children = null, ...props }) =
         <MapStructures />
 
         <MapAires />
+
+        <MapDivisions />
 
         <MapZones />
 
