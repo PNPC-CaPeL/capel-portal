@@ -26,7 +26,7 @@ const HomeStats = props => {
       <Grid item>
         <Grid container alignItems="center">
           <Grid item className={classes.total}>
-            {metrics.accountCount.count}
+            {metrics.structureCount.count + metrics.userAccountCount.count}
           </Grid>
 
           <Grid item>

@@ -192,7 +192,7 @@ exports.sourceNodes = async ({
     .filter(account => {
       if (
         account.Type === 'Structure de plongée'
-        // && account['Inscription finalisée']
+        && account['Inscription finalisée']
       ) {
         return true;
       }
