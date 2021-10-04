@@ -200,9 +200,10 @@ exports.sourceNodes = async ({
       return false;
     });
 
-  const publishedStructures = allStructureAccounts
+  const publishedStructureAccounts = accounts
     .filter(account => Boolean(
-      account['Je donne mon accord pour apparaître sur la carte CaPeL des structures'],
+      account.Type === 'Structure de plongée'
+      && account['Je donne mon accord pour apparaître sur la carte CaPeL des structures'],
     ));
 
   const allUserAccounts = accounts
@@ -217,9 +218,9 @@ exports.sourceNodes = async ({
       return false;
     });
 
-  reporter.info(`Structures (published): ${publishedStructures.length}`);
+  reporter.info(`Structures (published): ${publishedStructureAccounts.length}`);
 
-  await Promise.all(publishedStructures.map(structure => {
+  await Promise.all(publishedStructureAccounts.map(structure => {
     const contentDigest = createContentDigest(structure);
     const type = 'Structure';
     const publicFields = prune(structure, structurePublicFields);
