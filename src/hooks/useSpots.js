@@ -11,7 +11,7 @@ export const useSpots = () => {
           Nom
           Type: Type_de_site
           Amarrage: Dispositif_d_amarrage
-          By: Profil_cr_ateur
+          # By: Profil_cr_ateur
           Statut
           geojson { coordinates type }
           internal { content }
