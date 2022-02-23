@@ -138,7 +138,7 @@ const HomeHero = () => {
               </Link>
             </Grid>
             <Grid item xs={2}>
-              <Link to="https://www.life-marha.fr">
+              <Link to="http://www.natura2000.fr/life/fran%C3%A7ais">
                 <StaticImage
                   src="../assets/life.jpg"
                   alt="Projet Life"
