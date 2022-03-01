@@ -48,65 +48,114 @@ const MapLegend = ({ className, ...props }) => {
     MAP_LEGENDS: { value: mapLegends = [] } = {},
   } } = useLckSettings();
 
+  const legendColumns = mapLegends.filter(({ type }) => type === 'column');
+
   return (
     <Grid
       container
       className={clsx(classes.root, className)}
+      spacing={4}
       {...props}
     >
-      <Grid
-        item
-        xs={12}
-        md={9}
-        container
-        spacing={1}
-        alignContent="flex-start"
-      >
-        {mapLegends
-          .filter(({ type }) => type === 'polygon')
-          .map(({ label, style }) => (
+      {legendColumns.map(({ children = [] }) => (
+        <Grid
+          item
+          key={JSON.stringify(children)}
+          xs={12}
+          md={Math.floor(12 / legendColumns.length)}
+        >
+          {children.map(({ type, label, icon, style, customProperties = {} }) => (
             <Grid item className={classes.item} key={label}>
-              <Typography variant="body2" className={classes.label}>
-                <svg width="20" height="20">
-                  <path d="M2.5 2.5h15v15H2.5z" {...style2svg(styles[style])} />
-                </svg>
-
-                {label}
-              </Typography>
-            </Grid>
-          ))}
-      </Grid>
-
-      <Grid
-        item
-        xs={12}
-        md={3}
-        container
-        spacing={1}
-        alignItems="flex-start"
-      >
-        {mapLegends
-          .filter(({ type }) => type === 'marker')
-          .map(({ label, icon, customProperties = {} }) => (
-            <Grid item key={label} className={classes.item} xs={12}>
               <Typography
                 variant="body2"
-                className={classes.iconLabel}
+                className={clsx({
+                  [classes.label]: type === 'polygon',
+                  [classes.iconLabel]: type === 'marker',
+                })}
               >
-                <span>
-                  <img
-                    className={classes.icon}
-                    alt={label}
-                    src={`/${icon}.svg`}
-                    {...customProperties}
-                  />
-                </span>
+                {type === 'polygon' && (
+                  <svg width="20" height="20">
+                    <path d="M2.5 2.5h15v15H2.5z" {...style2svg(styles[style])} />
+                  </svg>
+                )}
+
+                {type === 'marker' && (
+                  <span>
+                    <img
+                      className={classes.icon}
+                      alt={label}
+                      src={`/${icon}.svg`}
+                      {...customProperties}
+                    />
+                  </span>
+                )}
+
                 {' '}
                 {label}
               </Typography>
             </Grid>
           ))}
-      </Grid>
+        </Grid>
+      ))}
+
+
+      {!legendColumns.length && (
+        <>
+          <Grid
+            item
+            xs={12}
+            md={9}
+            container
+            spacing={1}
+            alignContent="flex-start"
+          >
+            {mapLegends
+              .filter(({ type }) => type === 'polygon')
+              .map(({ label, style }) => (
+                <Grid item className={classes.item} key={label}>
+                  <Typography variant="body2" className={classes.label}>
+                    <svg width="20" height="20">
+                      <path d="M2.5 2.5h15v15H2.5z" {...style2svg(styles[style])} />
+                    </svg>
+
+                    {label}
+                  </Typography>
+                </Grid>
+              ))}
+          </Grid>
+
+          <Grid
+            item
+            xs={12}
+            md={3}
+            container
+            spacing={1}
+            alignItems="flex-start"
+          >
+            {mapLegends
+              .filter(({ type }) => type === 'marker')
+              .map(({ label, icon, customProperties = {} }) => (
+                <Grid item key={label} className={classes.item} xs={12}>
+                  <Typography
+                    variant="body2"
+                    className={classes.iconLabel}
+                  >
+                    <span>
+                      <img
+                        className={classes.icon}
+                        alt={label}
+                        src={`/${icon}.svg`}
+                        {...customProperties}
+                      />
+                    </span>
+                    {' '}
+                    {label}
+                  </Typography>
+                </Grid>
+              ))}
+          </Grid>
+        </>
+      )}
     </Grid>
   );
 };
