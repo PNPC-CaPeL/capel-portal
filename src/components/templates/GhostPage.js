@@ -80,6 +80,9 @@ export const pageQuery = graphql`
     wrapper: ghostPage(slug: { eq: $slug }) {
       ...GhostPageFields
       bigFeatureImage: featureImage { childImageSharp { gatsbyImageData(
+        # transformOptions: { cropFocus:  ATTENTION }
+        # transformOptions: { cropFocus: ENTROPY }
+        transformOptions: { cropFocus: CENTER }
         aspectRatio: 3,
         placeholder: BLURRED
         width: 1240,
