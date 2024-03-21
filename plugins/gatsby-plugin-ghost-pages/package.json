@@ -1,6 +1,0 @@
-{
-  "name": "gatsby-plugin-ghost-pages",
-  "peerDependencies": {
-    "gatsby-awesome-pagination": "*"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "name": "gatsby-plugin-ghost-images",
-  "peerDependencies": {
-    "gatsby-source-filesystem": "*",
-    "jsdom": "*"
-  }
-}
