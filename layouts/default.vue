@@ -1,7 +1,9 @@
 <template>
   <main>
     <header class="">
-      <div class="h-28 container mx-auto flex justify-between items-center px-8">
+      <div
+        class="h-28 container mx-auto flex justify-between items-center px-8"
+      >
         <NuxtLink
           :to="localePath('/')"
           :title="$t('getBackHome')"
@@ -10,7 +12,7 @@
           <img
             class="h-full"
             src="/logo.svg"
-          >
+          />
         </NuxtLink>
         <CapelMenu />
       </div>
@@ -32,8 +34,9 @@ main {
   overflow-y: auto;
   flex-direction: column;
 }
- header {
+
+header {
   background-image: url('/home-banner.jpg');
   background-position: center;
- }
+}
 </style>

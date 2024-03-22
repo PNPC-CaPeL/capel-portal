@@ -1,10 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: [
-    '@nuxtjs/i18n',
-    '@nuxt/content',
-    '@nuxtjs/tailwindcss'
-  ],
+  modules: ['@nuxtjs/i18n', '@nuxt/content', '@nuxtjs/tailwindcss'],
   devtools: { enabled: false },
   i18n: {
     vueI18n: './i18n.config.ts',
@@ -12,11 +8,11 @@ export default defineNuxtConfig({
     locales: [
       {
         code: 'fr',
-        name: 'Français'
+        name: 'Français',
       },
       {
         code: 'en',
-        name: 'English'
+        name: 'English',
       },
     ],
     defaultLocale: 'fr',
@@ -34,17 +30,18 @@ export default defineNuxtConfig({
           name: 'description',
           content: `Le Carnet de Plongée en Ligne (CaPeL)`,
         },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' },
+        {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1, shrink-to-fit=no',
+        },
       ],
-      link: [
-        {rel: 'icon', type: 'image/x-icon', href: '/icon.svg' }
-      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/icon.svg' }],
     },
   },
   runtimeConfig: {
     lckBasePath: 'https://locokit.makina-corpus.net/api', // see NUXT_PUBLIC_LCK_BASE_PATH in .env
     lckDbUuid: '', // see NUXT_PUBLIC_LCK_DB_UUID in .env
     lckUsername: '', // see NUXT_PUBLIC_LCK_USERNAME in .env
-    lckPassword: '' // see NUXT_PUBLIC_LCK_PASSWORD in .env
-  }
+    lckPassword: '', // see NUXT_PUBLIC_LCK_PASSWORD in .env
+  },
 })

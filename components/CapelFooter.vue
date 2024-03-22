@@ -1,7 +1,7 @@
 <template>
   <footer class="relative">
     <div class="-translate-y-1/2 container mx-auto">
-      <ul class="list-none flex justify-end gap-4 ">
+      <ul class="list-none flex justify-end gap-4">
         <li
           v-for="(item, key) in sociales"
           :key="key"
@@ -112,13 +112,15 @@
           </li>
         </ul>
       </div>
-      <div class="MuiGrid-root jss51 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4">
-        Nous contacter : Parc national de Port-Cros<br>
-        181 Allée du Castel Sainte Claire<br>
-        BP 70220<br>
-        83406 - HYERES cedex<br>
-        Tél. 04 94 12 82 30<br>
-        Formulaire de contact :<br>
+      <div
+        class="MuiGrid-root jss51 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+      >
+        Nous contacter : Parc national de Port-Cros<br />
+        181 Allée du Castel Sainte Claire<br />
+        BP 70220<br />
+        83406 - HYERES cedex<br />
+        Tél. 04 94 12 82 30<br />
+        Formulaire de contact :<br />
         <a href="http://www.portcros-parcnational.fr/fr/formulaire-contact">
           portcros-parcnational.fr/fr/formulaire-contact
         </a>
@@ -128,11 +130,11 @@
 </template>
 
 <script setup>
-import FacebookLogo from "./Svg/FacebookLogo.vue";
-import TwitterLogo from "./Svg/TwitterLogo.vue";
-import InstagramLogo from "./Svg/InstagramLogo.vue";
-import YoutubeLogo from "./Svg/YoutubeLogo.vue";
-import PinterestLogo from "./Svg/PinterestLogo.vue";
+import FacebookLogo from './Svg/FacebookLogo.vue'
+import TwitterLogo from './Svg/TwitterLogo.vue'
+import InstagramLogo from './Svg/InstagramLogo.vue'
+import YoutubeLogo from './Svg/YoutubeLogo.vue'
+import PinterestLogo from './Svg/PinterestLogo.vue'
 
 const sociales = {
   facebook: {
@@ -159,7 +161,7 @@ const sociales = {
 </script>
 <style scoped>
 footer {
-  background: #F78181;
+  background: #f78181;
   /* background: linear-gradient(0deg, #F78181 50%, transparent 50%); */
 }
 </style>
