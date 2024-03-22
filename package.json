@@ -1,7 +1,7 @@
 {
+  "type": "module",
   "name": "nuxt-app",
   "private": true,
-  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -11,6 +11,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@feathersjs/authentication-client": "^5.0.24",
+    "@feathersjs/feathers": "^5.0.24",
+    "@feathersjs/rest-client": "^5.0.24",
+    "@locokit/lck-glossary": "^0.3.7",
     "@nuxt/content": "^2.12.1",
     "nuxt": "^3.11.1",
     "vue": "^3.4.21",
@@ -18,6 +22,8 @@
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.2.0",
+    "@nuxtjs/i18n": "^8.2.0",
+    "@nuxtjs/tailwindcss": "^6.11.4",
     "@typescript-eslint/parser": "^6.21.0",
     "eslint": "^8.57.0",
     "eslint-plugin-nuxt": "^4.0.0",

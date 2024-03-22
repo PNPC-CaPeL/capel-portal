@@ -1,0 +1,23 @@
+<svg height="30.016" width="37.649" viewBox="0 0 12.55 10.005" xmlns="http://www.w3.org/2000/svg">
+    <g opacity=".6" stroke-linecap="round" stroke-linejoin="round">
+        <g fill="none" stroke="#fff" stroke-width="10.667">
+            <g transform="rotate(-30 .54 -10.269) scale(.15)">
+                <path d="M-48.59 37.773h64.862L-3.022 63.18m-13.137-25.542V5.342"/>
+                <circle cx="-7.905" cy="48.781" r="5.85"/>
+                <circle cx="-25.905" cy="48.781" r="5.85"/>
+            </g>
+            <path d="M.8 7.444h4.256m-1.243-3.3 2.474-1.428M8.83 7.444h2.919m-9.509.834h8.38m-7.185.927h6.167" stroke-width="1.6"/>
+        </g>
+        <g transform="rotate(-30 .54 -10.269) scale(.15)" stroke="#292f33">
+            <path d="M-48.59 37.773h64.862L-3.022 63.18m-13.137-25.542V5.342" fill="none" stroke-width="4"/>
+            <circle cx="-7.905" cy="48.781" r="5.85" fill="#88c9f9" fill-opacity=".626" stroke-width="2"/>
+            <circle cx="-25.905" cy="48.781" r="5.85" fill="#88c9f9" fill-opacity=".626" stroke-width="2"/>
+        </g>
+        <path d="M.8 7.444h4.256" fill-opacity=".043" stroke="#3c96ce" stroke-width=".6"/>
+        <path d="m3.813 4.144 2.474-1.428" fill-opacity=".043" stroke="#292f33" stroke-width=".6"/>
+        <path d="M8.83 7.444h2.92m-9.509.834h8.38m-7.185.927h6.167" fill-opacity=".043" stroke="#3c96ce" stroke-width=".6"/>
+    </g>
+    <path d="M-11.183 8.258s-1.031-.963-1.34-1.272c-.31-.31 0-.62 0-.62s.446-.447 1.444-1.375c.962-.929.928-2.304.928-2.304V.933l-4.127-.344-4.127.344v1.754s-.034 1.341.929 2.304a119.35 119.35 0 0 0 1.444 1.376s.31.309 0 .619a95.83 95.83 0 0 1-1.34 1.272s-1.033.963-1.033 2.545v1.754h8.254v-1.754c0-1.548-1.032-2.545-1.032-2.545z" style="fill:#fff;fill-opacity:.76239;stroke:#000;stroke-width:.616;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" transform="translate(16.128 .187) scale(.44295)"/>
+    <path d="M-17.03 2.755s0 .792.517 1.273l1.445 1.376c.103.103.446.55.446 1.272v3.057l-2.751 2.445h6.19l-2.751-2.445V6.676c0-.722.31-1.169.447-1.272l1.444-1.376c.516-.481.516-1.273.516-1.273h-2.75z" style="fill:#000;stroke-width:.343903" transform="translate(16.128 .187) scale(.44295)"/>
+    <path class="st6" d="M-8.775.486a.69.69 0 0 1-.688.688h-9.63a.69.69 0 0 1-.687-.688.69.69 0 0 1 .688-.688h9.629a.69.69 0 0 1 .688.688zm0 12.38a.69.69 0 0 1-.688.688h-9.63a.69.69 0 0 1-.687-.688.69.69 0 0 1 .688-.688h9.629a.69.69 0 0 1 .688.688z" style="fill:#000;stroke-width:.343903" transform="translate(16.128 .187) scale(.44295)"/>
+</svg>
