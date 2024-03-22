@@ -12,11 +12,11 @@
             src="/logo.svg"
           >
         </NuxtLink>
-        <Menu />
+        <CapelMenu />
       </div>
     </header>
     <slot />
-    <Footer />
+    <CapelFooter />
   </main>
 </template>
 

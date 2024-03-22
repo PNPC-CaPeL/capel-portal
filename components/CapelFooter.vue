@@ -128,34 +128,32 @@
 </template>
 
 <script setup>
-// import { SvgFacebook } from '#build/components';
-
-import Facebook from "./Svg/Facebook.vue";
-import Twitter from "./Svg/Twitter.vue";
-import Instagram from "./Svg/Instagram.vue";
-import Youtube from "./Svg/Youtube.vue";
-import Pinterest from "./Svg/Pinterest.vue";
+import FacebookLogo from "./Svg/FacebookLogo.vue";
+import TwitterLogo from "./Svg/TwitterLogo.vue";
+import InstagramLogo from "./Svg/InstagramLogo.vue";
+import YoutubeLogo from "./Svg/YoutubeLogo.vue";
+import PinterestLogo from "./Svg/PinterestLogo.vue";
 
 const sociales = {
   facebook: {
     url: 'https://www.facebook.com/PNPC83',
-    component: Facebook,
+    component: FacebookLogo,
   },
   twitter: {
     url: 'https://www.twitter.com/PNPC83',
-    component: Twitter,
+    component: TwitterLogo,
   },
   instagram: {
     url: 'https://www.instagram.com/parcnationaldeportcros',
-    component: Instagram,
+    component: InstagramLogo,
   },
   youtube: {
     url: 'https://www.youtube.com/user/PNPC83',
-    component: Youtube,
+    component: YoutubeLogo,
   },
   pinterest: {
     url: 'https://www.pinterest.fr/pnpc83',
-    component: Pinterest,
+    component: PinterestLogo,
   },
 }
 </script>

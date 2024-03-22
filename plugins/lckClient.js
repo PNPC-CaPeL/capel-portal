@@ -21,9 +21,8 @@ class lckClient {
     this.feathersClient = feathers();
     // Connect to a different URL
     const restClient = rest(this.basePath);
-
-    // Configure an AJAX library (see below) with that client
-    this.feathersClient.configure(restClient.fetch(fetch));
+    // this.feathersClient.configure(restClient.fetch(fetch));
+    this.feathersClient.configure(restClient.fetch(window.fetch));
     this.feathersClient.configure(auth());
   }
 
@@ -35,12 +34,12 @@ class lckClient {
     });
     this.user = user;
 
-    const { groups: [{ id: groupId }] } = await this.feathersClient.service('user').get(user.id, {
+    const { groups } = await this.feathersClient.service('user').get(user.id, {
       query: {
         $eager: 'groups',
       },
     })
-    this.groupId = groupId;
+    this.groupId = groups[0].id;
 
     this.schema = await this.feathersClient.service('database')
     .get(this.dbUuid, {
@@ -55,7 +54,7 @@ class lckClient {
       await this.init();
     }
 
-    const tableSchema = this.schema.tables.find(({ slug }) => slug === table);
+    const tableSchema = this.schema.tables.find(({ id }) => id === table);
     const tableRows = await this.feathersClient.service('row').find({
       query: {
         table_id: tableSchema.id,

@@ -1,3 +1,6 @@
 <template>
-  <p>{{ $t('welcome') }}</p>
+  <div>
+    <p>{{ $t('welcome') }}</p>
+    <CapelMap />
+  </div>
 </template>
