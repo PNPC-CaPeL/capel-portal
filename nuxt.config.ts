@@ -44,6 +44,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     LCK_BASE_PATH: '', // see NUXT_LCK_BASE_PATH in .env
     LCK_DB_UUID: '', // see NUXT_LCK_DB_UUID in .env
+    LCK_SETTINGS_UUID: '', // see NUXT_LCK_SETTINGS_UUID in .env
     LCK_USERNAME: '', // see NUXT_LCK_USERNAME in .env
     LCK_PASSWORD: '', // see NUXT_LCK_PASSWORD in .env
   },

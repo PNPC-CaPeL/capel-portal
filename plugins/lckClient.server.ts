@@ -5,6 +5,41 @@ import auth from '@feathersjs/authentication-client'
 import feathers from '@feathersjs/feathers'
 import restClient from '@feathersjs/rest-client'
 
+export const enum LCK_SETTINGS {
+  SIGNUP_TEXT = 'SIGNUP_TEXT',
+  SIGNUP_ERROR = 'SIGNUP_ERROR',
+  SIGNUP_CONFIRMATION = 'SIGNUP_CONFIRMATION',
+  SPOT_PUBLIC_FIELDS = 'SPOT_PUBLIC_FIELDS',
+  MAP_CENTER = 'MAP_CENTER',
+  MAP_ZOOM = 'MAP_ZOOM',
+  THEME_PRIMARY = 'THEME_PRIMARY',
+  THEME_SECONDARY = 'THEME_SECONDARY',
+  LINK_FACEBOOK = 'LINK_FACEBOOK',
+  LINK_TWITTER = 'LINK_TWITTER',
+  LINK_INSTAGRAM = 'LINK_INSTAGRAM',
+  LINK_YOUTUBE = 'LINK_YOUTUBE',
+  LINK_PINTEREST = 'LINK_PINTEREST',
+  TABLES = 'TABLES',
+  MAP_BASEMAP = 'MAP_BASEMAP',
+  MAP_STYLES = 'MAP_STYLES',
+  MAP_LEGENDS = 'MAP_LEGENDS',
+}
+
+export const enum LCK_TABLES {
+  SIGNATURES = 'ce3f9e5d-98a3-477c-83ef-2edd12e84e85',
+  PLONGEES = '4178742a-eebc-4c7c-8856-5a66089d8d05',
+  SPOTS = 'e6ef266a-3d25-4740-b3da-9a13eb51f97c',
+  ACCOUNTS = '91d61d43-be08-4c28-96d3-89560141c18c',
+  ZONES = '088ca36b-8021-458b-b76a-ff38c2d518d3',
+  AIRES = 'a4858ddd-18b8-42d1-9ac5-07ed234dc052',
+  DIVISIONS = 'db2410a5-eb4e-4add-98c3-e690212d2ab5',
+}
+
+interface LckSettings {
+  key: string
+  text_value: string
+}
+
 interface LckSchema {
   id: string
   text: string
@@ -56,6 +91,7 @@ interface LckSettings {
 class lckClientServer {
   basePath: string
   dbUuid: string
+  settingsTableUuid: string
   username: string
   password: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -65,15 +101,18 @@ class lckClientServer {
   groupId: string | null = null
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   schema: LckSchema | null = null
+  settings: Array<LckSettings> = []
 
   constructor(
     basePath: string,
     dbUuid: string,
+    settingsTableUuid: string,
     username: string,
     password: string,
   ) {
     this.basePath = basePath
     this.dbUuid = dbUuid
+    this.settingsTableUuid = settingsTableUuid
     this.username = username
     this.password = password
 
@@ -111,6 +150,22 @@ class lckClientServer {
           $eager: '[tables.[columns,views.[columns]]]',
         },
       })
+
+    this.settings = await this.query(this.settingsTableUuid, { $limit: -1 })
+  }
+
+  getSetting(key: string): string | null {
+    if (!this.settings.length) {
+      return null
+    }
+
+    const setting = this.settings.find((value) => value.key === key)
+
+    if (!setting) {
+      return null
+    }
+
+    return setting.text_value
   }
 
   async getRows(tableId: string, query = {}) {
@@ -134,7 +189,7 @@ class lckClientServer {
     }
   }
 
-  async query(table: string, query = {}) {
+  async query<T>(table: string, query = {}): Promise<T> {
     const { tableSchema, tableRows } = await this.getRows(table, query)
 
     return transposeByLabel(tableRows.data ?? tableRows, tableSchema)
@@ -248,6 +303,7 @@ export default defineNuxtPlugin(async () => {
   const client = new lckClientServer(
     config.LCK_BASE_PATH,
     config.LCK_DB_UUID,
+    config.LCK_SETTINGS_UUID,
     config.LCK_USERNAME,
     config.LCK_PASSWORD,
   )
