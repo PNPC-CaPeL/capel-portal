@@ -15,19 +15,18 @@ collections:
     label: 'Page'
     delete: false # Prevent users from deleting documents in this collection
     # create: true
-    folder: 'content'
     editor:
       preview: false
     format: 'frontmatter'
-    # i18n: true
+    i18n: true
     files:
-      - file: 'index.md'
+      - file: 'content/index.md'
         i18n: true
         label: "Page d'accueil"
         name: 'index'
         fields:
           - { label: 'Introduction', name: 'body', widget: 'markdown', i18n: true }
-      - file: 'la-plongee.md'
+      - file: 'content/la-plongee.md'
         i18n: true
         label: "La plongée"
         name: 'la-plongee-au-sein-du-pnpc'
