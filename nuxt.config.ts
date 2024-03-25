@@ -26,7 +26,6 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         {
-          hid: 'description',
           name: 'description',
           content: `Le Carnet de Plongée en Ligne (CaPeL)`,
         },
@@ -39,9 +38,15 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    lckBasePath: 'https://locokit.makina-corpus.net/api', // see NUXT_PUBLIC_LCK_BASE_PATH in .env
-    lckDbUuid: '', // see NUXT_PUBLIC_LCK_DB_UUID in .env
-    lckUsername: '', // see NUXT_PUBLIC_LCK_USERNAME in .env
-    lckPassword: '', // see NUXT_PUBLIC_LCK_PASSWORD in .env
+    public: {
+      LCK_BASE_PATH: '', // see NUXT_LCK_BASE_PATH in .env
+      LCK_DB_UUID: '', // see NUXT_LCK_DB_UUID in .env
+      LCK_USERNAME: '', // see NUXT_LCK_USERNAME in .env
+      LCK_PASSWORD: '', // see NUXT_LCK_PASSWORD in .env
+    },
+    LCK_BASE_PATH: '', // see NUXT_LCK_BASE_PATH in .env
+    LCK_DB_UUID: '', // see NUXT_LCK_DB_UUID in .env
+    LCK_USERNAME: '', // see NUXT_LCK_USERNAME in .env
+    LCK_PASSWORD: '', // see NUXT_LCK_PASSWORD in .env
   },
 })

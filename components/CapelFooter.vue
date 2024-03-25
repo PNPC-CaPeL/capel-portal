@@ -129,7 +129,7 @@
   </footer>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import FacebookLogo from './Svg/FacebookLogo.vue'
 import TwitterLogo from './Svg/TwitterLogo.vue'
 import InstagramLogo from './Svg/InstagramLogo.vue'

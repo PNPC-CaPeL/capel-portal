@@ -22,7 +22,7 @@
   </main>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const localePath = useLocalePath()
 </script>
 
