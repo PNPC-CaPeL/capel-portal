@@ -2,6 +2,10 @@
 export default defineNuxtConfig({
   modules: ['@nuxtjs/i18n', '@nuxt/content', '@nuxtjs/tailwindcss'],
   devtools: { enabled: false },
+  ssr: true,
+  experimental: {
+    componentIslands: true
+  },
   i18n: {
     vueI18n: './i18n.config.ts',
     strategy: 'prefix_except_default',
@@ -38,12 +42,6 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    public: {
-      LCK_BASE_PATH: '', // see NUXT_LCK_BASE_PATH in .env
-      LCK_DB_UUID: '', // see NUXT_LCK_DB_UUID in .env
-      LCK_USERNAME: '', // see NUXT_LCK_USERNAME in .env
-      LCK_PASSWORD: '', // see NUXT_LCK_PASSWORD in .env
-    },
     LCK_BASE_PATH: '', // see NUXT_LCK_BASE_PATH in .env
     LCK_DB_UUID: '', // see NUXT_LCK_DB_UUID in .env
     LCK_USERNAME: '', // see NUXT_LCK_USERNAME in .env
