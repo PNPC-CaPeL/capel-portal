@@ -59,3 +59,5 @@ export type Spot = {
   lien: string | boolean
   geojson: GeoJSONPoint | null
 }
+
+export type Club = RawLckData
