@@ -1,8 +1,8 @@
 ---
-title: La plongée au sein du Parc national de Port-Cros
-menuTitle: La plongée
+title: Homepage
+menuTitle: index
 navigation: false
-slug: la-plongee-au-sein-du-pnpc
+slug: index
 image: /img/pnpc_000905.webp
 ---
 The **Ca**rnet de **P**longée **e**n **L**igne (**CaPeL**) aims to facilitate
