@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
     $limit: -1,
   })
 
-  const spots = rawSpots.map<Spot>((spot) => {
+  const spots = rawSpots.filter((spot) => spot['Visible de tous']).map<Spot>((spot) => {
     return {
       id: spot.id,
       nom: spot.Nom,
