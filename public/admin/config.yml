@@ -6,7 +6,7 @@ media_folder: public/img
 public_folder: /img
 
 i18n:
-  structure: single_file
+  structure: multiple_folders
   locales: [fr, en]
   default_locale: fr
 
@@ -14,31 +14,24 @@ collections:
   - name: 'pages'
     label: 'Page'
     delete: false # Prevent users from deleting documents in this collection
-    # create: true
+    create: true
+    folder: "content"
     editor:
       preview: false
     format: 'frontmatter'
+    slug: "{{field.slug}}"
     i18n: true
-    files:
-      - file: 'content/index.md'
+    fields:
+      - { label: 'Titre', name: 'title', widget: 'string', i18n: true }
+      - { label: 'Entrée menu', name: 'menuTitle', widget: 'string', i18n: true }
+      - { label: 'Afficher dans le menu', name: 'navigation', widget: 'boolean', i18n: true, default: false }
+      - { label: 'Slug', name: 'slug', widget: 'string', i18n: true }
+      - { label: 'Corps', name: 'body', widget: 'markdown', i18n: true }
+      - label: "Illustration"
         i18n: true
-        label: "Page d'accueil"
-        name: 'index'
-        fields:
-          - { label: 'Introduction', name: 'body', widget: 'markdown', i18n: true }
-      - file: 'content/la-plongee.md'
-        i18n: true
-        label: "La plongée"
-        name: 'la-plongee-au-sein-du-pnpc'
-        fields:
-          - { label: 'Titre', name: 'title', widget: 'string', i18n: true }
-          - { label: 'Entrée menu', name: 'menu-title', widget: 'string', i18n: true }
-          # - { label: 'Description', name: 'description', widget: 'string' }
-          - { label: 'Introduction', name: 'body', widget: 'markdown', i18n: true }
-          # - label: "Illustration"
-          #   name: "image"
-          #   widget: "image"
-          #   choose_url: false
-          #   media_library:
-          #     config:
-          #       multiple: false
+        name: "image"
+        widget: "image"
+        choose_url: false
+        media_library:
+          config:
+            multiple: false

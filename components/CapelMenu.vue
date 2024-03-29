@@ -1,13 +1,12 @@
 <template>
   <ul class="list-none flex gap-4 text-white">
-    <li>
-      <a>toto</a>
-    </li>
-    <li>
-      <a>toto</a>
-    </li>
-    <li>
-      <a>toto</a>
+    <li
+      v-for="link of localizedNavigation.children"
+      :key="link._path"
+    >
+      <NuxtLink :to="link._path.replace('/fr', '')">
+        {{ link.menuTitle }}
+      </NuxtLink>
     </li>
     <li
       v-for="item in locales"
@@ -20,7 +19,29 @@
   </ul>
 </template>
 
-<script setup lang="ts">
-const { locales } = useI18n()
-const switchLocalePath = useSwitchLocalePath()
+<script lang="ts">
+export default {
+  async setup() {
+    const { locales, locale } = useI18n()
+    const switchLocalePath = useSwitchLocalePath()
+    const { data: navigation } = await useAsyncData(`navigation`, () =>
+      fetchContentNavigation(),
+    )
+    return {
+      locales,
+      locale,
+      switchLocalePath,
+      navigation,
+    }
+  },
+  computed: {
+    localizedNavigation(): any|null {
+      return (
+        this.navigation?.filter(
+          (item) => item._path === `/${this.locale}`,
+        )[0] ?? null
+      )
+    },
+  },
+}
 </script>

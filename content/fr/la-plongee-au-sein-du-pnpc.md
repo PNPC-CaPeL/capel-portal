@@ -1,7 +1,7 @@
 ---
 title: La plongée au sein du Parc national de Port-Cros
-menu-title: La plongée
-is-menu: true
+menuTitle: La plongée
+navigation: true
 slug: la-plongee-au-sein-du-pnpc
 image: /img/pnpc_000905.webp
 ---

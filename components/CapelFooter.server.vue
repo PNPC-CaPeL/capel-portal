@@ -3,13 +3,13 @@
     <div class="-translate-y-1/2 container mx-auto">
       <ul class="list-none flex justify-end gap-4">
         <li
-          v-for="(item, key) in sociales"
-          :key="key"
+          v-for="item in sociales"
+          :key="item.url"
         >
           <a
             target="_blank"
             rel="noreferrer"
-            href="{{ item.url }}"
+            :href="item.url"
           >
             <component
               :is="item.component"
@@ -61,37 +61,36 @@
 </template>
 
 <script setup lang="ts">
-import FacebookLogo from './Svg/FacebookLogo.vue'
-import TwitterLogo from './Svg/TwitterLogo.vue'
-import InstagramLogo from './Svg/InstagramLogo.vue'
-import YoutubeLogo from './Svg/YoutubeLogo.vue'
-import PinterestLogo from './Svg/PinterestLogo.vue'
-import { LCK_SETTINGS } from '~/plugins/lckClient.server'
+import {
+  SvgFacebookLogo,
+  SvgTwitterLogo,
+  SvgInstagramLogo,
+  SvgYoutubeLogo,
+  SvgPinterestLogo,
+} from '#components'
 
-const lckClient = useNuxtApp().$lckClient
-
-const sociales = {
-  facebook: {
-    url: lckClient.getSetting(LCK_SETTINGS.LINK_FACEBOOK),
-    component: FacebookLogo,
+const sociales = [
+  {
+    url: 'https://www.facebook.com/PNPC83',
+    component: SvgFacebookLogo,
   },
-  twitter: {
-    url: lckClient.getSetting(LCK_SETTINGS.LINK_TWITTER),
-    component: TwitterLogo,
+  {
+    url: 'https://twitter.com/PNPC83',
+    component: SvgTwitterLogo,
   },
-  instagram: {
-    url: lckClient.getSetting(LCK_SETTINGS.LINK_INSTAGRAM),
-    component: InstagramLogo,
+  {
+    url: 'https://www.instagram.com/parcnationaldeportcros',
+    component: SvgInstagramLogo,
   },
-  youtube: {
-    url: lckClient.getSetting(LCK_SETTINGS.LINK_YOUTUBE),
-    component: YoutubeLogo,
+  {
+    url: 'https://www.youtube.com/user/PNPC83',
+    component: SvgYoutubeLogo,
   },
-  pinterest: {
-    url: lckClient.getSetting(LCK_SETTINGS.LINK_PINTEREST),
-    component: PinterestLogo,
+  {
+    url: 'https://www.pinterest.fr/pnpc83',
+    component: SvgPinterestLogo,
   },
-}
+]
 
 const ressourcesDocumentaires = [
   {
@@ -147,6 +146,7 @@ const liensInstitutionnels = [
   },
 ]
 </script>
+
 <style scoped>
 footer {
   background: #f78181;

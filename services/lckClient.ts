@@ -1,29 +1,7 @@
 import { COLUMN_TYPE } from '@locokit/lck-glossary'
-import { defineNuxtPlugin } from '#app'
-import { useRuntimeConfig } from '#imports'
 import auth from '@feathersjs/authentication-client'
 import feathers from '@feathersjs/feathers'
 import restClient from '@feathersjs/rest-client'
-
-export const enum LCK_SETTINGS {
-  SIGNUP_TEXT = 'SIGNUP_TEXT',
-  SIGNUP_ERROR = 'SIGNUP_ERROR',
-  SIGNUP_CONFIRMATION = 'SIGNUP_CONFIRMATION',
-  SPOT_PUBLIC_FIELDS = 'SPOT_PUBLIC_FIELDS',
-  MAP_CENTER = 'MAP_CENTER',
-  MAP_ZOOM = 'MAP_ZOOM',
-  THEME_PRIMARY = 'THEME_PRIMARY',
-  THEME_SECONDARY = 'THEME_SECONDARY',
-  LINK_FACEBOOK = 'LINK_FACEBOOK',
-  LINK_TWITTER = 'LINK_TWITTER',
-  LINK_INSTAGRAM = 'LINK_INSTAGRAM',
-  LINK_YOUTUBE = 'LINK_YOUTUBE',
-  LINK_PINTEREST = 'LINK_PINTEREST',
-  TABLES = 'TABLES',
-  MAP_BASEMAP = 'MAP_BASEMAP',
-  MAP_STYLES = 'MAP_STYLES',
-  MAP_LEGENDS = 'MAP_LEGENDS',
-}
 
 export const enum LCK_TABLES {
   SIGNATURES = 'ce3f9e5d-98a3-477c-83ef-2edd12e84e85',
@@ -88,7 +66,7 @@ interface LckSettings {
   > | null
 }
 
-class lckClientServer {
+export default class lckClient {
   basePath: string
   dbUuid: string
   settingsTableUuid: string
@@ -150,22 +128,6 @@ class lckClientServer {
           $eager: '[tables.[columns,views.[columns]]]',
         },
       })
-
-    this.settings = await this.query(this.settingsTableUuid, { $limit: -1 })
-  }
-
-  getSetting(key: string): string | null {
-    if (!this.settings.length) {
-      return null
-    }
-
-    const setting = this.settings.find((value) => value.key === key)
-
-    if (!setting) {
-      return null
-    }
-
-    return setting.text_value
   }
 
   async getRows(tableId: string, query = {}) {
@@ -296,22 +258,3 @@ export const transposeByLabel = (tableRows: any, tableSchema: LckTable) => {
 
   return transposedTable
 }
-
-export default defineNuxtPlugin(async () => {
-  const config = useRuntimeConfig()
-
-  const client = new lckClientServer(
-    config.LCK_BASE_PATH,
-    config.LCK_DB_UUID,
-    config.LCK_SETTINGS_UUID,
-    config.LCK_USERNAME,
-    config.LCK_PASSWORD,
-  )
-  client.init()
-
-  return {
-    provide: {
-      lckClient: client,
-    },
-  }
-})

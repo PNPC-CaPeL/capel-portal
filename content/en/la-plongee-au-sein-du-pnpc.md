@@ -1,8 +1,9 @@
 ---
 title: Diving in Port-Cros National Park
-menu-title: Diving
-is-menu: true
+menuTitle: Diving
+navigation: true
 slug: la-plongee-au-sein-du-pnpc
+image: /img/pnpc_000905.webp
 ---
 The first marine park in Europe, created in 1963, the Parc national de Port-Cros is an island, coastal and marine territory that stands out for the quality of its Mediterranean landscapes, both on land and at sea.
 

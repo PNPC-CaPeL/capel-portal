@@ -4,8 +4,9 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   ssr: true,
   experimental: {
-    componentIslands: true
+    componentIslands: true,
   },
+  css: ['~/assets/css/main.scss', 'leaflet/dist/leaflet.css'],
   i18n: {
     vueI18n: './i18n.config.ts',
     strategy: 'prefix_except_default',
@@ -22,7 +23,10 @@ export default defineNuxtConfig({
     defaultLocale: 'fr',
   },
   content: {
-    locales: ['fr', 'en'],
+    navigation: {
+      fields: ['menuTitle'],
+    },
+    // locales: ['fr', 'en'],
   },
   app: {
     head: {
@@ -39,6 +43,11 @@ export default defineNuxtConfig({
         },
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/icon.svg' }],
+    },
+  },
+  nitro: {
+    prerender: {
+      routes: ['/', '/api/lckData'],
     },
   },
   runtimeConfig: {
