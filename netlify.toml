@@ -5,4 +5,4 @@ publish = "dist"
 [[headers]]
   for = "/api/*"
   [headers.values]
-    content-type: application/json; charset=UTF-8
+    content-type = "application/json; charset=UTF-8"
