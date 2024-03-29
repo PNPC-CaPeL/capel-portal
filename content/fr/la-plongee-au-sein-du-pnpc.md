@@ -21,6 +21,8 @@ A la fin des années 90, le Parc engage une réflexion sur l’évolution de la 
 
 ## 1994 à 2003 : Charte de partenariat avec les structures
 
+![](/img/pnpc_000912_2.webp)
+
 Respecter la Charte de plongée_Copyright : Joan
 
 La poursuite de la concertation entre les acteurs de la plongée sous-marine et le Parc national de Port-Cros s'est concrétisée en 2004 par la mise en place de la charte de plongée partenariale obligatoire pour les structures et les particuliers.
