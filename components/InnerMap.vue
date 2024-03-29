@@ -10,13 +10,14 @@ export default {
   data() {
     return {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      map: null as any,
+      map: null as null | L.Map,
       spots: [] as Spot[],
       clubs: [] as Club[],
     }
   },
   mounted() {
     $fetch('/api/lckData').then(result => {
+      console.log(result)
       this.spots = result.spots
       this.clubs = result.clubs
 
@@ -48,12 +49,9 @@ export default {
         .addTo(this.map)
     },
     addSpotsToMap(): void {
-      // Adding spots
       for (const spot of this.spots) {
-        const geojson = spot.geojson
-
-        if (geojson) {
-          const [lon, lat] = geojson.coordinates
+        if (spot.geojson) {
+          const [lon, lat] = spot.geojson.coordinates
 
           L.marker([lat, lon])
             .addTo(this.map)
