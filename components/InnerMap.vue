@@ -17,7 +17,6 @@ export default {
   },
   mounted() {
     $fetch('/api/lckData').then(result => {
-      console.log(result)
       this.spots = result.spots
       this.clubs = result.clubs
 
