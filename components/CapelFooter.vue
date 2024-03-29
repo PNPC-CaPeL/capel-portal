@@ -21,14 +21,14 @@
     </div>
     <div class="container mx-auto flex justify-between py-8 text-white">
       <div>
-        <p>Les ressources documentaires :</p>
+        <p>{{ t('footer.documentaryResources') }}</p>
         <ul>
           <li
             v-for="item in ressourcesDocumentaires"
             :key="item.url"
           >
             <a :href="item.url">
-              {{ item.libelle }}
+              {{ t(item.libelle) }}
             </a>
           </li>
         </ul>
@@ -40,7 +40,7 @@
             :key="item.url"
           >
             <a :href="item.url">
-              {{ item.libelle }}
+              {{ t(item.libelle) }}
             </a>
           </li>
         </ul>
@@ -68,6 +68,9 @@ import {
   SvgYoutubeLogo,
   SvgPinterestLogo,
 } from '#components'
+import { useI18n } from '#imports'
+
+const { t } = useI18n()
 
 const sociales = [
   {
@@ -95,54 +98,54 @@ const sociales = [
 const ressourcesDocumentaires = [
   {
     url: 'http://www.portcros-parcnational.fr/fr/le-parc-national-de-port-cros/se-renseigner-sur-les-reglementations',
-    libelle: 'Textes réglementaires',
+    libelle: 'footer.regulatoryTexts',
   },
   {
     url: 'http://map.parcsnationaux.fr/?=PNPC',
-    libelle: 'Carte du Parc national de Port-Cros',
+    libelle: 'footer.mapPortCrosNationalPark',
   },
   {
     url: 'https://www.ecologique-solidaire.gouv.fr/',
-    libelle: 'Ministère de la Transition écologique et solidaire',
+    libelle: 'footer.ministryEcologicalTransition',
   },
   {
     url: 'https://ofb.gouv.fr/',
-    libelle: 'Office français de la biodiversité',
+    libelle: 'footer.frenchOfficeBiodiversity',
   },
   {
     url: 'http://www.sanctuaire-pelagos.org/fr/',
-    libelle: 'Sanctuaire Pelagos, Partie française',
+    libelle: 'footer.pelagosSanctuary',
   },
 ]
 
 const liensInstitutionnels = [
   {
     url: 'http://www.portcros-parcnational.fr/',
-    libelle: 'Le Parc national de Port-Cros',
+    libelle: 'footer.portCrosNationalPark',
   },
   {
     url: 'http://www.portcros-parcnational.fr/fr/le-parc-national-de-port-cros/un-territoire-reconnu',
-    libelle: 'Le Parc national en bref',
+    libelle: 'footer.nationalParkInBrief',
   },
   {
     url: 'http://www.portcros-parcnational.fr/fr/le-parc-national-de-port-cros/letablissement-public',
-    libelle: "L'établissement public",
+    libelle: 'footer.publicEstablishment',
   },
   {
     url: 'http://www.portcros-parcnational.fr/fr/le-parc-national-de-port-cros/la-charte-du-parc-national-de-port-cros',
-    libelle: 'La charte du PNPC',
+    libelle: 'footer.pnpcCharter',
   },
   {
     url: 'http://www.portcros-parcnational.fr/fr/marches-publics-en-cours',
-    libelle: 'Marchés publics',
+    libelle: 'footer.publicContracts',
   },
   {
     url: 'http://www.portcros-parcnational.fr/fr/offres-emploi',
-    libelle: "Offres d'emploi",
+    libelle: 'footer.jobOffers',
   },
   {
     url: 'http://www.portcros-parcnational.fr/fr/raa',
-    libelle: 'Recueil des actes administratifs',
+    libelle: 'footer.compendiumAdministrativeActs',
   },
 ]
 </script>

@@ -16,11 +16,10 @@ export default {
     }
   },
   mounted() {
+    this.buildMap()
     $fetch('/api/lckData').then(result => {
       this.spots = result.spots
       this.clubs = result.clubs
-
-      this.buildMap()
       this.addSpotsToMap()
     })
   },

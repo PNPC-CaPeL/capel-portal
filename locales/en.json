@@ -1,5 +1,18 @@
 {
   "welcome": "Welcome",
   "ourDivingAreas": "Our diving areas",
-  "getBackHome": "Go back to home page"
+  "getBackHome": "Go back to home page",
+  "footer.documentaryResources": "Documentary resources:",
+  "footer.regulatoryTexts": "Regulatory texts",
+  "footer.mapPortCrosNationalPark": "Map of the Port-Cros National Park",
+  "footer.ministryEcologicalTransition": "Ministry of Ecological Transition and Solidarity",
+  "footer.frenchOfficeBiodiversity": "French Office for Biodiversity",
+  "footer.pelagosSanctuary": "Pelagos Sanctuary, French part",
+  "footer.portCrosNationalPark": "Port-Cros National Park",
+  "footer.nationalParkInBrief": "The National Park in brief",
+  "footer.publicEstablishment": "The public establishment",
+  "footer.pnpcCharter": "The PNPC charter",
+  "footer.publicContracts": "Public contracts",
+  "footer.jobOffers": "Job offers",
+  "footer.compendiumAdministrativeActs": "Compendium of administrative acts"
 }
