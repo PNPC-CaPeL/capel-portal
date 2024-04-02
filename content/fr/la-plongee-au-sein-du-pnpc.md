@@ -3,6 +3,9 @@ title: La plongée au sein du Parc national de Port-Cros
 menuTitle: La plongée
 navigation: true
 slug: la-plongee-au-sein-du-pnpc
+description: Dès les années 90, une charte volontaire proposait une gestion de
+  la plongée à Port-Cros, depuis 2016, le règlement a pris le relai et renforce
+  l'engagement des plongeurs ...
 image: /img/PNPC_000905.jpg
 ---
 Premier parc marin créé en Europe en 1963, le Parc national de Port-Cros est un territoire insulaire, littoral et marin qui se distingue par la qualité de ses paysages méditerranéens à terre comme en mer.
