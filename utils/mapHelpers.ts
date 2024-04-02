@@ -4,17 +4,17 @@ import * as L from 'leaflet'
 const maskBase = {
   iconUrl: '/diving-mask.svg',
   iconSize: [32, 22],
-  // iconAnchor: [16, 11],
-  popupAnchor: [0, -12], // from iconAnchor
-  tooltipAnchor: [17, 0], // from iconAnchor
+  iconAnchor: [16, -22],
+  popupAnchor: [0, 20],
+  tooltipAnchor: [18, 33],
 } as L.IconOptions
 
 const shipwreck = {
   iconUrl: '/shipwreck.svg',
   iconSize: [32, 22],
-  // iconAnchor: [16, 11],
-  popupAnchor: [0, -12], // from iconAnchor
-  tooltipAnchor: [17, 0], // from iconAnchor
+  iconAnchor: [16, -22],
+  popupAnchor: [0, 20],
+  tooltipAnchor: [18, 33],
 } as L.IconOptions
 
 const maskIcon = L.icon && L.icon(maskBase)
