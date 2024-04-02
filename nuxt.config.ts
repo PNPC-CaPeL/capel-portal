@@ -73,6 +73,9 @@ export default defineNuxtConfig({
             'capel-blue': '#3991aa',
             'capel-light-blue': '#d3eff6',
           },
+          height: {
+            'screen/2': '50vh',
+          },
         },
       },
     },

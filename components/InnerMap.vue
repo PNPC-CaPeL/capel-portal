@@ -1,5 +1,8 @@
 <template>
-  <div id="capel-map" />
+  <div
+    id="capel-map"
+    class="h-full"
+  />
 </template>
 
 <script lang="ts">
@@ -17,7 +20,7 @@ export default {
   },
   mounted() {
     this.buildMap()
-    $fetch('/api/lckData').then(result => {
+    $fetch('/api/lckData').then((result) => {
       this.spots = result.spots
       this.clubs = result.clubs
       this.addSpotsToMap()
@@ -62,8 +65,3 @@ export default {
   },
 }
 </script>
-<style scoped>
-#capel-map {
-  height: 300px;
-}
-</style>
