@@ -23,9 +23,10 @@ collections:
     i18n: true
     fields:
       - { label: 'Titre', name: 'title', widget: 'string', i18n: true }
-      - { label: 'Entrée menu', name: 'menuTitle', widget: 'string', i18n: true }
+      - { label: 'Entrée menu', name: 'menuTitle', widget: 'string', i18n: true, required: false}
       - { label: 'Afficher dans le menu', name: 'navigation', widget: 'boolean', i18n: true, default: false }
       - { label: 'Slug', name: 'slug', widget: 'string', i18n: true }
+      - {label: "Description", name: "description", widget: "text"}
       - { label: 'Corps', name: 'body', widget: 'markdown', i18n: true }
       - label: "Illustration"
         i18n: true

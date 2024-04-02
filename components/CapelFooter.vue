@@ -1,5 +1,5 @@
 <template>
-  <footer class="relative">
+  <footer class="relative text-white">
     <div class="-translate-y-1/2 container mx-auto">
       <ul class="list-none flex justify-end gap-4">
         <li
@@ -19,7 +19,7 @@
         </li>
       </ul>
     </div>
-    <div class="container mx-auto flex justify-between py-8 text-white">
+    <div class="container mx-auto flex justify-between py-8">
       <div>
         <p>{{ t('footer.documentaryResources') }}</p>
         <ul>
@@ -46,12 +46,12 @@
         </ul>
       </div>
       <div>
-        Nous contacter : Parc national de Port-Cros<br />
+        {{ $t('footer.contactUs') }} Parc national de Port-Cros<br />
         181 Allée du Castel Sainte Claire<br />
         BP 70220<br />
         83406 - HYERES cedex<br />
-        Tél. 04 94 12 82 30<br />
-        Formulaire de contact :<br />
+        {{ $t('footer.tel') }} 04 94 12 82 30<br />
+        {{ $t('footer.contactForm') }}<br />
         <a href="http://www.portcros-parcnational.fr/fr/formulaire-contact">
           portcros-parcnational.fr/fr/formulaire-contact
         </a>

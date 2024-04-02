@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto mt-2 flex gap-4 justify-between">
+  <div class="mt-2 flex gap-4 justify-between">
     <ul
       v-for="(column, key) in legendData"
       :key="key"

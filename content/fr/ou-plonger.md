@@ -3,7 +3,7 @@ title: Où plonger ?
 menuTitle: Où plonger
 navigation: true
 slug: ou-plonger
-image: /img/pnpc_000905.webp
+image: /img/PNPC_000312-1.jpg
 ---
 Le Parc national de Port-Cros bénéficie d’une topographie favorable à l’activité de plongée. En effet, la diversité des habitats offre un panel de paysages aux plongeurs de tout niveau et permet la découverte des écosystèmes typiques de Méditerranée. Au-delà des côtes de Port-Cros et Porquerolles et des épaves les plus fameuses, l’ensemble du territoire du Parc national offre un accès à des sites moins connus mais tout aussi séduisants.
 

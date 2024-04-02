@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="w-full h-[415px]">
+    <div class="w-full h-[450px]">
       <img
-        class="w-full h-full object-cover"
         :src="data?.image"
+        class="w-full h-full object-cover"
       />
     </div>
     <main class="content container mx-auto my-8 text-base text-black">
@@ -30,6 +30,10 @@ const file = `${locale.value}/${route.params.slug.join('/')}.md`
 const { data } = await useAsyncData(file, () =>
   queryContent().where({ _file: file }).findOne(),
 )
+
+useHead({
+  title: data.value?.title ?? 'Capel',
+})
 
 const components = {
   carte: CapelMap,

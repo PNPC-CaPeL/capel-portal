@@ -1,16 +1,15 @@
 <template>
-  <main class="content">
-    <div class="container mx-auto my-8 text-base">
+  <main class="container mx-auto my-8 text-base">
+    <div class="content">
       <ContentRenderer :value="data">
         <ContentRendererMarkdown :value="data" />
       </ContentRenderer>
     </div>
-    <h2
-      class="container mx-auto -mb-4 uppercase text-4xl font-semibold text-capel-blue"
-    >
+    <h2 class="-mb-8 uppercase text-4xl font-semibold text-capel-blue">
       {{ $t('ourDivingAreas') }}
     </h2>
     <CapelMap />
+    <CapelPageGrid />
   </main>
 </template>
 

@@ -24,7 +24,7 @@ export default defineNuxtConfig({
   },
   content: {
     navigation: {
-      fields: ['menuTitle'],
+      fields: ['menuTitle', 'title'],
     },
     // locales: ['fr', 'en'],
   },
@@ -48,9 +48,6 @@ export default defineNuxtConfig({
   tailwindcss: {
     config: {
       theme: {
-        colors: {
-          'capel-blue': '#3991aa',
-        },
         fontFamily: {
           sans: ['Raleway', 'sans-serif'],
         },
@@ -69,6 +66,12 @@ export default defineNuxtConfig({
             sm: '1rem',
             xl: '8rem',
             '2xl': '8rem',
+          },
+        },
+        extend: {
+          colors: {
+            'capel-blue': '#3991aa',
+            'capel-light-blue': '#d3eff6',
           },
         },
       },

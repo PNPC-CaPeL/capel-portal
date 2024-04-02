@@ -3,7 +3,7 @@ title: Where to dive?
 menuTitle: Where to dive
 navigation: true
 slug: ou-plonger
-image: /img/pnpc_000905.webp
+image: /img/PNPC_000312-1.jpg
 ---
 The topography of the Port-Cros National Park is ideal for diving. In fact, the diversity of habitats offers a wide range of landscapes for divers of all levels, enabling them to discover typical Mediterranean ecosystems. As well as the coasts of Port-Cros and Porquerolles and the most famous shipwrecks, the whole of the National Park offers access to lesser-known but equally attractive sites.
 

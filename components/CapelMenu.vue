@@ -1,5 +1,5 @@
 <template>
-  <ul class="list-none flex gap-4 text-[#d3eff6]">
+  <ul class="list-none flex gap-4 text-capel-light-blue">
     <li
       v-for="link of localizedNavigation.children"
       :key="link._path"
@@ -8,7 +8,7 @@
         :to="link._path.replace('/fr', '')"
         class="font-bold hover:text-white"
       >
-        {{ link.menuTitle }}
+        {{ link.menuTitle ?? link.title }}
       </NuxtLink>
     </li>
     <li

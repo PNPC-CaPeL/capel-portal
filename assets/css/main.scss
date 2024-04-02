@@ -1,22 +1,24 @@
 @import "fonts";
 
-main.content {
+main .content {
   h2 {
     > a {
       color: black;
       @apply hover:no-underline
     }
 
-    @apply mt-8 mb-2 text-2xl font-semibold
+    @apply mt-8 mb-2 text-xl font-semibold
   }
   p {
-    @apply my-4
-  }
-  a {
-    @apply text-capel-blue hover:underline
+    @apply my-2
   }
   ul {
     @apply list-disc list-inside pl-2 my-2
+  }
+  p, ul, ol {
+    a {
+      @apply text-capel-blue hover:underline
+    }
   }
   img {
     @apply mx-auto mt-8

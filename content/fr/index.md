@@ -3,7 +3,7 @@ title: Homepage
 menuTitle: index
 navigation: false
 slug: index
-image: /img/pnpc_000905.webp
+image: /img/PNPC_000905.jpg
 ---
 Le **Ca**rnet de **P**longée **e**n **L**igne (**CaPeL**) a pour objectif
 de faciliter vos démarches administratives (signature électronique de charte
