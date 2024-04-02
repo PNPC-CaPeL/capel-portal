@@ -21,7 +21,7 @@ A la fin des années 90, le Parc engage une réflexion sur l’évolution de la 
 
 ## 1994 à 2003 : Charte de partenariat avec les structures
 
-![](/img/pnpc_000912_2.webp)
+![](/img/pnpc_000912_2.webp "Respecter la Charte de plongée_Copyright : Joan")
 
 Respecter la Charte de plongée_Copyright : Joan
 
