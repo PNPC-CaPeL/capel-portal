@@ -1,9 +1,7 @@
 <template>
   <div>
     <header class="">
-      <div
-        class="h-28 container mx-auto flex justify-between items-center px-8"
-      >
+      <div class="h-28 container mx-auto flex justify-between items-center">
         <NuxtLink
           :to="localePath('/')"
           :title="$t('getBackHome')"

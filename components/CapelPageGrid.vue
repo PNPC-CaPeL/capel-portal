@@ -1,5 +1,5 @@
 <template>
-  <ul class="grid grid-cols-3 gap-8 w-full mt-8">
+  <ul class="grid grid-cols-3 gap-8 w-full mt-2">
     <li
       v-for="item of data"
       :key="item.id"

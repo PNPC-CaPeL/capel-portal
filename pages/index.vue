@@ -1,16 +1,18 @@
 <template>
-  <main class="container mx-auto my-8 text-base">
-    <div class="content">
-      <ContentRenderer :value="data">
-        <ContentRendererMarkdown :value="data" />
-      </ContentRenderer>
+  <div>
+    <div class="container mx-auto mt-8">
+      <main class="content">
+        <ContentRenderer :value="data">
+          <ContentRendererMarkdown :value="data" />
+        </ContentRenderer>
+      </main>
+      <h2 class="-mb-6 uppercase text-4xl font-semibold text-capel-blue">
+        {{ $t('ourDivingAreas') }}
+      </h2>
+      <CapelMap />
     </div>
-    <h2 class="-mb-8 uppercase text-4xl font-semibold text-capel-blue">
-      {{ $t('ourDivingAreas') }}
-    </h2>
-    <CapelMap />
-    <CapelPageGrid />
-  </main>
+    <CapelPageGrid class="container mx-auto" />
+  </div>
 </template>
 
 <script setup lang="ts">

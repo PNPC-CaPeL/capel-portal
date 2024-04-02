@@ -1,5 +1,5 @@
 <template>
-  <footer class="relative text-white">
+  <footer class="relative text-white mt-16">
     <div class="-translate-y-1/2 container mx-auto">
       <ul class="list-none flex justify-end gap-4">
         <li

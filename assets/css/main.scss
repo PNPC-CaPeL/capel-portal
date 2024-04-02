@@ -1,6 +1,6 @@
 @import "fonts";
 
-main .content {
+main.content {
   h2 {
     > a {
       color: black;
@@ -26,5 +26,5 @@ main .content {
   figcaption {
     @apply mx-auto w-fit text-sm
   }
-  @apply pb-10
+  @apply pb-10 text-base
 }

@@ -6,7 +6,7 @@
         class="w-full h-full object-cover"
       />
     </div>
-    <main class="content container mx-auto my-8 text-base text-black">
+    <main class="content container mx-auto mt-8 text-base text-black">
       <ContentRenderer :value="data">
         <h1 class="font-bold text-5xl mt-8 mb-4">
           {{ data.title }}
