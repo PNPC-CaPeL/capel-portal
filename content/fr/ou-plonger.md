@@ -3,6 +3,10 @@ title: Où plonger ?
 menuTitle: Où plonger
 navigation: true
 slug: ou-plonger
+description: Un parc national est un territoire d’exception ouvert à tous mais
+  sous la responsabilité de chacun. Il est protégé par une réglementation
+  spécifique sur la circulation, le mouillage, la plongée et la pêche de loisir
+  autour des iles de Port-Cros et de Porquerolles...
 image: /img/PNPC_000312-1.jpg
 ---
 Le Parc national de Port-Cros bénéficie d’une topographie favorable à l’activité de plongée. En effet, la diversité des habitats offre un panel de paysages aux plongeurs de tout niveau et permet la découverte des écosystèmes typiques de Méditerranée. Au-delà des côtes de Port-Cros et Porquerolles et des épaves les plus fameuses, l’ensemble du territoire du Parc national offre un accès à des sites moins connus mais tout aussi séduisants.
