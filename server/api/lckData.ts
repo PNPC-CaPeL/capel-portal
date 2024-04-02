@@ -16,22 +16,24 @@ export default defineEventHandler(async (event) => {
     $limit: -1,
   })
 
-  const spots = rawSpots.filter((spot) => spot['Visible de tous']).map<Spot>((spot) => {
-    return {
-      id: spot.id,
-      nom: spot.Nom,
-      popupData: {
-        'Type de site': spot['Type de site'],
-        'Niveau minimal requis': spot['Niveau minimal requis'],
-        Profondeur: spot['Profondeur'],
-      },
-      type: spot['Type de site'],
-      statut: spot.Statut,
-      amarrage: spot["Dispositif d'amarrage"],
-      lien: spot['Lien'],
-      geojson: wktParse(String(spot.Position)) as GeoJSONPoint | null,
-    }
-  })
+  const spots = rawSpots
+    .filter((spot) => spot['Visible de tous'])
+    .map<Spot>((spot) => {
+      return {
+        id: spot.id,
+        nom: spot.Nom,
+        popupData: {
+          'Type de site': spot['Type de site'],
+          'Niveau minimal requis': spot['Niveau minimal requis'],
+          Profondeur: spot['Profondeur'],
+        },
+        type: spot['Type de site'],
+        statut: spot.Statut,
+        amarrage: spot["Dispositif d'amarrage"],
+        lien: spot['Lien'],
+        geojson: wktParse(String(spot.Position)) as GeoJSONPoint | null,
+      }
+    })
 
   return {
     spots: spots,

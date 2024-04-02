@@ -154,5 +154,8 @@ const liensInstitutionnels = [
 footer {
   background: #f78181;
   /* background: linear-gradient(0deg, #F78181 50%, transparent 50%); */
+  a {
+    @apply hover:underline;
+  }
 }
 </style>

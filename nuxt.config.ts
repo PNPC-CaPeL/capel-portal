@@ -45,6 +45,35 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/icon.svg' }],
     },
   },
+  tailwindcss: {
+    config: {
+      theme: {
+        colors: {
+          'capel-blue': '#3991aa',
+        },
+        fontFamily: {
+          sans: ['Raleway', 'sans-serif'],
+        },
+        fontSize: {
+          sm: '0.8rem',
+          base: '1.1667rem',
+          xl: '1.25rem',
+          '2xl': '1.563rem',
+          '3xl': '1.953rem',
+          '4xl': '2.441rem',
+          '5xl': '3.052rem',
+        },
+        container: {
+          padding: {
+            DEFAULT: '1rem',
+            sm: '1rem',
+            xl: '8rem',
+            '2xl': '8rem',
+          },
+        },
+      },
+    },
+  },
   nitro: {
     prerender: {
       routes: ['/', '/api/lckData'],

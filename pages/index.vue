@@ -1,13 +1,17 @@
 <template>
-  <div>
-    <ContentRenderer :value="data">
-      <ContentRendererMarkdown :value="data" />
-    </ContentRenderer>
-    <h2 class="-mb-4">
+  <main class="content">
+    <div class="container mx-auto my-8 text-base">
+      <ContentRenderer :value="data">
+        <ContentRendererMarkdown :value="data" />
+      </ContentRenderer>
+    </div>
+    <h2
+      class="container mx-auto -mb-4 uppercase text-4xl font-semibold text-capel-blue"
+    >
       {{ $t('ourDivingAreas') }}
     </h2>
     <CapelMap />
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">

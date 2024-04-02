@@ -7,7 +7,7 @@
       cx="14.68"
       cy="14.68"
       r="14.68"
-      fill="#028eaa"
+      class="fill-capel-blue"
     />
     <path
       fill="#fff"

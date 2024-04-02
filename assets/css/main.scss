@@ -1,1 +1,28 @@
-// @import "leaflet/dist/leaflet";
+@import "fonts";
+
+main.content {
+  h2 {
+    > a {
+      color: black;
+      @apply hover:no-underline
+    }
+
+    @apply mt-8 mb-2 text-2xl font-semibold
+  }
+  p {
+    @apply my-4
+  }
+  a {
+    @apply text-capel-blue hover:underline
+  }
+  ul {
+    @apply list-disc list-inside pl-2 my-2
+  }
+  img {
+    @apply mx-auto mt-8
+  }
+  figcaption {
+    @apply mx-auto w-fit text-sm
+  }
+  @apply pb-10
+}

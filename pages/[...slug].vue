@@ -1,13 +1,23 @@
 <template>
-  <main>
-    <ContentRenderer :value="data">
-      <h1>{{ data.title }}</h1>
-      <ContentRendererMarkdown
-        :value="data"
-        :components="components"
+  <div>
+    <div class="w-full h-[415px]">
+      <img
+        class="w-full h-full object-cover"
+        :src="data?.image"
       />
-    </ContentRenderer>
-  </main>
+    </div>
+    <main class="content container mx-auto my-8 text-base text-black">
+      <ContentRenderer :value="data">
+        <h1 class="font-bold text-5xl mt-8 mb-4">
+          {{ data.title }}
+        </h1>
+        <ContentRendererMarkdown
+          :value="data"
+          :components="components"
+        />
+      </ContentRenderer>
+    </main>
+  </div>
 </template>
 
 <script setup lang="ts">
