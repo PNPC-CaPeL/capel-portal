@@ -10,10 +10,10 @@ main.content {
     @apply mt-8 mb-2 text-xl font-semibold
   }
   p {
-    @apply my-2
+    @apply mt-4
   }
   ul {
-    @apply list-disc list-inside pl-2 my-2
+    @apply list-disc list-inside pl-2 mt-4
   }
   p, ul, ol {
     a {
