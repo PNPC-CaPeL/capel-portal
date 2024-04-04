@@ -1,20 +1,21 @@
 import type { Spot } from '~/server/api/lckData'
 import * as L from 'leaflet'
 
-const maskBase = {
-  iconUrl: '/diving-mask.svg',
+const iconBase = {
   iconSize: [32, 22],
-  iconAnchor: [16, -22],
-  popupAnchor: [0, 20],
-  tooltipAnchor: [18, 33],
+  iconAnchor: [16, 11],
+  popupAnchor: [0, -11],
+  tooltipAnchor: [18, 0],
+} as L.IconOptions
+
+const maskBase = {
+  ...iconBase,
+  iconUrl: '/diving-mask.svg',
 } as L.IconOptions
 
 const shipwreck = {
+  ...iconBase,
   iconUrl: '/shipwreck.svg',
-  iconSize: [32, 22],
-  iconAnchor: [16, -22],
-  popupAnchor: [0, 20],
-  tooltipAnchor: [18, 33],
 } as L.IconOptions
 
 const maskIcon = L.icon && L.icon(maskBase)
