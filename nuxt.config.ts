@@ -51,15 +51,6 @@ export default defineNuxtConfig({
         fontFamily: {
           sans: ['Raleway', 'sans-serif'],
         },
-        fontSize: {
-          sm: '0.8rem',
-          base: '1.1667rem',
-          xl: '1.25rem',
-          '2xl': '1.563rem',
-          '3xl': '1.953rem',
-          '4xl': '2.441rem',
-          '5xl': '3.052rem',
-        },
         container: {
           padding: {
             DEFAULT: '1rem',
@@ -76,13 +67,27 @@ export default defineNuxtConfig({
           height: {
             'screen/2': '50vh',
           },
+          fontSize: {
+            base: '1.1667rem',
+          },
+          letterSpacing: {
+            tightest: '-.075em',
+          },
         },
       },
     },
   },
   nitro: {
     prerender: {
-      routes: ['/', '/api/lckData'],
+      routes: [
+        '/',
+        '/api/aires',
+        '/api/divisions',
+        '/api/spots',
+        '/api/stats',
+        '/api/structures',
+        '/api/zones',
+      ],
     },
   },
   runtimeConfig: {

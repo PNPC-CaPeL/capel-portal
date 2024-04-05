@@ -6,11 +6,14 @@
           <ContentRendererMarkdown :value="data" />
         </ContentRenderer>
       </main>
-      <h2 class="-mb-6 uppercase text-4xl font-semibold text-capel-blue">
-        {{ $t('ourDivingAreas') }}
-      </h2>
-      <CapelMap />
     </div>
+    <CapelStats />
+    <h2
+      class="container mx-auto mt-8 -mb-6 uppercase text-4xl font-semibold text-capel-blue"
+    >
+      {{ $t('ourDivingAreas') }}
+    </h2>
+    <CapelMap class="container mx-auto" />
     <CapelPageGrid class="container mx-auto" />
   </div>
 </template>

@@ -7,7 +7,8 @@
 
 <script lang="ts">
 import * as L from 'leaflet'
-import type { Club, Spot } from '~/server/api/lckData'
+import type { Spot } from '~/server/api/spots'
+import type { Structure } from '~/server/api/structures'
 
 export default {
   data() {
@@ -15,14 +16,13 @@ export default {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       map: null as null | L.Map,
       spots: [] as Spot[],
-      clubs: [] as Club[],
+      structure: [] as Structure[],
     }
   },
   mounted() {
     this.buildMap()
-    $fetch('/api/lckData').then((result) => {
-      this.spots = result.spots
-      this.clubs = result.clubs
+    $fetch('/api/spots').then((result) => {
+      this.spots = result
       this.addSpotsToMap()
     })
   },

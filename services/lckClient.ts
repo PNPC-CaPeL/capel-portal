@@ -258,3 +258,7 @@ export const transposeByLabel = (tableRows: any, tableSchema: LckTable) => {
 
   return transposedTable
 }
+
+export type RawLckData = {
+  [key: string]: string | boolean | null
+}
