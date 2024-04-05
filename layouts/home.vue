@@ -2,7 +2,7 @@
   <div>
     <header class="">
       <div
-        class="h-28 container mx-auto flex flex-col xl:flex-row justify-between items-center"
+        class="min-h-28 container mx-auto flex gap-4 flex-col xl:flex-row justify-between items-center"
       >
         <ul class="mt-4 flex justify-center items-center w-full xl:w-1/2 gap-6">
           <li
@@ -23,7 +23,7 @@
         <CapelMenu />
       </div>
       <div
-        class="container mx-auto mt-12 pb-16 flex gap-12 flex-col md:flex-row justify-around items-center"
+        class="container mx-auto py-12 flex gap-12 flex-col md:flex-row justify-around items-center"
       >
         <div class="w-full md:w-2/3">
           <img
