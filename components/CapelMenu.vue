@@ -1,5 +1,5 @@
 <template>
-  <ul class="list-none flex gap-4 text-capel-light-blue">
+  <ul class="list-none flex gap-4 text-capel-blue-200">
     <li
       v-for="link of localizedNavigation.children"
       :key="link._path"

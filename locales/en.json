@@ -2,6 +2,11 @@
   "welcome": "Welcome",
   "ourDivingAreas": "Our diving areas",
   "getBackHome": "Go back to home page",
+  "home": {
+    "signUp": "Sign up to CaPeL",
+    "signIn": "Sign inscrire",
+    "declareDive": "Declare a dive"
+  },
   "footer": {
     "documentaryResources": "Documentary resources:",
     "regulatoryTexts": "Regulatory texts",

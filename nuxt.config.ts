@@ -61,8 +61,13 @@ export default defineNuxtConfig({
         },
         extend: {
           colors: {
+            'capel-red': '#f78181',
+            'capel-red-500': '#f78181',
+            'capel-red-800': '#ac5a5a',
             'capel-blue': '#3991aa',
-            'capel-light-blue': '#d3eff6',
+            'capel-blue-200': '#d3eff6',
+            'capel-blue-500': '#3991aa',
+            'capel-blue-800': '#276576',
           },
           height: {
             'screen/2': '50vh',

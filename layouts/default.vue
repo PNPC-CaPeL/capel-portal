@@ -1,11 +1,13 @@
 <template>
   <div>
     <header class="">
-      <div class="h-28 container mx-auto flex justify-between items-center">
+      <div
+        class="min-h-28 container mx-auto py-4 gap-4 flex flex-col lg:flex-row justify-between items-center"
+      >
         <NuxtLink
           :to="localePath('/')"
           :title="$t('getBackHome')"
-          class="h-full py-4"
+          class="h-28"
         >
           <img
             class="h-full"
@@ -36,5 +38,6 @@ main {
 header {
   background-image: url('/home-banner.jpg');
   background-position: center;
+  background-size: cover;
 }
 </style>

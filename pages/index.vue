@@ -19,6 +19,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  layout: 'home',
+})
+
 const { locale } = useI18n()
 
 const file = `${locale.value}/index.md`

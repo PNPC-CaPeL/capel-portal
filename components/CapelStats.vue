@@ -8,7 +8,7 @@
           <div class="text-6xl tracking-tightest font-['sans']">
             {{ userCount }}
           </div>
-          <div class="text-2xl leading-7 font-semibold">
+          <div class="text-2xl leading-7 font-medium">
             inscriptions<br />
             au carnet de plongée
           </div>
@@ -20,7 +20,7 @@
           <div class="text-6xl tracking-tightest font-['sans']">
             {{ stats?.signatureCount ?? '-' }}
           </div>
-          <div class="text-2xl leading-7 font-semibold">
+          <div class="text-2xl leading-7 font-medium">
             autorisations
             <br />
             délivrées

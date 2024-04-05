@@ -2,6 +2,11 @@
   "welcome": "Bienvenue",
   "ourDivingAreas": "Nos espaces de plongée",
   "getBackHome": "Retourner à l'accueil",
+  "home": {
+    "signUp": "S'inscrire au CaPeL",
+    "signIn": "Se connecter",
+    "declareDive": "Déclarer une plongée"
+  },
   "footer": {
     "documentaryResources": "Les ressources documentaires :",
     "regulatoryTexts": "Textes réglementaires",
