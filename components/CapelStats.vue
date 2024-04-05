@@ -37,10 +37,10 @@
 import type { Stats } from '~/server/api/stats'
 
 export default {
-  data() {
-    return {
-      stats: {} as Stats,
-    }
+  async setup() {
+    const { data: stats } = await useFetch<Stats>('/api/stats')
+
+    return { stats }
   },
   computed: {
     userCount(): number | string {
@@ -48,11 +48,6 @@ export default {
 
       return isNaN(count) ? '-' : count
     },
-  },
-  mounted() {
-    $fetch('/api/stats').then((result) => {
-      this.stats = result
-    })
   },
 }
 </script>
