@@ -2,7 +2,7 @@
   <div>
     <div
       v-if="data?.image"
-      class="w-full h-[450px]"
+      class="w-full h-[200px] md:h-[350px] lg:h-[450px]"
     >
       <img
         :src="data?.image"

@@ -19,9 +19,13 @@
         </li>
       </ul>
     </div>
-    <div class="container mx-auto flex justify-between py-8">
-      <div>
-        <p>{{ t('footer.documentaryResources') }}</p>
+    <div
+      class="container mx-auto flex flex-col lg:flex-row gap-4 justify-between py-8"
+    >
+      <div class="text-center lg:text-left">
+        <p>
+          {{ t('footer.documentaryResources') }}
+        </p>
         <ul>
           <li
             v-for="item in ressourcesDocumentaires"
@@ -33,8 +37,8 @@
           </li>
         </ul>
       </div>
-      <div>
-        <ul class="text-center">
+      <div class="border-t lg:border-t-0 pt-4 lg:pt-0 text-center">
+        <ul>
           <li
             v-for="item in liensInstitutionnels"
             :key="item.url"
@@ -45,7 +49,7 @@
           </li>
         </ul>
       </div>
-      <div>
+      <div class="border-t lg:border-t-0 pt-4 lg:pt-0 text-center lg:text-left">
         {{ $t('footer.contactUs') }} Parc national de Port-Cros<br />
         181 Allée du Castel Sainte Claire<br />
         BP 70220<br />

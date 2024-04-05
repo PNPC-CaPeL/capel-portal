@@ -1,6 +1,8 @@
 <template>
   <div class="bg-capel-blue text-white py-2">
-    <div class="container mx-auto flex justify-around">
+    <div
+      class="container mx-auto flex flex-col md:flex-row justify-around items-center gap-2"
+    >
       <div>
         <div class="flex gap-2 items-end">
           <div class="text-6xl tracking-tightest font-['sans']">
