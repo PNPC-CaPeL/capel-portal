@@ -3,7 +3,6 @@ title: Homepage
 menuTitle: index
 navigation: false
 slug: index
-image: /img/PNPC_000905.jpg
 ---
 The **Ca**rnet de **P**longée **e**n **L**igne (**CaPeL**) aims to facilitate
 your administrative procedures (electronic signature of charter and the transmission

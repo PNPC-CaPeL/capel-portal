@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="w-full h-[450px]">
+    <div
+      v-if="data?.image"
+      class="w-full h-[450px]"
+    >
       <img
         :src="data?.image"
         class="w-full h-full object-cover"
