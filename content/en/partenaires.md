@@ -1,9 +1,8 @@
 ---
 title: Our partners
-menu:
-  show: true
-  title: Partners
-  weight: 3
+navigation: true
+menu_title: Partners
+weight: 3
 slug: partenaires
 description: Each year, organisations and associations undertake
   to comply with the diving regulations. The active involvement of

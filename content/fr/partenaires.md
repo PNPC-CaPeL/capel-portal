@@ -1,9 +1,8 @@
 ---
 title: Nos Partenaires
-menu:
-  show: true
-  title: Partenaires
-  weight: 3
+navigation: true
+menu_title: Partenaires
+weight: 3
 slug: partenaires
 description: Chaque année les structures et associations s’engagent à respecter
   le règlement de plongée. L’implication active des acteurs de la plongée lors

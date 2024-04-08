@@ -24,7 +24,7 @@ export default defineNuxtConfig({
   },
   content: {
     navigation: {
-      fields: ['menuTitle', 'title'],
+      fields: ['menu_title', 'title', 'image', 'description', 'weight'],
     },
     // locales: ['fr', 'en'],
   },

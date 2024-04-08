@@ -1,13 +1,23 @@
 @import "fonts";
 
 main.content {
-  h2 {
+  h2, h3, h4 {
     > a {
       color: black;
       @apply hover:no-underline
     }
-
-    @apply mt-8 mb-2 text-xl font-semibold
+  }
+  h2 {
+    @apply mt-8 mb-2 text-4xl font-semibold
+  }
+  h3 {
+    @apply mt-7 mb-2 text-3xl font-medium
+  }
+  h4 {
+    @apply mt-6 mb-2 text-2xl font-medium
+  }
+  hr {
+    @apply my-8
   }
   p {
     @apply mt-4

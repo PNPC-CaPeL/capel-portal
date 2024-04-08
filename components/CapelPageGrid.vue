@@ -1,14 +1,14 @@
 <template>
   <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full mt-2">
     <li
-      v-for="item of data"
+      v-for="item of localizedNavigation"
       :key="item.id"
     >
       <NuxtLink
         :to="item._path.replace('/fr', '')"
         class="flex flex-col items-center"
       >
-        <div class="h-[290px]">
+        <div class="max-w-[80vw] max-h-[290px] md:h-[290px] overflow-hidden">
           <img
             :src="item?.image"
             class="w-full h-full object-cover"
@@ -32,14 +32,27 @@
 export default {
   async setup() {
     const { locale } = useI18n()
-    const { data } = await useAsyncData(`${locale.value}/`, () =>
-      queryContent(`${locale.value}/`).find(),
+    const { data: navigation } = await useAsyncData(`navigation`, () =>
+      fetchContentNavigation(),
     )
 
     return {
       locale,
-      data,
+      navigation,
     }
+  },
+  computed: {
+    localizedNavigation(): any | null {
+      const parentNavItem = this.navigation?.filter(
+        (item) => item._path === `/${this.locale}`,
+      )
+
+      if (parentNavItem && parentNavItem.length && parentNavItem[0].children) {
+        return parentNavItem[0].children.sort((a, b) => a.weight - b.weight)
+      }
+
+      return null
+    },
   },
 }
 </script>

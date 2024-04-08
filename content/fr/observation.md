@@ -1,9 +1,8 @@
 ---
 title: Vos Observations nous intéressent
-menu:
-  show: true
-  title: Observations
-  weight: 4
+navigation: true
+menu_title: Observations
+weight: 4
 slug: observation
 description: Vos observations sont utiles, elles alimentent des bases
   de données nationales et permettent d’améliorer les connaissances naturalistes,
@@ -26,26 +25,26 @@ Pour toute observation il existe différentes bases de données :
 
 #### Pour les poissons :
 
-* [BioObs](https://bioobs.fr ) est un outil développé pour les plongeurs. Il est libre d'utilisation. Il est ouvert à tous quelque soit son niveau de biologie (toutes les observations sont importantes). Il contribue à mieux connaître et faire connaître la richesse des fonds marins. Les observations faites peuvent être partagées entre les plongeurs, servir à préparer sa plongée, à présenter un site de plongée à sa palanquée ou à enrichir les connaissances auprès de partenaires scientifiques.
-* [Fish Watch Forum](https://www.fish-watch.org/), conçu et porté par l’association [Peau-Bleue](http://www.peaubleue.org/index.php) et le laboratoire [ECOMERS](http://www.unice.fr/ecomers/) de l’Université de Nice – Sophia Antipolis, a pour but de collecter et rassembler vos observations sur les poissons marins d'Europe de l'Ouest et de Méditerranée.
+* **[BioObs](https://bioobs.fr )** est un outil développé pour les plongeurs. Il est libre d'utilisation. Il est ouvert à tous quelque soit son niveau de biologie (toutes les observations sont importantes). Il contribue à mieux connaître et faire connaître la richesse des fonds marins. Les observations faites peuvent être partagées entre les plongeurs, servir à préparer sa plongée, à présenter un site de plongée à sa palanquée ou à enrichir les connaissances auprès de partenaires scientifiques.
+* **[Fish Watch Forum](https://www.fish-watch.org/)**, conçu et porté par l’association **[Peau-Bleue](http://www.peaubleue.org/index.php)** et le laboratoire **[ECOMERS](http://www.unice.fr/ecomers/)** de l’Université de Nice – Sophia Antipolis, a pour but de collecter et rassembler vos observations sur les poissons marins d'Europe de l'Ouest et de Méditerranée.
 
 ![](/img/cetaces.png)
 
 #### Pour les mammifères marins, tortues, requins et raies :
 
-[OBSenMER](http://www.obsenmer.org/) est une plateforme collaborative qui facilite la saisie et l’analyse des observations en mer. Elle concerne tous les types d’observations : mammifères marins, tortues marines, poissons, oiseaux, mais aussi les activités humaines, telles que la plaisance, la pêche, la pollution, etc.
+**[OBSenMER](http://www.obsenmer.org/)** est une plateforme collaborative qui facilite la saisie et l’analyse des observations en mer. Elle concerne tous les types d’observations : mammifères marins, tortues marines, poissons, oiseaux, mais aussi les activités humaines, telles que la plaisance, la pêche, la pollution, etc.
 
 ![](/img/meduse.png)
 
 #### Pour les méduses :
 
-[Le portail d'observation de méduses en Méditerranée](http://meduse.acri.fr/home/home.php) a été mis en place dans le but de recenser la présence ou l'absence de méduses dans les eaux côtières méditerranéennes et en particulier celles de la Région Provence-Alpes-Côte-d’Azur.
+**[Le portail d'observation de méduses en Méditerranée](http://meduse.acri.fr/home/home.php)** a été mis en place dans le but de recenser la présence ou l'absence de méduses dans les eaux côtières méditerranéennes et en particulier celles de la Région Provence-Alpes-Côte-d’Azur.
 
 ![](/img/meduse.png)
 
 #### Pour vous aider à identifier les espèces :
 
-[Le site participatif DORIS](https://doris.ffessm.fr/) (Données d'Observations pour la Reconnaissance et l'Identification de la faune et la flore Subaquatiques) met en ligne des fiches d’espèces subaquatiques animales ou végétales, dulcicoles ou marines, des eaux françaises métropolitaines et d’outre-mer. Ces fiches, tenues régulièrement à jour, sont intégralement réalisées par des participants bénévoles, amateurs et/ou scientifiques, dans le cadre de la fédération française de plongée ([FFESSM](http://www.ffessm.fr/)) et de sa commission de biologie ([CNEBS](http://biologie.ffessm.fr/)).
+**[Le site participatif DORIS](https://doris.ffessm.fr/)** (Données d'Observations pour la Reconnaissance et l'Identification de la faune et la flore Subaquatiques) met en ligne des fiches d’espèces subaquatiques animales ou végétales, dulcicoles ou marines, des eaux françaises métropolitaines et d’outre-mer. Ces fiches, tenues régulièrement à jour, sont intégralement réalisées par des participants bénévoles, amateurs et/ou scientifiques, dans le cadre de la fédération française de plongée ([FFESSM](http://www.ffessm.fr/)) et de sa commission de biologie ([CNEBS](http://biologie.ffessm.fr/)).
 
 ### Pollutions
 
@@ -59,7 +58,7 @@ Pour signaler une pollution en mer, contacter le [CROSS MED](http://www.dirm.med
 
 ![](/img/enginsdepeche.png)
 
-[GHOST MED](https://www.mio.univ-amu.fr/ghostmed/) s’inscrit dans une démarche de sciences participatives et vise à récolter des informations concernant les engins de pêche perdus. Leur signalisation permet ensuite aux gestionnaires d’aires marines de retirer les filets quand cela est possible.
+**[GHOST MED](https://www.mio.univ-amu.fr/ghostmed/)** s’inscrit dans une démarche de sciences participatives et vise à récolter des informations concernant les engins de pêche perdus. Leur signalisation permet ensuite aux gestionnaires d’aires marines de retirer les filets quand cela est possible.
 
 ---
 

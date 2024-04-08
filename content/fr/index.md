@@ -1,7 +1,6 @@
 ---
 title: Homepage
-menu:
-  show: false
+navigation: false
 slug: index
 ---
 Le **Ca**rnet de **P**longée **e**n **L**igne (**CaPeL**) a pour objectif

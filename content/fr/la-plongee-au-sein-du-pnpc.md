@@ -1,9 +1,8 @@
 ---
 title: La plongée au sein du Parc national de Port-Cros
-menu:
-  show: true
-  title: La plongée
-  weight: 1
+navigation: true
+menu_title: La plongée
+weight: 1
 slug: la-plongee-au-sein-du-pnpc
 description: Dès les années 90, une charte volontaire proposait une gestion de
   la plongée à Port-Cros, depuis 2016, le règlement a pris le relai et renforce
@@ -28,8 +27,6 @@ A la fin des années 90, le Parc engage une réflexion sur l’évolution de la 
 
 ![](/img/PNPC_000912_2.jpg "Respecter la Charte de plongée_Copyright : Joan")
 
-Respecter la Charte de plongée_Copyright : Joan
-
 La poursuite de la concertation entre les acteurs de la plongée sous-marine et le Parc national de Port-Cros s'est concrétisée en 2004 par la mise en place de la charte de plongée partenariale obligatoire pour les structures et les particuliers.
 
 ## 2004 à 2016 : Charte obligatoire pour tous, autorisation délivrée par le directeur
@@ -53,11 +50,11 @@ Ces sites de plongée bénéficient d’un environnement préservé favorable à
 
 ## Autorisation de plongée
 
-La plongée en scaphandre autonome est interdite dans les eaux des cœurs marins du Parc national de Port-Cros sauf autorisation délivrée par le Directeur. Pour l'obtenir, il est nécessaire de s'engager à respecter le règlement de plongée.
+La plongée en scaphandre autonome est interdite dans les eaux des cœurs marins du Parc national de Port-Cros sauf autorisation délivrée par le Directeur. Pour l'obtenir, il est nécessaire de s'engager à respecter le _[règlement de plongée](https://capel.portcros-parcnational.fr/www.portcros-parcnational.fr/fr/download/file/fid/9632)_.
 
-Obtenir l'autorisation de plongée : s'inscrire et signer le règlement.
+Obtenir l'autorisation de plongée : [s'inscrire](https://capel.portcros-parcnational.fr/inscription) et signer le règlement.
 
-Consulter la réglementation.
+Consulter la [réglementation](/reglementation).
 
 ## Déclaration des plongées
 
@@ -65,6 +62,6 @@ La délivrance de l'autorisation est conditionnée à la transmission déclarati
 
 Une bonne gestion des milieux et des espaces par le Parc national est liée à une connaissance fine de la fréquentation de ses territoires, terrestres ou marins. Ces informations sont indispensables, notamment pour anticiper d'éventuels conflits d'usages ou, le cas échéant, pour adapter l'accueil aux supports de plongée dans un souci permanent d'équilibre entre les différentes activités nautiques.
 
-Le site CaPeL a vu le jour pour faciliter la déclaration des plongées et permet de le faire quotidiennement. Ainsi, tout plongeur ou structure ayant obtenu son autorisation de plongée en cœur de Parc national est invité à déclarer ses plongées.
+Le site **CaPeL** a vu le jour pour faciliter la déclaration des plongées et permet de le faire quotidiennement. Ainsi, tout plongeur ou structure ayant obtenu son autorisation de plongée en cœur de Parc national est invité à déclarer ses plongées.
 
 La coopération est basée sur le dialogue et mue par un intérêt partagé pour le milieu marin et sa protection. Les données relatives à ces activités sont précieuses et permettent d'assurer une pratique durable dans le respect des hommes et des lieux.  Une attention particulière est demandée au plongeur lors des déclarations des plongées sur le site.

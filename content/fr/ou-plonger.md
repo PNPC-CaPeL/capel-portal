@@ -1,9 +1,8 @@
 ---
 title: Où plonger ?
-menu:
-  show: true
-  title: Où plonger
-  weight: 2
+navigation: true
+menu_title: Où plonger
+weight: 2
 slug: ou-plonger
 description: Bla blab Un parc national est un territoire d’exception ouvert à
   tous mais sous la responsabilité de chacun. Il est protégé par une
@@ -21,6 +20,8 @@ Le Parc national de Port-Cros bénéficie d’une topographie favorable à l’a
 * [Grottes semi obscures](https://inpn.mnhn.fr/habitat/cd_hab/9284)
 * [Bancs de sable](https://inpn.mnhn.fr/habitat/cd_hab/1173/tab/description)
 
+![](/img/CAPEL_Biocenoses.jpeg)
+
 ## Les sites de plongée
 
 ::carte
@@ -28,16 +29,20 @@ Le Parc national de Port-Cros bénéficie d’une topographie favorable à l’a
 
 ## Avec qui plonger dans les eaux du Parc national de Port-Cros ?
 
-•  Choisir une structure partenaire.
+Choisir une [structure partenaire](https://capel.portcros-parcnational.fr/partenaires).
 
 ## Les épaves
 
 De l'antiquité au XXe siècle, les fonds marins des îles de Porquerolles et de  Port-Cros recèlent des traces du passé.
 Plusieurs épaves de navires de commerce et des vestiges archéologiques isolés témoignent de l’intense activité commerciale existant depuis l’Antiquité entre les différentes civilisations méditerranéennes. Des heures de découverte pour les plongeurs les plus avertis.
 
-* Les épaves dans les eaux du parc national de Port-Cros.
-* L'atlas PALM du DRASSM.
+* Les [épaves](http://www.portcros-parcnational.fr/fr/des-connaissances/patrimoine-culturel/les-epaves) dans les eaux du parc national de Port-Cros.
+* L'atlas [PALM](http://www.atlaspalm.fr/index.html) du DRASSM.
 
 ## Le réseau des sentiers sous-marins du Parc national
 
-Au nombre de neuf, les sentiers sous marins partenaires du Parc national de Port-Cros vous accueillent à la Garde, au Pradet, au Rayol, à Hyères, à Ramatuelle et à la Croix Valmer. Consulter la  brochure des sentiers sous-marins.
+![](/img/CARTE_sentiers-sous-marin_red.jpg)
+
+Au nombre de neuf, [les sentiers sous marins partenaires du Parc national de Port-Cros](http://www.portcros-parcnational.fr/fr/des-decouvertes/une-destination-dexception/des-decouvertes-en-toutes-saisons/les-sentiers-sous) vous accueillent à la Garde, au Pradet, au Rayol, à Hyères, à Ramatuelle et à la Croix Valmer. Consulter [la brochure des sentiers sous-marins](https://fr.calameo.com/read/000318363320cc568f95e).
+
+![](/img/PNPC_004024red.jpg "Sentier sous-marin de La Palud_Copyright : Déclic Bleu Méditerranée")

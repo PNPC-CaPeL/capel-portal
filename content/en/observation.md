@@ -1,9 +1,8 @@
 ---
 title: We are interested in your observations
-menu:
-  show: true
-  title: Observations
-  weight: 4
+navigation: true
+menu_title: Observations
+weight: 4
 slug: observation
 description: Your observations are useful; they feed into national
   databases databases and help to improve our knowledge of nature,
