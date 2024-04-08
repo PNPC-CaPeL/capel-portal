@@ -1,7 +1,9 @@
 ---
 title: Où plonger ?
-menuTitle: Où plonger
-navigation: true
+menu:
+  show: true
+  title: Où plonger
+  weight: 2
 slug: ou-plonger
 description: Bla blab Un parc national est un territoire d’exception ouvert à
   tous mais sous la responsabilité de chacun. Il est protégé par une

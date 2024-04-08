@@ -1,7 +1,9 @@
 ---
 title: Where to dive?
-menuTitle: Where to dive
-navigation: true
+menu:
+  show: true
+  title: Where to dive
+  weight: 2
 slug: ou-plonger
 description: A national park is an exceptional area open to all, but under the
   responsibility of each individual. It is protected by specific regulations on

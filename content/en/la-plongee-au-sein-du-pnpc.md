@@ -1,7 +1,9 @@
 ---
 title: Diving in Port-Cros National Park
-menuTitle: Diving
-navigation: true
+menu:
+  show: true
+  title: Diving
+  weight: 1
 slug: la-plongee-au-sein-du-pnpc
 description: Since the 90s, a voluntary charter has proposed a management system
   for diving at Port-Cros. Since 2016, the regulations have taken over,
