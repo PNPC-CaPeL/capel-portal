@@ -7,6 +7,33 @@
     "signIn": "Se connecter",
     "declareDive": "Déclarer une plongée"
   },
+  "signUp": {
+    "mandatory": "Champ obligatoire",
+    "error": {
+      "mandatory": "Le champ est obligatoire.",
+      "email": "L'e-mail est invalide."
+    },
+    "post": {
+      "success": {
+        "title": "Merci de votre inscription,",
+        "thanks": "Vous êtes bien inscrit sur le carnet de plongée CaPeL, nous vous en remercions.",
+        "email": "Vous allez recevoir un mail vous invitant à activer votre compte et renseigner votre mot de passe.",
+        "spamWarning" : "Attention, veillez à bien vérifier votre dossier spam ou vos outils de filtrage, certaines messageries classent automatiquement ces mails dedans."
+      },
+      "error": {
+        "title": "Plouf !",
+        "failed": "Votre inscription a échoué... sur un rivage inconnu ?!",
+        "sorry": "Merci de réessayer ou de prendre contact avec le Parc directement pour remonter l'anomalie... Désolé."
+      }
+    },
+    "identity": "Identité",
+    "email": "E-mail",
+    "accountType": "Type de compte",
+    "diveStructure": "Structure de plongée",
+    "individualDive": "Plongeur individuel",
+    "nomStructure": "Nom de la structure",
+    "createAccount": "Créer mon compte CaPeL"
+  },
   "footer": {
     "documentaryResources": "Les ressources documentaires :",
     "regulatoryTexts": "Textes réglementaires",

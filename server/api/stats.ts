@@ -6,7 +6,6 @@ export default defineEventHandler(async (event) => {
   const client = new lckClient(
     config.LCK_BASE_PATH,
     config.LCK_DB_UUID,
-    config.LCK_SETTINGS_UUID,
     config.LCK_USERNAME,
     config.LCK_PASSWORD,
   )

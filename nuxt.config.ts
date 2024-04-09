@@ -96,9 +96,11 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
+    public: {
+      N8N_WEBHOOK_HUB_URL: '', // see NUXT_N8N_WEBHOOK_HUB_URL in .env
+    },
     LCK_BASE_PATH: '', // see NUXT_LCK_BASE_PATH in .env
     LCK_DB_UUID: '', // see NUXT_LCK_DB_UUID in .env
-    LCK_SETTINGS_UUID: '', // see NUXT_LCK_SETTINGS_UUID in .env
     LCK_USERNAME: '', // see NUXT_LCK_USERNAME in .env
     LCK_PASSWORD: '', // see NUXT_LCK_PASSWORD in .env
   },

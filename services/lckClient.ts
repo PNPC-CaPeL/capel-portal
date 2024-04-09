@@ -13,63 +13,9 @@ export const enum LCK_TABLES {
   DIVISIONS = 'db2410a5-eb4e-4add-98c3-e690212d2ab5',
 }
 
-interface LckSettings {
-  key: string
-  text_value: string
-}
-
-interface LckSchema {
-  id: string
-  text: string
-  workspace_id: string
-  tables: Array<LckTable>
-}
-interface LckTable {
-  id: string
-  text: string
-  database_id: string
-  slug: string | null
-  columns: Array<LckColumn>
-  views: { [key: string]: LckView }
-}
-interface LckView {
-  id: string
-  text: string
-  table_id: string
-  // filter: null,
-  columns: Array<LckColumn>
-}
-interface LckColumn {
-  id: string
-  text: string
-  settings: LckSettings
-  // "position": null,
-  // "reference": false,
-  // "reference_position": 0,
-  table_id: string
-  column_type_id: number
-  slug: string | null
-  parents: Array<LckColumn> // @todo à vérifier
-}
-interface LckSettings {
-  tableId: string | null
-  localField: string | null
-  foreignField: string | null
-  values: Record<
-    string,
-    {
-      color: string
-      label: string
-      position: number
-      backgroundColor: string
-    }
-  > | null
-}
-
 export default class lckClient {
   basePath: string
   dbUuid: string
-  settingsTableUuid: string
   username: string
   password: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -79,18 +25,15 @@ export default class lckClient {
   groupId: string | null = null
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   schema: LckSchema | null = null
-  settings: Array<LckSettings> = []
 
   constructor(
     basePath: string,
     dbUuid: string,
-    settingsTableUuid: string,
     username: string,
     password: string,
   ) {
     this.basePath = basePath
     this.dbUuid = dbUuid
-    this.settingsTableUuid = settingsTableUuid
     this.username = username
     this.password = password
 
@@ -261,4 +204,57 @@ export const transposeByLabel = (tableRows: any, tableSchema: LckTable) => {
 
 export type RawLckData = {
   [key: string]: string | boolean | null
+}
+
+interface LckSettings {
+  key: string
+  text_value: string
+}
+
+interface LckSchema {
+  id: string
+  text: string
+  workspace_id: string
+  tables: Array<LckTable>
+}
+interface LckTable {
+  id: string
+  text: string
+  database_id: string
+  slug: string | null
+  columns: Array<LckColumn>
+  views: { [key: string]: LckView }
+}
+interface LckView {
+  id: string
+  text: string
+  table_id: string
+  // filter: null,
+  columns: Array<LckColumn>
+}
+interface LckColumn {
+  id: string
+  text: string
+  settings: LckSettings
+  // "position": null,
+  // "reference": false,
+  // "reference_position": 0,
+  table_id: string
+  column_type_id: number
+  slug: string | null
+  parents: Array<LckColumn> // @todo à vérifier
+}
+interface LckSettings {
+  tableId: string | null
+  localField: string | null
+  foreignField: string | null
+  values: Record<
+    string,
+    {
+      color: string
+      label: string
+      position: number
+      backgroundColor: string
+    }
+  > | null
 }

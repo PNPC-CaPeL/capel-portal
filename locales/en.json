@@ -7,6 +7,33 @@
     "signIn": "Sign in",
     "declareDive": "Declare a dive"
   },
+  "signUp": {
+    "mandatory": "Mandatory field",
+    "error": {
+      "mandatory": "Field is mandatory.",
+      "email": "Given e-mail is invalid."
+    },
+    "post": {
+      "success": {
+        "title": "Thank you for registering,",
+        "thanks": "You are now correctly enrolled in the CaPeL logbook. Thank you.",
+        "email": "You will receive an e-mail inviting you to activate your account and enter your password.",
+        "spamWarning" : "Be sure to check your spam folder or your filtering tools, as some e-mail systems automatically file these e-mails in there."
+      },
+      "error": {
+        "title": "Splash!",
+        "failed": "Your entry has washed up... on an unknown shore?!",
+        "sorry": "Please try again or contact the Park directly to report the problem... Sorry for the inconvenience."
+      }
+    },
+    "identity": "Identity",
+    "email": "E-mail",
+    "accountType": "Type of account",
+    "diveStructure": "Dive structure",
+    "individualDive": "Individual diver",
+    "nomStructure": "Structure name",
+    "createAccount": "Create my CaPeL account"
+  },
   "footer": {
     "documentaryResources": "Documentary resources:",
     "regulatoryTexts": "Regulatory texts",

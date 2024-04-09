@@ -10,7 +10,10 @@
       />
     </div>
     <main class="content container mx-auto mt-8 text-base text-black">
-      <ContentRenderer :value="data">
+      <ContentRenderer
+        v-if="data"
+        :value="data"
+      >
         <h1 class="font-bold text-5xl mt-8 mb-4">
           {{ data.title }}
         </h1>
