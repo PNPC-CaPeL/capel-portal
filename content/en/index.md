@@ -1,7 +1,7 @@
 ---
 title: Homepage
-navigation: false
 slug: index
+navigation: false
 ---
 The **Ca**rnet de **P**longée **e**n **L**igne (**CaPeL**) aims to facilitate
 your administrative procedures (electronic signature of charter and the transmission
