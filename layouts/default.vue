@@ -2,19 +2,19 @@
   <div>
     <header class="">
       <div
-        class="min-h-28 container mx-auto py-4 gap-4 flex flex-col lg:flex-row justify-between items-center"
+        class="min-h-28 lg:container mx-auto gap-4 flex flex-col lg:flex-row justify-between items-center"
       >
         <NuxtLink
           :to="localePath('/')"
           :title="$t('getBackHome')"
-          class="h-28"
+          class="h-28 py-4"
         >
           <img
             class="h-full"
             src="/logo.svg"
           />
         </NuxtLink>
-        <CapelMenu />
+        <CapelMenu class="w-full" />
       </div>
     </header>
     <slot />

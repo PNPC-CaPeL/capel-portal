@@ -13,7 +13,7 @@
         <ContentRendererMarkdown :value="data" />
       </ContentRenderer>
     </div>
-    <div class="w-fit md:w-1/3 flex flex-col items-center p-4">
+    <div class="w-full md:w-1/3 flex flex-col items-center p-4">
       <CapelInscriptionForm />
     </div>
   </main>

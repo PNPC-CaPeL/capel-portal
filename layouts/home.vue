@@ -2,34 +2,48 @@
   <div>
     <header class="">
       <div
-        class="min-h-28 container mx-auto flex gap-4 flex-col xl:flex-row justify-between items-center"
+        class="min-h-28 lg:container mx-auto flex flex-wrap gap-4 justify-center lg:justify-between items-center"
       >
-        <ul class="mt-4 flex justify-center items-center w-full xl:w-1/2 gap-6">
-          <li
-            v-for="partenaire of partenaireList"
-            :key="partenaire.libelle"
-          >
-            <a
-              :href="partenaire.lien"
-              target="_blank"
-            >
-              <img
-                :src="partenaire.img"
-                :class="['w-auto', partenaire.height]"
-              />
-            </a>
-          </li>
-        </ul>
-        <CapelMenu />
+        <CapelMenu class="w-full md:w-fit md:p-0 md:order-last" />
+        <a
+          title="Le Parc national de Port-Cros"
+          href="https://www.portcros-parcnational.fr"
+          target="_blank"
+          class="mt-4"
+        >
+          <img
+            src="/pnpc-white.png"
+            class="w-auto max-h-24"
+          />
+        </a>
       </div>
       <div
         class="container mx-auto py-12 flex gap-12 flex-col md:flex-row justify-around items-center"
       >
-        <div class="w-full md:w-2/3">
+        <div class="mt-4 w-full md:w-2/3 flex flex-col items-center">
           <img
             class="h-full mx-auto"
             src="/logo.svg"
           />
+          <ul
+            class="mt-4 flex justify-center flex-wrap items-center w-full xl:w-1/2 gap-6"
+          >
+            <li
+              v-for="partenaire of partenaireList"
+              :key="partenaire.libelle"
+            >
+              <a
+                :title="partenaire.libelle"
+                :href="partenaire.lien"
+                target="_blank"
+              >
+                <img
+                  :src="partenaire.img"
+                  :class="['w-auto', partenaire.height]"
+                />
+              </a>
+            </li>
+          </ul>
         </div>
         <div
           class="w-fit md:w-1/3 flex flex-col items-center py-8 md:py-16 px-4 rounded bg-white/60"
@@ -63,12 +77,6 @@
 
 <script setup lang="ts">
 const partenaireList = [
-  {
-    libelle: 'Le Parc national de Port-Cros',
-    img: '/pnpc-white.png',
-    lien: 'https://www.portcros-parcnational.fr',
-    height: 'max-h-24',
-  },
   {
     libelle: 'Life Marha',
     img: '/marha.png',

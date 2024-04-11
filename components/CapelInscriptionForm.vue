@@ -3,6 +3,7 @@
     <form
       v-if="!error && !submitted"
       noValidate
+      class="w-full"
       @submit.prevent="postForm"
     >
       <div>

@@ -1,11 +1,12 @@
 <template>
-  <div class="flex flex-col justify-center md:items-end">
-    <ul
-      class="list-none flex flex-wrap lg:justify-end gap-4 text-capel-blue-200"
-    >
+  <div
+    class="flex flex-col justify-center items-end p-1 bg-capel-blue-500/60 md:bg-transparent"
+  >
+    <ul class="list-none flex flex-wrap md:justify-end text-capel-blue-200">
       <li
         v-for="item in locales"
         :key="item.code"
+        class="p-1"
       >
         <NuxtLink
           :to="switchLocalePath(item.code)"
@@ -15,12 +16,11 @@
         </NuxtLink>
       </li>
     </ul>
-    <ul
-      class="list-none flex flex-wrap lg:justify-end gap-4 text-capel-blue-200"
-    >
+    <ul class="list-none flex flex-wrap justify-end text-capel-blue-200">
       <li
         v-for="link of localizedNavigation"
         :key="link._path"
+        class="px-2 py-0"
       >
         <NuxtLink
           :to="link._path.replace('/fr', '')"

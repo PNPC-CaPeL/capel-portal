@@ -22,13 +22,16 @@ form {
     &.error {
       @apply border-red-500
     }
-    @apply border-b border-black p-1
+    @apply border-b border-capel-blue-500 p-1
+  }
+  input[type="radio"] {
+    @apply accent-capel-blue-500
   }
   button {
     &:disabled {
       @apply bg-gray-300 text-gray-400
     }
-    @apply px-4 py-2 w-fit drop-shadow uppercase rounded text-center tracking-widest font-medium text-white bg-capel-blue hover:bg-capel-blue-800
+    @apply px-4 py-2 w-fit drop-shadow rounded text-center tracking-widest font-medium text-white bg-capel-blue hover:bg-capel-blue-800
   }
   p.error-message {
     @apply text-red-500 text-sm italic
