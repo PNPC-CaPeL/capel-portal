@@ -14,7 +14,7 @@
       {{ $t('ourDivingAreas') }}
     </h2>
     <CapelMap class="container mx-auto" />
-    <CapelPageGrid class="container mx-auto" />
+    <CapelMenuGrid class="container mx-auto" />
   </div>
 </template>
 

@@ -91,7 +91,7 @@ export default {
           // const [lon, lat] = aire.geojson.coordinates
 
           L.geoJSON(aire.geojson, {
-            style: getStyle(String(aire.style)),
+            style: getPathOptions(String(aire.style)),
           })
             .addTo(this.map)
             .bindTooltip(String(aire.nom), { offset: [10, 0], sticky: true })
@@ -104,7 +104,7 @@ export default {
           // const [lon, lat] = aire.geojson.coordinates
 
           L.geoJSON(zone.geojson, {
-            style: getStyle(String(zone.style)),
+            style: getPathOptions(String(zone.style)),
           })
             .addTo(this.map)
             .bindTooltip(
@@ -120,7 +120,7 @@ export default {
           // const [lon, lat] = aire.geojson.coordinates
 
           L.geoJSON(division.geojson, {
-            style: getStyle(String(division.style)),
+            style: getPathOptions(String(division.style)),
           })
             .addTo(this.map)
             .bindTooltip(String(division.nom), {

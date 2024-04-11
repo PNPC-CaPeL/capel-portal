@@ -1,5 +1,5 @@
 <template>
-  <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full mt-2">
+  <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full mt-10">
     <li
       v-for="item of localizedNavigation"
       :key="item.id"
