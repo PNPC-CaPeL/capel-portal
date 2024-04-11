@@ -9,6 +9,9 @@
           :title="$t('getBackHome')"
           class="h-28 py-4"
         >
+          <span class="sr-only">
+            CaPel, Carnet de Plongée en Ligne, Parc National de Port-Cros
+          </span>
           <img
             class="h-full"
             src="/logo.svg"

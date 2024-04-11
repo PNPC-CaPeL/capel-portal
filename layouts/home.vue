@@ -21,6 +21,9 @@
         class="container mx-auto py-12 flex gap-12 flex-col md:flex-row justify-around items-center"
       >
         <div class="mt-4 w-full md:w-2/3 flex flex-col items-center">
+          <h1 class="sr-only">
+            CaPel, Carnet de Plongée en Ligne, Parc National de Port-Cros
+          </h1>
           <img
             class="h-full mx-auto"
             src="/logo.svg"
