@@ -29,7 +29,7 @@ export default defineEventHandler(async (event) => {
     .map<Structure>((item) => {
       return {
         id: item.id,
-        nom: item.nom,
+        nom: item.Nom,
         adresse: item.Adresse,
         codePostal: item['Code postal'],
         ville: item.Ville,
