@@ -1,9 +1,9 @@
 ---
 title: Où plonger ?
+slug: ou-plonger
 navigation: true
 menu_title: Où plonger
 weight: 2
-slug: ou-plonger
 description: Bla blab Un parc national est un territoire d’exception ouvert à
   tous mais sous la responsabilité de chacun. Il est protégé par une
   réglementation spécifique sur la circulation, le mouillage, la plongée et la
@@ -24,7 +24,9 @@ Le Parc national de Port-Cros bénéficie d’une topographie favorable à l’a
 
 ## Les sites de plongée
 
+
 :carte
+          
 
 ## Avec qui plonger dans les eaux du Parc national de Port-Cros ?
 
