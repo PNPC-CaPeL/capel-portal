@@ -9,9 +9,11 @@
         class="flex flex-col items-center"
       >
         <div class="max-w-[80vw] max-h-[290px] md:h-[290px] overflow-hidden">
-          <img
+          <NuxtImg
             :src="item?.image"
             class="w-full h-full object-cover"
+            height="290px"
+            format="webp"
           />
         </div>
         <p class="text-xl m-6 uppercase text-center font-bold text-capel-blue">

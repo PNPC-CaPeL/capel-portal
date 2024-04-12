@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/i18n', '@nuxt/content', '@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/i18n', '@nuxt/content', '@nuxtjs/tailwindcss', '@nuxt/image',],
   devtools: { enabled: false },
   ssr: true,
   experimental: {

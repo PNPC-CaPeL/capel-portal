@@ -1,19 +1,21 @@
 <template>
   <figure v-if="$attrs.title">
-    <img
+    <NuxtImg
       :src="refinedSrc"
       :alt="alt"
       :width="width"
       :height="height"
+      format="webp"
     />
     <figcaption>{{ $attrs.title }}</figcaption>
   </figure>
-  <img
+  <NuxtImg
     v-else
     :src="refinedSrc"
     :alt="alt"
     :width="width"
     :height="height"
+    format="webp"
   />
 </template>
 

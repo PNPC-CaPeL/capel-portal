@@ -4,9 +4,10 @@
       v-if="data?.image"
       class="w-full h-[200px] md:h-[350px] lg:h-[450px]"
     >
-      <img
+      <NuxtImg
         :src="data?.image"
         class="w-full h-full object-cover"
+        format="webp"
       />
     </div>
     <main class="content container mx-auto mt-8 text-base text-black">

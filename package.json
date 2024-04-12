@@ -16,6 +16,7 @@
     "@feathersjs/rest-client": "^4.5.11",
     "@locokit/lck-glossary": "^0.3.7",
     "@nuxt/content": "^2.12.1",
+    "@nuxt/image": "^1.5.0",
     "@terraformer/wkt": "^2.2.0",
     "@types/wellknown": "^0.5.8",
     "leaflet": "^1.9.4",
