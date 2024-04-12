@@ -24,8 +24,7 @@ Le Parc national de Port-Cros bénéficie d’une topographie favorable à l’a
 
 ## Les sites de plongée
 
-::carte
-::
+:carte
 
 ## Avec qui plonger dans les eaux du Parc national de Port-Cros ?
 

@@ -22,8 +22,7 @@ Le réseau des partenaires s’engage à diffuser largement et lors de chaque pl
 
 **Structures et associations.**
 
-::carte
-::
+:carte
 
 ## Les fédérations
 

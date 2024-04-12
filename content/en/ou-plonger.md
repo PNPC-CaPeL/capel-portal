@@ -22,9 +22,7 @@ Bla bla The topography of the Port-Cros National Park is ideal for diving. In fa
 
 ## Les sites de plongée
 
-::carte
-
-::
+:carte
 
 ## Avec qui plonger dans les eaux du Parc national de Port-Cros ?
 
