@@ -14,7 +14,7 @@
       CMS.registerEditorComponent({
         id: "carte",
         label: "Carte interactive",
-        pattern: /^\n:carte\n$/ms,
+        pattern: /^:carte$/ms,
         // Given a RegExp Match object
         // (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match#return_value),
         // return an object with one property for each field defined in `fields`.
@@ -31,14 +31,14 @@
         toBlock: function(data) {
           return `
 :carte
-          `;
+`;
         },
         // Preview output for this component. Can either be a string or a React component
         // (component gives better render performance)
         toPreview: function(data) {
           return `
 :carte
-          `;
+`;
         }
       });
     </script>
