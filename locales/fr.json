@@ -34,6 +34,23 @@
     "nomStructure": "Nom de la structure",
     "createAccount": "Créer mon compte CaPeL"
   },
+  "map": {
+    "legend": {
+      "divingProhibited": "Plongée interdite",
+      "divingProhibitedAprilToSeptember": "Plongée interdite du 1er avril au 30 septembre",
+      "divingProhibitedAprilToOctober": "Plongée interdite du 1er Avril au 30 octobre",
+      "berthingMooringDisembarkingProhibited": "Accostage, amarrage et débarquement interdits",
+      "anchoringProhibited": "Mouillage interdit sauf sur dispositif de plongée",
+      "divingWithAuthorisation": "Plongée soumise à autorisation",
+      "spotNatural": "Spot (naturel)",
+      "spotNaturalMooring": "Spot avec amarrage (naturel)",
+      "spotNaturalContributed": "Spot contribué (naturel)",
+      "spotWreck": "Spot (épave)",
+      "spotWreckMooring": "Spot avec amarrage (épave)",
+      "spotWreckContributed": "Spot contribué (épave)",
+      "partner": "Structure partenaire"
+    }
+  },
   "footer": {
     "documentaryResources": "Les ressources documentaires :",
     "regulatoryTexts": "Textes réglementaires",

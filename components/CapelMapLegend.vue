@@ -1,5 +1,7 @@
 <template>
-  <div class="mt-2 flex gap-12 justify-center text-sm font-normal">
+  <div
+    class="mt-2 flex flex-col lg:flex-row gap-6 lg:gap-12 justify-center text-sm font-normal"
+  >
     <ul
       v-for="(column, key) in legendData"
       :key="key"
@@ -25,7 +27,7 @@
           :src="'/' + item.icon + '.svg'"
           class="h-4 w-auto"
         />
-        {{ item.label }}
+        {{ $t(item.label) }}
       </li>
     </ul>
   </div>
@@ -39,71 +41,71 @@ export default {
         [
           {
             type: 'polygon',
-            label: 'Plongée interdite',
+            label: 'map.legend.divingProhibited',
             style: 'rouge',
           },
           {
             type: 'polygon',
-            label: 'Plongée interdite du 1er avril au 30 septembre',
+            label: 'map.legend.divingProhibitedAprilToSeptember',
             style: 'rouge-pointille',
           },
           {
             type: 'polygon',
-            label: 'Plongée interdite du 1er Avril au 30 octobre',
+            label: 'map.legend.divingProhibitedAprilToOctober',
             style: 'orange-pointille',
           },
         ],
         [
           {
             type: 'polygon',
-            label: 'Accostage, amarrage et débarquement interdits',
+            label: 'map.legend.berthingMooringDisembarkingProhibited',
             style: 'rouge-contour',
           },
           {
             type: 'polygon',
-            label: 'Mouillage interdit sauf sur dispositif de plongée',
+            label: 'map.legend.anchoringProhibited',
             style: 'orange',
           },
           {
             type: 'polygon',
-            label: 'Plongée soumise à autorisation',
+            label: 'map.legend.divingWithAuthorisation',
             style: 'bleu',
           },
         ],
         [
           {
             type: 'marker',
-            label: 'Spot (naturel)',
+            label: 'map.legend.spotNatural',
             icon: 'diving-mask',
           },
           {
             type: 'marker',
-            label: 'Spot avec amarrage (naturel)',
+            label: 'map.legend.spotNaturalMooring',
             icon: 'diving-mask-buoy',
           },
           {
             type: 'marker',
-            label: 'Spot contribué (naturel)',
+            label: 'map.legend.spotNaturalContributed',
             icon: 'diving-mask-user',
           },
           {
             type: 'marker',
-            label: 'Spot (épave)',
+            label: 'map.legend.spotWreck',
             icon: 'shipwreck',
           },
           {
             type: 'marker',
-            label: 'Spot avec amarrage (épave)',
+            label: 'map.legend.spotWreckMooring',
             icon: 'shipwreck-buoy',
           },
           {
             type: 'marker',
-            label: 'Spot contribué (épave)',
+            label: 'map.legend.spotWreckContributed',
             icon: 'shipwreck-user',
           },
           {
             type: 'marker',
-            label: 'Structure partenaire',
+            label: 'map.legend.partner',
             icon: 'structure',
           },
         ],
