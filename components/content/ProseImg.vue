@@ -3,6 +3,7 @@
     <NuxtImg
       :src="refinedSrc"
       :alt="alt"
+      class="mx-auto mt-8"
       :width="width"
       :height="height"
       format="webp"
@@ -13,6 +14,7 @@
     v-else
     :src="refinedSrc"
     :alt="alt"
+    class="mx-auto mt-8"
     :width="width"
     :height="height"
     format="webp"

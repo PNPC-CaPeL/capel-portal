@@ -25,7 +25,7 @@
         <img
           v-else-if="item.type == 'marker'"
           :src="'/' + item.icon + '.svg'"
-          class="h-4 w-auto"
+          class="h-auto w-6"
         />
         {{ $t(item.label) }}
       </li>
