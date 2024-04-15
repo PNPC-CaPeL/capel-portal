@@ -38,9 +38,9 @@ const { data } = await useAsyncData(file, () =>
   queryContent().where({ _file: file }).findOne(),
 )
 
-useHead({
-  title: data.value?.title ?? 'Capel',
-})
+if (data !== null) {
+  useContentHead(data)
+}
 
 const components = {
   carte: CapelMap,
