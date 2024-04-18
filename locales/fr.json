@@ -1,5 +1,4 @@
 {
-  "welcome": "Bienvenue",
   "ourDivingAreas": "Nos espaces de plongée",
   "getBackHome": "Retourner à l'accueil",
   "home": {
@@ -35,11 +34,21 @@
     "createAccount": "Créer mon compte CaPeL"
   },
   "map": {
+    "spotPopup": {
+      "type": "Type de site",
+      "level": "Niveau minimal requis",
+      "depth": "Profondeur",
+      "link": "Lien",
+      "readMore": "En savoir plus"
+    },
+    "structurePopup": {
+      "website": "Voir leur site internet"
+    },
     "legend": {
       "divingProhibited": "Plongée interdite",
       "divingProhibitedAprilToSeptember": "Plongée interdite du 1er avril au 30 septembre",
       "divingProhibitedAprilToOctober": "Plongée interdite du 1er avril au 30 octobre",
-      "berthingMooringDisembarkingProhibited": "Accostage, amarrage et débarquement interdits",
+      "dockingMooringDisembarkingProhibited": "Accostage, amarrage et débarquement interdits",
       "anchoringProhibited": "Mouillage interdit sauf sur dispositif de plongée",
       "divingWithAuthorisation": "Plongée soumise à autorisation",
       "spotNatural": "Spot (naturel)",
@@ -50,6 +59,18 @@
       "spotWreckContributed": "Spot contribué (épave)",
       "partner": "Structure partenaire"
     }
+  },
+  "stats": {
+    "registrations": {
+      "line1": "inscriptions",
+      "line2": "au carnet de plongée"
+    },
+    "registrationsIncluding": "dont {diverCount} plongeurs individuels",
+    "permits": {
+      "line1": "autorisations",
+      "line2": "délivrées"
+    },
+    "permitsIncluding": "dont {diverCount} plongeurs individuels et {organisationCount} structures"
   },
   "footer": {
     "documentaryResources": "Les ressources documentaires :",

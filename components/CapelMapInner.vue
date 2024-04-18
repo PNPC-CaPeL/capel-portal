@@ -14,6 +14,11 @@ import type { Structure } from '~/server/api/structures'
 import type { Zone } from '~/server/api/zones'
 
 export default {
+  setup() {
+    const { t } = useI18n()
+
+    return { t }
+  },
   data() {
     return { map: null as null | L.Map }
   },
@@ -67,7 +72,7 @@ export default {
           L.marker([lat, lon])
             .addTo(this.map)
             .setIcon(getSpotIcon(spot))
-            .bindPopup(getSpotInnerPopup(spot))
+            .bindPopup(getSpotInnerPopup(spot, this.t))
             .bindTooltip(String(spot.nom))
         }
       }
@@ -80,7 +85,7 @@ export default {
           L.marker([lat, lon])
             .addTo(this.map)
             .setIcon(structureIcon)
-            .bindPopup(getStructureInnerPopup(structure))
+            .bindPopup(getStructureInnerPopup(structure, this.t))
             .bindTooltip(String(structure.nom))
         }
       }

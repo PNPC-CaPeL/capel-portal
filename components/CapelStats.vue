@@ -9,11 +9,12 @@
             {{ userCount }}
           </div>
           <div class="text-2xl leading-7 font-medium">
-            inscriptions<br />
-            au carnet de plongée
+            {{ $t('stats.registrations.line1') }}
+            <br>
+            {{ $t('stats.registrations.line2') }}
           </div>
         </div>
-        <div>dont {{ stats?.plongeurCount ?? '-' }} plongeurs individuels</div>
+        <div>{{ $t('stats.registrationsIncluding', {diverCount: stats?.plongeurCount ?? '-'}) }}</div>
       </div>
       <div>
         <div class="flex gap-2 items-end">
@@ -21,14 +22,13 @@
             {{ stats?.signatureCount ?? '-' }}
           </div>
           <div class="text-2xl leading-7 font-medium">
-            autorisations
-            <br />
-            délivrées
+            {{ $t('stats.permits.line1') }}
+            <br>
+            {{ $t('stats.permits.line2') }}
           </div>
         </div>
         <div>
-          dont {{ stats?.signaturePlongeurCount ?? '-' }} plongeurs individuels
-          et {{ stats?.signatureStructureCount ?? '-' }} structures
+          {{ $t('stats.permitsIncluding', {diverCount: stats?.signaturePlongeurCount ?? '-', organisationCount:stats?.signatureStructureCount ?? '-' }) }}
         </div>
       </div>
     </div>

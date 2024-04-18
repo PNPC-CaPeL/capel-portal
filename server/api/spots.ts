@@ -22,9 +22,9 @@ export default defineEventHandler(async (event) => {
         id: item.id,
         nom: item.Nom,
         popupData: {
-          'Type de site': item['Type de site'],
-          'Niveau minimal requis': item['Niveau minimal requis'],
-          Profondeur: item['Profondeur'],
+          type: item['Type de site'],
+          level: item['Niveau minimal requis'],
+          depth: item['Profondeur'],
         },
         type: item['Type de site'],
         statut: item.Statut,

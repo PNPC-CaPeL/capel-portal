@@ -58,7 +58,7 @@ export default {
         [
           {
             type: 'polygon',
-            label: 'map.legend.berthingMooringDisembarkingProhibited',
+            label: 'map.legend.dockingMooringDisembarkingProhibited',
             style: 'rouge-contour',
           },
           {

@@ -1,5 +1,4 @@
 {
-  "welcome": "Welcome",
   "ourDivingAreas": "Our diving areas",
   "getBackHome": "Go back to home page",
   "home": {
@@ -35,36 +34,58 @@
     "createAccount": "Create my CaPeL account"
   },
   "map": {
+    "spotPopup": {
+      "type": "Type of site",
+      "level": "Minimum level required",
+      "depth": "Depth",
+      "link": "Link",
+      "readMore": "Read more"
+    },
+    "structurePopup": {
+      "website": "Visit their website"
+    },
     "legend": {
       "divingProhibited": "Diving prohibited",
       "divingProhibitedAprilToSeptember": "Diving prohibited from 1st April to 30th Septembe",
-      "divingProhibitedAprilToOctober": "Diving prohibited from 1 April to 30 October",
-      "berthingMooringDisembarkingProhibited": "Berthing, mooring and disembarking prohibited",
-      "anchoringProhibited": "Anchoring prohibited except on diving equipment",
+      "divingProhibitedAprilToOctober": "Diving prohibited from 1st April to 30th October",
+      "dockingMooringDisembarkingProhibited": "Docking, mooring and disembarking prohibited",
+      "anchoringProhibited": "Anchoring prohibited except at mooring facilities for dive vessels",
       "divingWithAuthorisation": "Diving subject to authorisation",
-      "spotNatural": "Spot (natural)",
-      "spotNaturalMooring": "Spot with mooring (natural)",
-      "spotNaturalContributed": "Contributed spot (natural)",
-      "spotWreck": "Spot (wreck)",
-      "spotWreckMooring": "Spot with mooring (wreck)",
-      "spotWreckContributed": "Contributed spot (wreck)",
-      "partner": "Partner structure"
+      "spotNatural": "Dive site (natural)",
+      "spotNaturalMooring": "Dive site with mooring (natural)",
+      "spotNaturalContributed": "Suggested dive site (natural)",
+      "spotWreck": "Dive site (wreck)",
+      "spotWreckMooring": "Dive site with mooring (wreck)",
+      "spotWreckContributed": "Suggested dive site (wreck)",
+      "partner": "Partner organisation"
     }
   },
+  "stats": {
+    "registrations": {
+      "line1": "logbook",
+      "line2": "registrations"
+    },
+    "registrationsIncluding": "including {diverCount} individual divers",
+    "permits": {
+      "line1": "permits",
+      "line2": "issued"
+    },
+    "permitsIncluding": "to {diverCount} individuals and {organisationCount} organisations"
+  },
   "footer": {
-    "documentaryResources": "Documentary resources:",
-    "regulatoryTexts": "Regulatory texts",
+    "documentaryResources": "Partner organisation:",
+    "regulatoryTexts": "Regulations",
     "mapPortCrosNationalPark": "Map of the Port-Cros National Park",
-    "ministryEcologicalTransition": "Ministry of Ecological Transition and Solidarity",
+    "ministryEcologicalTransition": "French Ministry of Ecological Transition and Territorial Cohesion",
     "frenchOfficeBiodiversity": "French Office for Biodiversity",
     "pelagosSanctuary": "Pelagos Sanctuary, French part",
     "portCrosNationalPark": "Port-Cros National Park",
     "nationalParkInBrief": "The National Park in brief",
-    "publicEstablishment": "The public establishment",
+    "publicEstablishment": "A public facility",
     "pnpcCharter": "The PNPC charter",
-    "publicContracts": "Public contracts",
+    "publicContracts": "Public tenders",
     "jobOffers": "Job offers",
-    "compendiumAdministrativeActs": "Compendium of administrative acts",
+    "compendiumAdministrativeActs": "List of administrative decisions",
     "contactUs": "Contact us:",
     "tel": "Tel.",
     "contactForm": "Contact form:"
