@@ -63,3 +63,9 @@ I control my speed and slow down to less than 12 knots when within 600 metres of
 Before stopping, I check the sailing instructions to see if I can anchor or if I must moor at a specific facility (Bagaud Mooring and Light Equipment Zone). I always choose a sandy area to anchor so as not to damage the seabed. I don’t moor to “diving buoys” unless I am a scuba diver. I don't feed any animals (birds, fish, etc.). I don't throw away rubbish or waste water, I don't use toxic products to clean my boat, and I take care with the oil and fuel in my engine.
 
 ![](/img/image-12.png "No bins _Copyright: Joan")
+
+### 4/5 Fishing
+
+Before setting off, I check the DIRM and DDTM websites or the Park offices for updated regulations. I respect the zones, opening dates, quantities and minimum sizes of species defined in the regulations. I do not target protected species (groupers, corbs, sea urchins from 15 April to 1 November, octopuses in summer, etc.), and immediately return any that I catch accidentally. I contact the staff in charge of environmental policing if I have any questions.
+
+![](/img/image-11.png "No hunting or gathering _Copyright: Joan ")
