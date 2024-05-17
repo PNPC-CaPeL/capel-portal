@@ -39,3 +39,7 @@ A national park is an exceptional area which is open to everyone, but for which 
 Help protect endagered sites and preserve Mediterranean flora and fauna[ by respecting the marine environment when anchoring.](https://www.portcros-parcnational.fr/fr/documents/pour-un-mouillage-respectueux-du-milieu-marin)
 
 ![](/img/image-19.png "Ecological anchoring_Copyright: Manon Lasson")
+
+[The Bagaud Mooring and Light Equipment Area (ZMEL)](https://www.portcros-parcnational.fr/fr/des-decouvertes/sejourner/la-zmel-de-bagaud).
+
+To avoid setting anchor on Posidonia meadows and coralline vegetation, use [the DONIA mobile.](https://donia.fr/)
