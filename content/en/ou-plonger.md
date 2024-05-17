@@ -4,10 +4,9 @@ slug: ou-plonger
 navigation: true
 menu_title: Where to dive
 weight: 2
-description: A national park is an exceptional area open to all, but under the
-  responsibility of each individual. It is protected by specific regulations on
-  traffic, anchoring, diving and recreational fishing around the islands of
-  Port-Cros and Porquerolles...
+description: The diversity of habitats offers a wide variety of landscapes for
+  divers of all levels allowing them to explore typically Mediterranean
+  ecosystems.
 image: /img/PNPC_000312-1.jpg
 ---
 The topography of the Port-Cros National Park is ideal for diving. The diversity of habitats offers a wide range of landscapes for divers of all levels, where they can explore typical Mediterranean ecosystems. As well as the coastlines of Port-Cros and Porquerolles and the most famous shipwrecks, the National Park offers access to lesser-known but equally attractive sites.
