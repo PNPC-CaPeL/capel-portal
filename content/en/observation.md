@@ -29,19 +29,19 @@ Various databases are available for different kinds of observations:
 
 ![](/img/cetaces.png)
 
-#### Pour les mammifères marins, tortues, requins et raies :
+### For marine mammals, turtles, sharks and rays: 
 
-[OBSenMER](http://www.obsenmer.org/) est une plateforme collaborative qui facilite la saisie et l’analyse des observations en mer. Elle concerne tous les types d’observations : mammifères marins, tortues marines, poissons, oiseaux, mais aussi les activités humaines, telles que la plaisance, la pêche, la pollution, etc.
-
-![](/img/meduse.png)
-
-#### Pour les méduses :
-
-[Le portail d'observation de méduses en Méditerranée](http://meduse.acri.fr/home/home.php) a été mis en place dans le but de recenser la présence ou l'absence de méduses dans les eaux côtières méditerranéennes et en particulier celles de la Région Provence-Alpes-Côte-d’Azur.
+[OBSenMER](http://www.obsenmer.org/) is a collaborative platform that makes it easier to record and analyse marine observations. All types of observation are welcome: marine mammals, sea turtles, fish, and birds, as well as human activities such as recreational boating, fishing, pollution, etc.
 
 ![](/img/meduse.png)
 
-#### Pour vous aider à identifier les espèces :
+### For jellyfish: 
+
+[Le portail d'observation de méduses en Méditerranée](http://meduse.acri.fr/home/home.php) was set up to record the presence or absence of jellyfish in Mediterranean coastal waters, particularly in the Provence-Alpes-Côte-d'Azur region.
+
+![](/img/meduse.png)
+
+### To help you identify species:
 
 [Le site participatif DORIS](https://doris.ffessm.fr/) (Données d'Observations pour la Reconnaissance et l'Identification de la faune et la flore Subaquatiques) met en ligne des fiches d’espèces subaquatiques animales ou végétales, dulcicoles ou marines, des eaux françaises métropolitaines et d’outre-mer. Ces fiches, tenues régulièrement à jour, sont intégralement réalisées par des participants bénévoles, amateurs et/ou scientifiques, dans le cadre de la fédération française de plongée ([FFESSM](http://www.ffessm.fr/)) et de sa commission de biologie ([CNEBS](http://biologie.ffessm.fr/)).
 
