@@ -29,3 +29,13 @@ image: /img/PNPC_000911.jpg
 ## Regulations specific to the core areas of Port-Cros National Park
 
 A national park is an exceptional area which is open to everyone, but for which each individual is responsible. The area around the islands of Port-Cros and Porquerolles is protected by [specific regulations on traffic, anchoring, diving, and recreational fishing.](https://www.portcros-parcnational.fr/fr/le-parc-national-de-port-cros/la-reglementation/reglementation-en-mer-port-cros-et-porquerolles)
+
+![](/img/PNPC_plong-e-coeur_red.jpeg "Port-Cros National Park diving regulations")
+
+## Anchoring
+
+![](/img/image-15.png "No anchoring in the Posidonia meadow_Copyright: Joan")
+
+Help protect endagered sites and preserve Mediterranean flora and fauna[ by respecting the marine environment when anchoring.](https://www.portcros-parcnational.fr/fr/documents/pour-un-mouillage-respectueux-du-milieu-marin)
+
+![](/img/image-19.png "Ecological anchoring_Copyright: Manon Lasson")
