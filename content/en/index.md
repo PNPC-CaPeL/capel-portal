@@ -3,7 +3,4 @@ title: Homepage
 slug: index
 navigation: false
 ---
-The **Ca**rnet de **P**longée **e**n **L**igne (**CaPeL**) aims to facilitate
-your administrative procedures (electronic signature of charter and the transmission
-of your diving data. You will be able to find out about diving sites, find a
-structure to support you and consult the regulations. and consult the regulations.
+The online diving logbook, known by its French acronym, CaPeL, has been designed to make it easier for you to complete administrative procedures (such as electronically signing charters or regulations) and to submit information about your dive. You can find out about dive sites, identify an organisation to support you, and consult the regulations.
