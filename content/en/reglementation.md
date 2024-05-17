@@ -43,3 +43,11 @@ Help protect endagered sites and preserve Mediterranean flora and fauna[ by resp
 [The Bagaud Mooring and Light Equipment Area (ZMEL)](https://www.portcros-parcnational.fr/fr/des-decouvertes/sejourner/la-zmel-de-bagaud).
 
 To avoid setting anchor on Posidonia meadows and coralline vegetation, use [the DONIA mobile.](https://donia.fr/)
+
+## Are you receiving us loud and clear?
+
+### 1/5 Setting sail 
+
+I control my speed and slow down to less than 12 knots when within 600 metres of the coast, then to less than 5 knots when within 300 metres of the coast. I take great care to maintain a distance of more than 150 m from fishing indicators set by small-scale fishers, from divers, swimmers and light craft (kayaks, paddleboards, windsurfers, etc.).
+
+![](/img/image-14.png "Respecting other sea users_Copyright: Joan and PtitLuc")
