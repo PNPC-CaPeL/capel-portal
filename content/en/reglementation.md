@@ -10,4 +10,10 @@ description: A national park is an exceptional area which is freely accessible
   traffic, anchoring, diving, and recreational fishing.
 image: /img/PNPC_000911.jpg
 ---
-## Informations
+## Information
+
+[What is diving?](https://www.sportsdenature.gouv.fr/plongee)
+
+[Safe diving.](https://ffessm.fr/uploads/media/docs/0001/06/179dc95ae83b3c2d7eb5e38e932fb0831747c521.pdf)
+
+[Because diving remains a high-risk activity.](https://www.var.gouv.fr/Actions-de-l-Etat/Jeunesse-et-sports/Prevenir-les-accidents-de-plongee-sous-marine)
