@@ -1,9 +1,9 @@
 ---
 title: La plongée au sein du Parc national de Port-Cros
+slug: la-plongee-au-sein-du-pnpc
 navigation: true
 menu_title: La plongée
 weight: 1
-slug: la-plongee-au-sein-du-pnpc
 description: Dès les années 90, une charte volontaire proposait une gestion de
   la plongée à Port-Cros, depuis 2016, le règlement a pris le relai et renforce
   l'engagement des plongeurs ...
