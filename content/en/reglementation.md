@@ -52,6 +52,8 @@ I control my speed and slow down to less than 12 knots when within 600 metres of
 
 ![](/img/image-14.png "Respecting other sea users_Copyright: Joan and PtitLuc")
 
-### 2/5 In the core of the Park 
+### 2/5 In the core of the Park (less than 600 m from the coast)
 
-### `I check the on-board sailing instructions for regulations that apply in my location. I don't tow equipment, I keep the volume down if I'm listening to music, I don't set foot on meadows or in rocky shallows and I use the authorised channels when beaching. I don't enter areas where motorised vehicles are prohibited.`
+### I check the on-board sailing instructions for regulations that apply in my location. I don't tow equipment, I keep the volume down if I'm listening to music, I don't set foot on meadows or in rocky shallows and I use the authorised channels when beaching. I don't enter areas where motorised vehicles are prohibited.
+
+![](/img/image-13.png "No noise...thank you! _Copyright: Joan")
