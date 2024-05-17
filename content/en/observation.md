@@ -8,23 +8,23 @@ description: Your observations are useful. They feed into national databases and
   help improve our knowledge of nature, rare phenomena, and changing uses.
 image: /img/PNPC_009739_bis.jpg
 ---
-## Vous avez fait une observation ?
+## Did you see something interesting?
 
-Vos observations sont utiles, elles alimentent des bases de données nationales et permettent d’améliorer les connaissances naturalistes sur des phénomènes rares ou encore sur l’évolution des usages. Ce référencement des observations réalisées par la communauté de plongeurs permet de mieux appréhender une plongée pour le pratiquant et également d'affiner les connaissances sur l'évolution de la biodiversité et particulièrement dans le cadre du suivi du changement climatique.
+Your observations are useful. They feed into national databases and help to improve our knowledge of rare phenomena and changes in usage. By recording observations made by the diving community, it becomes easier for divers to understand a dive. These data also help to fine-tune our understanding of changes in biodiversity, particularly in the context of monitoring climate change.
 
-Toutes les données renseignées seront communiquées au SINP (Système d’information sur la nature et les paysages) et deviendront publiques.
+All the data entered are communicated to the SINP (French Nature and Landscape Information System) and are made publicly available.
 
-Le Parc national relaie ici les démarches existantes afin de valoriser le travail important déjà mené pour une meilleure connaissance des territoires et leur préservation.
+Here, the National Park shares existing initiatives in order to highlight the important work already being done to improve knowledge of these areas and preserve them.
 
-### Observations naturalistes
+## Naturalist observations
 
-Pour toute observation il existe différentes bases de données :
+Various databases are available for different kinds of observations:
 
 ![](/img/fishwatch.png)
 
-#### Pour les poissons :
+### For fish: 
 
-* [BioObs](https://bioobs.fr ) est un outil développé pour les plongeurs. Il est libre d'utilisation. Il est ouvert à tous quelque soit son niveau de biologie (toutes les observations sont importantes). Il contribue à mieux connaître et faire connaître la richesse des fonds marins. Les observations faites peuvent être partagées entre les plongeurs, servir à préparer sa plongée, à présenter un site de plongée à sa palanquée ou à enrichir les connaissances auprès de partenaires scientifiques.
+* [BioObs](https://bioobs.fr) est un outil développé pour les plongeurs. Il est libre d'utilisation. Il est ouvert à tous quelque soit son niveau de biologie (toutes les observations sont importantes). Il contribue à mieux connaître et faire connaître la richesse des fonds marins. Les observations faites peuvent être partagées entre les plongeurs, servir à préparer sa plongée, à présenter un site de plongée à sa palanquée ou à enrichir les connaissances auprès de partenaires scientifiques.
 * [Fish Watch Forum](https://www.fish-watch.org/), conçu et porté par l’association [Peau-Bleue](http://www.peaubleue.org/index.php) et le laboratoire [ECOMERS](http://www.unice.fr/ecomers/) de l’Université de Nice – Sophia Antipolis, a pour but de collecter et rassembler vos observations sur les poissons marins d'Europe de l'Ouest et de Méditerranée.
 
 ![](/img/cetaces.png)
@@ -59,7 +59,7 @@ Pour signaler une pollution en mer, contacter le [CROSS MED](http://www.dirm.med
 
 [GHOST MED](https://www.mio.univ-amu.fr/ghostmed/) s’inscrit dans une démarche de sciences participatives et vise à récolter des informations concernant les engins de pêche perdus. Leur signalisation permet ensuite aux gestionnaires d’aires marines de retirer les filets quand cela est possible.
 
----
+- - -
 
 Pour toute autre observation ou question, contacter [le Parc](http://www.portcros-parcnational.fr/fr/formulaire-contact).
 
