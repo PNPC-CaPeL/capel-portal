@@ -1,29 +1,31 @@
 ---
 title: Our partners
+slug: partenaires
 navigation: true
 menu_title: Partners
 weight: 3
-slug: partenaires
-description: Each year, organisations and associations undertake
-  to comply with the diving regulations. The active involvement of
-  those involved in diving at each each annual meeting with the Park
-  helps to better define the area's ambitions. of the area.
+description: Every year, organisations and associations commit to comply with
+  the diving regulations. During each annual meeting with the Park, diving
+  enthusiasts are actively involved in helping define the ambitions for the
+  area.
 image: /img/PNPC_000318-1.jpg
 ---
-Chaque année, les structures, associations et particuliers s’engagent à respecter le règlement de plongée. L’implication active des acteurs de la plongée lors de chaque réunion annuelle avec le Parc permet ainsi de mieux définir les ambitions du territoire.
+Each year, organisations, associations and individuals agree to abide by the diving regulations. The active involvement of those involved in diving at each annual meeting with the National Park helps to better define the ambitions for the area.
 
-L’activité de plongée est également intégrée lors de toute réflexion du Parc national, ainsi ses pratiquants sont représentés à chaque niveau de concertation, qu’il soit local lors des commissions de gestion dédiées à l’île de Porquerolles, ou plus largement dans un des organes de gouvernance du Parc, le Conseil Économique Social et Culturel.
+Diving is also an integral part of all discussions in the National Park, and divers are represented at every level of consultation, from the local management committees for the island of Porquerolles to one of the Park’s governing bodies, the Economic, Social and Cultural Council.
 
-## Avec qui plonger au sein du Parc national de Port-Cros ?
+## Who should you dive with in Port-Cros National Park?
 
-Le réseau des partenaires s’engage à diffuser largement et lors de chaque plongée les valeurs portées par le Parc national. Les outils de communication et d’éducation à l’environnement créés par le Parc et ses partenaires sont mis à disposition (liens vers documentation). Rapprochez-vous du Parc national de Port-Cros via l'adresse contact pour obtenir ces outils.
+A network of partners has agreed to widely disseminate the values promoted by the National Park during each dive. Communication and environmental education tools created by the Park and its partners are available. Contact Port-Cros National Park via the contact address for more information.
 
 ![](/img/image-17.png)
 
-**Structures et associations.**
+**Organisations and associations.**
+
 
 :carte
 
-## Les fédérations
 
-Les structures associatives ou professionnelles sont membres de la fédération délégataire, la [Fédération Française d’Études et de Sports Sous-Marins (FFESSM)](https://ffessm.fr/) ou d’autres organismes associatifs ou syndicaux (FSGT, [ANMP](http://www.anmp-plongee.com/), SNMP, UCPA…).
+## Federations
+
+Associations and professional bodies are members of the State-approved federation, the [Fédération Française d'Études et de Sports Sous-Marins (FFESSM)](https://ffessm.fr/), or other associations and trade unions (FSGT, [ANMP](https://www.anmp-plongee.com/), SNMP, UCPA, etc.).

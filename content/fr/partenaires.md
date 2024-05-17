@@ -1,13 +1,13 @@
 ---
 title: Nos Partenaires
+slug: partenaires
 navigation: true
 menu_title: Partenaires
 weight: 3
-slug: partenaires
 description: Chaque année les structures et associations s’engagent à respecter
   le règlement de plongée. L’implication active des acteurs de la plongée lors
-  de chaque réunion annuelle avec le Parc permet ainsi de mieux définir les ambitions
-  du territoire.
+  de chaque réunion annuelle avec le Parc permet ainsi de mieux définir les
+  ambitions du territoire.
 image: /img/PNPC_000318-1.jpg
 ---
 Chaque année, les structures, associations et particuliers s’engagent à respecter le règlement de plongée. L’implication active des acteurs de la plongée lors de chaque réunion annuelle avec le Parc permet ainsi de mieux définir les ambitions du territoire.
