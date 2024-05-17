@@ -69,3 +69,9 @@ Before stopping, I check the sailing instructions to see if I can anchor or if I
 Before setting off, I check the DIRM and DDTM websites or the Park offices for updated regulations. I respect the zones, opening dates, quantities and minimum sizes of species defined in the regulations. I do not target protected species (groupers, corbs, sea urchins from 15 April to 1 November, octopuses in summer, etc.), and immediately return any that I catch accidentally. I contact the staff in charge of environmental policing if I have any questions.
 
 ![](/img/image-11.png "No hunting or gathering _Copyright: Joan ")
+
+### 5/5 Together
+
+We are always courteous. We provide assistance to vessels and people in difficulty. We respect all sea users. We are all responsible for the exceptional environment in which we live. The sea is a free space, but it is also regulated because it is for everyone.
+
+![](/img/image-10.png "Mind-blowing_Copyright: Joan")
