@@ -1,13 +1,13 @@
 ---
-title: Information and legislation
+title: Information and regulations
 slug: reglementation
-description: A national park is an exceptional area open to all, but under the
-  responsibility of each individual. It is protected by specific regulations on
-  traffic, anchoring, diving and recreational fishing around the islands of
-  Port-Cros and Porquerolles.
 navigation: true
 menu_title: Legislation
 weight: 5
+description: A national park is an exceptional area which is freely accessible
+  to everyone, but for which each individual is responsible. The area around the
+  islands of Port-Cros and Porquerolles is protected by specific regulations on
+  traffic, anchoring, diving, and recreational fishing.
 image: /img/PNPC_000911.jpg
 ---
 ## Informations

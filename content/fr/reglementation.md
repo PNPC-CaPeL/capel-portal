@@ -1,13 +1,13 @@
 ---
 title: Informations et réglementation
 slug: reglementation
+navigation: true
+menu_title: Réglementation
+weight: 5
 description: Un parc national est un territoire d’exception ouvert à tous mais
   sous la responsabilité de chacun. Il est protégé par une réglementation
   spécifique sur la circulation, le mouillage, la plongée et la pêche de loisir
   autour des iles de Port-Cros et de Porquerolles.
-navigation: true
-menu_title: Réglementation
-weight: 5
 image: /img/PNPC_000911.jpg
 ---
 ## Informations
