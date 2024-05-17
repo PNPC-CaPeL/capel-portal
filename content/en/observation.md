@@ -25,7 +25,7 @@ Various databases are available for different kinds of observations:
 ### For fish:
 
 * [BioObs](https://bioobs.fr) is a tool developed for divers. It is free to use and is open to everyone, whatever their level of understanding of biology (all observations are important). It helps to gain a better understanding and to raise awareness of the richness of the seabed. Observations can be shared between divers, or used to help prepare a dive, to present a dive site to a group, or to enrich knowledge for scientific partners.
-* [Fish Watch Forum](https://www.fish-watch.org/), conçu et porté par l’association [Peau-Bleue](http://www.peaubleue.org/index.php) et le laboratoire [ECOMERS](http://www.unice.fr/ecomers/) de l’Université de Nice – Sophia Antipolis, a pour but de collecter et rassembler vos observations sur les poissons marins d'Europe de l'Ouest et de Méditerranée.
+* [Fish Watch Forum](https://www.fish-watch.org/), designed and run by the [Peau-Bleue](http://www.peaubleue.org/index.php) end the [ECOMERS](http://www.unice.fr/ecomers/) laboratory at the University of Nice–Sophia Antipolis. This forum collects and collates observations of marine fish in western Europe and the Mediterranean.
 
 ![](/img/cetaces.png)
 
