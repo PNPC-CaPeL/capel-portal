@@ -43,24 +43,24 @@ Various databases are available for different kinds of observations:
 
 ### To help you identify species:
 
-[Le site participatif DORIS](https://doris.ffessm.fr/) (Données d'Observations pour la Reconnaissance et l'Identification de la faune et la flore Subaquatiques) met en ligne des fiches d’espèces subaquatiques animales ou végétales, dulcicoles ou marines, des eaux françaises métropolitaines et d’outre-mer. Ces fiches, tenues régulièrement à jour, sont intégralement réalisées par des participants bénévoles, amateurs et/ou scientifiques, dans le cadre de la fédération française de plongée ([FFESSM](http://www.ffessm.fr/)) et de sa commission de biologie ([CNEBS](http://biologie.ffessm.fr/)).
+[DORIS](https://doris.ffessm.fr/) (Data from Observations for the Recognition and Identification of Underwater Fauna and Flora) publishes online records of underwater (fresh and saltwater) animal and plant species, detected in French waters, including mainland France and overseas territories. These records, which are regularly updated, are produced entirely by volunteers, amateurs and/or scientists, within the framework of the French diving federation ([FFESSM](https://ffessm.fr/)) and its biology committee ([CNEBS](https://biologie.ffessm.fr/)).
 
-### Pollutions
+## Pollution
 
 ![](/img/polution.png)
 
-Pour signaler une pollution en mer, contacter le [CROSS MED](http://www.dirm.mediterranee.developpement-durable.gouv.fr/cross-med-r43.html)
+To report pollution at sea, contact [CROSS MED](https://www.dirm.mediterranee.developpement-durable.gouv.fr/cross-med-r43.html).[](http://www.dirm.mediterranee.developpement-durable.gouv.fr/cross-med-r43.html)
 
 ![](/img/cross.png)
 
-### Engins de pêche perdus
+## Lost fishing equipment
 
 ![](/img/enginsdepeche.png)
 
-[GHOST MED](https://www.mio.univ-amu.fr/ghostmed/) s’inscrit dans une démarche de sciences participatives et vise à récolter des informations concernant les engins de pêche perdus. Leur signalisation permet ensuite aux gestionnaires d’aires marines de retirer les filets quand cela est possible.
+[GHOST MED](https://www.mio.univ-amu.fr/ghostmed/) is part of a participatory science initiative collecting information on lost fishing equipment. Your report of lost equipment allows marine area managers to remove nets when possible.
 
 - - -
 
-Pour toute autre observation ou question, contacter [le Parc](http://www.portcros-parcnational.fr/fr/formulaire-contact).
+For any other observations or questions, contact the National [Park](https://www.portcros-parcnational.fr/fr/formulaire-contact).
 
 ![](/img/apnee.png)
