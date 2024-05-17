@@ -20,8 +20,8 @@ image: /img/PNPC_000911.jpg
 
 ## General regulations 
 
-In France, the regulations governing diving are set out in the Sports Code. 
+[In France, the regulations governing diving are set out in the Sports Code](https://www.sportsdenature.gouv.fr/plongee/reglementation/encadrement). 
 
-The Maritime Prefect is responsible for regulating scuba diving and freediving.
+[The Maritime Prefect is responsible for regulating scuba diving and freediving.](https://www.premar-mediterranee.gouv.fr/uploads/mediterranee/pages/f213416444c8bae07a1910da8314de37.pdf)
 
-Consult the regulations specific to each municipality.
+[Consult the regulations specific to each municipality.](https://www.premar-mediterranee.gouv.fr/arretes)
