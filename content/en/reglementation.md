@@ -51,3 +51,7 @@ To avoid setting anchor on Posidonia meadows and coralline vegetation, use [the 
 I control my speed and slow down to less than 12 knots when within 600 metres of the coast, then to less than 5 knots when within 300 metres of the coast. I take great care to maintain a distance of more than 150 m from fishing indicators set by small-scale fishers, from divers, swimmers and light craft (kayaks, paddleboards, windsurfers, etc.).
 
 ![](/img/image-14.png "Respecting other sea users_Copyright: Joan and PtitLuc")
+
+### 2/5 In the core of the Park 
+
+### `I check the on-board sailing instructions for regulations that apply in my location. I don't tow equipment, I keep the volume down if I'm listening to music, I don't set foot on meadows or in rocky shallows and I use the authorised channels when beaching. I don't enter areas where motorised vehicles are prohibited.`
