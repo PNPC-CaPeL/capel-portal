@@ -17,3 +17,11 @@ image: /img/PNPC_000911.jpg
 [Safe diving.](https://ffessm.fr/uploads/media/docs/0001/06/179dc95ae83b3c2d7eb5e38e932fb0831747c521.pdf)
 
 [Because diving remains a high-risk activity.](https://www.var.gouv.fr/Actions-de-l-Etat/Jeunesse-et-sports/Prevenir-les-accidents-de-plongee-sous-marine)
+
+## General regulations 
+
+In France, the regulations governing diving are set out in the Sports Code. 
+
+The Maritime Prefect is responsible for regulating scuba diving and freediving.
+
+Consult the regulations specific to each municipality.
