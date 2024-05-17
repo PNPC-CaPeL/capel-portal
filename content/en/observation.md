@@ -1,12 +1,11 @@
 ---
-title: We are interested in your observations
+title: We welcome your observations
+slug: observation
 navigation: true
 menu_title: Observations
 weight: 4
-slug: observation
-description: Your observations are useful; they feed into national
-  databases databases and help to improve our knowledge of nature,
-  about rare phenomena or changes in usage.
+description: Your observations are useful. They feed into national databases and
+  help improve our knowledge of nature, rare phenomena, and changing uses.
 image: /img/PNPC_009739_bis.jpg
 ---
 ## Vous avez fait une observation ?

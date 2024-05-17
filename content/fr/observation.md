@@ -1,12 +1,12 @@
 ---
 title: Vos Observations nous intéressent
+slug: observation
 navigation: true
 menu_title: Observations
 weight: 4
-slug: observation
-description: Vos observations sont utiles, elles alimentent des bases
-  de données nationales et permettent d’améliorer les connaissances naturalistes,
-  sur des phénomènes rares ou encore sur l’évolution des usages.
+description: Vos observations sont utiles, elles alimentent des bases de données
+  nationales et permettent d’améliorer les connaissances naturalistes, sur des
+  phénomènes rares ou encore sur l’évolution des usages.
 image: /img/PNPC_009739_bis.jpg
 ---
 ## Vous avez fait une observation ?
