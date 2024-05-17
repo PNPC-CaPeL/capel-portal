@@ -57,3 +57,9 @@ I control my speed and slow down to less than 12 knots when within 600 metres of
 ### I check the on-board sailing instructions for regulations that apply in my location. I don't tow equipment, I keep the volume down if I'm listening to music, I don't set foot on meadows or in rocky shallows and I use the authorised channels when beaching. I don't enter areas where motorised vehicles are prohibited.
 
 ![](/img/image-13.png "No noise...thank you! _Copyright: Joan")
+
+### 3/5 Taking a break
+
+Before stopping, I check the sailing instructions to see if I can anchor or if I must moor at a specific facility (Bagaud Mooring and Light Equipment Zone). I always choose a sandy area to anchor so as not to damage the seabed. I don’t moor to “diving buoys” unless I am a scuba diver. I don't feed any animals (birds, fish, etc.). I don't throw away rubbish or waste water, I don't use toxic products to clean my boat, and I take care with the oil and fuel in my engine.
+
+![](/img/image-12.png "No bins _Copyright: Joan")
