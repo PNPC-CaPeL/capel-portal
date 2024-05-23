@@ -18,7 +18,7 @@ image: /img/PNPC_000911.jpg
 
 [Because diving remains a high-risk activity.](https://www.var.gouv.fr/Actions-de-l-Etat/Jeunesse-et-sports/Prevenir-les-accidents-de-plongee-sous-marine)
 
-## General regulations 
+## General regulations
 
 [In France, the regulations governing diving are set out in the Sports Code](https://www.sportsdenature.gouv.fr/plongee/reglementation/encadrement). 
 
@@ -46,7 +46,7 @@ To avoid setting anchor on Posidonia meadows and coralline vegetation, use [the 
 
 ## Are you receiving us loud and clear?
 
-### 1/5 Setting sail 
+### 1/5 Setting sail
 
 I control my speed and slow down to less than 12 knots when within 600 metres of the coast, then to less than 5 knots when within 300 metres of the coast. I take great care to maintain a distance of more than 150 m from fishing indicators set by small-scale fishers, from divers, swimmers and light craft (kayaks, paddleboards, windsurfers, etc.).
 
@@ -54,7 +54,7 @@ I control my speed and slow down to less than 12 knots when within 600 metres of
 
 ### 2/5 In the core of the Park (less than 600 m from the coast)
 
-### I check the on-board sailing instructions for regulations that apply in my location. I don't tow equipment, I keep the volume down if I'm listening to music, I don't set foot on meadows or in rocky shallows and I use the authorised channels when beaching. I don't enter areas where motorised vehicles are prohibited.
+I check the on-board sailing instructions for regulations that apply in my location. I don't tow equipment, I keep the volume down if I'm listening to music, I don't set foot on meadows or in rocky shallows and I use the authorised channels when beaching. I don't enter areas where motorised vehicles are prohibited.
 
 ![](/img/image-13.png "No noise...thank you! _Copyright: Joan")
 
