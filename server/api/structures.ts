@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
       (item) =>
         item.Type === 'Structure de plongée' &&
         item[
-          'Je donne mon accord pour apparaître sur la carte CaPeL des structures'
+          'Je donne mon accord pour apparaître sur la carte CaPeL des structures / I agree to appear on the CaPeL organisation map'
         ],
     )
     .map<Structure>((item) => {
@@ -31,12 +31,12 @@ export default defineEventHandler(async (event) => {
         id: item.id,
         nom: item.Nom,
         adresse: item.Adresse,
-        codePostal: item['Code postal'],
+        codePostal: item['Code postal / Postcode'],
         ville: item.Ville,
-        tel: item['Téléphone principal'],
-        site: item['Site web'],
+        tel: item['Téléphone principal / Main telephone'],
+        site: item['Site web / Website'],
         geojson: wktParse(
-          String(item['Coordonnées GPS'] ?? ''),
+          String(item['Coordonnées GPS / GPS coordinates'] ?? ''),
         ) as GeoJSONPoint | null,
       }
     })
