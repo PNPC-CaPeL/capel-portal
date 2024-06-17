@@ -16,18 +16,18 @@ export default defineEventHandler(async (event) => {
   })
 
   const spots = rawSpots
-    .filter((item) => ['Contribué', 'Public'].includes(String(item['Statut'])))
+    .filter((item) => ['Contribué', 'Public'].includes(String(item['Statut / Status'])))
     .map<Spot>((item) => {
       return {
         id: item.id,
-        nom: item.Nom,
+        nom: item['Nom / Name'],
         popupData: {
-          type: item['Type de site'],
-          level: item['Niveau minimal requis'],
-          depth: item['Profondeur'],
+          type: item['Type de site / Type of site'],
+          level: item['Niveau minimal requis / Minimum level required'],
+          depth: item['Profondeur / Depth'],
         },
-        type: item['Type de site'],
-        statut: item.Statut,
+        type: item['Type de site / Type of site'],
+        statut: item['Statut / Status'],
         amarrage: item["Dispositif d'amarrage"],
         lien: item['Lien'],
         geojson: wktParse(String(item.Position ?? '')) as GeoJSONPoint | null,
@@ -41,9 +41,9 @@ export type Spot = {
   id: string | boolean | null
   nom: string | boolean | null
   popupData: {
-    'Type de site': string | boolean | null
-    'Niveau minimal requis': string | boolean | null
-    Profondeur: string | boolean | null
+    'Type de site / Type of site': string | boolean | null
+    'Niveau minimal requis / Minimum level required': string | boolean | null
+    'Profondeur / Depth': string | boolean | null
   }
   type: string | boolean | null
   statut: string | boolean | null
