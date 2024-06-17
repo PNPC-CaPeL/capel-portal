@@ -29,10 +29,10 @@ export default defineEventHandler(async (event) => {
     .map<Structure>((item) => {
       return {
         id: item.id,
-        nom: item.Nom,
-        adresse: item.Adresse,
+        nom: item['Nom / Name'],
+        adresse: item['Adresse / Address'],
         codePostal: item['Code postal / Postcode'],
-        ville: item.Ville,
+        ville: item['Ville / City'],
         tel: item['Téléphone principal / Main telephone'],
         site: item['Site web / Website'],
         geojson: wktParse(
