@@ -1,4 +1,4 @@
-import lckClient, { LCK_TABLES, type RawLckData } from '~/services/lckClient'
+import lckClient, { LCK_COLUMNS, LCK_TABLES, type RawLckData } from '~/services/lckClient'
 import { parse as wktParse, type GeoJSONPoint } from 'wellknown'
 
 export default defineEventHandler(async (event) => {
@@ -21,22 +21,20 @@ export default defineEventHandler(async (event) => {
   const structures = rawAccounts
     .filter(
       (item) =>
-        item.Type === 'Structure de plongée' &&
-        item[
-          'Je donne mon accord pour apparaître sur la carte CaPeL des structures / I agree to appear on the CaPeL organisation map'
-        ],
+        item[LCK_COLUMNS.ACCOUNTS_TYPE] === 'Structure de plongée' &&
+        item[LCK_COLUMNS.ACCOUNTS_JE_DONNE_ACCORD_APPARAITRE_CARTE_CAPEL_STRUCTURES],
     )
     .map<Structure>((item) => {
       return {
         id: item.id,
-        nom: item['Nom / Name'],
-        adresse: item['Adresse / Address'],
-        codePostal: item['Code postal / Postcode'],
-        ville: item['Ville / Town'],
-        tel: item['Téléphone principal / Main telephone'],
-        site: item['Site web / Website'],
+        nom: item[LCK_COLUMNS.ACCOUNTS_NOM],
+        adresse: item[LCK_COLUMNS.ACCOUNTS_ADRESSE],
+        codePostal: item[LCK_COLUMNS.ACCOUNTS_CODE_POSTAL],
+        ville: item[LCK_COLUMNS.ACCOUNTS_VILLE],
+        tel: item[LCK_COLUMNS.ACCOUNTS_TELEPHONE_PRINCIPAL],
+        site: item[LCK_COLUMNS.ACCOUNTS_SITE_WEB],
         geojson: wktParse(
-          String(item['Coordonnées GPS / GPS coordinates'] ?? ''),
+          String(item[LCK_COLUMNS.ACCOUNTS_COORDONNEES_GPS] ?? ''),
         ) as GeoJSONPoint | null,
       }
     })

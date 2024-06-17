@@ -1,4 +1,4 @@
-import lckClient, { LCK_TABLES, type RawLckData } from '~/services/lckClient'
+import lckClient, { LCK_COLUMNS, LCK_TABLES, type RawLckData } from '~/services/lckClient'
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event)
@@ -27,20 +27,20 @@ export default defineEventHandler(async (event) => {
   const stats = {
     plongeurCount: rawAccounts.filter(
       (account) =>
-        account.Type === 'Plongeur individuel' &&
-        account['Inscription finalisée'],
+        account[LCK_COLUMNS.ACCOUNTS_TYPE] === 'Plongeur individuel' &&
+        account[LCK_COLUMNS.ACCOUNTS_INSCRIPTION_FINALISEE],
     ).length,
     structureCount: rawAccounts.filter(
       (account) =>
-        account.Type === 'Structure de plongée' &&
-        account['Inscription finalisée'],
+        account[LCK_COLUMNS.ACCOUNTS_TYPE] === 'Structure de plongée' &&
+        account[LCK_COLUMNS.ACCOUNTS_INSCRIPTION_FINALISEE],
     ).length,
     signatureCount: rawSignatures.length,
     signatureStructureCount: rawSignatures.filter(
-      ({ 'Structure ?': isStructure }) => isStructure,
+      (signature) => signature[LCK_COLUMNS.SIGNATURES_STRUCTURE],
     ).length,
     signaturePlongeurCount: rawSignatures.filter(
-      ({ 'Structure ?': isStructure }) => !isStructure,
+      (signature) => !signature[LCK_COLUMNS.SIGNATURES_STRUCTURE],
     ).length,
   }
 
