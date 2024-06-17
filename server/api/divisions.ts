@@ -1,4 +1,4 @@
-import lckClient, { LCK_TABLES, type RawLckData } from '~/services/lckClient'
+import lckClient, { LCK_COLUMNS, LCK_TABLES, type RawLckData } from '~/services/lckClient'
 import {
   parse as wktParse,
   type GeoJSONMultiPolygon,
@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
   )
 
   const divisions = rawDivisions.map<Division>((item) => {
-    let geojson = wktParse(String(item['Zone géographique'] ?? '')) as
+    let geojson = wktParse(String(item[LCK_COLUMNS.DIVISIONS_ZONE_GEOGRAPHIQUE] ?? '')) as
       | GeoJSONPolygon
       | GeoJSONMultiPolygon
       | null
@@ -37,8 +37,8 @@ export default defineEventHandler(async (event) => {
 
     return {
       id: item.id,
-      nom: item.Nom,
-      style: item.Style,
+      nom: item[LCK_COLUMNS.DIVISIONS_NOM],
+      style: item[LCK_COLUMNS.DIVISIONS_STYLE],
       geojson: geojson,
     }
   })

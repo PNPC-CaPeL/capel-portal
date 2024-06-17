@@ -1,4 +1,4 @@
-import lckClient, { LCK_TABLES, type RawLckData } from '~/services/lckClient'
+import lckClient, { LCK_COLUMNS, LCK_TABLES, type RawLckData } from '~/services/lckClient'
 import { parse as wktParse, type GeoJSONPoint } from 'wellknown'
 
 export default defineEventHandler(async (event) => {
@@ -16,21 +16,21 @@ export default defineEventHandler(async (event) => {
   })
 
   const spots = rawSpots
-    .filter((item) => ['Contribué', 'Public'].includes(String(item['Statut / Status'])))
+    .filter((item) => ['Contribué', 'Public'].includes(String(item[LCK_COLUMNS.SPOTS_STATUT])))
     .map<Spot>((item) => {
       return {
         id: item.id,
-        nom: item['Nom / Name'],
+        nom: item[LCK_COLUMNS.SPOTS_NOM],
         popupData: {
-          type: item['Type de site / Type of site'],
-          level: item['Niveau minimal requis / Minimum level required'],
-          depth: item['Profondeur / Depth'],
+          type: item[LCK_COLUMNS.SPOTS_TYPE_SITE],
+          level: item[LCK_COLUMNS.SPOTS_NIVEAU_MINIMAL_REQUIS],
+          depth: item[LCK_COLUMNS.SPOTS_PROFONDEUR],
         },
-        type: item['Type de site / Type of site'],
-        statut: item['Statut / Status'],
-        amarrage: item["Dispositif d'amarrage"],
-        lien: item['Lien'],
-        geojson: wktParse(String(item.Position ?? '')) as GeoJSONPoint | null,
+        type: item[LCK_COLUMNS.SPOTS_TYPE_SITE],
+        statut: item[LCK_COLUMNS.SPOTS_STATUT],
+        amarrage: item[LCK_COLUMNS.SPOTS_DISPOSITIF_AMARRAGE],
+        lien: item[LCK_COLUMNS.SPOTS_LIEN],
+        geojson: wktParse(String(item[LCK_COLUMNS.SPOTS_POSITION] ?? '')) as GeoJSONPoint | null,
       }
     })
 
@@ -41,9 +41,9 @@ export type Spot = {
   id: string | boolean | null
   nom: string | boolean | null
   popupData: {
-    'Type de site / Type of site': string | boolean | null
-    'Niveau minimal requis / Minimum level required': string | boolean | null
-    'Profondeur / Depth': string | boolean | null
+    type: string | boolean | null
+    level: string | boolean | null
+    depth: string | boolean | null
   }
   type: string | boolean | null
   statut: string | boolean | null
