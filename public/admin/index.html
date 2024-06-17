@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Manager</title>
+    <!-- Include the script that enables Netlify Identity on this page. -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body>
+    <!-- Include the script that builds the page and powers Decap CMS -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      CMS.registerEditorComponent({
+        id: "carte",
+        label: "Carte interactive",
+        pattern: /^:carte$/ms,
+        // Given a RegExp Match object
+        // (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match#return_value),
+        // return an object with one property for each field defined in `fields`.
+        //
+        // This is used to populate the custom widget in the markdown editor in the CMS.
+        fromBlock: function(match) {
+          return {};
+        },
+        // Given an object with one property for each field defined in `fields`,
+        // return the string you wish to be inserted into your markdown.
+        //
+        // This is used to serialize the data from the custom widget to the
+        // markdown document
+        toBlock: function(data) {
+          return `
+:carte
+`;
+        },
+        // Preview output for this component. Can either be a string or a React component
+        // (component gives better render performance)
+        toPreview: function(data) {
+          return `
+:carte
+`;
+        }
+      });
+    </script>
+  </body>
+</html>

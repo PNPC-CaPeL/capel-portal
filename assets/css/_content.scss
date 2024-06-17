@@ -1,0 +1,35 @@
+.content {
+  h2, h3, h4 {
+    > a {
+      color: black;
+      @apply hover:no-underline
+    }
+  }
+  h2 {
+    @apply mt-8 mb-2 text-4xl font-semibold
+  }
+  h3 {
+    @apply mt-7 mb-2 text-3xl font-medium
+  }
+  h4 {
+    @apply mt-6 mb-2 text-2xl font-medium
+  }
+  hr {
+    @apply my-8
+  }
+  p {
+    @apply mt-4
+  }
+  ul {
+    @apply list-disc list-inside pl-2 mt-4
+  }
+  p, ul, ol {
+    a {
+      @apply text-capel-blue hover:underline
+    }
+  }
+  figcaption {
+    @apply mx-auto w-fit text-sm
+  }
+  @apply pb-10 text-base
+}

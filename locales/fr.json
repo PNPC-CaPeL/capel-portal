@@ -1,0 +1,93 @@
+{
+  "ourDivingAreas": "Nos espaces de plongée",
+  "getBackHome": "Retourner à l'accueil",
+  "home": {
+    "signUp": "S'inscrire au CaPeL",
+    "signIn": "Se connecter",
+    "declareDive": "Déclarer une plongée"
+  },
+  "signUp": {
+    "mandatory": "Champ obligatoire",
+    "error": {
+      "mandatory": "Le champ est obligatoire.",
+      "email": "L'e-mail est invalide."
+    },
+    "post": {
+      "success": {
+        "title": "Merci de votre inscription,",
+        "thanks": "Vous êtes bien inscrit sur le carnet de plongée CaPeL, nous vous en remercions.",
+        "email": "Vous allez recevoir un mail vous invitant à activer votre compte et renseigner votre mot de passe.",
+        "spamWarning" : "Attention, veillez à bien vérifier votre dossier spam ou vos outils de filtrage, certaines messageries classent automatiquement ces mails dedans."
+      },
+      "error": {
+        "title": "Plouf !",
+        "failed": "Votre inscription a échoué... sur un rivage inconnu ?!",
+        "sorry": "Merci de réessayer ou de prendre contact avec le Parc directement pour remonter l'anomalie... Désolé."
+      }
+    },
+    "identity": "Identité",
+    "email": "E-mail",
+    "accountType": "Type de compte",
+    "diveStructure": "Structure de plongée",
+    "individualDive": "Plongeur individuel",
+    "nomStructure": "Nom de la structure",
+    "createAccount": "Créer mon compte CaPeL"
+  },
+  "map": {
+    "spotPopup": {
+      "type": "Type de site",
+      "level": "Niveau minimal requis",
+      "depth": "Profondeur",
+      "link": "Lien",
+      "readMore": "En savoir plus"
+    },
+    "structurePopup": {
+      "website": "Voir leur site internet"
+    },
+    "legend": {
+      "divingProhibited": "Plongée interdite",
+      "divingProhibitedAprilToSeptember": "Plongée interdite du 1er avril au 30 septembre",
+      "divingProhibitedAprilToOctober": "Plongée interdite du 1er avril au 30 octobre",
+      "dockingMooringDisembarkingProhibited": "Accostage, amarrage et débarquement interdits",
+      "anchoringProhibited": "Mouillage interdit sauf sur dispositif de plongée",
+      "divingWithAuthorisation": "Plongée soumise à autorisation",
+      "spotNatural": "Spot (naturel)",
+      "spotNaturalMooring": "Spot avec amarrage (naturel)",
+      "spotNaturalContributed": "Spot contribué (naturel)",
+      "spotWreck": "Spot (épave)",
+      "spotWreckMooring": "Spot avec amarrage (épave)",
+      "spotWreckContributed": "Spot contribué (épave)",
+      "partner": "Structure partenaire"
+    }
+  },
+  "stats": {
+    "registrations": {
+      "line1": "inscriptions",
+      "line2": "au carnet de plongée"
+    },
+    "registrationsIncluding": "dont {diverCount} plongeurs individuels",
+    "permits": {
+      "line1": "autorisations",
+      "line2": "délivrées"
+    },
+    "permitsIncluding": "dont {diverCount} plongeurs individuels et {organisationCount} structures"
+  },
+  "footer": {
+    "documentaryResources": "Les ressources documentaires :",
+    "regulatoryTexts": "Textes réglementaires",
+    "mapPortCrosNationalPark": "Carte du Parc national de Port-Cros",
+    "ministryEcologicalTransition": "Ministère de la Transition écologique et solidaire",
+    "frenchOfficeBiodiversity": "Office français de la biodiversité",
+    "pelagosSanctuary": "Sanctuaire Pelagos, Partie française",
+    "portCrosNationalPark": "Le Parc national de Port-Cros",
+    "nationalParkInBrief": "Le Parc national en bref",
+    "publicEstablishment": "L'établissement public",
+    "pnpcCharter": "La charte du PNPC",
+    "publicContracts": "Marchés publics",
+    "jobOffers": "Offres d'emploi",
+    "compendiumAdministrativeActs": "Recueil des actes administratifs",
+    "contactUs": "Nous contacter :",
+    "tel": "Tél.",
+    "contactForm": "Formulaire de contact :"
+  }
+}

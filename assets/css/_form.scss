@@ -1,0 +1,41 @@
+form {
+  label:not(input+label), legend {
+    &.error {
+      @apply text-red-500
+    }
+    @apply text-gray-500 text-lg
+  }
+  label:is(input+label) {
+    @apply pl-2
+  }
+  legend {
+    @apply mb-1
+  }
+  > div {
+    &:not(:first-child) {
+      @apply mt-4
+    }
+
+    @apply flex flex-col
+  }
+  input[type="text"], input[type="email"] {
+    &.error {
+      @apply border-red-500
+    }
+    @apply border-b border-capel-blue-500 p-1
+  }
+  input[type="radio"] {
+    @apply accent-capel-blue-500
+  }
+  button {
+    &:disabled {
+      @apply bg-gray-300 text-gray-400
+    }
+    @apply px-4 py-2 w-fit drop-shadow rounded text-center tracking-widest font-medium text-white bg-capel-blue hover:bg-capel-blue-800
+  }
+  p.error-message {
+    @apply text-red-500 text-sm italic
+  }
+
+  @apply w-full
+}

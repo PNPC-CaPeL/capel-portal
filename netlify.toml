@@ -1,6 +1,8 @@
 [build]
-command = "npm run build"
-publish = "public/"
+command = "npm run generate"
+publish = "dist"
 
-[[plugins]]
-package = "@netlify/plugin-gatsby"
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    content-type = "application/json; charset=UTF-8"

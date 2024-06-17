@@ -1,0 +1,93 @@
+{
+  "ourDivingAreas": "Our diving areas",
+  "getBackHome": "Go back to home page",
+  "home": {
+    "signUp": "Sign up to CaPeL",
+    "signIn": "Sign in",
+    "declareDive": "Declare a dive"
+  },
+  "signUp": {
+    "mandatory": "Mandatory field",
+    "error": {
+      "mandatory": "Field is mandatory.",
+      "email": "Given e-mail is invalid."
+    },
+    "post": {
+      "success": {
+        "title": "Thank you for registering,",
+        "thanks": "You are now correctly enrolled in the CaPeL logbook. Thank you.",
+        "email": "You will receive an e-mail inviting you to activate your account and enter your password.",
+        "spamWarning" : "Be sure to check your spam folder or your filtering tools, as some e-mail systems automatically file these e-mails in there."
+      },
+      "error": {
+        "title": "Splash!",
+        "failed": "Your entry has washed up... on an unknown shore?!",
+        "sorry": "Please try again or contact the Park directly to report the problem... Sorry for the inconvenience."
+      }
+    },
+    "identity": "Identity",
+    "email": "E-mail",
+    "accountType": "Type of account",
+    "diveStructure": "Dive structure",
+    "individualDive": "Individual diver",
+    "nomStructure": "Structure name",
+    "createAccount": "Create my CaPeL account"
+  },
+  "map": {
+    "spotPopup": {
+      "type": "Type of site",
+      "level": "Minimum level required",
+      "depth": "Depth",
+      "link": "Link",
+      "readMore": "Read more"
+    },
+    "structurePopup": {
+      "website": "Visit their website"
+    },
+    "legend": {
+      "divingProhibited": "Diving prohibited",
+      "divingProhibitedAprilToSeptember": "Diving prohibited from 1st April to 30th Septembe",
+      "divingProhibitedAprilToOctober": "Diving prohibited from 1st April to 30th October",
+      "dockingMooringDisembarkingProhibited": "Docking, mooring and disembarking prohibited",
+      "anchoringProhibited": "Anchoring prohibited except at mooring facilities for dive vessels",
+      "divingWithAuthorisation": "Diving subject to authorisation",
+      "spotNatural": "Dive site (natural)",
+      "spotNaturalMooring": "Dive site with mooring (natural)",
+      "spotNaturalContributed": "Suggested dive site (natural)",
+      "spotWreck": "Dive site (wreck)",
+      "spotWreckMooring": "Dive site with mooring (wreck)",
+      "spotWreckContributed": "Suggested dive site (wreck)",
+      "partner": "Partner organisation"
+    }
+  },
+  "stats": {
+    "registrations": {
+      "line1": "logbook",
+      "line2": "registrations"
+    },
+    "registrationsIncluding": "including {diverCount} individual divers",
+    "permits": {
+      "line1": "permits",
+      "line2": "issued"
+    },
+    "permitsIncluding": "to {diverCount} individuals and {organisationCount} organisations"
+  },
+  "footer": {
+    "documentaryResources": "Partner organisation:",
+    "regulatoryTexts": "Regulations",
+    "mapPortCrosNationalPark": "Map of the Port-Cros National Park",
+    "ministryEcologicalTransition": "French Ministry of Ecological Transition and Territorial Cohesion",
+    "frenchOfficeBiodiversity": "French Office for Biodiversity",
+    "pelagosSanctuary": "Pelagos Sanctuary, French part",
+    "portCrosNationalPark": "Port-Cros National Park",
+    "nationalParkInBrief": "The National Park in brief",
+    "publicEstablishment": "A public facility",
+    "pnpcCharter": "The PNPC charter",
+    "publicContracts": "Public tenders",
+    "jobOffers": "Job offers",
+    "compendiumAdministrativeActs": "List of administrative decisions",
+    "contactUs": "Contact us:",
+    "tel": "Tel.",
+    "contactForm": "Contact form:"
+  }
+}
