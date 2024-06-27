@@ -19,7 +19,7 @@ The topography of the Port-Cros National Park is ideal for diving. The diversity
 * [Semi-dark caves](https://inpn.mnhn.fr/habitat/cd_hab/9284)
 * [Sandbanks](https://inpn.mnhn.fr/habitat/cd_hab/1173/tab/description)
 
-![](/img/CAPEL_Biocenoses.jpeg)
+![](/img/pnpc_biocenoses_en.jpeg)
 
 ## Dive sites
 
