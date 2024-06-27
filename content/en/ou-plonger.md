@@ -29,7 +29,7 @@ The topography of the Port-Cros National Park is ideal for diving. The diversity
 
 ## Who should you dive with in Port-Cros National Park?
 
-•  Choose a partner  organisation.
+•  Choose a [partner  organisation.](https://capel.portcros-parcnational.fr/en/partenaires)
 
 ## Shipwrecks
 
