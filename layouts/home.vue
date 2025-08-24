@@ -48,28 +48,47 @@
             </li>
           </ul>
         </div>
-        <div
-          class="w-fit md:w-1/3 flex flex-col items-center py-8 md:py-16 px-4 rounded bg-white/60"
-        >
-          <NuxtLink
-            :to="localePath('/inscription')"
-            class="px-4 py-2 drop-shadow rounded text-center tracking-widest font-medium text-white bg-capel-blue hover:bg-capel-blue-800"
-          >
-            {{ $t('home.signUp') }}
-          </NuxtLink>
-          <div class="w-full">
-            <hr class="m-6 border border-capel-blue" />
+        <div class="md:w-3/5 flex flex-col md:flex-row items-center rounded bg-white/60">
+          <div class="flex flex-col py-8 md:py-16 px-4 md:w-1/2">
+            <NuxtLink
+              :to="localePath('/inscription')"
+              class="px-4 py-2 drop-shadow rounded text-center tracking-widest font-medium text-white bg-capel-blue hover:bg-capel-blue-800"
+            >
+              {{ $t('home.signUp') }}
+            </NuxtLink>
+            <div class="w-full">
+              <hr class="m-6 border border-capel-blue" />
+            </div>
+            <a
+              href="https://app-capel.portcros-parcnational.fr"
+              class="px-4 py-2 drop-shadow rounded text-center tracking-widest font-medium text-white bg-capel-red hover:bg-capel-red-800"
+              tabindex="0"
+              role="button"
+              aria-disabled="false"
+            >
+              {{ $t('home.declareDive') }}
+            </a>
           </div>
-          <a
-            href="https://backoffice.capel.portcros-parcnational.fr"
-            class="px-4 py-2 drop-shadow rounded text-center tracking-widest font-medium text-white bg-capel-red hover:bg-capel-red-800"
-            tabindex="0"
-            role="button"
-            aria-disabled="false"
-          >
-            {{ $t('home.declareDive') }}<br />
-            {{ $t('home.signIn') }}
-          </a>
+          <div class="flex flex-col items-center justify-center py-8 md:py-16 px-4 md:w-1/2">
+            <a
+              title="Application CaPeL"
+              href="https://app-capel.portcros-parcnational.fr"
+              target="_blank"
+              class="m-4 text-center"
+            >
+              <img
+                src="/logo-app.png"
+                class="w-auto max-h-24 text-center"
+              />
+            </a>
+            <a
+              href="https://app-capel.portcros-parcnational.fr"
+              target="_blank"
+              class="px-4 py-2 drop-shadow rounded text-center tracking-widest font-medium text-white bg-capel-blue hover:bg-capel-blue-800"
+            >
+              {{ $t('home.goToApp') }}
+            </a>
+          </div>
         </div>
       </div>
     </header>

@@ -4,7 +4,8 @@
   "home": {
     "signUp": "S'inscrire au CaPeL",
     "signIn": "Se connecter",
-    "declareDive": "Déclarer une plongée"
+    "declareDive": "Déclarer une plongée",
+    "goToApp": "Accéder à l'application CaPeL"
   },
   "signUp": {
     "mandatory": "Champ obligatoire",
