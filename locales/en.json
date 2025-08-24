@@ -4,7 +4,8 @@
   "home": {
     "signUp": "Sign up to CaPeL",
     "signIn": "Sign in",
-    "declareDive": "Declare a dive"
+    "declareDive": "Declare a dive",
+    "goToApp": "Go to CaPeL app"
   },
   "signUp": {
     "mandatory": "Mandatory field",

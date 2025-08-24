@@ -20,13 +20,15 @@ internet).
 - `node` *(testé avec node 20, aucun test réalisé avec les autres versions)*
 - …
 
+Copier le fichier `.env.dist` dans un fichier `.env` avec les paramètres liés au back office CaPeL.
+
 ### Générer le site
 
 ```shell
 # Installer une première fois les dépendances
 npm ci
 # Lancer la version de développement
-npm start
+npm run dev
 # Générer le site statique dans `public/`
-npm run build
+npm run generate
 ```
