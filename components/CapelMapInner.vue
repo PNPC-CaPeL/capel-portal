@@ -48,9 +48,8 @@ export default {
         maxZoom: 19,
         // minZoom: 7,
       })
-
       new L.TileLayer(
-        '//cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
+        'https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key=cb1_584n_1_ab2a1e564f48a3a4b2f4262b',
       ).addTo(this.map)
       new L.TileLayer('//tiles.openseamap.org/seamark/{z}/{x}/{y}.png').addTo(
         this.map,
